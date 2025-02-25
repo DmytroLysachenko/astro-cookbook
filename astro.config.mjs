@@ -2,14 +2,11 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-
 import react from "@astrojs/react";
-
 import tailwindcss from "@tailwindcss/vite";
-
 import auth from "auth-astro";
-
 import node from "@astrojs/node";
+import path from "path";
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,14 +17,16 @@ export default defineConfig({
     plugins: [tailwindcss()],
     resolve: {
       alias: {
-        "@components": "/src/components",
-        "@astro": "/src/components/astro",
-        "@react": "/src/components/react",
-        "@db": "/src/db",
-        "@db/schema": "/src/db/schema",
-        "@db/functions": "/src/db/functions",
-        "@services": "/src/services",
-        "@styles": "/src/styles",
+        "@": path.resolve("./src"),
+        "@components": path.resolve("./src/components"),
+        "@astro": path.resolve("./src/components/astro"),
+        "@react": path.resolve("./src/components/react"),
+        "@db": path.resolve("./src/db"),
+        "@db/schema": path.resolve("./src/db/schema"),
+        "@db/functions": path.resolve("./src/db/functions"),
+        "@services": path.resolve("./src/services"),
+        "@styles": path.resolve("./src/styles"),
+        "@lib": path.resolve("./src/lib"),
       },
     },
   },

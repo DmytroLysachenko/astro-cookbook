@@ -4,86 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@layer base {
-  body {
-    @apply bg-background text-text font-sans;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-serif font-bold;
-  }
-
-  a {
-    @apply text-primary no-underline hover:text-accent transition-colors;
-  }
-
-  /* Container for sections */
-  .section {
-    @apply py-12;
-  }
-
-  /* Container for content */
-  .container {
-    @apply max-w-7xl mx-auto px-4;
-  }
-
-  /* Buttons */
-  .btn {
-    @apply inline-block px-6 py-2 rounded-lg font-semibold transition-colors;
-  }
-
-  .btn-primary {
-    @apply bg-primary text-white hover:bg-accent;
-  }
-
-  .btn-secondary {
-    @apply bg-secondary text-white hover:bg-accent;
-  }
-
-  /* Error messages */
-  .error {
-    @apply text-error text-sm mt-1;
-  }
-
-  /* Form inputs */
-  input,
-  textarea,
-  select {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary;
-  }
-
-  /* Navigation menu */
-  .nav-menu {
-    @apply flex space-x-6;
-  }
-
-  .nav-link {
-    @apply text-text hover:text-primary transition-colors;
-  }
-
-  /* Header */
-  .header {
-    @apply bg-white shadow-md;
-  }
-
-  /* Footer */
-  .footer {
-    @apply bg-primary text-white py-6;
-  }
-
-  /* MDX content styling */
-  .content {
-    @apply prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-text prose-a:text-primary prose-a:no-underline hover:prose-a:text-accent prose-img:rounded-lg;
-  }
-}
-
 :root {
-
   --background: oklch(1 0 0);
 
   --foreground: oklch(0.13 0.028 261.692);
@@ -149,10 +70,35 @@
   --sidebar-border: oklch(0.928 0.006 264.531);
 
   --sidebar-ring: oklch(0.872 0.01 258.338);
+
+  --hover-primary: oklch(
+    0.25 0.04 264.665
+  ); /* Slightly lighter/darker for hover */
+  --active-primary: oklch(0.18 0.03 264.665); /* Even darker for active state */
+  --disabled-primary: oklch(0.5 0.02 264.665); /* Muted for disabled state */
+
+  --hover-secondary: oklch(0.9 0.02 264.542);
+  --active-secondary: oklch(0.85 0.02 264.542);
+  --disabled-secondary: oklch(0.7 0.01 264.542);
+
+  --hover-accent: oklch(0.95 0.02 264.542);
+  --active-accent: oklch(0.9 0.02 264.542);
+  --disabled-accent: oklch(0.75 0.01 264.542);
+
+  --gradient-primary: linear-gradient(to right, var(--primary), var(--accent));
+  --gradient-secondary: linear-gradient(
+    to right,
+    var(--secondary),
+    var(--muted)
+  );
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
 }
 
 .dark {
-
   --background: oklch(0.13 0.028 261.692);
 
   --foreground: oklch(0.985 0.002 247.839);
@@ -216,10 +162,33 @@
   --sidebar-border: oklch(0.278 0.033 256.848);
 
   --sidebar-ring: oklch(0.446 0.03 256.802);
+
+  --hover-primary: oklch(0.95 0.02 247.839);
+  --active-primary: oklch(0.9 0.02 247.839);
+  --disabled-primary: oklch(0.7 0.01 247.839);
+
+  --hover-secondary: oklch(0.3 0.03 256.848);
+  --active-secondary: oklch(0.25 0.03 256.848);
+  --disabled-secondary: oklch(0.5 0.02 256.848);
+
+  --hover-accent: oklch(0.3 0.03 256.848);
+  --active-accent: oklch(0.25 0.03 256.848);
+  --disabled-accent: oklch(0.5 0.02 256.848);
+
+  --gradient-primary: linear-gradient(to right, var(--primary), var(--accent));
+  --gradient-secondary: linear-gradient(
+    to right,
+    var(--secondary),
+    var(--muted)
+  );
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.2);
 }
 
 @theme inline {
-
   --color-background: var(--background);
 
   --color-foreground: var(--foreground);
@@ -291,6 +260,33 @@
   --color-sidebar-border: var(--sidebar-border);
 
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-none: 1;
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
 }
 
 @layer base {
@@ -299,5 +295,63 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .container {
+    @apply w-full mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-sm {
+    @apply max-w-screen-sm;
+  }
+
+  .container-md {
+    @apply max-w-screen-md;
+  }
+
+  .container-lg {
+    @apply max-w-screen-lg;
+  }
+
+  .container-xl {
+    @apply max-w-screen-xl;
+  }
+
+  .container-2xl {
+    @apply max-w-screen-2xl;
+  }
+
+  .section {
+    @apply py-12;
+  }
+
+  .section-sm {
+    @apply py-8;
+  }
+
+  .section-md {
+    @apply py-16;
+  }
+
+  .section-lg {
+    @apply py-20;
+  }
+
+  .section-xl {
+    @apply py-24;
+  }
+
+  .grid-responsive {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6;
+  }
+
+  .text-responsive {
+    @apply text-base sm:text-lg md:text-xl lg:text-2xl;
+  }
+
+  .heading-responsive {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
   }
 }

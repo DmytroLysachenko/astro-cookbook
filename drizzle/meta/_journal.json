@@ -15,6 +15,13 @@
       "when": 1740481891628,
       "tag": "0001_tricky_brother_voodoo",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1740494949546,
+      "tag": "0002_military_lake",
+      "breakpoints": true
     }
   ]
 }

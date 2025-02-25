@@ -23,8 +23,8 @@ const { title, description, image } = Astro.props;
   </head>
 
   <body>
-    <Header />
-    <main>
+    <Header server:defer />
+    <main class="section-lg">
       <slot />
     </main>
     <Footer />

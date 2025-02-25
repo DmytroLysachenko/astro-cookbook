@@ -1,47 +1,60 @@
 ---
+import SubscribeForm from "@/components/react/SubscribeForm";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CustomButton from "@/components/react/CustomButton";
+
+const handleClick = () => console.log("clicked");
 ---
 
 <BaseLayout>
-  <h1>🧑‍🚀 Hello, Astronaut!</h1>
-  <p>
-    Welcome to the official <a href="https://astro.build/">Astro</a> blog starter
-    template. This template serves as a lightweight, minimally-styled starting point
-    for anyone looking to build a personal website, blog, or portfolio with Astro.
-  </p>
-  <p>
-    This template comes with a few integrations already configured in your
-    <code>astro.config.mjs</code> file. You can customize your setup with
-    <a href="https://astro.build/integrations">Astro Integrations</a> to add tools
-    like Tailwind, React, or Vue to your project.
-  </p>
-  <p>Here are a few ideas on how to get started with the template:</p>
-  <ul>
-    <li>Edit this page in <code>src/pages/index.astro</code></li>
-    <li>
-      Edit the site header items in <code>src/components/Header.astro</code>
-    </li>
-    <li>
-      Add your name to the footer in <code>src/components/Footer.astro</code>
-    </li>
-    <li>
-      Check out the included blog posts in <code>src/content/blog/</code>
-    </li>
-    <li>
-      Customize the blog post page layout in <code
-        >src/layouts/BlogPost.astro</code
+  <section class="container section-lg text-center py-12 md:py-24">
+    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+      Discover Delicious <span class="text-primary">Recipes</span>
+    </h1>
+    <p class="mt-6 text-xl text-muted-foreground max-w-prose mx-auto">
+      Explore a world of culinary delights with our curated collection of
+      recipes. From quick weeknight dinners to gourmet feasts, we've got you
+      covered.
+    </p>
+    <div class="mt-10 flex items-center justify-center gap-x-6">
+      <CustomButton
+        title="Get Started"
+        handleClick={handleClick}
+        client:visible
+      />
+      <a
+        href="#featured-recipes"
+        class="text-sm font-semibold leading-6 text-muted-foreground"
       >
-    </li>
-  </ul>
-  <p>
-    Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-      >read the docs
-    </a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-  </p>
-  <p>
-    Looking for a blog template with a bit more personality? Check out <a
-      href="https://github.com/Charca/astro-blog-template"
-      >astro-blog-template
-    </a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-  </p>
+        Learn more <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section
+    id="featured-recipes"
+    class="container section"
+  >
+    <h2 class="text-3xl font-bold text-center mb-8">Featured Recipes</h2>
+    <div class="grid-responsive">
+      {/* Add featured recipe cards here */}
+      <div class="bg-card rounded-lg shadow-md p-6">
+        <h3 class="text-xl font-semibold mb-2">Delicious Pasta</h3>
+        <p class="text-muted-foreground">
+          A quick and easy pasta dish perfect for weeknight dinners.
+        </p>
+      </div>
+      {/* Add more recipe cards as needed */}
+    </div>
+  </section>
+
+  <section class="py-12 bg-muted rounded-lg">
+    <div class="container-sm text-center">
+      <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
+      <p class="text-muted-foreground mb-6">
+        Subscribe to our newsletter for the latest recipes and cooking tips.
+      </p>
+      <SubscribeForm client:visible />
+    </div>
+  </section>
 </BaseLayout>
