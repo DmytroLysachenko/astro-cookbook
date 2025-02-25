@@ -1,15 +1,20 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [
-    ".astro/types.d.ts",
-    "**/*"
-  ],
-  "exclude": [
-    "dist"
-  ],
+  "include": [".astro/types.d.ts", "**/*", ".eslintrc.js", ".prettierrc.mjs"],
+  "exclude": ["dist"],
   "compilerOptions": {
     "strictNullChecks": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsxImportSource": "react",
+    "paths": {
+      "@components/*": ["./src/components/*"],
+      "@astro/*": ["./src/components/astro/*"],
+      "@react/*": ["./src/components/react/*"],
+      "@db/*": ["./src/db/*"],
+      "@db/schema/*": ["./src/db/schema/*"],
+      "@db/functions/*": ["./src/db/functions/*"],
+      "@services/*": ["./src/services/*"],
+      "@styles/*": ["./src/styles/*"]
+    }
   }
 }

@@ -1,0 +1,34 @@
+---
+import { fetchIngredients } from "../lib/api"; // Function to fetch ingredient data
+
+const { items } = Astro.props;
+const names = items.map((item) => item.name);
+const ingredientData = await fetchIngredients(names);
+---
+
+<table>
+  <thead>
+    <tr>
+      <th>Ingredient</th>
+      <th>Quantity</th>
+      <th>Calories</th>
+      <th>Protein</th>
+      <th>Fat</th>
+    </tr>
+  </thead>
+  <tbody>
+    {
+      ingredientData.map((Ingredient) => (
+        <tr>
+          <td>{ingredient.name}</td>
+          <td>
+            {items.find((item) => item.name === ingredient.name).quantity}g
+          </td>
+          <td>{ingredient.calories}</td>
+          <td>{ingredient.protein}g</td>
+          <td>{ingredient.totalFat}g</td>
+        </tr>
+      ))
+    }
+  </tbody>
+</table>
