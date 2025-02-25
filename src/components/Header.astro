@@ -1,32 +1,29 @@
 ---
 import { SITE_TITLE } from "../constants";
-import HeaderLink from "./HeaderLink.astro";
 ---
 
-<header class="m-0 px-4 bg-white shadow-sm">
-  <nav class="flex justify-between items-center">
-    <h2 class="m-0 text-base">
+<header class="header">
+  <nav class="container flex justify-between items-center py-4">
+    <a
+      href="/"
+      class="text-2xl font-serif font-bold text-text"
+      >{SITE_TITLE}</a
+    >
+    <div class="nav-menu">
       <a
-        class="text-2xl text-black no-underline hover:text-black hover:no-underline"
-        href="/"
-        >{SITE_TITLE}</a
+        href="/recipes"
+        class="nav-link"
+        >Recipes</a
       >
-    </h2>
-    <div class="flex">
-      <HeaderLink
-        href="/"
-        class="px-2 py-4 text-black no-underline border-b-4 border-transparent hover:border-accent"
-        >Home</HeaderLink
-      >
-      <HeaderLink
-        href="/blog"
-        class="px-2 py-4 text-black no-underline border-b-4 border-transparent hover:border-accent"
-        >Blog</HeaderLink
-      >
-      <HeaderLink
+      <a
         href="/about"
-        class="px-2 py-4 text-black no-underline border-b-4 border-transparent hover:border-accent"
-        >About</HeaderLink
+        class="nav-link"
+        >About</a
+      >
+      <a
+        href="/contact"
+        class="nav-link"
+        >Contact</a
       >
     </div>
   </nav>
