@@ -1,13 +1,20 @@
-import { pgTable, serial, text, integer, timestamp } from "drizzle-orm/pg-core";
+import {
+  pgTable,
+  serial,
+  text,
+  integer,
+  timestamp,
+  numeric,
+} from "drizzle-orm/pg-core";
 import { users } from "./users";
 
 export const recipes = pgTable("recipes", {
-  id: serial("id").primaryKey(),
-  title: text("title").notNull(),
-  slug: text("slug").unique().notNull(),
-  description: text("description"),
-  imageUrl: text("image_url"), // Main recipe image
-  createdBy: integer("created_by").references(() => users.id),
-  createdAt: timestamp("created_at").defaultNow(),
-  updatedAt: timestamp("updated_at").defaultNow(),
+  id: serial("id").primaryKey(), // Recipe ID (primary key)
+  slug: text("slug").unique().notNull(), // Unique slug for URL
+  imageUrl: text("image_url"), // Main recipe image URL
+  createdBy: integer("created_by").references(() => users.id), // User who created the recipe (foreign key)
+  createdAt: timestamp("created_at").defaultNow(), // Creation timestamp
+  updatedAt: timestamp("updated_at").defaultNow(), // Last update timestamp
+  rating: numeric("rating", { precision: 3, scale: 2 }),
+  views: integer("views").default(0),
 });

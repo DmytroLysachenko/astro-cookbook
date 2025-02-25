@@ -1,18 +1,16 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "../ui/button";
 import { signIn, signOut } from "auth-astro/client";
 import type { User } from "@auth/core/types";
+import CustomButton from "./CustomButton";
 
 const Auth = ({ user }: { user?: User }) => {
   return user ? (
     <>
-      <Button
-        variant={"outline"}
-        className="h-8 text-xs"
-        onClick={() => signOut()}
-      >
-        Log out
-      </Button>
+      <CustomButton
+        title="Logout"
+        variant="outline"
+        handleClick={() => signOut()}
+      />
 
       <Avatar className="size-10 ">
         <AvatarImage
@@ -29,25 +27,35 @@ const Auth = ({ user }: { user?: User }) => {
     </>
   ) : (
     <div className="flex gap-3">
-      <Button
-        variant={"outline"}
-        className="p-1 size-8 flex justify-center items-center rounded-full"
-        onClick={() => {
+      <CustomButton
+        title=""
+        variant="outline"
+        className="cursor-pointer p-1 size-8 flex justify-center items-center rounded-full"
+        handleClick={() => {
           signIn("google");
         }}
-      >
-        <img src={"/icons/google.svg"} className="size-4 object-contain"></img>
-      </Button>
+        icon={
+          <img
+            src={"/icons/google.svg"}
+            className="size-4 object-contain"
+          ></img>
+        }
+      />
 
-      <Button
-        variant={"outline"}
-        className="p-1 size-8 flex justify-center items-center rounded-full"
-        onClick={() => {
+      <CustomButton
+        title=""
+        variant="outline"
+        className="cursor-pointer p-1 size-8 flex justify-center items-center rounded-full"
+        handleClick={() => {
           signIn("github");
         }}
-      >
-        <img src={"/icons/github.svg"} className="size-4 object-contain"></img>
-      </Button>
+        icon={
+          <img
+            src={"/icons/github.svg"}
+            className="size-4 object-contain"
+          ></img>
+        }
+      />
     </div>
   );
 };
