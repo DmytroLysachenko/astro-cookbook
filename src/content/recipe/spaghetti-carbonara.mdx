@@ -1,29 +1,84 @@
 ---
-title: Spaghetti Carbonara
-slug: spaghetti-carbonara
-description: bla bla
+slug: "spaghetti-carbonara"
+mainImage: "/images/spaghetti-carbonara.jpg"
+description: "A classic Italian pasta dish with crispy pancetta, eggs, and Parmesan cheese."
+cookingTime: 20 # in minutes
+portions: 2
+cuisine: "Italian"
+categories: ["dinner", "pasta", "quick meal"]
+language: "en"
 ingredients:
+  spaghetti: "200g"
+  pancetta: "100g"
+  eggs: "2 pcs"
+  parmesan: "50g"
+  black_pepper: "1 tsp"
+  salt: "1/2 tsp"
+ingredientsData:
   spaghetti: 200
   pancetta: 100
-  eggs: 2
+  eggs: 100
   parmesan: 50
+  black_pepper: 2
+  salt: 1
 ---
+
+![Spaghetti Carbonara]({mainImage})
 
 # 🍝 Spaghetti Carbonara
 
+<RecipeRating slug={slug} />
+
+## Introduction
+
+Spaghetti Carbonara is a beloved **Italian classic** known for its creamy sauce made without cream! Originating from Rome, this dish perfectly balances **crispy pancetta, rich egg yolks, and sharp Parmesan** to create an unforgettable flavor.
+
+Some say it was first made by **Italian charcoal workers** (carbonai) who used easily available ingredients to prepare a quick meal. Today, Carbonara remains **a favorite among pasta lovers worldwide**.
+
 ## Ingredients
 
-<IngredientsList ids={ingredients} />
+<IngredientsList ingredients={ingredients} portions={portions} />
 
-## Instructions
+## Step-by-Step Cooking Guide
 
-1. Boil water and cook pasta.
+### Step 1: Cook the Pasta
 
-   <CookingStep action="boiling" />
+Bring a large pot of salted water to a rolling boil. Add spaghetti and cook until al dente. **Don't overcook!**  
+_Tip:_ Reserve **½ cup of pasta water** before draining – you may need it later for the sauce.
 
-2. Fry pancetta until crispy.
+![Boiling Pasta](/images/boiling.jpg)
 
-   <CookingStep action="frying" />
+<CookingStep action="boiling" />
 
-3. Mix eggs and cheese, then combine with pasta.
-   <CookingStep action="mixing" />
+### Step 2: Crisp the Pancetta
+
+Heat a pan over medium heat and cook the pancetta until it’s golden and crispy. This releases flavorful fats, which add richness to the dish.  
+_Tip:_ If pancetta isn’t available, try guanciale (more authentic) or streaky bacon (more accessible).
+
+![Frying Pancetta](/images/frying.jpg)
+
+<CookingStep action="frying" />
+
+### Step 3: Prepare the Sauce
+
+In a bowl, whisk the eggs and mix in the grated Parmesan. This forms the base of the **luxurious creamy sauce**. Add some black pepper for extra depth of flavor.  
+_Tip:_ **Use only egg yolks** for a richer texture.
+
+![Mixing Eggs & Cheese](/images/mixing.jpg)
+
+<CookingStep action="mixing" />
+
+### Step 4: Combine Everything
+
+Remove the pan from the heat. Add the hot pasta and **immediately** mix in the egg-cheese mixture. Toss quickly to prevent the eggs from scrambling.  
+If needed, add some reserved pasta water for a silkier consistency.
+
+### Step 5: Serve & Enjoy!
+
+Plate the Carbonara, sprinkle with extra Parmesan, and finish with **a fresh grind of black pepper**.
+
+## 🍽 Final Thoughts
+
+Spaghetti Carbonara is the ultimate **comfort food**—simple, yet deeply satisfying. Mastering this dish means **perfect timing**—ensuring the eggs form a smooth sauce instead of scrambling. Pair it with a glass of **Italian white wine**, and you’ve got a **restaurant-quality meal** at home!
+
+<NutritionFacts ingredients={ingredientsData} />
