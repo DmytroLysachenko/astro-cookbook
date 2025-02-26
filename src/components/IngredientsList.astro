@@ -1,0 +1,22 @@
+---
+// IngredientsList.astro (SSG)
+const { ingredients, portions } = Astro.props;
+
+// Scale ingredient values based on portions
+const scaledIngredients = Object.entries(ingredients).map(([name, amount]) => ({
+  name,
+  amount, // Adjust quantity based on portion size
+}));
+---
+
+<ul>
+  {
+    scaledIngredients.map(({ name, amount }) => (
+      <li>
+        <strong>{name}:</strong> {amount}g
+      </li>
+    ))
+  }
+</ul>
+
+<p><strong>Portions:</strong> {portions}</p>

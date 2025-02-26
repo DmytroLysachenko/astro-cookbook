@@ -1,0 +1,13 @@
+---
+// CookingStep.astro
+const { action, imageUrl } = Astro.props;
+const imageSrc = imageUrl ? imageUrl : `/assets/steps/${action}.png`; // Assume AI-generated images exist in this folder
+---
+
+<section>
+  <img
+    src={imageSrc}
+    alt={action}
+  />
+  <p><strong>Step:</strong> {action}</p>
+</section>

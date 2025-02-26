@@ -38,4 +38,5 @@ export const ingredients = pgTable("ingredients", {
   sugars: numeric("sugars", { precision: 6, scale: 3 }).notNull(),
   protein: numeric("protein", { precision: 6, scale: 3 }).notNull(),
   category: ingredientCategories().notNull(),
+  description: text("description"),
 });
