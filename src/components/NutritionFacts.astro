@@ -1,15 +1,52 @@
 ---
 // NutritionFacts.astro (SSG)
-import { fetchIngredientNutrition } from "@services/ingredients";
+// import { fetchIngredientNutrition } from "@services/ingredients";
 
-const { ingredients } = Astro.props as { ingredients: Record<string, number> };
+// const { ingredients } = Astro.props as { ingredients: Record<string, number> };
 
 // Fetch ingredient nutrition data once during build
-const nutritionData = await fetchIngredientNutrition(Object.keys(ingredients));
+// const nutritionData = await fetchIngredientNutrition(Object.keys(ingredients));
 
-// Calculate total values
-let totalWeight = 0;
-let totals = {
+// // Calculate total values
+// let totalWeight = 0;
+// let totals = {
+//   fat: 0,
+//   protein: 0,
+//   carbs: 0,
+//   fiber: 0,
+//   sugar: 0,
+//   sodium: 0,
+//   cholesterol: 0,
+// };
+
+// for (const [ingredient, weight] of Object.entries(ingredients)) {
+//   const data = nutritionData[ingredient];
+//   if (!data) continue;
+
+//   totalWeight += weight;
+//   totals.fat += (data.fat * weight) / 100;
+//   totals.protein += (data.protein * weight) / 100;
+//   totals.carbs += (data.carbs * weight) / 100;
+//   totals.fiber += (data.fiber * weight) / 100;
+//   totals.sugar += (data.sugar * weight) / 100;
+//   totals.sodium += (data.sodium * weight) / 100;
+//   totals.cholesterol += (data.cholesterol * weight) / 100;
+// }
+
+// // Normalize values per 100g
+// const per100g = totalWeight
+//   ? {
+//       fat: (totals.fat / totalWeight) * 100,
+//       protein: (totals.protein / totalWeight) * 100,
+//       carbs: (totals.carbs / totalWeight) * 100,
+//       fiber: (totals.fiber / totalWeight) * 100,
+//       sugar: (totals.sugar / totalWeight) * 100,
+//       sodium: (totals.sodium / totalWeight) * 100,
+//       cholesterol: (totals.cholesterol / totalWeight) * 100,
+//     }
+//   : totals;
+
+const per100g = {
   fat: 0,
   protein: 0,
   carbs: 0,
@@ -18,33 +55,6 @@ let totals = {
   sodium: 0,
   cholesterol: 0,
 };
-
-for (const [ingredient, weight] of Object.entries(ingredients)) {
-  const data = nutritionData[ingredient];
-  if (!data) continue;
-
-  totalWeight += weight;
-  totals.fat += (data.fat * weight) / 100;
-  totals.protein += (data.protein * weight) / 100;
-  totals.carbs += (data.carbs * weight) / 100;
-  totals.fiber += (data.fiber * weight) / 100;
-  totals.sugar += (data.sugar * weight) / 100;
-  totals.sodium += (data.sodium * weight) / 100;
-  totals.cholesterol += (data.cholesterol * weight) / 100;
-}
-
-// Normalize values per 100g
-const per100g = totalWeight
-  ? {
-      fat: (totals.fat / totalWeight) * 100,
-      protein: (totals.protein / totalWeight) * 100,
-      carbs: (totals.carbs / totalWeight) * 100,
-      fiber: (totals.fiber / totalWeight) * 100,
-      sugar: (totals.sugar / totalWeight) * 100,
-      sodium: (totals.sodium / totalWeight) * 100,
-      cholesterol: (totals.cholesterol / totalWeight) * 100,
-    }
-  : totals;
 ---
 
 <table>

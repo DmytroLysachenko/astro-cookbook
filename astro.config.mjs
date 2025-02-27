@@ -13,7 +13,7 @@ import vercel from "@astrojs/vercel";
 export default defineConfig({
   site: "https://example.com",
   integrations: [mdx(), sitemap(), react(), auth()],
-
+  output: "static",
   vite: {
     plugins: [tailwindcss()],
     resolve: {
