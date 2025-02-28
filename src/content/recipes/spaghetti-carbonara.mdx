@@ -1,6 +1,6 @@
 ---
 slug: "spaghetti-carbonara"
-title: "Spaghetti carbonara"
+title: "Spaghetti Carbonara"
 mainImage: "https://kuchnia-domowa.pl/images/content/176/spaghetti-carbonara.webp"
 description: "A classic Italian pasta dish with crispy pancetta, eggs, and Parmesan cheese."
 cookingTime: 20 # in minutes
@@ -9,23 +9,39 @@ cuisine: "Italian"
 categories: ["dinner", "pasta", "quick meal"]
 language: "en"
 ingredients:
-  spaghetti: "200g"
-  pancetta: "100g"
-  eggs: "2 pcs"
-  parmesan: "50g"
-  black_pepper: "1 tsp"
-  salt: "1/2 tsp"
-ingredientsData:
-  spaghetti: 200
-  pancetta: 100
-  eggs: 100
-  parmesan: 50
-  black_pepper: 2
-  salt: 1
+  - name: "Spaghetti"
+    quantity: "200g"
+    grams: 200
+    id: "957" # Spaghetti Macaroni
+
+  - name: "Pancetta"
+    quantity: "100g"
+    grams: 100
+    id: "1252" # Bacon (Streaky) - Pancetta is similar to streaky bacon
+
+  - name: "Eggs"
+    quantity: "2 large"
+    grams: 120
+    id: "1282" # Chicken Egg (Whole)
+
+  - name: "Parmesan Cheese"
+    quantity: "50g"
+    grams: 50
+    id: "880" # Parmesan
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
 ---
 
 import IngredientsList from "../../components/IngredientsList.astro";
-import CookingStep from "../../components/CookingStep.astro";
+import CookingStep from "../../components/react/CookingStep.tsx";
 import NutritionFacts from "../../components/NutritionFacts.astro";
 import RecipeRating from "../../components/RecipeRating.astro";
 
@@ -55,8 +71,6 @@ Some say it was first made by **Italian charcoal workers** (carbonai) who used e
 Bring a large pot of salted water to a rolling boil. Add spaghetti and cook until al dente. **Don't overcook!**  
 _Tip:_ Reserve **½ cup of pasta water** before draining – you may need it later for the sauce.
 
-![Boiling Pasta](/images/boiling.jpg)
-
 <CookingStep action="boiling" />
 
 ### Step 2: Crisp the Pancetta
@@ -64,16 +78,12 @@ _Tip:_ Reserve **½ cup of pasta water** before draining – you may need it lat
 Heat a pan over medium heat and cook the pancetta until it’s golden and crispy. This releases flavorful fats, which add richness to the dish.  
 _Tip:_ If pancetta isn’t available, try guanciale (more authentic) or streaky bacon (more accessible).
 
-![Frying Pancetta](/images/frying.jpg)
-
 <CookingStep action="frying" />
 
 ### Step 3: Prepare the Sauce
 
 In a bowl, whisk the eggs and mix in the grated Parmesan. This forms the base of the **luxurious creamy sauce**. Add some black pepper for extra depth of flavor.  
 _Tip:_ **Use only egg yolks** for a richer texture.
-
-![Mixing Eggs & Cheese](/images/mixing.jpg)
 
 <CookingStep action="mixing" />
 
@@ -90,4 +100,4 @@ Plate the Carbonara, sprinkle with extra Parmesan, and finish with **a fresh gri
 
 Spaghetti Carbonara is the ultimate **comfort food**—simple, yet deeply satisfying. Mastering this dish means **perfect timing**—ensuring the eggs form a smooth sauce instead of scrambling. Pair it with a glass of **Italian white wine**, and you’ve got a **restaurant-quality meal** at home!
 
-<NutritionFacts ingredients={frontmatter.ingredientsData} />
+<NutritionFacts ingredients={frontmatter.ingredients} />

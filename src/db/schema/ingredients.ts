@@ -13,6 +13,7 @@ export const ingredientCategories = pgEnum("category", [
   "oils_fats",
   "herbs_spices",
   "sweets",
+  "beverages",
   "other",
 ]);
 

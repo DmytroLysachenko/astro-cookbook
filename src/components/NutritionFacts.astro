@@ -1,11 +1,16 @@
 ---
-// NutritionFacts.astro (SSG)
-// import { fetchIngredientNutrition } from "@services/ingredients";
+import { getIngredientsData } from "@/services/ingredients";
 
-// const { ingredients } = Astro.props as { ingredients: Record<string, number> };
+// NutritionFacts.astro (SSG)
+
+const { ingredients } = Astro.props as {
+  ingredients: { name: string; quantity: string; grams: number }[];
+};
 
 // Fetch ingredient nutrition data once during build
-// const nutritionData = await fetchIngredientNutrition(Object.keys(ingredients));
+const nutritionData = await getIngredientsData(ingredients.map((i) => i.name));
+
+console.log(nutritionData);
 
 // // Calculate total values
 // let totalWeight = 0;
