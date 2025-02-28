@@ -1,0 +1,124 @@
+---
+slug: "bigos"
+title: "Bigos (Polish Hunter's Stew)"
+mainImage: "https://www.example.com/bigos.jpg"
+description: "A hearty Polish stew made with sauerkraut, fresh cabbage, and a variety of meats, simmered to perfection."
+cookingTime: 120 # in minutes
+portions: 6
+cuisine: "Polish"
+categories: ["dinner", "stew", "comfort food"]
+language: "en"
+ingredients:
+  - name: "Sauerkraut"
+    quantity: "500g"
+    grams: 500
+    id: "650" # Cabbage (used as a substitute for sauerkraut)
+
+  - name: "Fresh Cabbage"
+    quantity: "500g"
+    grams: 500
+    id: "650" # Cabbage
+
+  - name: "Pork Shoulder"
+    quantity: "500g"
+    grams: 500
+    id: "682" # Pork Shoulder
+
+  - name: "Kielbasa (Polish Sausage)"
+    quantity: "300g"
+    grams: 300
+    id: "1250" # Pork Sausage
+
+  - name: "Onion"
+    quantity: "2"
+    grams: 200
+    id: "643" # Onion
+
+  - name: "Tomato Paste"
+    quantity: "2 tbsp"
+    grams: 30
+    id: "1169" # Canned Tomato Paste
+
+  - name: "Dried Mushrooms"
+    quantity: "50g"
+    grams: 50
+    id: "1255" # White Mushrooms (used as a substitute for dried mushrooms)
+
+  - name: "Bay Leaf"
+    quantity: "2"
+    grams: 2
+    id: "1236" # Bay Leaf Powder
+
+  - name: "Allspice"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1110" # Black Cardamom (used as a substitute for allspice)
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "../../components/IngredientsList.astro";
+import CookingStep from "../../components/react/CookingStep.tsx";
+import NutritionFacts from "../../components/NutritionFacts.astro";
+import RecipeRating from "../../components/RecipeRating.astro";
+
+<img src={frontmatter.mainImage} alt={frontmatter.title} />
+
+# 🍲 Bigos (Polish Hunter's Stew)
+
+<RecipeRating slug={frontmatter.slug} />
+
+## Introduction
+
+Bigos, also known as **Polish Hunter's Stew**, is a **hearty and flavorful dish** made with sauerkraut, fresh cabbage, and a variety of meats. This stew is **slow-cooked** to perfection, allowing the flavors to meld together. Bigos is a **traditional Polish dish** that’s perfect for cold winter days.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Ingredients
+
+Chop the **sauerkraut, fresh cabbage, pork shoulder, and kielbasa**. Soak the **dried mushrooms** in warm water for **30 minutes**, then chop them.
+
+<CookingStep action="cutting" />
+
+### Step 2: Cook the Meat
+
+In a large pot, brown the **pork shoulder** and **kielbasa** in batches. Remove and set aside.
+
+<CookingStep action="frying" />
+
+### Step 3: Sauté the Vegetables
+
+In the same pot, sauté **chopped onions** until golden. Add the **chopped cabbage** and cook until softened.
+
+<CookingStep action="frying" />
+
+### Step 4: Combine and Simmer
+
+Add the **sauerkraut, tomato paste, dried mushrooms, bay leaf, allspice, salt, and pepper** to the pot. Return the browned meat to the pot and add enough water to cover the ingredients. Simmer for **1-2 hours**, stirring occasionally.
+
+<CookingStep action="stewing" />
+
+### Step 5: Serve & Enjoy!
+
+Serve the Bigos hot with **rye bread** or **mashed potatoes**.
+
+## 🍽 Final Thoughts
+
+Bigos is a **hearty and flavorful stew** that’s perfect for cold winter days. The combination of **sauerkraut, fresh cabbage, and a variety of meats** creates a rich and satisfying dish. Enjoy this traditional Polish stew with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

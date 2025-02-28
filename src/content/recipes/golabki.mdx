@@ -1,0 +1,119 @@
+---
+slug: "golabki"
+title: "Gołąbki (Polish Stuffed Cabbage Rolls)"
+mainImage: "https://www.example.com/golabki.jpg"
+description: "Traditional Polish cabbage rolls stuffed with a mixture of ground meat, rice, and spices, baked in a tomato sauce."
+cookingTime: 90 # in minutes
+portions: 6
+cuisine: "Polish"
+categories: ["dinner", "comfort food", "baked"]
+language: "en"
+ingredients:
+  - name: "Cabbage"
+    quantity: "1 large head"
+    grams: 1000
+    id: "650" # Cabbage
+
+  - name: "Ground Pork"
+    quantity: "500g"
+    grams: 500
+    id: "674" # Ground Beef (80% lean) - used as a substitute for ground pork
+
+  - name: "Rice"
+    quantity: "200g"
+    grams: 200
+    id: "1256" # White Rice
+
+  - name: "Onion"
+    quantity: "1"
+    grams: 100
+    id: "643" # Onion
+
+  - name: "Garlic"
+    quantity: "2 cloves"
+    grams: 6
+    id: "644" # Garlic
+
+  - name: "Tomato Sauce"
+    quantity: "500ml"
+    grams: 500
+    id: "1169" # Canned Tomato Paste
+
+  - name: "Sour Cream"
+    quantity: "200g"
+    grams: 200
+    id: "1147" # Smetana
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+
+  - name: "Paprika"
+    quantity: "1 tsp"
+    grams: 2
+    id: "906" # Smoked Paprika
+---
+
+import IngredientsList from "../../components/IngredientsList.astro";
+import CookingStep from "../../components/react/CookingStep.tsx";
+import NutritionFacts from "../../components/NutritionFacts.astro";
+import RecipeRating from "../../components/RecipeRating.astro";
+
+<img src={frontmatter.mainImage} alt={frontmatter.title} />
+
+# 🥬 Gołąbki (Polish Stuffed Cabbage Rolls)
+
+<RecipeRating slug={frontmatter.slug} />
+
+## Introduction
+
+Gołąbki, or **Polish Stuffed Cabbage Rolls**, are a **traditional dish** made with cabbage leaves stuffed with a mixture of ground meat, rice, and spices, then baked in a **tomato sauce**. This dish is **hearty and comforting**, perfect for a family dinner.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Cabbage
+
+Boil the **whole cabbage** in a large pot of water for **10 minutes**, then remove the leaves carefully. Trim the thick stems from the leaves.
+
+<CookingStep action="boiling" />
+
+### Step 2: Prepare the Filling
+
+In a bowl, mix **ground pork, cooked rice, chopped onion, minced garlic, salt, pepper, and paprika**.
+
+<CookingStep action="mixing" />
+
+### Step 3: Assemble the Rolls
+
+Place a spoonful of the filling in the center of each cabbage leaf, then roll the leaf around the filling, tucking in the sides.
+
+<CookingStep action="cutting" />
+
+### Step 4: Bake the Rolls
+
+Preheat the oven to **180°C (350°F)**. Place the cabbage rolls in a baking dish and pour **tomato sauce** over them. Cover with foil and bake for **1 hour**.
+
+<CookingStep action="oven" />
+
+### Step 5: Serve & Enjoy!
+
+Serve the Gołąbki hot with **sour cream** on the side.
+
+## 🍽 Final Thoughts
+
+Gołąbki are a **hearty and comforting dish** that’s perfect for a family dinner. The combination of **cabbage, ground meat, and rice** creates a satisfying meal that’s sure to please. Enjoy this traditional Polish dish with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

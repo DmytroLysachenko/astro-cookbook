@@ -1,0 +1,104 @@
+---
+slug: "grilled-salmon-with-asparagus"
+title: "Grilled Salmon with Asparagus"
+mainImage: "https://www.example.com/grilled-salmon-asparagus.jpg"
+description: "A healthy and delicious dish featuring grilled salmon and fresh asparagus, perfect for a quick dinner."
+cookingTime: 25 # in minutes
+portions: 2
+cuisine: "International"
+categories: ["dinner", "seafood", "healthy"]
+language: "en"
+ingredients:
+  - name: "Salmon Fillet"
+    quantity: "300g"
+    grams: 300
+    id: "695" # Salmon
+
+  - name: "Asparagus"
+    quantity: "200g"
+    grams: 200
+    id: "653" # Asparagus
+
+  - name: "Olive Oil"
+    quantity: "2 tbsp"
+    grams: 30
+    id: "837" # Olive Oil
+
+  - name: "Lemon"
+    quantity: "1"
+    grams: 100
+    id: "628" # Grapefruit (used as a placeholder for lemon)
+
+  - name: "Garlic"
+    quantity: "2 cloves"
+    grams: 6
+    id: "644" # Garlic
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "../../components/IngredientsList.astro";
+import CookingStep from "../../components/react/CookingStep.tsx";
+import NutritionFacts from "../../components/NutritionFacts.astro";
+import RecipeRating from "../../components/RecipeRating.astro";
+
+<img src={frontmatter.mainImage} alt={frontmatter.title} />
+
+# 🐟 Grilled Salmon with Asparagus
+
+<RecipeRating slug={frontmatter.slug} />
+
+## Introduction
+
+Grilled Salmon with Asparagus is a **nutritious and flavorful dish** that’s quick to prepare and perfect for a healthy dinner. The combination of **succulent salmon** and **tender asparagus** makes this dish a favorite for seafood lovers.
+
+This recipe is **rich in omega-3 fatty acids** and packed with vitamins, making it a great choice for a balanced diet. Plus, it’s easy to customize with your favorite herbs and spices!
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Salmon and Asparagus
+
+Preheat your grill to medium-high heat. While the grill is heating, season the salmon fillets with **salt, black pepper, and minced garlic**. Drizzle with **1 tablespoon of olive oil** and set aside.
+
+Trim the tough ends off the asparagus and toss them with the remaining **1 tablespoon of olive oil**, salt, and pepper.
+
+<CookingStep action="seasoning" />
+
+### Step 2: Grill the Salmon
+
+Place the salmon fillets on the grill, skin-side down. Grill for **4-5 minutes** on each side, or until the salmon is cooked through and flakes easily with a fork.  
+_Tip:_ Avoid flipping the salmon too early to prevent it from sticking to the grill.
+
+<CookingStep action="grilling" />
+
+### Step 3: Grill the Asparagus
+
+While the salmon is cooking, place the asparagus on the grill. Grill for **3-4 minutes**, turning occasionally, until tender and slightly charred.  
+_Tip:_ You can also use a grill basket to make flipping the asparagus easier.
+
+<CookingStep action="grilling" />
+
+### Step 4: Serve & Enjoy!
+
+Plate the grilled salmon and asparagus together. Squeeze fresh **lemon juice** over the top for a burst of citrus flavor. Serve immediately and enjoy!
+
+## 🍽 Final Thoughts
+
+Grilled Salmon with Asparagus is a **simple yet elegant dish** that’s perfect for a quick weeknight dinner or a special occasion. The combination of **flaky salmon** and **crisp asparagus** is sure to impress, and the added lemon juice brings a refreshing zing to the dish. Pair it with a side of **quinoa** or a **fresh salad** for a complete meal.
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

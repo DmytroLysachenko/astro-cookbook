@@ -1,0 +1,125 @@
+---
+slug: "pierogi"
+title: "Pierogi (Polish Dumplings)"
+mainImage: "https://www.example.com/pierogi.jpg"
+description: "Traditional Polish dumplings filled with a variety of ingredients, such as potatoes, cheese, or meat, and served with sour cream."
+cookingTime: 90 # in minutes
+portions: 4
+cuisine: "Polish"
+categories: ["dinner", "dumplings", "comfort food"]
+language: "en"
+ingredients:
+  - name: "All-Purpose Flour"
+    quantity: "300g"
+    grams: 300
+    id: "1199" # All-Purpose Flour
+
+  - name: "Eggs"
+    quantity: "2"
+    grams: 120
+    id: "1282" # Chicken Egg (Whole)
+
+  - name: "Water"
+    quantity: "100ml"
+    grams: 100
+    id: "1135" # Bamboo Salt (used as a placeholder for water)
+
+  - name: "Potatoes"
+    quantity: "500g"
+    grams: 500
+    id: "645" # Potato
+
+  - name: "Cheddar Cheese"
+    quantity: "100g"
+    grams: 100
+    id: "815" # Cheddar Cheese
+
+  - name: "Onion"
+    quantity: "1"
+    grams: 100
+    id: "643" # Onion
+
+  - name: "Butter"
+    quantity: "50g"
+    grams: 50
+    id: "838" # Butter
+
+  - name: "Sour Cream"
+    quantity: "200g"
+    grams: 200
+    id: "1147" # Smetana
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "../../components/IngredientsList.astro";
+import CookingStep from "../../components/react/CookingStep.tsx";
+import NutritionFacts from "../../components/NutritionFacts.astro";
+import RecipeRating from "../../components/RecipeRating.astro";
+
+<img src={frontmatter.mainImage} alt={frontmatter.title} />
+
+# 🥟 Pierogi (Polish Dumplings)
+
+<RecipeRating slug={frontmatter.slug} />
+
+## Introduction
+
+Pierogi are **traditional Polish dumplings** that can be filled with a variety of ingredients, such as potatoes, cheese, or meat. They are **boiled and then fried** for a crispy exterior, and are often served with **sour cream** or **fried onions**. Pierogi are a **comfort food** that’s perfect for any occasion.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Dough
+
+In a large bowl, mix **flour, eggs, water, and salt** to form a smooth dough. Knead the dough for **5-10 minutes**, then cover and let it rest for **30 minutes**.
+
+<CookingStep action="mixing" />
+
+### Step 2: Prepare the Filling
+
+Boil the **potatoes** until tender, then mash them. In a pan, sauté **chopped onion** in **butter** until golden. Mix the mashed potatoes with the sautéed onions and **grated cheddar cheese**. Season with **salt and pepper**.
+
+<CookingStep action="boiling" />
+
+### Step 3: Assemble the Pierogi
+
+Roll out the dough on a floured surface and cut into circles. Place a spoonful of the potato filling in the center of each circle, fold the dough over, and seal the edges.
+
+<CookingStep action="cutting" />
+
+### Step 4: Cook the Pierogi
+
+Bring a large pot of salted water to a boil. Cook the pierogi in batches until they float to the surface, then remove and drain.
+
+<CookingStep action="boiling" />
+
+### Step 5: Fry the Pierogi
+
+Heat **butter** in a pan and fry the boiled pierogi until golden brown on both sides.
+
+<CookingStep action="frying" />
+
+### Step 6: Serve & Enjoy!
+
+Serve the pierogi hot with **sour cream** and **fried onions**.
+
+## 🍽 Final Thoughts
+
+Pierogi are a **delicious and comforting dish** that’s perfect for any occasion. The combination of **soft dough and flavorful filling** makes this dish a favorite among Polish cuisine lovers. Enjoy this traditional dish with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

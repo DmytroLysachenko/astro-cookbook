@@ -1,0 +1,125 @@
+---
+slug: "chicken-enchiladas"
+title: "Chicken Enchiladas"
+mainImage: "https://www.example.com/chicken-enchiladas.jpg"
+description: "A classic Mexican dish featuring shredded chicken wrapped in corn tortillas, topped with enchilada sauce and melted cheese."
+cookingTime: 45 # in minutes
+portions: 4
+cuisine: "Mexican"
+categories: ["dinner", "chicken", "baked"]
+language: "en"
+ingredients:
+  - name: "Chicken Breast"
+    quantity: "500g"
+    grams: 500
+    id: "669" # Chicken Breast
+
+  - name: "Corn Tortillas"
+    quantity: "8"
+    grams: 200
+    id: "1257" # Corn Flour (used as a placeholder for corn tortillas)
+
+  - name: "Enchilada Sauce"
+    quantity: "300ml"
+    grams: 300
+    id: "1295" # Barbecue Sauce (used as a substitute for enchilada sauce)
+
+  - name: "Cheddar Cheese"
+    quantity: "200g"
+    grams: 200
+    id: "815" # Cheddar Cheese
+
+  - name: "Onion"
+    quantity: "1"
+    grams: 100
+    id: "643" # Onion
+
+  - name: "Garlic"
+    quantity: "2 cloves"
+    grams: 6
+    id: "644" # Garlic
+
+  - name: "Cumin"
+    quantity: "1 tsp"
+    grams: 2
+    id: "902" # Coriander Seeds (used as a substitute for cumin)
+
+  - name: "Chili Powder"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1260" # Cayenne Pepper (used as a substitute for chili powder)
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Cilantro"
+    quantity: "1/4 cup"
+    grams: 10
+    id: "1183" # Cilantro (Dried)
+---
+
+import IngredientsList from "../../components/IngredientsList.astro";
+import CookingStep from "../../components/react/CookingStep.tsx";
+import NutritionFacts from "../../components/NutritionFacts.astro";
+import RecipeRating from "../../components/RecipeRating.astro";
+
+<img src={frontmatter.mainImage} alt={frontmatter.title} />
+
+# 🌮 Chicken Enchiladas
+
+<RecipeRating slug={frontmatter.slug} />
+
+## Introduction
+
+Chicken Enchiladas are a **classic Mexican dish** that features shredded chicken wrapped in corn tortillas, topped with a flavorful enchilada sauce and melted cheese. This dish is **perfect for a family dinner** and can be customized with your favorite toppings.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Cook the Chicken
+
+Season the chicken breasts with **salt, cumin, and chili powder**. Cook in a pan until fully cooked, then shred the chicken using two forks.
+
+<CookingStep action="frying" />
+
+### Step 2: Prepare the Filling
+
+In a bowl, mix the shredded chicken with **chopped onion, minced garlic, and half of the enchilada sauce**.
+
+<CookingStep action="mixing" />
+
+### Step 3: Assemble the Enchiladas
+
+Preheat the oven to **180°C (350°F)**. Fill each corn tortilla with the chicken mixture, roll them up, and place them seam-side down in a baking dish.
+
+<CookingStep action="oven" />
+
+### Step 4: Top with Sauce and Cheese
+
+Pour the remaining enchilada sauce over the rolled tortillas and sprinkle with **grated cheddar cheese**.
+
+<CookingStep action="seasoning" />
+
+### Step 5: Bake the Enchiladas
+
+Bake in the preheated oven for **20-25 minutes**, or until the cheese is melted and bubbly.
+
+<CookingStep action="oven" />
+
+### Step 6: Garnish and Serve
+
+Garnish the enchiladas with **chopped cilantro** and serve with **sour cream** and **guacamole**.
+
+## 🍽 Final Thoughts
+
+Chicken Enchiladas are a **delicious and comforting dish** that’s perfect for a family dinner. The combination of **spicy chicken, tangy sauce, and melted cheese** makes this dish a favorite among Mexican cuisine lovers. Enjoy this flavorful meal with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

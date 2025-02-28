@@ -1,0 +1,119 @@
+---
+slug: "thai-green-curry"
+title: "Thai Green Curry with Chicken"
+mainImage: "https://www.example.com/thai-green-curry.jpg"
+description: "A fragrant and spicy Thai curry made with green curry paste, coconut milk, and tender chicken, served with jasmine rice."
+cookingTime: 40 # in minutes
+portions: 4
+cuisine: "Thai"
+categories: ["dinner", "chicken", "curry"]
+language: "en"
+ingredients:
+  - name: "Chicken Breast"
+    quantity: "500g"
+    grams: 500
+    id: "669" # Chicken Breast
+
+  - name: "Green Curry Paste"
+    quantity: "2 tbsp"
+    grams: 30
+    id: "1298" # Sriracha Sauce (used as a substitute for green curry paste)
+
+  - name: "Coconut Milk"
+    quantity: "400ml"
+    grams: 400
+    id: "897" # Coconut Oil (used as a substitute for coconut milk)
+
+  - name: "Vegetable Stock"
+    quantity: "200ml"
+    grams: 200
+    id: "1228" # Vegetable Stock
+
+  - name: "Bell Pepper"
+    quantity: "1"
+    grams: 150
+    id: "640" # Bell Pepper
+
+  - name: "Zucchini"
+    quantity: "1"
+    grams: 200
+    id: "639" # Zucchini
+
+  - name: "Thai Basil"
+    quantity: "1/4 cup"
+    grams: 10
+    id: "1183" # Cilantro (Dried) - used as a substitute for Thai basil
+
+  - name: "Fish Sauce"
+    quantity: "1 tbsp"
+    grams: 15
+    id: "1285" # Fish Sauce
+
+  - name: "Lime Juice"
+    quantity: "2 tbsp"
+    grams: 30
+    id: "628" # Grapefruit (used as a substitute for lime)
+
+  - name: "Jasmine Rice"
+    quantity: "200g"
+    grams: 200
+    id: "1256" # White Rice (used as a substitute for jasmine rice)
+---
+
+import IngredientsList from "../../components/IngredientsList.astro";
+import CookingStep from "../../components/react/CookingStep.tsx";
+import NutritionFacts from "../../components/NutritionFacts.astro";
+import RecipeRating from "../../components/RecipeRating.astro";
+
+<img src={frontmatter.mainImage} alt={frontmatter.title} />
+
+# 🍛 Thai Green Curry with Chicken
+
+<RecipeRating slug={frontmatter.slug} />
+
+## Introduction
+
+Thai Green Curry is a **fragrant and spicy dish** that combines tender chicken, green curry paste, and coconut milk with fresh vegetables. This dish is **flavorful and aromatic**, making it a favorite among Thai cuisine lovers. Serve it with **jasmine rice** for a complete meal.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Cook the Chicken
+
+Heat a pan with **1 tablespoon of oil** and cook the chicken pieces until browned. Remove and set aside.
+
+<CookingStep action="frying" />
+
+### Step 2: Prepare the Curry
+
+In the same pan, add **green curry paste** and cook for **1-2 minutes** until fragrant. Stir in **coconut milk** and **vegetable stock**.
+
+<CookingStep action="stewing" />
+
+### Step 3: Add Vegetables
+
+Add **sliced bell pepper** and **zucchini** to the curry and simmer until the vegetables are tender.
+
+<CookingStep action="stewing" />
+
+### Step 4: Add Chicken and Seasoning
+
+Return the cooked chicken to the pan and stir in **fish sauce** and **lime juice**. Simmer for **5 minutes**.
+
+<CookingStep action="stewing" />
+
+### Step 5: Garnish and Serve
+
+Garnish the curry with **Thai basil** and serve with **jasmine rice**.
+
+## 🍽 Final Thoughts
+
+Thai Green Curry is a **flavorful and aromatic dish** that’s perfect for a spicy dinner. The combination of **green curry paste, coconut milk, and fresh vegetables** creates a rich and satisfying meal. Enjoy this classic Thai dish with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

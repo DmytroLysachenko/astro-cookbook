@@ -1,0 +1,103 @@
+---
+slug: "placki-ziemniaczane"
+title: "Placki Ziemniaczane (Polish Potato Pancakes)"
+mainImage: "https://www.example.com/placki-ziemniaczane.jpg"
+description: "Crispy Polish potato pancakes made with grated potatoes, onions, and flour, served with sour cream or applesauce."
+cookingTime: 30 # in minutes
+portions: 4
+cuisine: "Polish"
+categories: ["dinner", "snack", "comfort food"]
+language: "en"
+ingredients:
+  - name: "Potatoes"
+    quantity: "500g"
+    grams: 500
+    id: "645" # Potato
+
+  - name: "Onion"
+    quantity: "1"
+    grams: 100
+    id: "643" # Onion
+
+  - name: "Eggs"
+    quantity: "2"
+    grams: 120
+    id: "1282" # Chicken Egg (Whole)
+
+  - name: "All-Purpose Flour"
+    quantity: "50g"
+    grams: 50
+    id: "1199" # All-Purpose Flour
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+
+  - name: "Vegetable Oil"
+    quantity: "100ml"
+    grams: 100
+    id: "1262" # Vegetable Oil
+
+  - name: "Sour Cream"
+    quantity: "200g"
+    grams: 200
+    id: "1147" # Smetana
+---
+
+import IngredientsList from "../../components/IngredientsList.astro";
+import CookingStep from "../../components/react/CookingStep.tsx";
+import NutritionFacts from "../../components/NutritionFacts.astro";
+import RecipeRating from "../../components/RecipeRating.astro";
+
+<img src={frontmatter.mainImage} alt={frontmatter.title} />
+
+# 🥔 Placki Ziemniaczane (Polish Potato Pancakes)
+
+<RecipeRating slug={frontmatter.slug} />
+
+## Introduction
+
+Placki Ziemniaczane, or **Polish Potato Pancakes**, are **crispy and golden** pancakes made with grated potatoes, onions, and flour. They are **quick to prepare** and are often served with **sour cream** or **applesauce**. These pancakes are a **comforting snack** or side dish that’s perfect for any occasion.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Potatoes
+
+Peel and grate the **potatoes** and **onion**. Squeeze out any excess liquid using a clean kitchen towel.
+
+<CookingStep action="cutting" />
+
+### Step 2: Prepare the Batter
+
+In a bowl, mix the grated potatoes and onions with **eggs, flour, salt, and pepper**.
+
+<CookingStep action="mixing" />
+
+### Step 3: Fry the Pancakes
+
+Heat **vegetable oil** in a pan. Drop spoonfuls of the potato mixture into the hot oil and flatten them into pancakes. Fry until golden brown on both sides.
+
+<CookingStep action="frying" />
+
+### Step 4: Serve & Enjoy!
+
+Serve the potato pancakes hot with **sour cream** or **applesauce**.
+
+## 🍽 Final Thoughts
+
+Placki Ziemniaczane are a **crispy and comforting dish** that’s perfect for a quick snack or side dish. The combination of **grated potatoes and onions** creates a flavorful pancake that’s sure to please. Enjoy this traditional Polish dish with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

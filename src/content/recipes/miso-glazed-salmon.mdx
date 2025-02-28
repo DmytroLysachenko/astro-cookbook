@@ -1,0 +1,113 @@
+---
+slug: "miso-glazed-salmon"
+title: "Miso Glazed Salmon"
+mainImage: "https://www.example.com/miso-glazed-salmon.jpg"
+description: "A Japanese-inspired dish featuring salmon fillets glazed with a sweet and savory miso sauce, served with steamed rice and vegetables."
+cookingTime: 30 # in minutes
+portions: 2
+cuisine: "Japanese"
+categories: ["dinner", "seafood", "healthy"]
+language: "en"
+ingredients:
+  - name: "Salmon Fillet"
+    quantity: "300g"
+    grams: 300
+    id: "695" # Salmon
+
+  - name: "Miso Paste"
+    quantity: "2 tbsp"
+    grams: 30
+    id: "913" # Miso Paste
+
+  - name: "Soy Sauce"
+    quantity: "2 tbsp"
+    grams: 30
+    id: "1286" # Soy Sauce (Regular)
+
+  - name: "Honey"
+    quantity: "1 tbsp"
+    grams: 21
+    id: "843" # Honey
+
+  - name: "Rice Vinegar"
+    quantity: "1 tbsp"
+    grams: 15
+    id: "1261" # Vinegar (White) - used as a substitute for rice vinegar
+
+  - name: "Sesame Oil"
+    quantity: "1 tsp"
+    grams: 5
+    id: "901" # Sesame Oil
+
+  - name: "Garlic"
+    quantity: "1 clove"
+    grams: 3
+    id: "644" # Garlic
+
+  - name: "Ginger"
+    quantity: "1 tsp"
+    grams: 5
+    id: "839" # Ginger
+
+  - name: "Sesame Seeds"
+    quantity: "1 tsp"
+    grams: 5
+    id: "826" # Sesame Seeds
+
+  - name: "Green Onions"
+    quantity: "2"
+    grams: 10
+    id: "643" # Onion (used as a substitute for green onions)
+---
+
+import IngredientsList from "../../components/IngredientsList.astro";
+import CookingStep from "../../components/react/CookingStep.tsx";
+import NutritionFacts from "../../components/NutritionFacts.astro";
+import RecipeRating from "../../components/RecipeRating.astro";
+
+<img src={frontmatter.mainImage} alt={frontmatter.title} />
+
+# 🐟 Miso Glazed Salmon
+
+<RecipeRating slug={frontmatter.slug} />
+
+## Introduction
+
+Miso Glazed Salmon is a **Japanese-inspired dish** that combines the rich flavors of miso, soy sauce, and honey to create a sweet and savory glaze for tender salmon fillets. This dish is **quick to prepare** and pairs perfectly with steamed rice and vegetables.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Miso Glaze
+
+In a small bowl, mix together **miso paste, soy sauce, honey, rice vinegar, sesame oil, minced garlic, and grated ginger**. Stir until well combined.
+
+<CookingStep action="mixing" />
+
+### Step 2: Marinate the Salmon
+
+Place the salmon fillets in a shallow dish and pour the miso glaze over them. Let the salmon marinate for **15-20 minutes**.
+
+<CookingStep action="wait" />
+
+### Step 3: Cook the Salmon
+
+Preheat the oven to **200°C (400°F)**. Place the marinated salmon fillets on a baking sheet lined with parchment paper. Bake for **10-12 minutes**, or until the salmon is cooked through and the glaze is caramelized.
+
+<CookingStep action="oven" />
+
+### Step 4: Garnish and Serve
+
+Sprinkle the cooked salmon with **sesame seeds** and **chopped green onions**. Serve with **steamed rice** and **steamed vegetables** for a complete meal.
+
+## 🍽 Final Thoughts
+
+Miso Glazed Salmon is a **flavorful and healthy dish** that’s perfect for a quick weeknight dinner. The combination of **sweet and savory flavors** makes this dish a favorite among seafood lovers. Enjoy this Japanese-inspired meal with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

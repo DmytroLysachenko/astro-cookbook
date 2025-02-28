@@ -1,0 +1,130 @@
+---
+slug: "risotto-ai-funghi"
+title: "Risotto ai Funghi"
+mainImage: "https://www.example.com/risotto-ai-funghi.jpg"
+description: "A creamy Italian risotto made with Arborio rice, mushrooms, and Parmesan cheese, perfect for a comforting dinner."
+cookingTime: 40 # in minutes
+portions: 4
+cuisine: "Italian"
+categories: ["dinner", "rice", "vegetarian"]
+language: "en"
+ingredients:
+  - name: "Arborio Rice"
+    quantity: "300g"
+    grams: 300
+    id: "1256" # White Rice (used as a substitute for Arborio rice)
+
+  - name: "Mushrooms"
+    quantity: "300g"
+    grams: 300
+    id: "1255" # White Mushrooms
+
+  - name: "Vegetable Stock"
+    quantity: "1L"
+    grams: 1000
+    id: "1228" # Vegetable Stock
+
+  - name: "Parmesan Cheese"
+    quantity: "50g"
+    grams: 50
+    id: "880" # Parmesan
+
+  - name: "Onion"
+    quantity: "1"
+    grams: 100
+    id: "643" # Onion
+
+  - name: "Garlic"
+    quantity: "2 cloves"
+    grams: 6
+    id: "644" # Garlic
+
+  - name: "White Wine"
+    quantity: "100ml"
+    grams: 100
+    id: "1215" # Dry White Wine
+
+  - name: "Butter"
+    quantity: "50g"
+    grams: 50
+    id: "838" # Butter
+
+  - name: "Olive Oil"
+    quantity: "2 tbsp"
+    grams: 30
+    id: "837" # Olive Oil
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "../../components/IngredientsList.astro";
+import CookingStep from "../../components/react/CookingStep.tsx";
+import NutritionFacts from "../../components/NutritionFacts.astro";
+import RecipeRating from "../../components/RecipeRating.astro";
+
+<img src={frontmatter.mainImage} alt={frontmatter.title} />
+
+# 🍚 Risotto ai Funghi
+
+<RecipeRating slug={frontmatter.slug} />
+
+## Introduction
+
+Risotto ai Funghi is a **classic Italian dish** that features creamy Arborio rice cooked with mushrooms, white wine, and Parmesan cheese. This dish is **comforting and flavorful**, making it perfect for a cozy dinner.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Mushrooms
+
+Heat **olive oil** in a pan and sauté **sliced mushrooms** until golden brown. Season with **salt and pepper** and set aside.
+
+<CookingStep action="frying" />
+
+### Step 2: Cook the Onion and Garlic
+
+In a large pot, melt **butter** and sauté **chopped onion and minced garlic** until softened.
+
+<CookingStep action="frying" />
+
+### Step 3: Toast the Rice
+
+Add the **Arborio rice** to the pot and toast for **2-3 minutes**, stirring constantly.
+
+<CookingStep action="stirring" />
+
+### Step 4: Add Wine and Stock
+
+Pour in **white wine** and cook until absorbed. Gradually add **vegetable stock**, one ladle at a time, stirring constantly until the rice is creamy and cooked through.
+
+<CookingStep action="stewing" />
+
+### Step 5: Add Mushrooms and Cheese
+
+Stir in the cooked mushrooms and **grated Parmesan cheese**. Season with **salt and pepper** to taste.
+
+<CookingStep action="mixing" />
+
+### Step 6: Serve & Enjoy!
+
+Serve the risotto hot, garnished with **extra Parmesan** and **chopped parsley**.
+
+## 🍽 Final Thoughts
+
+Risotto ai Funghi is a **creamy and comforting dish** that’s perfect for a cozy dinner. The combination of **mushrooms, Parmesan, and Arborio rice** creates a rich and flavorful meal that’s sure to impress. Enjoy this classic Italian dish with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

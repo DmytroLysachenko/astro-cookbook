@@ -1,0 +1,124 @@
+---
+slug: "lobster-thermidor"
+title: "Lobster Thermidor"
+mainImage: "https://www.example.com/lobster-thermidor.jpg"
+description: "A decadent French dish featuring lobster meat in a creamy, cheesy sauce, baked to perfection."
+cookingTime: 60 # in minutes
+portions: 2
+cuisine: "French"
+categories: ["dinner", "seafood", "special occasion"]
+language: "en"
+ingredients:
+  - name: "Lobster"
+    quantity: "2"
+    grams: 800
+    id: "941" # Lobster
+
+  - name: "Butter"
+    quantity: "50g"
+    grams: 50
+    id: "838" # Butter
+
+  - name: "Shallots"
+    quantity: "2"
+    grams: 50
+    id: "643" # Onion (used as a substitute for shallots)
+
+  - name: "Garlic"
+    quantity: "2 cloves"
+    grams: 6
+    id: "644" # Garlic
+
+  - name: "White Wine"
+    quantity: "100ml"
+    grams: 100
+    id: "1215" # Dry White Wine
+
+  - name: "Heavy Cream"
+    quantity: "200ml"
+    grams: 200
+    id: "1247" # Cream (Heavy)
+
+  - name: "Dijon Mustard"
+    quantity: "1 tbsp"
+    grams: 15
+    id: "1297" # Mustard (Yellow)
+
+  - name: "Parmesan Cheese"
+    quantity: "50g"
+    grams: 50
+    id: "880" # Parmesan
+
+  - name: "Thyme"
+    quantity: "1 tbsp"
+    grams: 2
+    id: "1181" # Thyme (Dried)
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "../../components/IngredientsList.astro";
+import CookingStep from "../../components/react/CookingStep.tsx";
+import NutritionFacts from "../../components/NutritionFacts.astro";
+import RecipeRating from "../../components/RecipeRating.astro";
+
+<img src={frontmatter.mainImage} alt={frontmatter.title} />
+
+# 🦞 Lobster Thermidor
+
+<RecipeRating slug={frontmatter.slug} />
+
+## Introduction
+
+Lobster Thermidor is a **classic French dish** that combines succulent lobster meat with a rich, creamy sauce, topped with cheese and baked to perfection. This dish is perfect for **special occasions** and is sure to impress your guests with its luxurious flavors.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Lobster
+
+Cook the lobsters by boiling them in salted water for **8-10 minutes**. Once cooked, remove the meat from the shells and chop it into bite-sized pieces. Reserve the shells for serving.
+
+<CookingStep action="boiling" />
+
+### Step 2: Make the Sauce
+
+In a saucepan, melt **butter** and sauté **shallots and garlic** until softened. Add **white wine** and simmer until reduced by half. Stir in **heavy cream, Dijon mustard, and thyme**. Season with **salt and pepper** and simmer until the sauce thickens.
+
+<CookingStep action="stewing" />
+
+### Step 3: Combine Lobster and Sauce
+
+Add the chopped lobster meat to the sauce and stir to combine. Cook for **2-3 minutes** until the lobster is heated through.
+
+<CookingStep action="stirring" />
+
+### Step 4: Assemble and Bake
+
+Preheat the oven to **200°C (400°F)**. Fill the reserved lobster shells with the lobster and sauce mixture. Sprinkle **grated Parmesan cheese** on top. Place the filled shells on a baking sheet and bake for **10-15 minutes**, or until the cheese is golden and bubbly.
+
+<CookingStep action="oven" />
+
+### Step 5: Serve & Enjoy!
+
+Serve the Lobster Thermidor immediately, garnished with **fresh thyme** or **parsley**. Pair with a **crisp white wine** and a **side salad** for a complete meal.
+
+## 🍽 Final Thoughts
+
+Lobster Thermidor is a **luxurious and indulgent dish** that’s perfect for a special dinner or celebration. The combination of **tender lobster, creamy sauce, and melted cheese** is truly irresistible. This dish is sure to impress your guests and make any occasion feel extra special.
+
+<NutritionFacts ingredients={frontmatter.ingredients} />
