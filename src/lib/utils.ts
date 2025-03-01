@@ -124,3 +124,21 @@ export const calculateNutritionFacts = (
 
   return per100g;
 };
+
+export const buildFilterUrl = (
+  path: string,
+  params: { [key: string]: string },
+): string => {
+  const searchParams = new URLSearchParams();
+
+  Object.entries(params).forEach(([key, value]) => {
+    if (value) {
+      searchParams.set(key, value);
+    } else {
+      searchParams.delete(key);
+    }
+  });
+
+  const queryString = searchParams.toString();
+  return queryString ? `${path}?${queryString}` : path;
+};

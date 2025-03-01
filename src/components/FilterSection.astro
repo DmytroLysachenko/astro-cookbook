@@ -1,0 +1,48 @@
+---
+import { ChevronDown } from "lucide-react";
+import { buildFilterUrl } from "@/lib/utils";
+
+const {
+  title,
+  options,
+  currentValue,
+  paramKey,
+  currentSort,
+  currentCategory,
+  currentCuisine,
+} = Astro.props;
+---
+
+<div class="mb-8">
+  <button
+    class="accordion-button text-xl flex justify-between items-center w-full font-semibold mb-4 cursor-pointer"
+    aria-expanded="true"
+    data-section={paramKey}
+  >
+    {title}
+    <ChevronDown className="accordion-icon transition-all duration-300" />
+  </button>
+  <div class="accordion-content space-y-3">
+    {
+      options.map((option: { value: string; label: string }) => (
+        <div>
+          <a
+            href={buildFilterUrl("/recipes", {
+              [paramKey]: option.value,
+              sort: currentSort,
+              category: currentCategory,
+              cuisine: currentCuisine,
+            })}
+            class={`block px-3 py-2 rounded ${
+              currentValue === option.value
+                ? "bg-red-100 text-red-700 font-medium"
+                : "hover:bg-gray-100"
+            }`}
+          >
+            {option.label}
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</div>
