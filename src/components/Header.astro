@@ -1,6 +1,7 @@
 ---
 import { headerLinks, SITE_TITLE } from "../constants";
 import Navigation from "./Navigation.astro";
+
 import Auth from "./react/Auth";
 import { getSession } from "auth-astro/server";
 
@@ -8,18 +9,25 @@ const session = await getSession(Astro.request);
 ---
 
 <header class="bg-background text-foreground shadow-sm">
-  <nav class="container flex justify-between items-center py-4">
+  <div class="container grid grid-cols-3 py-4">
     <a
       href="/"
-      class="heading-responsive text-2xl font-bold"
-      >{SITE_TITLE}</a
+      class="font-bold text-center text-sm flex justify-center items-center w-fit gap-1"
+      >{SITE_TITLE}
+      <img
+        src="/assets/logo-no-bg.png"
+        alt="logo"
+        class="size-6"
+      /></a
     >
+
     <Navigation links={headerLinks} />
-    <div class="flex gap-6 justify-center items-center min-w-[140px] min-h-10">
+
+    <div class="flex gap-6 justify-end items-center min-w-[40px] min-h-10">
       <Auth
         user={session?.user}
         client:only="react"
       />
     </div>
-  </nav>
+  </div>
 </header>

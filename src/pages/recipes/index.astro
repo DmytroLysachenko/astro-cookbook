@@ -77,6 +77,7 @@ const cuisines = [...new Set(allRecipes.map((recipe) => recipe.data.cuisine))];
           currentCategory={category}
           currentCuisine={cuisine}
           currentSort={sortBy}
+          client:load
         />
       </div>
 
@@ -99,7 +100,7 @@ const cuisines = [...new Set(allRecipes.map((recipe) => recipe.data.cuisine))];
 
         <!-- Recipe grid -->
         <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          class="grid-responsive gap-6"
           id="recipe-grid"
         >
           {currentRecipes.map((recipe) => <RecipeCard recipe={recipe} />)}

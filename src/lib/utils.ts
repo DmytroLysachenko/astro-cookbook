@@ -1,3 +1,5 @@
+import type { TFullIngredientsData } from "@/components/NutritionFacts.astro";
+
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -60,7 +62,7 @@ export const capitalize = (str: string) => {
 
 export const calculateNutritionFacts = (
   ingredients: { name: string; quantity: string; grams: number; id: number }[],
-  nutritionData,
+  nutritionData: TFullIngredientsData,
 ) => {
   // Calculate total values
   let totalWeight = 0;

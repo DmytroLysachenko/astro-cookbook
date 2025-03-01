@@ -37,119 +37,171 @@ const buildFilterUrl = (params: { [key: string]: string }) => {
 };
 ---
 
-<div class="bg-white rounded-lg shadow-md p-4">
-  <h2 class="text-lg font-bold mb-4">Filters</h2>
+<!-- Toggle Button for Mobile -->
+<button
+  class="md:hidden fixed bottom-4 right-4 bg-red-500 text-white p-3 rounded-full shadow-lg z-50"
+  id="sidebar-toggle"
+>
+  ☰ Filters
+</button>
 
-  <!-- Sort options -->
-  <div class="mb-6">
-    <h3 class="font-semibold mb-2">Sort By</h3>
-    <div class="space-y-2">
-      {
-        sortOptions.map((option) => (
-          <div>
-            <a
-              href={buildFilterUrl({
-                sort: option.value,
-                category: currentCategory,
-                cuisine: currentCuisine,
-              })}
-              class={`block px-2 py-1 rounded ${
-                currentSort === option.value
-                  ? "bg-red-100 text-red-700 font-medium"
-                  : "hover:bg-gray-100"
-              }`}
-            >
-              {option.label}
-            </a>
-          </div>
-        ))
-      }
-    </div>
-  </div>
+<!-- Sidebar Overlay and Container -->
+<div
+  class="md:block fixed inset-0 z-40 bg-black bg-opacity-50 md:bg-transparent transition-opacity duration-300 hidden"
+  id="sidebar-overlay"
+>
+  <div
+    class="bg-white rounded-lg shadow-md p-4 w-full max-w-xs md:max-w-none md:w-auto h-full md:h-auto overflow-y-auto transform md:transform-none transition-transform duration-300 -translate-x-full md:translate-x-0"
+    id="sidebar"
+  >
+    <h2 class="text-lg font-bold mb-4">Filters</h2>
 
-  <!-- Category filter -->
-  <div class="mb-6">
-    <h3 class="font-semibold mb-2">Categories</h3>
-    <div class="space-y-2">
-      <div>
-        <a
-          href={buildFilterUrl({
-            category: "",
-            sort: currentSort,
-            cuisine: currentCuisine,
-          })}
-          class={`block px-2 py-1 rounded ${
-            !currentCategory
-              ? "bg-red-100 text-red-700 font-medium"
-              : "hover:bg-gray-100"
-          }`}
-        >
-          All Categories
-        </a>
+    <!-- Sort options -->
+    <div class="mb-6">
+      <h3 class="font-semibold mb-2">Sort By</h3>
+      <div class="space-y-2">
+        {
+          sortOptions.map((option) => (
+            <div>
+              <a
+                href={buildFilterUrl({
+                  sort: option.value,
+                  category: currentCategory,
+                  cuisine: currentCuisine,
+                })}
+                class={`block px-2 py-1 rounded ${
+                  currentSort === option.value
+                    ? "bg-red-100 text-red-700 font-medium"
+                    : "hover:bg-gray-100"
+                }`}
+              >
+                {option.label}
+              </a>
+            </div>
+          ))
+        }
       </div>
-      {
-        categories.map((category: string) => (
-          <div>
-            <a
-              href={buildFilterUrl({
-                category,
-                sort: currentSort,
-                cuisine: currentCuisine,
-              })}
-              class={`block px-2 py-1 rounded ${
-                currentCategory === category
-                  ? "bg-red-100 text-red-700 font-medium"
-                  : "hover:bg-gray-100"
-              }`}
-            >
-              {capitalize(category)}
-            </a>
-          </div>
-        ))
-      }
     </div>
-  </div>
 
-  <!-- Cuisine filter -->
-  <div>
-    <h3 class="font-semibold mb-2">Cuisines</h3>
-    <div class="space-y-2">
-      <div>
-        <a
-          href={buildFilterUrl({
-            cuisine: "",
-            sort: currentSort,
-            category: currentCategory,
-          })}
-          class={`block px-2 py-1 rounded ${
-            !currentCuisine
-              ? "bg-red-100 text-red-700 font-medium"
-              : "hover:bg-gray-100"
-          }`}
-        >
-          All Cuisines
-        </a>
+    <!-- Category filter -->
+    <div class="mb-6">
+      <h3 class="font-semibold mb-2">Categories</h3>
+      <div class="space-y-2">
+        <div>
+          <a
+            href={buildFilterUrl({
+              category: "",
+              sort: currentSort,
+              cuisine: currentCuisine,
+            })}
+            class={`block px-2 py-1 rounded ${
+              !currentCategory
+                ? "bg-red-100 text-red-700 font-medium"
+                : "hover:bg-gray-100"
+            }`}
+          >
+            All Categories
+          </a>
+        </div>
+        {
+          categories.map((category: string) => (
+            <div>
+              <a
+                href={buildFilterUrl({
+                  category,
+                  sort: currentSort,
+                  cuisine: currentCuisine,
+                })}
+                class={`block px-2 py-1 rounded ${
+                  currentCategory === category
+                    ? "bg-red-100 text-red-700 font-medium"
+                    : "hover:bg-gray-100"
+                }`}
+              >
+                {capitalize(category)}
+              </a>
+            </div>
+          ))
+        }
       </div>
-      {
-        cuisines.map((cuisine: string) => (
-          <div>
-            <a
-              href={buildFilterUrl({
-                cuisine,
-                sort: currentSort,
-                category: currentCategory,
-              })}
-              class={`block px-2 py-1 rounded ${
-                currentCuisine === cuisine
-                  ? "bg-red-100 text-red-700 font-medium"
-                  : "hover:bg-gray-100"
-              }`}
-            >
-              {capitalize(cuisine)}
-            </a>
-          </div>
-        ))
-      }
+    </div>
+
+    <!-- Cuisine filter -->
+    <div>
+      <h3 class="font-semibold mb-2">Cuisines</h3>
+      <div class="space-y-2">
+        <div>
+          <a
+            href={buildFilterUrl({
+              cuisine: "",
+              sort: currentSort,
+              category: currentCategory,
+            })}
+            class={`block px-2 py-1 rounded ${
+              !currentCuisine
+                ? "bg-red-100 text-red-700 font-medium"
+                : "hover:bg-gray-100"
+            }`}
+          >
+            All Cuisines
+          </a>
+        </div>
+        {
+          cuisines.map((cuisine: string) => (
+            <div>
+              <a
+                href={buildFilterUrl({
+                  cuisine,
+                  sort: currentSort,
+                  category: currentCategory,
+                })}
+                class={`block px-2 py-1 rounded ${
+                  currentCuisine === cuisine
+                    ? "bg-red-100 text-red-700 font-medium"
+                    : "hover:bg-gray-100"
+                }`}
+              >
+                {capitalize(cuisine)}
+              </a>
+            </div>
+          ))
+        }
+      </div>
     </div>
   </div>
 </div>
+
+<!-- Script to Handle Sidebar Toggle -->
+<script>
+  const sidebarOverlay = document.getElementById("sidebar-overlay")!;
+  const sidebar = document.getElementById("sidebar")!;
+  const toggleButton = document.getElementById("sidebar-toggle")!;
+
+  // Toggle sidebar on button click
+  toggleButton.addEventListener("click", () => {
+    sidebarOverlay.style.display = "block";
+    setTimeout(() => {
+      sidebar.style.transform = "translateX(0)";
+    }, 10);
+  });
+
+  // Close sidebar when clicking outside
+  sidebarOverlay.addEventListener("click", (e) => {
+    if (e.target === sidebarOverlay) {
+      sidebar.style.transform = "translateX(-100%)";
+      setTimeout(() => {
+        sidebarOverlay.style.display = "none";
+      }, 300);
+    }
+  });
+</script>
+
+<!-- Styles for Smooth Transitions -->
+<style>
+  #sidebar {
+    transition: transform 0.3s ease-in-out;
+  }
+  #sidebar-overlay {
+    transition: opacity 0.3s ease-in-out;
+  }
+</style>

@@ -7,7 +7,7 @@ import {
   uuid,
 } from "drizzle-orm/pg-core";
 import { users } from "./users";
-import { sql } from "drizzle-orm";
+import { sql, type InferSelectModel } from "drizzle-orm";
 
 export const recipes = pgTable("recipes", {
   id: uuid("id")
@@ -22,3 +22,5 @@ export const recipes = pgTable("recipes", {
   rating: numeric("rating", { precision: 3, scale: 2 }),
   views: integer("views").default(0),
 });
+
+export type TRecipe = InferSelectModel<typeof recipes>;
