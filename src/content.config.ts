@@ -5,6 +5,7 @@ import { defineCollection, z } from "astro:content";
 const recipe = defineCollection({
   loader: glob({ base: "./src/content/recipes", pattern: "**/*.{md,mdx}" }),
   schema: z.object({
+    id: z.string(),
     slug: z.string(), // Unique slug for the recipe (linked to DB)
     title: z.string(), // Recipe title
     description: z.string(), // Short description of the dish

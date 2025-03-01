@@ -5,50 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1740480081651,
-      "tag": "0000_omniscient_machine_man",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1740481891628,
-      "tag": "0001_tricky_brother_voodoo",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1740494949546,
-      "tag": "0002_military_lake",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1740519242150,
-      "tag": "0003_secret_excalibur",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "7",
-      "when": 1740520916846,
-      "tag": "0004_far_tempest",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "7",
-      "when": 1740524133818,
-      "tag": "0005_fluffy_deadpool",
-      "breakpoints": true
-    },
-    {
-      "idx": 6,
-      "version": "7",
-      "when": 1740753077136,
-      "tag": "0006_wide_cerebro",
+      "when": 1740825018403,
+      "tag": "0000_bizarre_groot",
       "breakpoints": true
     }
   ]

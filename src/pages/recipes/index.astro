@@ -1,0 +1,121 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import RecipeCard from "../../components/RecipeCard.astro";
+import Pagination from "../../components/Pagination.astro";
+import FilterSidebar from "../../components/FilterSidebar.astro";
+import { capitalize } from "@/lib/utils";
+
+export const prerender = false;
+// Get search params for pagination and filtering
+const { searchParams } = Astro.url;
+const currentPage = Number(searchParams.get("page")) || 1;
+const pageSize = 12;
+const sortBy = searchParams.get("sort") || "newest";
+const category = searchParams.get("category") || "";
+const cuisine = searchParams.get("cuisine") || "";
+
+// Get all recipes
+const allRecipes = await getCollection("recipe");
+
+// Apply filters if needed
+let filteredRecipes = allRecipes;
+if (category) {
+  filteredRecipes = filteredRecipes.filter((recipe) =>
+    recipe.data.categories.includes(category.toLowerCase())
+  );
+}
+if (cuisine) {
+  filteredRecipes = filteredRecipes.filter(
+    (recipe) => recipe.data.cuisine.toLowerCase() === cuisine.toLowerCase()
+  );
+}
+
+// // Apply sorting
+// switch (sortBy) {
+//   case "title":
+//     filteredRecipes.sort((a, b) => a.data.title.localeCompare(b.data.title));
+//     break;
+//   case "cookTime":
+//     filteredRecipes.sort((a, b) => a.data.cookingTime - b.data.cookingTime);
+//     break;
+//   case "portions":
+//     filteredRecipes.sort((a, b) => b.data.portions - a.data.portions);
+//     break;
+//   case "newest":
+//   default:
+//     // Assuming you have a 'date' field in your frontmatter
+//     filteredRecipes.sort(
+//       (a, b) =>
+//         new Date(b.data.date || 0).getTime() -
+//         new Date(a.data.date || 0).getTime()
+//     );
+// }
+
+// Calculate pagination
+const totalRecipes = filteredRecipes.length;
+const totalPages = Math.ceil(totalRecipes / pageSize);
+const startIndex = (currentPage - 1) * pageSize;
+const endIndex = Math.min(startIndex + pageSize, totalRecipes);
+const currentRecipes = filteredRecipes.slice(startIndex, endIndex);
+
+// Get unique categories and cuisines for filter
+const categories = [
+  ...new Set(allRecipes.flatMap((recipe) => recipe.data.categories)),
+];
+const cuisines = [...new Set(allRecipes.map((recipe) => recipe.data.cuisine))];
+---
+
+<BaseLayout title="Recipes">
+  <div class="container mx-auto px-4 py-8">
+    <div class="flex flex-col md:flex-row gap-8">
+      <!-- Sidebar with filters -->
+      <div class="w-full md:w-64 shrink-0">
+        <FilterSidebar
+          categories={categories}
+          cuisines={cuisines}
+          currentCategory={category}
+          currentCuisine={cuisine}
+          currentSort={sortBy}
+        />
+      </div>
+
+      <!-- Main content -->
+      <div class="flex-1">
+        <div class="flex justify-between items-center mb-8">
+          <h1 class="text-3xl font-bold">
+            {
+              category
+                ? `${capitalize(category)} Recipes`
+                : cuisine
+                  ? `${cuisine} Cuisine`
+                  : "All Recipes"
+            }
+          </h1>
+          <div class="text-sm text-gray-600">
+            Showing {startIndex + 1}-{endIndex} of {totalRecipes} recipes
+          </div>
+        </div>
+
+        <!-- Recipe grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          id="recipe-grid"
+        >
+          {currentRecipes.map((recipe) => <RecipeCard recipe={recipe} />)}
+        </div>
+
+        <!-- Show pagination if we have more than one page -->
+        {
+          totalPages > 1 && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              baseUrl={`/recipes?sort=${sortBy}${category ? `&category=${category}` : ""}${cuisine ? `&cuisine=${cuisine}` : ""}&page=`}
+            />
+          )
+        }
+      </div>
+    </div>
+  </div>
+</BaseLayout>

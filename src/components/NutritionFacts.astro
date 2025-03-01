@@ -1,74 +1,57 @@
 ---
+import { calculateNutritionFacts } from "@/lib/utils";
 import { getIngredientsData } from "@/services/ingredients";
 
 // NutritionFacts.astro (SSG)
 
 const { ingredients } = Astro.props as {
-  ingredients: { name: string; quantity: string; grams: number }[];
+  ingredients: { name: string; quantity: string; grams: number; id: number }[];
 };
 
 // Fetch ingredient nutrition data once during build
-const nutritionData = await getIngredientsData(ingredients.map((i) => i.name));
+const fullIngredientsData = await getIngredientsData(
+  ingredients.map((i) => i.id)
+);
 
-console.log(nutritionData);
-
-// // Calculate total values
-// let totalWeight = 0;
-// let totals = {
-//   fat: 0,
-//   protein: 0,
-//   carbs: 0,
-//   fiber: 0,
-//   sugar: 0,
-//   sodium: 0,
-//   cholesterol: 0,
-// };
-
-// for (const [ingredient, weight] of Object.entries(ingredients)) {
-//   const data = nutritionData[ingredient];
-//   if (!data) continue;
-
-//   totalWeight += weight;
-//   totals.fat += (data.fat * weight) / 100;
-//   totals.protein += (data.protein * weight) / 100;
-//   totals.carbs += (data.carbs * weight) / 100;
-//   totals.fiber += (data.fiber * weight) / 100;
-//   totals.sugar += (data.sugar * weight) / 100;
-//   totals.sodium += (data.sodium * weight) / 100;
-//   totals.cholesterol += (data.cholesterol * weight) / 100;
-// }
-
-// // Normalize values per 100g
-// const per100g = totalWeight
-//   ? {
-//       fat: (totals.fat / totalWeight) * 100,
-//       protein: (totals.protein / totalWeight) * 100,
-//       carbs: (totals.carbs / totalWeight) * 100,
-//       fiber: (totals.fiber / totalWeight) * 100,
-//       sugar: (totals.sugar / totalWeight) * 100,
-//       sodium: (totals.sodium / totalWeight) * 100,
-//       cholesterol: (totals.cholesterol / totalWeight) * 100,
-//     }
-//   : totals;
-
-const per100g = {
-  fat: 0,
-  protein: 0,
-  carbs: 0,
-  fiber: 0,
-  sugar: 0,
-  sodium: 0,
-  cholesterol: 0,
-};
+// Calculate per 100g values
+const per100g = calculateNutritionFacts(ingredients, fullIngredientsData);
 ---
 
 <table>
   <tr><th>Nutrient</th><th>Per 100g</th></tr>
-  <tr><td>Fat</td><td>{per100g.fat.toFixed(2)} g</td></tr>
+  <tr><td>Calories</td><td>{per100g.calories.toFixed(2)} kcal</td></tr>
+  <tr><td>Total Fat</td><td>{per100g.totalFat.toFixed(2)} g</td></tr>
+  <tr><td>Saturated Fat</td><td>{per100g.saturatedFat.toFixed(2)} g</td></tr>
+  <tr><td>Trans Fat</td><td>{per100g.transFat.toFixed(2)} g</td></tr>
+  <tr
+    ><td>Polyunsaturated Fat</td><td
+      >{per100g.polyunsaturatedFat.toFixed(2)} g</td
+    ></tr
+  >
+  <tr
+    ><td>Monounsaturated Fat</td><td
+      >{per100g.monounsaturatedFat.toFixed(2)} g</td
+    ></tr
+  >
+  {
+    per100g.cholesterol > 0 && (
+      <tr>
+        <td>Cholesterol</td>
+        <td>{per100g.cholesterol * 1000} mg</td>
+      </tr>
+    )
+  }
+  {
+    per100g.sodium > 0 && (
+      <tr>
+        <td>Sodium</td>
+        <td>{per100g.sodium * 1000} mg</td>
+      </tr>
+    )
+  }
+  <tr><td>Total Carbohydrates</td><td>{per100g.totalCarbs.toFixed(2)} g</td></tr
+  >
+  <tr><td>Dietary Fiber</td><td>{per100g.dietaryFiber.toFixed(2)} g</td></tr>
+  <tr><td>Sugars</td><td>{per100g.sugars.toFixed(2)} g</td></tr>
   <tr><td>Protein</td><td>{per100g.protein.toFixed(2)} g</td></tr>
-  <tr><td>Carbohydrates</td><td>{per100g.carbs.toFixed(2)} g</td></tr>
-  <tr><td>Fiber</td><td>{per100g.fiber.toFixed(2)} g</td></tr>
-  <tr><td>Sugar</td><td>{per100g.sugar.toFixed(2)} g</td></tr>
-  <tr><td>Sodium</td><td>{per100g.sodium.toFixed(2)} mg</td></tr>
-  <tr><td>Cholesterol</td><td>{per100g.cholesterol.toFixed(2)} mg</td></tr>
 </table>

@@ -1,0 +1,155 @@
+---
+import { capitalize } from "@/lib/utils";
+
+const {
+  categories = [],
+  cuisines = [],
+  currentCategory = "",
+  currentCuisine = "",
+  currentSort = "newest",
+} = Astro.props;
+
+// Sort options
+const sortOptions = [
+  { value: "newest", label: "Newest First" },
+  { value: "title", label: "Alphabetical" },
+  { value: "cookTime", label: "Cooking Time" },
+  { value: "portions", label: "Portions" },
+];
+
+// Build the base URL for filters
+const buildFilterUrl = (params: { [key: string]: string }) => {
+  const url = new URL(Astro.request.url);
+
+  // Reset page when changing filters
+  url.searchParams.delete("page");
+
+  // Update or add parameters
+  Object.entries(params).forEach(([key, value]) => {
+    if (value) {
+      url.searchParams.set(key, value);
+    } else {
+      url.searchParams.delete(key);
+    }
+  });
+
+  return url.pathname + url.search;
+};
+---
+
+<div class="bg-white rounded-lg shadow-md p-4">
+  <h2 class="text-lg font-bold mb-4">Filters</h2>
+
+  <!-- Sort options -->
+  <div class="mb-6">
+    <h3 class="font-semibold mb-2">Sort By</h3>
+    <div class="space-y-2">
+      {
+        sortOptions.map((option) => (
+          <div>
+            <a
+              href={buildFilterUrl({
+                sort: option.value,
+                category: currentCategory,
+                cuisine: currentCuisine,
+              })}
+              class={`block px-2 py-1 rounded ${
+                currentSort === option.value
+                  ? "bg-red-100 text-red-700 font-medium"
+                  : "hover:bg-gray-100"
+              }`}
+            >
+              {option.label}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Category filter -->
+  <div class="mb-6">
+    <h3 class="font-semibold mb-2">Categories</h3>
+    <div class="space-y-2">
+      <div>
+        <a
+          href={buildFilterUrl({
+            category: "",
+            sort: currentSort,
+            cuisine: currentCuisine,
+          })}
+          class={`block px-2 py-1 rounded ${
+            !currentCategory
+              ? "bg-red-100 text-red-700 font-medium"
+              : "hover:bg-gray-100"
+          }`}
+        >
+          All Categories
+        </a>
+      </div>
+      {
+        categories.map((category: string) => (
+          <div>
+            <a
+              href={buildFilterUrl({
+                category,
+                sort: currentSort,
+                cuisine: currentCuisine,
+              })}
+              class={`block px-2 py-1 rounded ${
+                currentCategory === category
+                  ? "bg-red-100 text-red-700 font-medium"
+                  : "hover:bg-gray-100"
+              }`}
+            >
+              {capitalize(category)}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Cuisine filter -->
+  <div>
+    <h3 class="font-semibold mb-2">Cuisines</h3>
+    <div class="space-y-2">
+      <div>
+        <a
+          href={buildFilterUrl({
+            cuisine: "",
+            sort: currentSort,
+            category: currentCategory,
+          })}
+          class={`block px-2 py-1 rounded ${
+            !currentCuisine
+              ? "bg-red-100 text-red-700 font-medium"
+              : "hover:bg-gray-100"
+          }`}
+        >
+          All Cuisines
+        </a>
+      </div>
+      {
+        cuisines.map((cuisine: string) => (
+          <div>
+            <a
+              href={buildFilterUrl({
+                cuisine,
+                sort: currentSort,
+                category: currentCategory,
+              })}
+              class={`block px-2 py-1 rounded ${
+                currentCuisine === cuisine
+                  ? "bg-red-100 text-red-700 font-medium"
+                  : "hover:bg-gray-100"
+              }`}
+            >
+              {capitalize(cuisine)}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>

@@ -1,10 +1,13 @@
-import { pgTable, serial, text, varchar, timestamp } from "drizzle-orm/pg-core";
+import { sql } from "drizzle-orm";
+import { pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
 
 export const users = pgTable("users", {
-  id: serial("id").primaryKey(),
+  id: uuid("id")
+    .primaryKey()
+    .default(sql`gen_random_uuid()`), // Automatically generate UUID
   name: text("name").notNull(),
-  email: varchar("email").unique().notNull(),
-  bio: text("bio"), // Optional user bio
-  lastActive: timestamp("last_active").defaultNow(), // Last active timestamp
+  email: text("email").unique().notNull(),
+  bio: text("bio"),
+  lastActive: timestamp("last_active").defaultNow(),
   createdAt: timestamp("created_at").defaultNow(),
 });

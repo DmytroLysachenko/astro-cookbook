@@ -1,2 +1,0 @@
-CREATE TYPE "public"."category" AS ENUM('meat', 'vegetable', 'fruit', 'dairy', 'porridge', 'seafood', 'nuts_seeds', 'legumes', 'grains', 'oils_fats', 'herbs_spices', 'sweets', 'other');--> statement-breakpoint
-ALTER TABLE "ingredients" ADD COLUMN "category" "category" NOT NULL;

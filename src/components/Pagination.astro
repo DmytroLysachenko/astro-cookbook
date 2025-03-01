@@ -1,0 +1,69 @@
+---
+import { getPageNumbers } from "@/lib/utils";
+
+const { currentPage, totalPages, baseUrl } = Astro.props;
+
+// Generate page numbers to display
+
+const pageNumbers = getPageNumbers(totalPages, currentPage);
+---
+
+<nav
+  aria-label="Pagination"
+  class="mt-8"
+>
+  <ul class="flex justify-center items-center gap-1">
+    <!-- Previous page button -->
+    <li>
+      <a
+        href={currentPage > 1 ? `${baseUrl}${currentPage - 1}` : "#"}
+        class={`px-3 py-2 rounded-md ${
+          currentPage === 1
+            ? "text-gray-400 cursor-not-allowed"
+            : "text-gray-700 hover:bg-gray-100"
+        }`}
+        aria-disabled={currentPage === 1}
+      >
+        &laquo; Prev
+      </a>
+    </li>
+
+    <!-- Page numbers -->
+    {
+      pageNumbers.map((page) => (
+        <li>
+          {page === "..." ? (
+            <span class="px-3 py-2">...</span>
+          ) : (
+            <a
+              href={`${baseUrl}${page}`}
+              class={`px-3 py-2 rounded-md ${
+                currentPage === page
+                  ? "bg-red-500 text-white"
+                  : "text-gray-700 hover:bg-gray-100"
+              }`}
+              aria-current={currentPage === page ? "page" : undefined}
+            >
+              {page}
+            </a>
+          )}
+        </li>
+      ))
+    }
+
+    <!-- Next page button -->
+    <li>
+      <a
+        href={currentPage < totalPages ? `${baseUrl}${currentPage + 1}` : "#"}
+        class={`px-3 py-2 rounded-md ${
+          currentPage === totalPages
+            ? "text-gray-400 cursor-not-allowed"
+            : "text-gray-700 hover:bg-gray-100"
+        }`}
+        aria-disabled={currentPage === totalPages}
+      >
+        Next &raquo;
+      </a>
+    </li>
+  </ul>
+</nav>

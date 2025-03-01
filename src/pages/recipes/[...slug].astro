@@ -8,10 +8,11 @@ export async function getStaticPaths() {
   const recipes = await getCollection("recipe");
 
   return recipes.map((recipe) => ({
-    params: { slug: recipe.data.slug },
+    params: { slug: recipe.data.id },
     props: recipe,
   }));
 }
+
 type Props = CollectionEntry<"recipe">;
 
 const recipe = Astro.props;
