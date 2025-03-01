@@ -1,6 +1,6 @@
 ---
 import FilterSection from "./FilterSection.astro";
-
+import { capitalize } from "@/lib/utils";
 const {
   categories = [],
   cuisines = [],
@@ -16,6 +16,15 @@ const sortOptions = [
   { value: "cookTime", label: "Cooking Time" },
   { value: "portions", label: "Portions" },
 ];
+
+const categoriesOptions = categories.map((category) => ({
+  value: category,
+  label: capitalize(category),
+}));
+const cuisinesOptions = cuisines.map((cuisine) => ({
+  value: cuisine,
+  label: capitalize(cuisine),
+}));
 ---
 
 <div class="bg-white rounded-lg shadow-md p-6 min-w-60">
@@ -35,7 +44,7 @@ const sortOptions = [
   <!-- Category filter -->
   <FilterSection
     title="Categories"
-    options={categories}
+    options={categoriesOptions}
     currentValue={currentCategory}
     paramKey="category"
     currentSort={currentSort}
@@ -46,7 +55,7 @@ const sortOptions = [
   <!-- Cuisine filter -->
   <FilterSection
     title="Cuisines"
-    options={cuisines}
+    options={cuisinesOptions}
     currentValue={currentCuisine}
     paramKey="cuisine"
     currentSort={currentSort}
