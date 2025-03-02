@@ -20,6 +20,7 @@ export const recipes = pgTable("recipes", {
   createdAt: timestamp("created_at").defaultNow(), // Creation timestamp
   updatedAt: timestamp("updated_at").defaultNow(), // Last update timestamp
   rating: numeric("rating", { precision: 3, scale: 2 }),
+  ratingCount: integer("rating_count").default(0),
   views: integer("views").default(0),
 });
 

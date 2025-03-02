@@ -1,19 +1,23 @@
 ---
 import StarRating from "./StarRating.astro";
 import { capitalize } from "@/lib/utils";
+import type { TRecipeData } from "@/services/recipes";
+import type { TRecipeCollectionData } from "@/types";
 
-const { recipe } = Astro.props;
-const { data } = recipe;
+const { recipe, ratingData: { rating, ratingCount } = {} } = Astro.props as {
+  recipe: TRecipeCollectionData;
+  ratingData?: TRecipeData;
+};
+
+console.log(rating, ratingCount);
 ---
 
-<div
-  class="recipe-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
->
+<div class="card">
   <div class="relative">
-    <a href={`/recipes/${data.id}`}>
+    <a href={`/recipes/${recipe.id}`}>
       <img
-        src={data.mainImage || "/placeholder.svg?height=250&width=400"}
-        alt={data.title}
+        src={recipe.mainImage || "/placeholder.svg?height=250&width=400"}
+        alt={recipe.title}
         class="w-full h-48 object-cover"
       />
     </a>
@@ -21,32 +25,30 @@ const { data } = recipe;
 
   <div class="p-4">
     <div class="text-sm uppercase font-medium text-gray-500 mb-1">
-      {data.cuisine}
+      {recipe.cuisine}
     </div>
 
     <h2 class="text-xl font-bold mb-2">
       <a
-        href={`/recipes/${data.id}`}
+        href={`/recipes/${recipe.id}`}
         class="text-gray-900 hover:text-red-500 transition-colors duration-300"
       >
-        {data.title}
+        {recipe.title}
       </a>
     </h2>
 
     <div class="flex items-center mb-2">
-      <StarRating rating={data.rating || 5} />
-      <span class="ml-2 text-sm text-gray-600"
-        >{data.ratingCount || 4} Ratings</span
-      >
+      <StarRating rating={rating || 5} />
+      <span class="ml-2 text-sm text-gray-600">{ratingCount} Ratings</span>
     </div>
 
     <div class="text-sm text-gray-600">
-      Cook time: {data.cookingTime} minutes | Portions: {data.portions}
+      Cook time: {recipe.cookingTime} minutes | Portions: {recipe.portions}
     </div>
 
     <div class="mt-2 flex flex-wrap gap-2">
       {
-        data.categories.map((category: string) => (
+        recipe.categories.map((category: string) => (
           <span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full">
             {capitalize(category)}
           </span>

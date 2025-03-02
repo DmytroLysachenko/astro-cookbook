@@ -2,8 +2,12 @@
 import SubscribeForm from "@/components/react/SubscribeForm";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CustomButton from "@/components/react/CustomButton";
+import { getCollection } from "astro:content";
+import RecipesList from "@/components/RecipesList.astro";
 
 const handleClick = () => console.log("clicked");
+
+const recipes = await getCollection("recipe");
 ---
 
 <BaseLayout>
@@ -34,30 +38,21 @@ const handleClick = () => console.log("clicked");
     </div>
   </section>
 
-  <section
-    id="featured-recipes"
-    class="container section"
-  >
-    <h2 class="text-3xl font-bold text-center mb-8">Featured Recipes</h2>
-    <div class="grid-responsive">
-      {/* Add featured recipe cards here */}
-      <div class="bg-card rounded-lg shadow-md p-6">
-        <h3 class="text-xl font-semibold mb-2">Delicious Pasta</h3>
-        <p class="text-muted-foreground">
-          A quick and easy pasta dish perfect for weeknight dinners.
-        </p>
-      </div>
-      {/* Add more recipe cards as needed */}
-    </div>
+  <section class="py-20">
+    <h2 class="text-2xl font-bold text-center mb-10">Featured Recipes</h2>
+    <RecipesList
+      server:defer
+      recipes={recipes.slice(0, 4)}
+    />
   </section>
 
-  <section class="py-12 bg-muted rounded-lg">
-    <div class="container-sm text-center">
+  <section class="py-20 rounded-lg">
+    <div class="container-sm text-center mx-auto">
       <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
       <p class="text-muted-foreground mb-6">
         Subscribe to our newsletter for the latest recipes and cooking tips.
       </p>
-      <SubscribeForm client:visible />
+      <SubscribeForm client:only="react" />
     </div>
   </section>
 </BaseLayout>

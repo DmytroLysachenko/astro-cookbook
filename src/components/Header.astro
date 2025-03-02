@@ -21,7 +21,10 @@ const session = await getSession(Astro.request);
       /></a
     >
 
-    <Navigation links={headerLinks} />
+    <Navigation
+      links={headerLinks}
+      currentPath={Astro.url.pathname}
+    />
 
     <div class="flex gap-6 justify-end items-center min-w-[40px] min-h-10">
       <Auth

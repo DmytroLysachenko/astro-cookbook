@@ -1,6 +1,6 @@
 ---
 import { calculateNutritionFacts } from "@/lib/utils";
-import { getIngredientsData } from "@/services/ingredients";
+import { getIngredientsByIdArray } from "@/services/ingredients";
 
 export type TFullIngredientsData = typeof fullIngredientsData;
 // NutritionFacts.astro (SSG)
@@ -10,7 +10,7 @@ const { ingredients } = Astro.props as {
 };
 
 // Fetch ingredient nutrition data once during build
-const fullIngredientsData = await getIngredientsData(
+const fullIngredientsData = await getIngredientsByIdArray(
   ingredients.map((i) => i.id)
 );
 

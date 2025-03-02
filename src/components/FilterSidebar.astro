@@ -17,11 +17,11 @@ const sortOptions = [
   { value: "portions", label: "Portions" },
 ];
 
-const categoriesOptions = categories.map((category) => ({
+const categoriesOptions = categories.map((category: string) => ({
   value: category,
   label: capitalize(category),
 }));
-const cuisinesOptions = cuisines.map((cuisine) => ({
+const cuisinesOptions = cuisines.map((cuisine: string) => ({
   value: cuisine,
   label: capitalize(cuisine),
 }));

@@ -1,8 +1,10 @@
 import { db } from "@/db";
 import { ingredients } from "@/db/schema/ingredients";
-import { inArray } from "drizzle-orm";
+import { inArray, type InferSelectModel } from "drizzle-orm";
 
-export const getIngredientsData = async (ingredientsList: number[]) => {
+export type TIngredientData = InferSelectModel<typeof ingredients>;
+
+export const getIngredientsByIdArray = async (ingredientsList: number[]) => {
   const allIngredients = await db
     .select()
     .from(ingredients)

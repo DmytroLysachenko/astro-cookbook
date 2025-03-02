@@ -1,13 +1,9 @@
 import { db } from "@/db";
 import { users } from "@/db/schema/users";
-import { eq } from "drizzle-orm";
+import { eq, type InferInsertModel } from "drizzle-orm";
 
-interface UserData {
-  name: string;
-  email: string;
-  bio?: string;
-  lastActive?: Date;
-}
+type TCreateUserData = InferInsertModel<typeof users>;
+type TUpdateUserData = Partial<TCreateUserData>;
 
 export const getUser = async (email: string) => {
   const user = await db.select().from(users).where(eq(users.email, email));
@@ -15,16 +11,13 @@ export const getUser = async (email: string) => {
   return user[0] ?? null;
 };
 
-export const createUser = async (userData: UserData) => {
+export const createUser = async (userData: TCreateUserData) => {
   const user = await db.insert(users).values(userData);
 
   return user;
 };
 
-export const updateUser = async (
-  email: string,
-  userData: Partial<UserData>,
-) => {
+export const updateUser = async (email: string, userData: TUpdateUserData) => {
   const updatedUser = await db
     .update(users)
     .set(userData)

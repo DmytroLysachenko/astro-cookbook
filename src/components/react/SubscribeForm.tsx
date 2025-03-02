@@ -3,7 +3,7 @@ import CustomButton from "./CustomButton";
 
 const SubscribeForm = () => {
   return (
-    <form className="flex gap-2 max-w-md mx-auto">
+    <form className="flex gap-2 w-[300px] mx-auto">
       <Input type="email" placeholder="Enter your email" />
       <CustomButton
         title="Subscribe"

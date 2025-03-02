@@ -1,10 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import RecipeCard from "../../components/RecipeCard.astro";
 import Pagination from "../../components/Pagination.astro";
 import FilterSidebar from "../../components/FilterSidebar.astro";
 import { capitalize } from "@/lib/utils";
+import RecipesList from "@/components/RecipesList.astro";
 
 export const prerender = false;
 // Get search params for pagination and filtering
@@ -82,7 +82,7 @@ const cuisines = [...new Set(allRecipes.map((recipe) => recipe.data.cuisine))];
 
       <div class="flex-1">
         <div class="flex justify-between items-center mb-8">
-          <h1 class="text-3xl font-bold">
+          <h1 class="text-2xl font-bold">
             {
               category
                 ? `${capitalize(category)} Recipes`
@@ -96,15 +96,11 @@ const cuisines = [...new Set(allRecipes.map((recipe) => recipe.data.cuisine))];
           </div>
         </div>
 
-        <!-- Recipe grid -->
-        <div
-          class="grid-responsive gap-6"
-          id="recipe-grid"
-        >
-          {currentRecipes.map((recipe) => <RecipeCard recipe={recipe} />)}
-        </div>
+        <RecipesList
+          server:defer
+          recipes={currentRecipes}
+        />
 
-        <!-- Show pagination if we have more than one page -->
         {
           totalPages > 1 && (
             <Pagination

@@ -24,19 +24,17 @@ const CustomButton = ({
   ...props
 }: ButtonProps) => {
   return (
-    <>
-      <Button
-        onClick={handleClick}
-        className={cn("cursor-pointer", props.className)}
-        variant={variant}
-        size={size}
-        {...props}
-      >
-        {isIconLeft && icon}
-        {title}
-        {!isIconLeft && icon}
-      </Button>
-    </>
+    <Button
+      onClick={handleClick}
+      className={cn("cursor-pointer", props.className)}
+      variant={variant}
+      size={size}
+      {...props}
+    >
+      {isIconLeft && icon}
+      {title}
+      {!isIconLeft && icon}
+    </Button>
   );
 };
 
