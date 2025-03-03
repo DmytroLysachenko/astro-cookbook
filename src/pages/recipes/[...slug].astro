@@ -3,6 +3,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import { render } from "astro:content";
+import { viewRecipeById } from "@/services/recipes";
 
 export async function getStaticPaths() {
   const recipes = await getCollection("recipe");
@@ -21,17 +22,16 @@ const {
   mainImage,
   title,
   description,
-  slug,
+  id,
   cookingTime,
   portions,
   cuisine,
   categories,
   language,
   ingridients,
-  ingridientsData,
 } = recipe.data;
 
-const { Content } = await render(recipe);
+const [{ Content }] = await Promise.all([render(recipe), viewRecipeById(id)]);
 ---
 
 <BaseLayout

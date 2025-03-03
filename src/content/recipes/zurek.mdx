@@ -81,7 +81,7 @@ import Image from "astro/components/Image.astro";
 
 # 🍲 Żurek (Polish Sour Rye Soup)
 
-<RecipeRating slug={frontmatter.slug} />
+<RecipeRating server:defer id={frontmatter.id} />
 
 ## Introduction
 
@@ -124,7 +124,7 @@ Add the **chopped potatoes** and **cooked kielbasa** to the soup. Simmer until t
 
 Serve the Żurek hot with **hard-boiled eggs** and **sour cream**. For an authentic touch, serve the soup in a **bread bowl**.
 
-## 🍽 Final Thoughts
+## Final Thoughts
 
 Żurek is a **flavorful and hearty soup** that’s perfect for any occasion. The combination of **sour rye, sausage, and potatoes** creates a rich and satisfying dish. Enjoy this traditional Polish soup with your family and friends!
 

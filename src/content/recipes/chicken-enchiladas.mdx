@@ -76,7 +76,7 @@ import Image from "astro/components/Image.astro";
 
 # 🌮 Chicken Enchiladas
 
-<RecipeRating slug={frontmatter.slug} />
+<RecipeRating server:defer id={frontmatter.id} />
 
 ## Introduction
 
@@ -125,7 +125,7 @@ Bake in the preheated oven for **20-25 minutes**, or until the cheese is melted 
 
 Garnish the enchiladas with **chopped cilantro** and serve with **sour cream** and **guacamole**.
 
-## 🍽 Final Thoughts
+## Final Thoughts
 
 Chicken Enchiladas are a **delicious and comforting dish** that’s perfect for a family dinner. The combination of **spicy chicken, tangy sauce, and melted cheese** makes this dish a favorite among Mexican cuisine lovers. Enjoy this flavorful meal with your family and friends!
 

@@ -56,7 +56,7 @@ import Image from "astro/components/Image.astro";
 
 # 🍝 Spaghetti Carbonara
 
-<RecipeRating slug={frontmatter.slug} />
+<RecipeRating server:defer id={frontmatter.id} />
 
 ## Introduction
 
@@ -103,7 +103,7 @@ If needed, add some reserved pasta water for a silkier consistency.
 
 Plate the Carbonara, sprinkle with extra Parmesan, and finish with **a fresh grind of black pepper**.
 
-## 🍽 Final Thoughts
+## Final Thoughts
 
 Spaghetti Carbonara is the ultimate **comfort food**—simple, yet deeply satisfying. Mastering this dish means **perfect timing**—ensuring the eggs form a smooth sauce instead of scrambling. Pair it with a glass of **Italian white wine**, and you’ve got a **restaurant-quality meal** at home!
 

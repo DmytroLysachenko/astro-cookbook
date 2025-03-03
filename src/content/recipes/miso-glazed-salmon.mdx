@@ -76,7 +76,7 @@ import Image from "astro/components/Image.astro";
 
 # 🐟 Miso Glazed Salmon
 
-<RecipeRating slug={frontmatter.slug} />
+<RecipeRating server:defer id={frontmatter.id} />
 
 ## Introduction
 
@@ -113,7 +113,7 @@ Preheat the oven to **200°C (400°F)**. Place the marinated salmon fillets on a
 
 Sprinkle the cooked salmon with **sesame seeds** and **chopped green onions**. Serve with **steamed rice** and **steamed vegetables** for a complete meal.
 
-## 🍽 Final Thoughts
+## Final Thoughts
 
 Miso Glazed Salmon is a **flavorful and healthy dish** that’s perfect for a quick weeknight dinner. The combination of **sweet and savory flavors** makes this dish a favorite among seafood lovers. Enjoy this Japanese-inspired meal with your family and friends!
 

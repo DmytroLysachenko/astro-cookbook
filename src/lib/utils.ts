@@ -81,6 +81,8 @@ export const calculateNutritionFacts = (
     protein: 0,
   };
 
+  if (!ingredients || !nutritionData) return totals;
+
   for (const ingredient of ingredients) {
     // Find the matching nutrition data for the ingredient
     const data = nutritionData.find((i) => i.name === ingredient.name);

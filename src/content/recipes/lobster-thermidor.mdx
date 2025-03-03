@@ -81,7 +81,7 @@ import Image from "astro/components/Image.astro";
 
 # 🦞 Lobster Thermidor
 
-<RecipeRating slug={frontmatter.slug} />
+<RecipeRating server:defer id={frontmatter.id} />
 
 ## Introduction
 
@@ -124,7 +124,7 @@ Preheat the oven to **200°C (400°F)**. Fill the reserved lobster shells with t
 
 Serve the Lobster Thermidor immediately, garnished with **fresh thyme** or **parsley**. Pair with a **crisp white wine** and a **side salad** for a complete meal.
 
-## 🍽 Final Thoughts
+## Final Thoughts
 
 Lobster Thermidor is a **luxurious and indulgent dish** that’s perfect for a special dinner or celebration. The combination of **tender lobster, creamy sauce, and melted cheese** is truly irresistible. This dish is sure to impress your guests and make any occasion feel extra special.
 

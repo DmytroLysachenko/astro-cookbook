@@ -76,7 +76,7 @@ import Image from "astro/components/Image.astro";
 
 # 🥬 Gołąbki (Polish Stuffed Cabbage Rolls)
 
-<RecipeRating slug={frontmatter.slug} />
+<RecipeRating server:defer id={frontmatter.id} />
 
 ## Introduction
 
@@ -119,7 +119,7 @@ Preheat the oven to **180°C (350°F)**. Place the cabbage rolls in a baking dis
 
 Serve the Gołąbki hot with **sour cream** on the side.
 
-## 🍽 Final Thoughts
+## Final Thoughts
 
 Gołąbki are a **hearty and comforting dish** that’s perfect for a family dinner. The combination of **cabbage, ground meat, and rice** creates a satisfying meal that’s sure to please. Enjoy this traditional Polish dish with your family and friends!
 

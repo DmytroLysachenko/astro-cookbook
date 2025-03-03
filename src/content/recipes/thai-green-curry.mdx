@@ -76,7 +76,7 @@ import Image from "astro/components/Image.astro";
 
 # 🍛 Thai Green Curry with Chicken
 
-<RecipeRating slug={frontmatter.slug} />
+<RecipeRating server:defer id={frontmatter.id} />
 
 ## Introduction
 
@@ -119,7 +119,7 @@ Return the cooked chicken to the pan and stir in **fish sauce** and **lime juice
 
 Garnish the curry with **Thai basil** and serve with **jasmine rice**.
 
-## 🍽 Final Thoughts
+## Final Thoughts
 
 Thai Green Curry is a **flavorful and aromatic dish** that’s perfect for a spicy dinner. The combination of **green curry paste, coconut milk, and fresh vegetables** creates a rich and satisfying meal. Enjoy this classic Thai dish with your family and friends!
 

@@ -61,7 +61,7 @@ import Image from "astro/components/Image.astro";
 
 # 🐟 Grilled Salmon with Asparagus
 
-<RecipeRating slug={frontmatter.slug} />
+<RecipeRating server:defer id={frontmatter.id} />
 
 ## Introduction
 
@@ -104,7 +104,7 @@ _Tip:_ You can also use a grill basket to make flipping the asparagus easier.
 
 Plate the grilled salmon and asparagus together. Squeeze fresh **lemon juice** over the top for a burst of citrus flavor. Serve immediately and enjoy!
 
-## 🍽 Final Thoughts
+## Final Thoughts
 
 Grilled Salmon with Asparagus is a **simple yet elegant dish** that’s perfect for a quick weeknight dinner or a special occasion. The combination of **flaky salmon** and **crisp asparagus** is sure to impress, and the added lemon juice brings a refreshing zing to the dish. Pair it with a side of **quinoa** or a **fresh salad** for a complete meal.
 

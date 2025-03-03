@@ -19,7 +19,7 @@ const Auth = ({ user }: { user?: User }) => {
               src={user.image ?? undefined}
               alt={user.name ?? "avatar"}
             />
-            <AvatarFallback className="flex justify-center items-center font-semibold bg-amber-50 text-md">
+            <AvatarFallback className="flex justify-center items-center font-semibold bg-muted text-md">
               {user.name
                 ?.split(" ")
                 .map((name) => name[0])
@@ -31,11 +31,11 @@ const Auth = ({ user }: { user?: User }) => {
         <PopoverContent
           side="bottom"
           sideOffset={16}
-          className="border-t-0 rounded-t-none max-w-36"
+          className="border-t-0 rounded-t-none max-w-36 z-10 bg-background border-muted/40"
         >
           <p
             onClick={() => signOut()}
-            className="flex items-center gap-2 cursor-pointer hover:text-amber-500 transition-all"
+            className="flex items-center gap-2 cursor-pointer hover:text-secondary transition-all"
           >
             <LogOut className="size-4" />
             Log out
@@ -48,30 +48,24 @@ const Auth = ({ user }: { user?: User }) => {
       <CustomButton
         title=""
         variant="outline"
-        className="cursor-pointer p-1 size-8 flex justify-center items-center rounded-full"
+        className="cursor-pointer p-1 size-8 flex justify-center items-center rounded-full hover:bg-muted/20 border-muted/40"
         handleClick={() => {
           signIn("google");
         }}
         icon={
-          <img
-            src={"/assets/icons/google.svg"}
-            className="size-4 object-contain"
-          />
+          <img src={"/assets/icons/google.svg"} className="object-contain" />
         }
       />
 
       <CustomButton
         title=""
         variant="outline"
-        className="cursor-pointer p-1 size-8 flex justify-center items-center rounded-full"
+        className="cursor-pointer p-1 size-8 flex justify-center items-center rounded-full hover:bg-muted/20 border-muted/40"
         handleClick={() => {
           signIn("github");
         }}
         icon={
-          <img
-            src={"/assets/icons/github.svg"}
-            className="size-4 object-contain"
-          ></img>
+          <img src={"/assets/icons/github.svg"} className="object-contain" />
         }
       />
     </div>

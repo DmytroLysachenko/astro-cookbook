@@ -81,7 +81,7 @@ import Image from "astro/components/Image.astro";
 
 # 🍚 Risotto ai Funghi
 
-<RecipeRating slug={frontmatter.slug} />
+<RecipeRating server:defer id={frontmatter.id} />
 
 ## Introduction
 
@@ -130,7 +130,7 @@ Stir in the cooked mushrooms and **grated Parmesan cheese**. Season with **salt 
 
 Serve the risotto hot, garnished with **extra Parmesan** and **chopped parsley**.
 
-## 🍽 Final Thoughts
+## Final Thoughts
 
 Risotto ai Funghi is a **creamy and comforting dish** that’s perfect for a cozy dinner. The combination of **mushrooms, Parmesan, and Arborio rice** creates a rich and flavorful meal that’s sure to impress. Enjoy this classic Italian dish with your family and friends!
 

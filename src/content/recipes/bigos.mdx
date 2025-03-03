@@ -81,7 +81,7 @@ import Image from "astro/components/Image.astro";
 
 # 🍲 Bigos (Polish Hunter's Stew)
 
-<RecipeRating slug={frontmatter.slug} />
+<RecipeRating server:defer id={frontmatter.id} />
 
 ## Introduction
 
@@ -124,7 +124,7 @@ Add the **sauerkraut, tomato paste, dried mushrooms, bay leaf, allspice, salt, a
 
 Serve the Bigos hot with **rye bread** or **mashed potatoes**.
 
-## 🍽 Final Thoughts
+## Final Thoughts
 
 Bigos is a **hearty and flavorful stew** that’s perfect for cold winter days. The combination of **sauerkraut, fresh cabbage, and a variety of meats** creates a rich and satisfying dish. Enjoy this traditional Polish stew with your family and friends!
 

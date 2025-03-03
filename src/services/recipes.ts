@@ -1,5 +1,6 @@
 import { db } from "@/db";
 import { recipes } from "@/db/schema/recipes";
+import { users } from "@/db/schema/users";
 import {
   eq,
   inArray,
@@ -7,20 +8,26 @@ import {
   type InferSelectModel,
 } from "drizzle-orm";
 
-//TODO: Add error handling for using services from here.
-
 export type TRecipeData = InferSelectModel<typeof recipes>;
 type TCreateRecipeData = InferInsertModel<typeof recipes>;
 type TUpdateRecipeData = Partial<TCreateRecipeData>;
 
-export const getRecipe = async (id: string) => {
+export const getRecipeDataById = async (id: string) => {
   try {
-    const recipe = await db.select().from(recipes).where(eq(recipes.id, id));
+    const recipe = await db
+      .select({
+        name: users.name,
+        rating: recipes.rating,
+        ratingCount: recipes.ratingCount,
+        views: recipes.views,
+      })
+      .from(recipes)
+      .where(eq(recipes.id, id))
+      .leftJoin(users, eq(recipes.createdBy, users.id));
 
-    return recipe[0] ?? null;
+    return recipe[0];
   } catch (error) {
     console.error(error);
-    return null;
   }
 };
 
@@ -39,7 +46,6 @@ export const getRecipesRatingDataByIdArray = async (idsArray: string[]) => {
     return fetchedRecipes ?? null;
   } catch (error) {
     console.error(error);
-    return [];
   }
 };
 
@@ -50,7 +56,6 @@ export const getAllRecipes = async () => {
     return allRecipes ?? null;
   } catch (error) {
     console.error(error);
-    return [];
   }
 };
 
@@ -61,7 +66,6 @@ export const createRecipe = async (recipeData: TCreateRecipeData) => {
     return user;
   } catch (error) {
     console.error(error);
-    return null;
   }
 };
 
@@ -78,6 +82,35 @@ export const updateRecipe = async (
     return updatedUser;
   } catch (error) {
     console.error(error);
-    return null;
+  }
+};
+
+export const viewRecipeById = async (id: string) => {
+  try {
+    const recipeViews = await db
+      .select({
+        views: recipes.views,
+      })
+      .from(recipes)
+      .where(eq(recipes.id, id))
+      .then((recipe) => recipe[0].views);
+
+    if (recipeViews === null) {
+      throw new Error("Recipe not found");
+    }
+
+    const updatedRecipe = await db
+      .update(recipes)
+      .set({ views: recipeViews + 1 })
+      .where(eq(recipes.id, id))
+      .returning({
+        id: recipes.id,
+        views: recipes.views,
+      })
+      .then((recipe) => recipe[0]);
+
+    return updatedRecipe;
+  } catch (error) {
+    console.error(error);
   }
 };

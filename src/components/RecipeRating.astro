@@ -1,12 +1,16 @@
 ---
-// RecipeRating.astro (SSR Astro Island)
-// import { fetchRecipeStats } from "@services/recipes"; // Function to fetch from DB
+import { getRecipeDataById } from "@services/recipes"; // Function to fetch from DB
 
-// const { slug } = Astro.props;
-// const { rating, views } = await fetchRecipeStats(slug);
+const { id } = Astro.props;
+
+const recipe = await getRecipeDataById(id);
+
+const { name, rating, ratingCount, views } = recipe ?? {};
 ---
 
 <section>
-  <p>⭐ <strong>Rating:</strong> {4} / 5</p>
-  <p>👀 <strong>Views:</strong> {10}</p>
+  <p>👤 <strong>Author:</strong> {name}</p>
+  <p>⭐ <strong>Rating:</strong> {rating} / 5</p>
+  <p>⭐ <strong>Rating Count:</strong> {ratingCount}</p>
+  <p>👀 <strong>Views:</strong> {views}</p>
 </section>

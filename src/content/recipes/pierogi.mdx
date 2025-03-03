@@ -76,8 +76,7 @@ import Image from "astro/components/Image.astro";
 
 # 🥟 Pierogi (Polish Dumplings)
 
-<RecipeRating slug={frontmatter.slug} />
-
+<RecipeRating server:defer id={frontmatter.id} />
 ## Introduction
 
 Pierogi are **traditional Polish dumplings** that can be filled with a variety of ingredients, such as potatoes, cheese, or meat. They are **boiled and then fried** for a crispy exterior, and are often served with **sour cream** or **fried onions**. Pierogi are a **comfort food** that’s perfect for any occasion.
@@ -125,7 +124,7 @@ Heat **butter** in a pan and fry the boiled pierogi until golden brown on both s
 
 Serve the pierogi hot with **sour cream** and **fried onions**.
 
-## 🍽 Final Thoughts
+## Final Thoughts
 
 Pierogi are a **delicious and comforting dish** that’s perfect for any occasion. The combination of **soft dough and flavorful filling** makes this dish a favorite among Polish cuisine lovers. Enjoy this traditional dish with your family and friends!
 

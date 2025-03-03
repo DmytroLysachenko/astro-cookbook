@@ -3,25 +3,27 @@ import StarRating from "./StarRating.astro";
 import { capitalize } from "@/lib/utils";
 import type { TRecipeData } from "@/services/recipes";
 import type { TRecipeCollectionData } from "@/types";
+import Image from "astro/components/Image.astro";
 
 const { recipe, ratingData: { rating, ratingCount } = {} } = Astro.props as {
   recipe: TRecipeCollectionData;
   ratingData?: TRecipeData;
 };
-
-console.log(rating, ratingCount);
 ---
 
 <div class="card">
-  <div class="relative">
-    <a href={`/recipes/${recipe.id}`}>
-      <img
-        src={recipe.mainImage || "/placeholder.svg?height=250&width=400"}
-        alt={recipe.title}
-        class="w-full h-48 object-cover"
-      />
-    </a>
-  </div>
+  <a
+    href={`/recipes/${recipe.id}`}
+    class="rounded-lg overflow-hidden block"
+  >
+    <Image
+      src={recipe.mainImage || "/placeholder.svg?height=250&width=400"}
+      alt={recipe.title}
+      width={400}
+      height={250}
+      class="w-full h-48 object-cover"
+    />
+  </a>
 
   <div class="p-4">
     <div class="text-sm uppercase font-medium text-gray-500 mb-1">

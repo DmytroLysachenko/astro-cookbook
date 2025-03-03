@@ -31,6 +31,5 @@ export const getIngredientsByIdArray = async (ingredientsList: number[]) => {
     return allIngredients ?? [];
   } catch (error) {
     console.error(error);
-    return [];
   }
 };

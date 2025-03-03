@@ -38,7 +38,7 @@ const per100g = calculateNutritionFacts(ingredients, fullIngredientsData);
     per100g.cholesterol > 0 && (
       <tr>
         <td>Cholesterol</td>
-        <td>{per100g.cholesterol * 1000} mg</td>
+        <td>{(per100g.cholesterol * 1000).toFixed(2)} mg</td>
       </tr>
     )
   }
@@ -46,7 +46,7 @@ const per100g = calculateNutritionFacts(ingredients, fullIngredientsData);
     per100g.sodium > 0 && (
       <tr>
         <td>Sodium</td>
-        <td>{per100g.sodium * 1000} mg</td>
+        <td>{(per100g.sodium * 1000).toFixed(2)} mg</td>
       </tr>
     )
   }
