@@ -1,7 +1,7 @@
 ---
-id: "0b37e7c7-301c-454e-b6c8-8b76e00a52f2"
+id: "74b156ec-92de-429b-b5b4-1738e3e040ac"
 title: "Bigos (Polish Hunter's Stew)"
-mainImage: "https://www.example.com/bigos.jpg"
+mainImage: "https://media.istockphoto.com/id/2197266256/pl/zdj%C4%99cie/bigos-traditional-polish-food.webp?s=2048x2048&w=is&k=20&c=REPhFUpU1x0uyRJHiKwhMilpgpsyo7yj7AdNK71XZS8="
 description: "A hearty Polish stew made with sauerkraut, fresh cabbage, and a variety of meats, simmered to perfection."
 cookingTime: 120 # in minutes
 portions: 6
@@ -66,11 +66,18 @@ ingredients:
 ---
 
 import IngredientsList from "../../components/IngredientsList.astro";
-import CookingStep from "../../components/react/CookingStep.tsx";
+import CookingStep from "../../components/CookingStep.astro";
 import NutritionFacts from "../../components/NutritionFacts.astro";
 import RecipeRating from "../../components/RecipeRating.astro";
+import Image from "astro/components/Image.astro";
 
-<img src={frontmatter.mainImage} alt={frontmatter.title} />
+<Image
+  src={frontmatter.mainImage}
+  alt={frontmatter.title}
+  class="w-full"
+  width={400}
+  height={400}
+/>
 
 # 🍲 Bigos (Polish Hunter's Stew)
 

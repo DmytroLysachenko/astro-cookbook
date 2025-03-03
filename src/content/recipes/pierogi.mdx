@@ -1,7 +1,7 @@
 ---
 id: "c2317344-9332-44c7-9e4e-52dbea27a0e7"
 title: "Pierogi (Polish Dumplings)"
-mainImage: "https://www.example.com/pierogi.jpg"
+mainImage: "https://media.istockphoto.com/id/2154572322/pl/zdj%C4%99cie/typowo-polskie-danie-z-pierogami-ziemniaczano-serowymi-ze-%C5%9Bmietan%C4%85.jpg?s=2048x2048&w=is&k=20&c=bnzgW-sjOFhHiYBvUVRX00M76FF2zXmEtKwbFaAah-0="
 description: "Traditional Polish dumplings filled with a variety of ingredients, such as potatoes, cheese, or meat, and served with sour cream."
 cookingTime: 90 # in minutes
 portions: 4
@@ -61,11 +61,18 @@ ingredients:
 ---
 
 import IngredientsList from "../../components/IngredientsList.astro";
-import CookingStep from "../../components/react/CookingStep.tsx";
+import CookingStep from "../../components/CookingStep.astro";
 import NutritionFacts from "../../components/NutritionFacts.astro";
 import RecipeRating from "../../components/RecipeRating.astro";
+import Image from "astro/components/Image.astro";
 
-<img src={frontmatter.mainImage} alt={frontmatter.title} />
+<Image
+  src={frontmatter.mainImage}
+  alt={frontmatter.title}
+  class="w-full"
+  width={400}
+  height={400}
+/>
 
 # 🥟 Pierogi (Polish Dumplings)
 

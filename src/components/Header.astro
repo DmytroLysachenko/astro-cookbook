@@ -1,4 +1,5 @@
 ---
+import Image from "astro/components/Image.astro";
 import { headerLinks, SITE_TITLE } from "../constants";
 import Navigation from "./Navigation.astro";
 
@@ -12,14 +13,17 @@ const session = await getSession(Astro.request);
   <div class="container grid grid-cols-3 py-4">
     <a
       href="/"
-      class="font-bold text-center text-sm flex justify-center items-center w-fit gap-1"
+      class="font-semibold bg-transparent text-center text-sm flex justify-center items-center w-fit gap-1"
       >{SITE_TITLE}
-      <img
+
+      <Image
         src="/assets/logo-no-bg.png"
         alt="logo"
+        width={32}
+        height={32}
         class="size-6"
-      /></a
-    >
+      />
+    </a>
 
     <Navigation
       links={headerLinks}

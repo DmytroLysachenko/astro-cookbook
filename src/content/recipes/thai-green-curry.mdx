@@ -1,7 +1,7 @@
 ---
 id: "995c78da-f933-48cf-897a-ff2ac35bbfe3"
 title: "Thai Green Curry with Chicken"
-mainImage: "https://www.example.com/thai-green-curry.jpg"
+mainImage: "https://media.istockphoto.com/id/1267610826/pl/zdj%C4%99cie/s%C5%82ynny-znany-na-ca%C5%82ym-%C5%9Bwiecie-tajski-zielony-curry-kokosowe-gaeng-keow-wan-gai-z-kurczakiem.webp?s=2048x2048&w=is&k=20&c=-INVv0mZ6XqXBHL-IXZLRf3zrc-K7Uuz0hzCM7VpAdQ="
 description: "A fragrant and spicy Thai curry made with green curry paste, coconut milk, and tender chicken, served with jasmine rice."
 cookingTime: 40 # in minutes
 portions: 4
@@ -61,11 +61,18 @@ ingredients:
 ---
 
 import IngredientsList from "../../components/IngredientsList.astro";
-import CookingStep from "../../components/react/CookingStep.tsx";
+import CookingStep from "../../components/CookingStep.astro";
 import NutritionFacts from "../../components/NutritionFacts.astro";
 import RecipeRating from "../../components/RecipeRating.astro";
+import Image from "astro/components/Image.astro";
 
-<img src={frontmatter.mainImage} alt={frontmatter.title} />
+<Image
+  src={frontmatter.mainImage}
+  alt={frontmatter.title}
+  class="w-full"
+  width={400}
+  height={400}
+/>
 
 # 🍛 Thai Green Curry with Chicken
 

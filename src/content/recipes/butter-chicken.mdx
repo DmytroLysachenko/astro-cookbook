@@ -1,7 +1,7 @@
 ---
 id: "6f34ae54-7803-437a-b0cf-6150961d71d9"
 title: "Butter Chicken (Murgh Makhani)"
-mainImage: "https://www.example.com/butter-chicken.jpg"
+mainImage: "https://media.istockphoto.com/id/1344307349/pl/zdj%C4%99cie/indyjskie-curry-z-kurczaka-z-chlebem-naan-i-poppadum.webp?s=2048x2048&w=is&k=20&c=VWBhpXqGFJeB4dIffBkV4g1PMVKyplFYW3SSTEurLck="
 description: "A rich and creamy Indian dish featuring tender chicken in a spiced tomato and butter sauce, served with naan or rice."
 cookingTime: 60 # in minutes
 portions: 4
@@ -71,11 +71,18 @@ ingredients:
 ---
 
 import IngredientsList from "../../components/IngredientsList.astro";
-import CookingStep from "../../components/react/CookingStep.tsx";
+import CookingStep from "../../components/CookingStep.astro";
 import NutritionFacts from "../../components/NutritionFacts.astro";
 import RecipeRating from "../../components/RecipeRating.astro";
+import Image from "astro/components/Image.astro";
 
-<img src={frontmatter.mainImage} alt={frontmatter.title} />
+<Image
+  src={frontmatter.mainImage}
+  alt={frontmatter.title}
+  class="w-full"
+  width={400}
+  height={400}
+/>
 
 # 🍗 Butter Chicken (Murgh Makhani)
 

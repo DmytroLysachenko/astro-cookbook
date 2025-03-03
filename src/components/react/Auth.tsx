@@ -54,9 +54,9 @@ const Auth = ({ user }: { user?: User }) => {
         }}
         icon={
           <img
-            src={"/icons/google.svg"}
+            src={"/assets/icons/google.svg"}
             className="size-4 object-contain"
-          ></img>
+          />
         }
       />
 
@@ -69,7 +69,7 @@ const Auth = ({ user }: { user?: User }) => {
         }}
         icon={
           <img
-            src={"/icons/github.svg"}
+            src={"/assets/icons/github.svg"}
             className="size-4 object-contain"
           ></img>
         }

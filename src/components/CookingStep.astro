@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+
+type CookingAction =
+  | "blending"
+  | "boiling"
+  | "cutting"
+  | "deep-frying"
+  | "frying"
+  | "grating"
+  | "grilling"
+  | "grounding"
+  | "microwave"
+  | "mixing"
+  | "multicooker"
+  | "oven"
+  | "seasoning"
+  | "steaming"
+  | "stewing"
+  | "stirring"
+  | "tendering"
+  | "wait"
+  | "wok";
+
+interface CookingStepProps {
+  action: CookingAction; // Use the type here
+  variant?: number; // Optional variant number for the image (e.g., 2, 3, etc.)
+  className?: string; // Optional className for custom styling
+}
+
+const { action, variant, className } = Astro.props as CookingStepProps;
+
+// Construct the image name based on the action and variant
+const imageName = variant ? `${action}-${variant}.jpg` : `${action}.jpg`;
+const imagePath = `/assets/steps/${imageName}`;
+---
+
+<div class={className ?? ""}>
+  <Image
+    src={imagePath}
+    alt={`${action} step`}
+    width={1000}
+    height={1000}
+    class="w-full lg:w-[50%] h-auto"
+  />
+</div>

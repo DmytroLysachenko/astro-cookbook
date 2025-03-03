@@ -10,8 +10,11 @@ const handleClick = () => console.log("clicked");
 const recipes = await getCollection("recipe");
 ---
 
-<BaseLayout>
-  <section class="container section-lg text-center py-12 md:py-24">
+<BaseLayout
+  title="Cooking Spot"
+  description="Cooking site with best recipes"
+>
+  <section class="container text-center py-20 md:py-28">
     <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
       Discover Delicious <span class="text-amber-500">Recipes</span>
     </h1>
@@ -26,11 +29,13 @@ const recipes = await getCollection("recipe");
       <CustomButton
         title="Get Started"
         handleClick={handleClick}
+        isLink
+        href="/recipes"
         client:visible
       />
 
       <a
-        href="/recipes"
+        href="/about"
         class="text-sm font-semibold leading-6 text-muted-foreground"
       >
         Learn more <span aria-hidden="true">→</span>

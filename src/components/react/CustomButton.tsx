@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 
 type TSize = "default" | "sm" | "lg" | "icon";
 type TVariant = "default" | "destructive" | "outline" | "secondary" | "ghost";
+
 interface ButtonProps {
   title: string;
   handleClick: () => void;
@@ -12,6 +13,8 @@ interface ButtonProps {
   className?: string;
   variant?: TVariant;
   size?: TSize;
+  isLink?: boolean;
+  href?: string;
 }
 
 const CustomButton = ({
@@ -21,6 +24,8 @@ const CustomButton = ({
   isIconLeft,
   variant = "default",
   size = "default",
+  isLink,
+  href,
   ...props
 }: ButtonProps) => {
   return (
@@ -29,11 +34,22 @@ const CustomButton = ({
       className={cn("cursor-pointer", props.className)}
       variant={variant}
       size={size}
+      asChild={isLink}
       {...props}
     >
-      {isIconLeft && icon}
-      {title}
-      {!isIconLeft && icon}
+      {isLink ? (
+        <a href={href}>
+          {isIconLeft && icon}
+          {title}
+          {!isIconLeft && icon}
+        </a>
+      ) : (
+        <>
+          {isIconLeft && icon}
+          {title}
+          {!isIconLeft && icon}
+        </>
+      )}
     </Button>
   );
 };

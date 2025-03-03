@@ -48,7 +48,7 @@ const CookingStep: React.FC<StepStepProps> = ({
 
   return (
     <div className={`step-image ${className || ""}`}>
-      <img src={imagePath} alt={`${action} step`} onError={handleImageError} />
+      <img src={imagePath} alt={`${action} step`} />
     </div>
   );
 };

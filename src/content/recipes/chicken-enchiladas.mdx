@@ -1,7 +1,7 @@
 ---
 id: "1bcc33e7-c4aa-4e16-af5e-4a3ef938c93f"
 title: "Chicken Enchiladas"
-mainImage: "https://www.example.com/chicken-enchiladas.jpg"
+mainImage: "https://media.istockphoto.com/id/2011687231/pl/zdj%C4%99cie/zielone-enchiladas-domowe-meksyka%C5%84skie-jedzenie.webp?s=2048x2048&w=is&k=20&c=fV42Ezd1hRQk3KqsC0tuPg0Uu2qnaDmsc7KEBvc0r8Y="
 description: "A classic Mexican dish featuring shredded chicken wrapped in corn tortillas, topped with enchilada sauce and melted cheese."
 cookingTime: 45 # in minutes
 portions: 4
@@ -61,11 +61,18 @@ ingredients:
 ---
 
 import IngredientsList from "../../components/IngredientsList.astro";
-import CookingStep from "../../components/react/CookingStep.tsx";
+import CookingStep from "../../components/CookingStep.astro";
 import NutritionFacts from "../../components/NutritionFacts.astro";
 import RecipeRating from "../../components/RecipeRating.astro";
+import Image from "astro/components/Image.astro";
 
-<img src={frontmatter.mainImage} alt={frontmatter.title} />
+<Image
+  src={frontmatter.mainImage}
+  alt={frontmatter.title}
+  class="w-full"
+  width={400}
+  height={400}
+/>
 
 # 🌮 Chicken Enchiladas
 

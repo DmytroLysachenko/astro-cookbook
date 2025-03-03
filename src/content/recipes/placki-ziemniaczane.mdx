@@ -1,7 +1,7 @@
 ---
 id: "0b37e7c7-301c-454e-b6c8-8b76e00a52f2"
 title: "Placki Ziemniaczane (Polish Potato Pancakes)"
-mainImage: "https://www.example.com/placki-ziemniaczane.jpg"
+mainImage: "https://media.istockphoto.com/id/1253979469/pl/zdj%C4%99cie/placki-ziemniaczane-z-zielon%C4%85-cebul%C4%85-draniki-placki-ziemniaczane-naitonal-danie-bia%C5%82orusi.webp?s=2048x2048&w=is&k=20&c=4qTCjULpCpE4_Rh1o9IIAbMuw_4xMq44xCV7pAioFRQ="
 description: "Crispy Polish potato pancakes made with grated potatoes, onions, and flour, served with sour cream or applesauce."
 cookingTime: 30 # in minutes
 portions: 4
@@ -51,11 +51,18 @@ ingredients:
 ---
 
 import IngredientsList from "../../components/IngredientsList.astro";
-import CookingStep from "../../components/react/CookingStep.tsx";
+import CookingStep from "../../components/CookingStep.astro";
 import NutritionFacts from "../../components/NutritionFacts.astro";
 import RecipeRating from "../../components/RecipeRating.astro";
+import Image from "astro/components/Image.astro";
 
-<img src={frontmatter.mainImage} alt={frontmatter.title} />
+<Image
+  src={frontmatter.mainImage}
+  alt={frontmatter.title}
+  class="w-full"
+  width={400}
+  height={400}
+/>
 
 # 🥔 Placki Ziemniaczane (Polish Potato Pancakes)
 
