@@ -71,18 +71,6 @@ import NutritionFacts from "../../components/NutritionFacts.astro";
 import RecipeRating from "../../components/RecipeRating.astro";
 import Image from "astro/components/Image.astro";
 
-<Image
-  src={frontmatter.mainImage}
-  alt={frontmatter.title}
-  class="w-full"
-  width={400}
-  height={400}
-/>
-
-# 🍲 Bigos (Polish Hunter's Stew)
-
-<RecipeRating server:defer id={frontmatter.id} />
-
 ## Introduction
 
 Bigos, also known as **Polish Hunter's Stew**, is a **hearty and flavorful dish** made with sauerkraut, fresh cabbage, and a variety of meats. This stew is **slow-cooked** to perfection, allowing the flavors to meld together. Bigos is a **traditional Polish dish** that’s perfect for cold winter days.

@@ -3,7 +3,8 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import { render } from "astro:content";
-import { viewRecipeById } from "@/services/recipes";
+import RecipeRating from "@/components/RecipeRating.astro";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
   const recipes = await getCollection("recipe");
@@ -31,7 +32,7 @@ const {
   ingridients,
 } = recipe.data;
 
-const [{ Content }] = await Promise.all([render(recipe), viewRecipeById(id)]);
+const { Content } = await render(recipe);
 ---
 
 <BaseLayout
@@ -39,7 +40,22 @@ const [{ Content }] = await Promise.all([render(recipe), viewRecipeById(id)]);
   description={description}
   image={mainImage}
 >
-  <section class="content">
+  <div class="content">
+    <Image
+      src={mainImage}
+      alt={title}
+      class="w-full"
+      width={400}
+      height={400}
+    />
+
+    <h1>{title}</h1>
+
+    <RecipeRating
+      server:defer
+      id={id}
+    />
+
     <Content />
-  </section>
+  </div>
 </BaseLayout>

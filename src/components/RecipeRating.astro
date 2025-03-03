@@ -1,16 +1,39 @@
 ---
-import { getRecipeDataById } from "@services/recipes"; // Function to fetch from DB
+import { getRecipeDataById, viewRecipeById } from "@services/recipes"; // Function to fetch from DB
+import { getSession } from "auth-astro/server";
+import RateRecipe from "./RateRecipe.astro";
+import { getUser } from "@/services/auth";
 
 const { id } = Astro.props;
 
+await viewRecipeById(id);
+
 const recipe = await getRecipeDataById(id);
+
+const session = await getSession(Astro.request);
+
+let user = null;
+
+if (session && session.user && session.user.email) {
+  user = await getUser(session.user.email);
+}
 
 const { name, rating, ratingCount, views } = recipe ?? {};
 ---
 
 <section>
   <p>👤 <strong>Author:</strong> {name}</p>
-  <p>⭐ <strong>Rating:</strong> {rating} / 5</p>
-  <p>⭐ <strong>Rating Count:</strong> {ratingCount}</p>
+  <p>⭐ <strong>Rating:</strong> {rating} / 5 ⭐</p>
+  <p>👥 <strong>Rating Count:</strong> {ratingCount}</p>
   <p>👀 <strong>Views:</strong> {views}</p>
+
+  {
+    user && (
+      <RateRecipe
+        recipeId={id}
+        userId={user.id}
+        rating={rating}
+      />
+    )
+  }
 </section>

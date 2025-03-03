@@ -8,8 +8,6 @@ const { recipes } = Astro.props as { recipes: TRecipeCollectionEntry[] };
 const recipesIds = recipes.map((recipe) => recipe.data.id);
 
 const recipesRatingData = await getRecipesRatingDataByIdArray(recipesIds);
-
-console.log(recipesRatingData);
 ---
 
 <div class="grid-responsive">

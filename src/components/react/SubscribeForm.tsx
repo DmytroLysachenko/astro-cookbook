@@ -7,6 +7,7 @@ const SubscribeForm = () => {
       <Input type="email" placeholder="Enter your email" />
       <CustomButton
         title="Subscribe"
+        variant="secondary"
         handleClick={() => {
           console.log("Subscribed");
         }}

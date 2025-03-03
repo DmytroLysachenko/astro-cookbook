@@ -28,10 +28,10 @@ const {
         <div>
           <a
             href={buildFilterUrl("/recipes", {
-              [paramKey]: option.value,
               sort: currentSort,
               category: currentCategory,
               cuisine: currentCuisine,
+              [paramKey]: option.value,
             })}
             class={`block px-3 py-2 rounded ${
               currentValue === option.value

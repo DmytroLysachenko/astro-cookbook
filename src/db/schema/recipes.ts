@@ -1,6 +1,5 @@
 import {
   pgTable,
-  text,
   integer,
   timestamp,
   numeric,
@@ -13,7 +12,6 @@ export const recipes = pgTable("recipes", {
   id: uuid("id")
     .primaryKey()
     .default(sql`gen_random_uuid()`), // Recipe ID as UUID
-  slug: text("slug").unique().notNull(), // Unique slug for URL
   createdBy: uuid("created_by").references(() => users.id, {
     onDelete: "cascade",
   }), // User who created the recipe (foreign key with cascade)

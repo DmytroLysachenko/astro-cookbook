@@ -142,5 +142,7 @@ export const buildFilterUrl = (
   });
 
   const queryString = searchParams.toString();
+
+  console.log(queryString);
   return queryString ? `${path}?${queryString}` : path;
 };

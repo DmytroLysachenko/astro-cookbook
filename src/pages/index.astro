@@ -16,7 +16,7 @@ const recipes = await getCollection("recipe");
 >
   <section class="container text-center py-20 md:py-28">
     <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-      Discover Delicious <span class="text-amber-500">Recipes</span>
+      Discover Delicious <span class="text-secondary">Recipes</span>
     </h1>
 
     <p class="mt-6 text-xl text-muted-foreground max-w-prose mx-auto">
@@ -27,6 +27,7 @@ const recipes = await getCollection("recipe");
 
     <div class="mt-10 flex items-center justify-center gap-x-6">
       <CustomButton
+        variant="secondary"
         title="Get Started"
         handleClick={handleClick}
         isLink
@@ -36,7 +37,7 @@ const recipes = await getCollection("recipe");
 
       <a
         href="/about"
-        class="text-sm font-semibold leading-6 text-muted-foreground"
+        class="text-sm font-semibold leading-6 text-muted-foreground hover:text-primary transition-all"
       >
         Learn more <span aria-hidden="true">→</span>
       </a>
