@@ -6,10 +6,14 @@ import { users } from "@/db/schema/users";
 import { recipes } from "@/db/schema/recipes";
 import { rates } from "@/db/schema/rates";
 
-export const post: APIRoute = async ({ request }) => {
-  const { userId, recipeId, rate } = await request.json();
-  console.log(userId, recipeId, rate);
+export const prerender = false;
+
+export const POST: APIRoute = async ({ request }) => {
   try {
+    const { userId, recipeId, rating: rate } = await request.json();
+
+    console.log(userId, recipeId, rate);
+
     const [user, recipe, previousRate] = await Promise.all([
       db
         .select()
@@ -39,10 +43,12 @@ export const post: APIRoute = async ({ request }) => {
     }
 
     if (previousRate) {
-      await db
+      const response = await db
         .update(rates)
         .set({ rate })
         .where(and(eq(rates.userId, userId), eq(rates.recipeId, recipeId)));
+
+      console.log(response);
     } else {
       await db.insert(rates).values({
         userId,

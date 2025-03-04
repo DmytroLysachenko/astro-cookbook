@@ -16,6 +16,7 @@ export const getRecipeDataById = async (id: string) => {
   try {
     const recipe = await db
       .select({
+        id: recipes.id,
         name: users.name,
         rating: recipes.rating,
         ratingCount: recipes.ratingCount,

@@ -1,8 +1,11 @@
 ---
 import { getRecipeDataById, viewRecipeById } from "@services/recipes"; // Function to fetch from DB
 import { getSession } from "auth-astro/server";
-import RateRecipe from "./RateRecipe.astro";
+import RateRecipe from "./react/RateRecipe";
 import { getUser } from "@/services/auth";
+import { db } from "@/db";
+import { rates } from "@/db/schema/rates";
+import { and, eq } from "drizzle-orm";
 
 const { id } = Astro.props;
 
@@ -19,6 +22,16 @@ if (session && session.user && session.user.email) {
 }
 
 const { name, rating, ratingCount, views } = recipe ?? {};
+
+let userRating = 0;
+if (user && user.id) {
+  userRating =
+    (await db
+      .select()
+      .from(rates)
+      .where(and(eq(rates.recipeId, id), eq(rates.userId, user.id)))
+      .then((rate) => rate[0]?.rate)) ?? 0;
+}
 ---
 
 <section>
@@ -30,9 +43,10 @@ const { name, rating, ratingCount, views } = recipe ?? {};
   {
     user && (
       <RateRecipe
+        client:only="react"
         recipeId={id}
         userId={user.id}
-        rating={rating}
+        initialRating={userRating}
       />
     )
   }
