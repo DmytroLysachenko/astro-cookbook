@@ -1,7 +1,10 @@
 import { db } from "@/db";
+import { rates } from "@/db/schema/rates";
 import { recipes } from "@/db/schema/recipes";
 import { users } from "@/db/schema/users";
 import {
+  avg,
+  count,
   eq,
   inArray,
   type InferInsertModel,
@@ -18,13 +21,15 @@ export const getRecipeDataById = async (id: string) => {
       .select({
         id: recipes.id,
         name: users.name,
-        rating: recipes.rating,
-        ratingCount: recipes.ratingCount,
+        rating: avg(rates.rate).mapWith(Number),
+        ratingCount: count(rates.recipeId).mapWith(Number),
         views: recipes.views,
       })
       .from(recipes)
       .where(eq(recipes.id, id))
-      .leftJoin(users, eq(recipes.createdBy, users.id));
+      .leftJoin(users, eq(recipes.createdBy, users.id))
+      .leftJoin(rates, eq(recipes.id, rates.recipeId))
+      .groupBy(recipes.id, users.id);
 
     return recipe[0];
   } catch (error) {
@@ -37,12 +42,14 @@ export const getRecipesRatingDataByIdArray = async (idsArray: string[]) => {
     const fetchedRecipes = await db
       .select({
         id: recipes.id,
-        rating: recipes.rating,
-        ratingCount: recipes.ratingCount,
+        rating: avg(rates.rate).mapWith(Number),
+        ratingCount: count(rates.recipeId).mapWith(Number),
         view: recipes.views,
       })
       .from(recipes)
-      .where(inArray(recipes.id, idsArray));
+      .where(inArray(recipes.id, idsArray))
+      .leftJoin(rates, eq(recipes.id, rates.recipeId))
+      .groupBy(recipes.id);
 
     return fetchedRecipes ?? null;
   } catch (error) {

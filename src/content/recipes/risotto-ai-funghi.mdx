@@ -69,19 +69,6 @@ import IngredientsList from "../../components/IngredientsList.astro";
 import CookingStep from "../../components/CookingStep.astro";
 import NutritionFacts from "../../components/NutritionFacts.astro";
 import RecipeRating from "../../components/RecipeRating.astro";
-import Image from "astro/components/Image.astro";
-
-<Image
-  src={frontmatter.mainImage}
-  alt={frontmatter.title}
-  class="w-full"
-  width={400}
-  height={400}
-/>
-
-# 🍚 Risotto ai Funghi
-
-<RecipeRating server:defer id={frontmatter.id} />
 
 ## Introduction
 

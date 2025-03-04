@@ -1,14 +1,14 @@
 ---
 import StarRating from "./StarRating.astro";
 import { capitalize } from "@/lib/utils";
-import type { TRecipeData } from "@/services/recipes";
 import type { TRecipeCollectionData } from "@/types";
 import Image from "astro/components/Image.astro";
 
-const { recipe, ratingData: { rating, ratingCount } = {} } = Astro.props as {
-  recipe: TRecipeCollectionData;
-  ratingData?: TRecipeData;
-};
+const { recipe, ratingData: { rating = 0, ratingCount = 0 } = {} } =
+  Astro.props as {
+    recipe: TRecipeCollectionData;
+    ratingData?: { rating: number; ratingCount: number };
+  };
 ---
 
 <div class="card">
@@ -40,7 +40,7 @@ const { recipe, ratingData: { rating, ratingCount } = {} } = Astro.props as {
     </h2>
 
     <div class="flex items-center mb-2">
-      <StarRating rating={rating || 5} />
+      <StarRating rating={rating || 0} />
       <span class="ml-2 text-sm text-gray-600">{ratingCount} Ratings</span>
     </div>
 

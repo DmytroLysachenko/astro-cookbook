@@ -19,18 +19,7 @@ type Props = CollectionEntry<"recipe">;
 
 const recipe = Astro.props;
 
-const {
-  mainImage,
-  title,
-  description,
-  id,
-  cookingTime,
-  portions,
-  cuisine,
-  categories,
-  language,
-  ingridients,
-} = recipe.data;
+const { mainImage, title, description, id } = recipe.data;
 
 const { Content } = await render(recipe);
 ---

@@ -12,8 +12,6 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     const { userId, recipeId, rating: rate } = await request.json();
 
-    console.log(userId, recipeId, rate);
-
     const [user, recipe, previousRate] = await Promise.all([
       db
         .select()

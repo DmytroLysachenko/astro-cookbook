@@ -1,10 +1,4 @@
-import {
-  pgTable,
-  integer,
-  timestamp,
-  numeric,
-  uuid,
-} from "drizzle-orm/pg-core";
+import { pgTable, integer, timestamp, uuid } from "drizzle-orm/pg-core";
 import { users } from "./users";
 import { sql, type InferSelectModel } from "drizzle-orm";
 
@@ -17,9 +11,7 @@ export const recipes = pgTable("recipes", {
   }), // User who created the recipe (foreign key with cascade)
   createdAt: timestamp("created_at").defaultNow(), // Creation timestamp
   updatedAt: timestamp("updated_at").defaultNow(), // Last update timestamp
-  rating: numeric("rating", { precision: 3, scale: 2 }),
-  ratingCount: integer("rating_count").default(0),
-  views: integer("views").default(0),
+  views: integer("views").default(0).notNull(),
 });
 
 export type TRecipe = InferSelectModel<typeof recipes>;
