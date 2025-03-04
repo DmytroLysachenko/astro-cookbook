@@ -428,22 +428,23 @@ function createFolders(obj, currentPath) {
 // createFolders(steps, "./steps");
 
 // Function to generate AI prompts for images
-function generatePrompts(obj, currentPath, promptFilePath) {
+function generatePrompts(obj, currentPath, promptFilePath, action = "") {
   for (const key in obj) {
     const newPath = path.join(currentPath, key);
 
     if (typeof obj[key] === "object") {
       // Recursively generate prompts for nested objects
-      generatePrompts(obj[key], newPath, promptFilePath);
+      // Pass the current action or update it if this is a new action (e.g., cutting, boiling)
+      const newAction = action || key; // Use the current action if available, otherwise use the key
+      generatePrompts(obj[key], newPath, promptFilePath, newAction);
     } else {
       // Generate AI prompt for the image
-      const action = currentPath.split(path.sep).pop(); // Get the action (e.g., cutting, boiling)
       const subject = key.replace(".jpg", ""); // Get the subject (e.g., carrot, steak)
-      const prompt = `
-Image in WikiHow style displaying cooking action for reusing on cooking recipes website. 
-On the image, clearly visible [${action}] of [${subject}] in an environment suitable for this action. 
-The focus is on the general depiction of the [${action}] with [${subject}], rather than intricate details. 
-The picture should be highly reusable for different recipes on the website, so a more generalized and versatile image is preferred.
+      const prompt = `Image in WikiHow style, designed for cooking guidance on a recipes website. 
+The image should clearly depict the action of [${action}] with [${subject}], in a simple and clean kitchen environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
 `;
 
       // Append the prompt to the prompts file

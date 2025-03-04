@@ -1,0 +1,1674 @@
+AI Prompts for Cooking Images:
+
+File: public\assets\images\steps\cutting\vegetables\carrot/cutting-vegetables-carrot.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [carrot], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\vegetables\potato/cutting-vegetables-potato.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [potato], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\vegetables\tomato/cutting-vegetables-tomato.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [tomato], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\vegetables\cucumber/cutting-vegetables-cucumber.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [cucumber], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\vegetables\sweetPepper/cutting-vegetables-sweetPepper.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [sweetPepper], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\vegetables\eggplant/cutting-vegetables-eggplant.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [eggplant], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\vegetables\lettuce/cutting-vegetables-lettuce.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [lettuce], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\meat\red\chops/cutting-meat-red-chops.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [chops], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\meat\red\ribs/cutting-meat-red-ribs.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [ribs], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\meat\red\steak/cutting-meat-red-steak.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [steak], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\meat\poultry\drumsticks/cutting-meat-poultry-drumsticks.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [drumsticks], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\meat\poultry\wings/cutting-meat-poultry-wings.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [wings], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\meat\poultry\whole/cutting-meat-poultry-whole.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [whole], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\meat\poultry\breasts/cutting-meat-poultry-breasts.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [breasts], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\fish\red/cutting-fish-red.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [red], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\fish\white/cutting-fish-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\fish\crab/cutting-fish-crab.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [crab], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\fish\lobster/cutting-fish-lobster.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [lobster], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\fish\shrimps/cutting-fish-shrimps.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [shrimps], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\fish\calamari/cutting-fish-calamari.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [calamari], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\fruits\apple/cutting-fruits-apple.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [apple], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\fruits\pear/cutting-fruits-pear.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [pear], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\fruits\banana/cutting-fruits-banana.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [banana], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\fruits\citrus/cutting-fruits-citrus.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [citrus], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\fruits\berries\blueberry/cutting-fruits-berries-blueberry.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [blueberry], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\fruits\berries\raspberry/cutting-fruits-berries-raspberry.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [raspberry], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\fruits\berries\strawberry/cutting-fruits-berries-strawberry.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [strawberry], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\fruits\berries\blackberry/cutting-fruits-berries-blackberry.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [blackberry], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\fruits\pineapple/cutting-fruits-pineapple.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [pineapple], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\fruits\melon/cutting-fruits-melon.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [melon], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\fruits\peach/cutting-fruits-peach.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [peach], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\fruits\watermelon/cutting-fruits-watermelon.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [watermelon], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\cheese\yellow/cutting-cheese-yellow.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [yellow], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\cheese\white/cutting-cheese-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\bread\long/cutting-bread-long.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [long], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\bread\round/cutting-bread-round.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [round], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\cutting\bread\flat/cutting-bread-flat.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [cutting] with [flat], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\boiling\soup\red/boiling-soup-red.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [boiling] with [red], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\boiling\soup\white/boiling-soup-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [boiling] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\boiling\soup\clear/boiling-soup-clear.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [boiling] with [clear], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\boiling\pasta\long/boiling-pasta-long.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [boiling] with [long], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\boiling\pasta\short/boiling-pasta-short.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [boiling] with [short], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\boiling\pasta\stuffed/boiling-pasta-stuffed.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [boiling] with [stuffed], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\boiling\vegetables/boiling-vegetables.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [boiling] with [vegetables], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\boiling\grains/boiling-grains.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [boiling] with [grains], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\boiling\eggs/boiling-eggs.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [boiling] with [eggs], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\boiling\seafood\fish/boiling-seafood-fish.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [boiling] with [fish], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\boiling\seafood\shrimps/boiling-seafood-shrimps.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [boiling] with [shrimps], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\boiling\seafood\crab/boiling-seafood-crab.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [boiling] with [crab], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\boiling\seafood\mussels/boiling-seafood-mussels.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [boiling] with [mussels], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\boiling\dumplings/boiling-dumplings.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [boiling] with [dumplings], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\mixing\bowl\vegetables\salad/mixing-bowl-vegetables-salad.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [mixing] with [salad], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\mixing\bowl\vegetables\stirFry/mixing-bowl-vegetables-stirFry.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [mixing] with [stirFry], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\mixing\bowl\fruits\fruitSalad/mixing-bowl-fruits-fruitSalad.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [mixing] with [fruitSalad], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\mixing\bowl\fruits\smoothie/mixing-bowl-fruits-smoothie.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [mixing] with [smoothie], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\mixing\bowl\liquids\red/mixing-bowl-liquids-red.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [mixing] with [red], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\mixing\bowl\liquids\white/mixing-bowl-liquids-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [mixing] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\mixing\bowl\liquids\curry/mixing-bowl-liquids-curry.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [mixing] with [curry], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\mixing\bowl\liquids\broth/mixing-bowl-liquids-broth.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [mixing] with [broth], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\mixing\bowl\liquids\batter/mixing-bowl-liquids-batter.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [mixing] with [batter], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\mixing\bowl\liquids\marinade/mixing-bowl-liquids-marinade.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [mixing] with [marinade], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\mixing\dough\white/mixing-dough-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [mixing] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\mixing\dough\ryeDough/mixing-dough-ryeDough.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [mixing] with [ryeDough], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\mixing\dough\yellowDough/mixing-dough-yellowDough.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [mixing] with [yellowDough], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\mixing\mixer\white/mixing-mixer-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [mixing] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\mixing\mixer\red/mixing-mixer-red.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [mixing] with [red], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\mixing\mixer\green/mixing-mixer-green.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [mixing] with [green], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\mixing\mixer\curry/mixing-mixer-curry.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [mixing] with [curry], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\meat\red\steak/frying-pan-meat-red-steak.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [steak], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\meat\red\chops/frying-pan-meat-red-chops.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [chops], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\meat\red\ribs/frying-pan-meat-red-ribs.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [ribs], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\meat\red\cubes/frying-pan-meat-red-cubes.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [cubes], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\meat\poultry\cubes/frying-pan-meat-poultry-cubes.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [cubes], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\meat\poultry\breast/frying-pan-meat-poultry-breast.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [breast], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\meat\poultry\wings/frying-pan-meat-poultry-wings.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [wings], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\meat\poultry\drumsticks/frying-pan-meat-poultry-drumsticks.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [drumsticks], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\fish\white/frying-pan-fish-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\fish\red/frying-pan-fish-red.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [red], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\fish\crab/frying-pan-fish-crab.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [crab], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\fish\lobster/frying-pan-fish-lobster.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [lobster], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\fish\shrimps/frying-pan-fish-shrimps.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [shrimps], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\vegetables\onions/frying-pan-vegetables-onions.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [onions], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\vegetables\green/frying-pan-vegetables-green.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [green], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\vegetables\mushrooms/frying-pan-vegetables-mushrooms.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [mushrooms], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\vegetables\potatoes/frying-pan-vegetables-potatoes.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [potatoes], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\vegetables\carrots/frying-pan-vegetables-carrots.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [carrots], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\mix\vegetableMix/frying-pan-mix-vegetableMix.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [vegetableMix], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\mix\meatVegetables/frying-pan-mix-meatVegetables.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [meatVegetables], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\mix\chickenVegetables/frying-pan-mix-chickenVegetables.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [chickenVegetables], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\mix\fishVegetables/frying-pan-mix-fishVegetables.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [fishVegetables], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\eggs/frying-pan-eggs.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [eggs], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\pan\dumplings/frying-pan-dumplings.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [dumplings], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\deep\fish/frying-deep-fish.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [fish], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\deep\meat\poultry\wings/frying-deep-meat-poultry-wings.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [wings], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\deep\meat\poultry\nuggets/frying-deep-meat-poultry-nuggets.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [nuggets], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\deep\meat\poultry\breast/frying-deep-meat-poultry-breast.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [breast], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\deep\meat\red\chops/frying-deep-meat-red-chops.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [chops], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\deep\meat\red\belly/frying-deep-meat-red-belly.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [belly], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\deep\vegetables\fries/frying-deep-vegetables-fries.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [fries], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\frying\deep\vegetables\tempura/frying-deep-vegetables-tempura.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [frying] with [tempura], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\meat\red\steak/grilling-meat-red-steak.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [steak], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\meat\red\burgers/grilling-meat-red-burgers.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [burgers], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\meat\red\ribs/grilling-meat-red-ribs.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [ribs], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\meat\poultry\breast/grilling-meat-poultry-breast.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [breast], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\meat\poultry\thighs/grilling-meat-poultry-thighs.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [thighs], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\meat\poultry\wings/grilling-meat-poultry-wings.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [wings], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\meat\poultry\drumsticks/grilling-meat-poultry-drumsticks.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [drumsticks], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\vegetables\corn/grilling-vegetables-corn.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [corn], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\vegetables\peppers/grilling-vegetables-peppers.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [peppers], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\vegetables\onions/grilling-vegetables-onions.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [onions], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\vegetables\tomatoes/grilling-vegetables-tomatoes.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [tomatoes], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\vegetables\mix/grilling-vegetables-mix.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [mix], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\fish\red/grilling-fish-red.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [red], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\fish\white/grilling-fish-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\fish\shrimp/grilling-fish-shrimp.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [shrimp], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\fish\calamari/grilling-fish-calamari.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [calamari], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\skewers\meat/grilling-skewers-meat.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [meat], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\skewers\veggie/grilling-skewers-veggie.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [veggie], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\skewers\mixed/grilling-skewers-mixed.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [mixed], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\grilling\halloumi/grilling-halloumi.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [grilling] with [halloumi], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\baking\oven\bread\loaf/baking-oven-bread-loaf.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [baking] with [loaf], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\baking\oven\bread\baguette/baking-oven-bread-baguette.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [baking] with [baguette], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\baking\oven\bread\rolls/baking-oven-bread-rolls.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [baking] with [rolls], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\baking\oven\dessert\cake\chocolate/baking-oven-dessert-cake-chocolate.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [baking] with [chocolate], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\baking\oven\dessert\cake\vanilla/baking-oven-dessert-cake-vanilla.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [baking] with [vanilla], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\baking\oven\dessert\cake\cheesecake/baking-oven-dessert-cake-cheesecake.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [baking] with [cheesecake], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\baking\oven\dessert\cookies/baking-oven-dessert-cookies.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [baking] with [cookies], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\baking\oven\dessert\brownies/baking-oven-dessert-brownies.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [baking] with [brownies], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\baking\oven\savory\quiche/baking-oven-savory-quiche.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [baking] with [quiche], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\baking\oven\savory\casserole/baking-oven-savory-casserole.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [baking] with [casserole], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\baking\oven\savory\lasagna/baking-oven-savory-lasagna.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [baking] with [lasagna], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\baking\pastry\pie/baking-pastry-pie.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [baking] with [pie], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\baking\pastry\tart\fruit/baking-pastry-tart-fruit.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [baking] with [fruit], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\baking\pastry\tart\chocolate/baking-pastry-tart-chocolate.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [baking] with [chocolate], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\baking\pastry\tart\savory/baking-pastry-tart-savory.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [baking] with [savory], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\baking\pastry\puffPastry\croissant/baking-pastry-puffPastry-croissant.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [baking] with [croissant], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\baking\pastry\puffPastry\palmier/baking-pastry-puffPastry-palmier.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [baking] with [palmier], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\baking\pastry\puffPastry\volAuVent/baking-pastry-puffPastry-volAuVent.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [baking] with [volAuVent], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\roasting\oven\meat\chicken/roasting-oven-meat-chicken.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [roasting] with [chicken], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\roasting\oven\meat\drumsticks/roasting-oven-meat-drumsticks.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [roasting] with [drumsticks], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\roasting\oven\meat\loaf/roasting-oven-meat-loaf.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [roasting] with [loaf], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\roasting\oven\meat\white/roasting-oven-meat-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [roasting] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\roasting\oven\meat\red/roasting-oven-meat-red.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [roasting] with [red], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\roasting\oven\fish\red/roasting-oven-fish-red.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [roasting] with [red], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\roasting\oven\fish\white/roasting-oven-fish-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [roasting] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\roasting\oven\fish\crab/roasting-oven-fish-crab.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [roasting] with [crab], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\roasting\oven\fish\lobster/roasting-oven-fish-lobster.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [roasting] with [lobster], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\roasting\oven\fish\shrimps/roasting-oven-fish-shrimps.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [roasting] with [shrimps], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\roasting\oven\vegetablesMix/roasting-oven-vegetablesMix.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [roasting] with [vegetablesMix], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\steaming\vegetables\green/steaming-vegetables-green.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [steaming] with [green], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\steaming\vegetables\potatoes/steaming-vegetables-potatoes.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [steaming] with [potatoes], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\steaming\vegetables\carrots/steaming-vegetables-carrots.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [steaming] with [carrots], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\steaming\meat\chicken/steaming-meat-chicken.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [steaming] with [chicken], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\steaming\meat\drumsticks/steaming-meat-drumsticks.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [steaming] with [drumsticks], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\steaming\meat\red/steaming-meat-red.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [steaming] with [red], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\steaming\meat\white/steaming-meat-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [steaming] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\steaming\fish\red/steaming-fish-red.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [steaming] with [red], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\steaming\fish\white/steaming-fish-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [steaming] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\steaming\fish\crab/steaming-fish-crab.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [steaming] with [crab], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\steaming\fish\lobster/steaming-fish-lobster.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [steaming] with [lobster], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\steaming\fish\shrimps/steaming-fish-shrimps.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [steaming] with [shrimps], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\steaming\dumplings/steaming-dumplings.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [steaming] with [dumplings], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\steaming\rice/steaming-rice.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [steaming] with [rice], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\seasoning\herbs/seasoning-herbs.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [seasoning] with [herbs], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\seasoning\spices\curry/seasoning-spices-curry.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [seasoning] with [curry], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\seasoning\spices\black/seasoning-spices-black.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [seasoning] with [black], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\seasoning\spices\paprika/seasoning-spices-paprika.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [seasoning] with [paprika], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\seasoning\spices\white/seasoning-spices-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [seasoning] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\soupPot\red/stirring-soupPot-red.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [red], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\soupPot\white/stirring-soupPot-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\soupPot\green/stirring-soupPot-green.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [green], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\saucePan\tomato/stirring-saucePan-tomato.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [tomato], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\saucePan\cream/stirring-saucePan-cream.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [cream], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\saucePan\green/stirring-saucePan-green.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [green], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\pan\vegetables/stirring-pan-vegetables.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [vegetables], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\pan\meat\red/stirring-pan-meat-red.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [red], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\pan\meat\white/stirring-pan-meat-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\pan\meat\vegetableMeat/stirring-pan-meat-vegetableMeat.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [vegetableMeat], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\pan\meat\pastaMeat/stirring-pan-meat-pastaMeat.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [pastaMeat], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\pan\meat\riceMeat/stirring-pan-meat-riceMeat.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [riceMeat], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\pan\fish\fish/stirring-pan-fish-fish.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [fish], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\pan\fish\vegetableFish/stirring-pan-fish-vegetableFish.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [vegetableFish], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\pan\fish\pastaFish/stirring-pan-fish-pastaFish.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [pastaFish], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\pan\fish\riceFish/stirring-pan-fish-riceFish.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [riceFish], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\pan\dumplings/stirring-pan-dumplings.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [dumplings], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\pan\pasta/stirring-pan-pasta.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [pasta], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stirring\pan\rice/stirring-pan-rice.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stirring] with [rice], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stewing\meat\red/stewing-meat-red.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stewing] with [red], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stewing\meat\white/stewing-meat-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stewing] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stewing\fish\red/stewing-fish-red.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stewing] with [red], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stewing\fish\white/stewing-fish-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stewing] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stewing\fish\shrimp/stewing-fish-shrimp.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stewing] with [shrimp], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stewing\fish\calamari/stewing-fish-calamari.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stewing] with [calamari], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stewing\vegetables\potato/stewing-vegetables-potato.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stewing] with [potato], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\stewing\vegetables\mix/stewing-vegetables-mix.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [stewing] with [mix], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\tendering\meat\red/tendering-meat-red.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [tendering] with [red], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\tendering\meat\white/tendering-meat-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [tendering] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\tendering\meat\chicken/tendering-meat-chicken.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [tendering] with [chicken], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\tendering\fish\red/tendering-fish-red.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [tendering] with [red], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\tendering\fish\white/tendering-fish-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [tendering] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\waiting\dough\rising/waiting-dough-rising.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [waiting] with [rising], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\waiting\dough\proofing/waiting-dough-proofing.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [waiting] with [proofing], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\waiting\marinating\meat\red/waiting-marinating-meat-red.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [waiting] with [red], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\waiting\marinating\meat\white/waiting-marinating-meat-white.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [waiting] with [white], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\waiting\marinating\meat\chicken/waiting-marinating-meat-chicken.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [waiting] with [chicken], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\waiting\marinating\fish/waiting-marinating-fish.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [waiting] with [fish], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\kitchenAppliances\microwave/kitchenAppliances-microwave.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [kitchenAppliances] with [microwave], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\kitchenAppliances\blender/kitchenAppliances-blender.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [kitchenAppliances] with [blender], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
+File: public\assets\images\steps\kitchenAppliances\multiCooker/kitchenAppliances-multiCooker.jpg
+Prompt: Image in WikiHow style, designed for step-by-step cooking guidance on a recipes website. 
+The image should clearly depict the action of [kitchenAppliances] with [multiCooker], in a simple and clean environment. 
+Avoid overly detailed or specific visuals, focusing instead on a generalized representation that can be reused across multiple recipes. 
+The image should be versatile, with a neutral background and minimal distractions, ensuring it fits seamlessly into various step-by-step instructions. 
+The goal is to create a clear, reusable visual that enhances user understanding without being recipe-specific.
+
+
