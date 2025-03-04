@@ -467,5 +467,3 @@ fs.writeFileSync(promptFilePath, "AI Prompts for Cooking Images:\n\n");
 
 // Call the function with the steps object, base path, and prompts file path
 generatePrompts(steps, basePath, promptFilePath);
-
-console.log("Prompts generated and saved to prompts.txt successfully.");
