@@ -6,114 +6,161 @@ import path from "path";
 
 const cutting = {
   vegetables: {
-    carrot: "cutting-vegetables-carrot.jpg",
-    potato: "cutting-vegetables-potato.jpg",
-    tomato: "cutting-vegetables-tomato.jpg",
-    cucumber: "cutting-vegetables-cucumber.jpg",
-    sweetPepper: "cutting-vegetables-sweetPepper.jpg",
-    eggplant: "cutting-vegetables-eggplant.jpg",
-    lettuce: "cutting-vegetables-lettuce.jpg",
+    carrot: "steps/cutting/vegetables/cutting-vegetables-carrot.jpg",
+    potato: "steps/cutting/vegetables/cutting-vegetables-potato.jpg",
+    tomato: "steps/cutting/vegetables/cutting-vegetables-tomato.jpg",
+    cucumber: "steps/cutting/vegetables/cutting-vegetables-cucumber.jpg",
+    sweetPepper: "steps/cutting/vegetables/cutting-vegetables-sweetPepper.jpg",
+    eggplant: "steps/cutting/vegetables/cutting-vegetables-eggplant.jpg",
+    lettuce: "steps/cutting/vegetables/cutting-vegetables-lettuce.jpg",
+    onion: "steps/cutting/vegetables/cutting-vegetables-onion.jpg",
+    radish: "steps/cutting/vegetables/cutting-vegetables-radish.jpg",
+    mix: {
+      tomatoCauliflower:
+        "steps/cutting/vegetables/cutting-vegetables-mix-tomato-califlower.jpg",
+      tomatoEggplantCarrot:
+        "steps/cutting/vegetables/cutting-vegetables-mix-tomato-eggplnt-carrot.jpg",
+      tomatoOnionGreen:
+        "steps/cutting/vegetables/cutting-vegetables-mix-tomato-onion-green.jpg",
+    },
   },
   meat: {
     red: {
-      chops: "cutting-meat-red-chops.jpg",
-      ribs: "cutting-meat-red-ribs.jpg",
-      steak: "cutting-meat-red-steak.jpg",
+      chops: "steps/cutting/meat/red/cutting-meat-red-chops.jpg",
+      ribs: "steps/cutting/meat/red/cutting-meat-red-ribs.jpg",
+      steak: "steps/cutting/meat/red/cutting-meat-red-steak.jpg",
+      cubes: "steps/cutting/meat/red/cutting-meat-red-cubes.jpg",
     },
     poultry: {
-      drumsticks: "cutting-meat-poultry-drumsticks.jpg",
-      wings: "cutting-meat-poultry-wings.jpg",
-      whole: "cutting-meat-poultry-whole.jpg",
-      breasts: "cutting-meat-poultry-breasts.jpg",
+      drumsticks:
+        "steps/cutting/meat/poultry/cutting-meat-poultry-drumsticks.jpg",
+      wings: "steps/cutting/meat/poultry/cutting-meat-poultry-wings.jpg",
+      whole: "steps/cutting/meat/poultry/cutting-meat-poultry-whole.jpg",
+      breasts: "steps/cutting/meat/poultry/cutting-meat-poultry-breasts.jpg",
+      pieces: "steps/cutting/meat/poultry/cutting-meat-poultry-pieces.jpg",
     },
   },
   fish: {
-    red: "cutting-fish-red.jpg",
-    white: "cutting-fish-white.jpg",
-    crab: "cutting-fish-crab.jpg",
-    lobster: "cutting-fish-lobster.jpg",
-    shrimps: "cutting-fish-shrimps.jpg",
-    calamari: "cutting-fish-calamari.jpg",
+    red: {
+      whole: "steps/cutting/fish/cutting-fish-red-whole.jpg",
+      fillet: "steps/cutting/fish/cutting-fish-red.jpg",
+    },
+    white: {
+      whole: "steps/cutting/fish/cutting-fish-white-whole.jpg",
+      fillet: "steps/cutting/fish/cutting-fish-white.jpg",
+    },
+    crab: "steps/cutting/fish/cutting-fish-crab.jpg",
+    lobster: "steps/cutting/fish/cutting-fish-lobster.jpg",
+    shrimps: "steps/cutting/fish/cutting-fish-shrimps.jpg",
+    calamari: "steps/cutting/fish/cutting-fish-calamari.jpg",
+    pink: "steps/cutting/fish/cutting-fish-pink.jpg",
   },
   fruits: {
-    apple: "cutting-fruits-apple.jpg",
-    pear: "cutting-fruits-pear.jpg",
-    banana: "cutting-fruits-banana.jpg",
-    citrus: "cutting-fruits-citrus.jpg",
-    berries: {
-      blueberry: "cutting-fruits-berries-blueberry.jpg",
-      raspberry: "cutting-fruits-berries-raspberry.jpg",
-      strawberry: "cutting-fruits-berries-strawberry.jpg",
-      blackberry: "cutting-fruits-berries-blackberry.jpg",
+    apple: "steps/cutting/fruits/cutting-fruits-apple.jpg",
+    pear: "steps/cutting/fruits/cutting-fruits-pear.jpg",
+    banana: "steps/cutting/fruits/cutting-fruits-banana.jpg",
+    citrus: {
+      orange: "steps/cutting/fruits/cutting-fruits-citrus-orange.jpg",
+      red: "steps/cutting/fruits/cutting-fruits-citrus-red.jpg",
     },
-    pineapple: "cutting-fruits-pineapple.jpg",
-    melon: "cutting-fruits-melon.jpg",
-    peach: "cutting-fruits-peach.jpg",
-    watermelon: "cutting-fruits-watermelon.jpg",
+    berries: {
+      blueberry:
+        "steps/cutting/fruits/berries/cutting-fruits-berries-blueberry.jpg",
+      raspberry:
+        "steps/cutting/fruits/berries/cutting-fruits-berries-raspberry.jpg",
+      strawberry:
+        "steps/cutting/fruits/berries/cutting-fruits-berries-strawberry.jpg",
+      blackberry:
+        "steps/cutting/fruits/berries/cutting-fruits-berries-blackberry.jpg",
+    },
+    pineapple: "steps/cutting/fruits/cutting-fruits-pineapple.jpg",
+    melon: "steps/cutting/fruits/cutting-fruits-melon.jpg",
+    peach: "steps/cutting/fruits/cutting-fruits-peach.jpg",
+    watermelon: "steps/cutting/fruits/cutting-fruits-watermelon.jpg",
   },
   cheese: {
-    yellow: "cutting-cheese-yellow.jpg",
-    white: "cutting-cheese-white.jpg",
+    yellow: "steps/cutting/cheese/cutting-cheese-yellow.jpg",
+    white: "steps/cutting/cheese/cutting-cheese-white.jpg",
   },
   bread: {
-    long: "cutting-bread-long.jpg",
-    round: "cutting-bread-round.jpg",
-    flat: "cutting-bread-flat.jpg",
+    long: "steps/cutting/bread/cutting-bread-long.jpg",
+    round: "steps/cutting/bread/cutting-bread-round.jpg",
+    flat: "steps/cutting/bread/cutting-bread-flat.jpg",
+    buns: "steps/cutting/bread/cutting-bread-buns.jpg",
   },
 };
 
 const boiling = {
   soup: {
-    red: "boiling-soup-red.jpg",
-    white: "boiling-soup-white.jpg",
-    clear: "boiling-soup-clear.jpg",
+    red: "steps/boiling/soup/boiling-soup-red.jpg",
+    white: "steps/boiling/soup/boiling-soup-white.jpg",
+    clear: "steps/boiling/soup/boiling-soup-clear.jpg",
+    brothVeggies: "steps/boiling/soup/boiling-soup-broth-veggies.jpg",
+    curryVeggies: "steps/boiling/soup/boiling-soup-curry-veggies.jpg",
+    curry: "steps/boiling/soup/boiling-soup-curry.jpg",
+    greenVeggies: "steps/boiling/soup/boiling-soup-green-veggies.jpg",
+    green: "steps/boiling/soup/boiling-soup-green.jpg",
+    redVeggies: "steps/boiling/soup/boiling-soup-red-veggies.jpg",
+    whiteVeggies: "steps/boiling/soup/boiling-soup-white-veggies.jpg",
   },
   pasta: {
-    long: "boiling-pasta-long.jpg",
-    short: "boiling-pasta-short.jpg",
-    stuffed: "boiling-pasta-stuffed.jpg",
+    long: "steps/boiling/pasta/boiling-pasta-long.jpg",
+    short: "steps/boiling/pasta/boiling-pasta-short.jpg",
+    stuffed: "steps/boiling/pasta/boiling-pasta-stuffed.jpg",
   },
-  vegetables: "boiling-vegetables.jpg",
-  grains: "boiling-grains.jpg",
-  eggs: "boiling-eggs.jpg",
   seafood: {
-    fish: "boiling-seafood-fish.jpg",
-    shrimps: "boiling-seafood-shrimps.jpg",
-    crab: "boiling-seafood-crab.jpg",
-    mussels: "boiling-seafood-mussels.jpg",
+    fish: "steps/boiling/seafood/boiling-seafood-fish.jpg",
+    shrimps: "steps/boiling/seafood/boiling-seafood-shrimps.jpg",
+    crab: "steps/boiling/seafood/boiling-seafood-crab.jpg",
+    mussels: "steps/boiling/seafood/boiling-seafood-mussels.jpg",
   },
-  dumplings: "boiling-dumplings.jpg",
+  dumplings: {
+    chinkali: "steps/boiling/boiling-dumplings-chinkali.jpg",
+    pierogi: "steps/boiling/boiling-dumplings-pierogi.jpg",
+  },
+  eggs: "steps/boiling/boiling-eggs.jpg",
+  grains: {
+    buckwheat: "steps/boiling/boiling-grains-buckwheat.jpg",
+    rice: "steps/boiling/boiling-grains-rice.jpg",
+    general: "steps/boiling/boiling-grains.jpg",
+  },
+  vegetables: {
+    green: "steps/boiling/boiling-vegetables-green.jpg",
+    mix: "steps/boiling/boiling-vegetables-mix.jpg",
+    red: "steps/boiling/boiling-vegetables-red.jpg",
+  },
 };
 
 const mixing = {
   bowl: {
     vegetables: {
-      salad: "mixing-bowl-vegetables-salad.jpg",
-      stirFry: "mixing-bowl-vegetables-stirFry.jpg",
+      salad: "steps/mixing/bowl/vegetables/mixing-bowl-vegetables-salad.jpg",
+      stirFry:
+        "steps/mixing/bowl/vegetables/mixing-bowl-vegetables-stirFry.jpg",
     },
     fruits: {
-      fruitSalad: "mixing-bowl-fruits-fruitSalad.jpg",
-      smoothie: "mixing-bowl-fruits-smoothie.jpg",
+      fruitSalad: "steps/mixing/bowl/fruits/mixing-bowl-fruits-fruitSalad.jpg",
+      smoothie: "steps/mixing/bowl/fruits/mixing-bowl-fruits-smoothie.jpg",
     },
     liquids: {
-      red: "mixing-bowl-liquids-red.jpg",
-      white: "mixing-bowl-liquids-white.jpg",
-      curry: "mixing-bowl-liquids-curry.jpg",
-      broth: "mixing-bowl-liquids-broth.jpg",
-      batter: "mixing-bowl-liquids-batter.jpg",
-      marinade: "mixing-bowl-liquids-marinade.jpg",
+      red: "steps/mixing/bowl/liquids/mixing-bowl-liquids-red.jpg",
+      white: "steps/mixing/bowl/liquids/mixing-bowl-liquids-white.jpg",
+      curry: "steps/mixing/bowl/liquids/mixing-bowl-liquids-curry.jpg",
+      broth: "steps/mixing/bowl/liquids/mixing-bowl-liquids-broth.jpg",
+      batter: "steps/mixing/bowl/liquids/mixing-bowl-liquids-batter.jpg",
+      marinade: "steps/mixing/bowl/liquids/mixing-bowl-liquids-marinade.jpg",
     },
   },
   dough: {
-    white: "mixing-dough-white.jpg",
-    ryeDough: "mixing-dough-ryeDough.jpg",
-    yellowDough: "mixing-dough-yellowDough.jpg",
+    white: "steps/mixing/dough/mixing-dough-white.jpg",
+    ryeDough: "steps/mixing/dough/mixing-dough-ryeDough.jpg",
+    yellowDough: "steps/mixing/dough/mixing-dough-yellowDough.jpg",
   },
   mixer: {
-    white: "mixing-mixer-white.jpg",
-    red: "mixing-mixer-red.jpg",
-    green: "mixing-mixer-green.jpg",
-    curry: "mixing-mixer-curry.jpg",
+    white: "steps/mixing/mixer/mixing-mixer-white.jpg",
+    red: "steps/mixing/mixer/mixing-mixer-red.jpg",
+    green: "steps/mixing/mixer/mixing-mixer-green.jpg",
+    curry: "steps/mixing/mixer/mixing-mixer-curry.jpg",
   },
 };
 
@@ -121,129 +168,162 @@ const frying = {
   pan: {
     meat: {
       red: {
-        steak: "frying-pan-meat-red-steak.jpg",
-        chops: "frying-pan-meat-red-chops.jpg",
-        ribs: "frying-pan-meat-red-ribs.jpg",
-        cubes: "frying-pan-meat-red-cubes.jpg",
+        steak: "steps/frying/pan/meat/red/frying-pan-meat-red-steak.jpg",
+        chops: "steps/frying/pan/meat/red/frying-pan-meat-red-chops.jpg",
+        ribs: "steps/frying/pan/meat/red/frying-pan-meat-red-ribs.jpg",
+        cubes: "steps/frying/pan/meat/red/frying-pan-meat-red-cubes.jpg",
+        burgers: "steps/frying/pan/meat/red/frying-pan-meat-red-burgers.jpg",
+        withVeggies:
+          "steps/frying/pan/meat/red/frying-pan-meat-red-with-veggies.jpg",
       },
       poultry: {
-        cubes: "frying-pan-meat-poultry-cubes.jpg",
-        breast: "frying-pan-meat-poultry-breast.jpg",
-        wings: "frying-pan-meat-poultry-wings.jpg",
-        drumsticks: "frying-pan-meat-poultry-drumsticks.jpg",
+        cubes:
+          "steps/frying/pan/meat/poultry/frying-pan-meat-poultry-cubes.jpg",
+        breast:
+          "steps/frying/pan/meat/poultry/frying-pan-meat-poultry-breast.jpg",
+        wings:
+          "steps/frying/pan/meat/poultry/frying-pan-meat-poultry-wings.jpg",
+        drumsticks:
+          "steps/frying/pan/meat/poultry/frying-pan-meat-poultry-drumsticks.jpg",
+        withVeggies:
+          "steps/frying/pan/meat/poultry/frying-pan-meat-poultry-with-veggies.jpg",
       },
     },
     fish: {
-      white: "frying-pan-fish-white.jpg",
-      red: "frying-pan-fish-red.jpg",
-      crab: "frying-pan-fish-crab.jpg",
-      lobster: "frying-pan-fish-lobster.jpg",
-      shrimps: "frying-pan-fish-shrimps.jpg",
+      red: {
+        withVeggies:
+          "steps/frying/pan/fish/red/frying-pan-fish-red-with-veggies.jpg",
+        fillet: "steps/frying/pan/fish/red/frying-pan-fish-red.jpg",
+      },
+      white: {
+        withVeggies:
+          "steps/frying/pan/fish/white/frying-pan-fish-white-with-veggies.jpg",
+        fillet: "steps/frying/pan/fish/white/frying-pan-fish-white.jpg",
+      },
+      crab: "steps/frying/pan/fish/frying-pan-fish-crab.jpg",
+      lobster: "steps/frying/pan/fish/frying-pan-fish-lobster.jpg",
+      shrimps: "steps/frying/pan/fish/frying-pan-fish-shrimps.jpg",
+      cubes: "steps/frying/pan/fish/frying-pan-fish-cubes.jpg",
     },
     vegetables: {
-      onions: "frying-pan-vegetables-onions.jpg",
-      green: "frying-pan-vegetables-green.jpg",
-      mushrooms: "frying-pan-vegetables-mushrooms.jpg",
-      potatoes: "frying-pan-vegetables-potatoes.jpg",
-      carrots: "frying-pan-vegetables-carrots.jpg",
+      onions: "steps/frying/pan/vegetables/frying-pan-vegetables-onions.jpg",
+      green: "steps/frying/pan/vegetables/frying-pan-vegetables-green.jpg",
+      mushrooms:
+        "steps/frying/pan/vegetables/frying-pan-vegetables-mushrooms.jpg",
+      potatoes:
+        "steps/frying/pan/vegetables/frying-pan-vegetables-potatoes.jpg",
+      carrots: "steps/frying/pan/vegetables/frying-pan-vegetables-carrots.jpg",
+      mix: "steps/frying/pan/vegetables/frying-pan-mix-vegetableMix.jpg",
     },
-    mix: {
-      vegetableMix: "frying-pan-mix-vegetableMix.jpg",
-      meatVegetables: "frying-pan-mix-meatVegetables.jpg",
-      chickenVegetables: "frying-pan-mix-chickenVegetables.jpg",
-      fishVegetables: "frying-pan-mix-fishVegetables.jpg",
+    eggs: "steps/frying/pan/frying-pan-eggs.jpg",
+    dumplings: "steps/frying/pan/frying-pan-dumplings.jpg",
+    substance: {
+      creamy: "steps/frying/pan/substance/frying-pan-substance-creamy.jpg",
+      curry: "steps/frying/pan/substance/frying-pan-substance-curry.jpg",
+      red: "steps/frying/pan/substance/frying-pan-substance-red.jpg",
     },
-    eggs: "frying-pan-eggs.jpg",
-    dumplings: "frying-pan-dumplings.jpg",
   },
   deep: {
-    fish: "frying-deep-fish.jpg",
+    fish: "steps/frying/deep/frying-deep-fish.jpg",
     meat: {
       poultry: {
-        wings: "frying-deep-meat-poultry-wings.jpg",
-        nuggets: "frying-deep-meat-poultry-nuggets.jpg",
-        breast: "frying-deep-meat-poultry-breast.jpg",
+        wings:
+          "steps/frying/deep/meat/poultry/frying-deep-meat-poultry-wings.jpg",
+        nuggets:
+          "steps/frying/deep/meat/poultry/frying-deep-meat-poultry-nuggets.jpg",
+        breast:
+          "steps/frying/deep/meat/poultry/frying-deep-meat-poultry-breast.jpg",
       },
       red: {
-        chops: "frying-deep-meat-red-chops.jpg",
-        belly: "frying-deep-meat-red-belly.jpg",
+        chops: "steps/frying/deep/meat/red/frying-deep-meat-red-chops.jpg",
+        belly: "steps/frying/deep/meat/red/frying-deep-meat-red-belly.jpg",
+        cubes: "steps/frying/deep/meat/red/frying-deep-meat-red-cubes.jpg",
       },
     },
     vegetables: {
-      fries: "frying-deep-vegetables-fries.jpg",
-      tempura: "frying-deep-vegetables-tempura.jpg",
+      fries: "steps/frying/deep/vegetables/frying-deep-vegetables-fries.jpg",
+      tempura:
+        "steps/frying/deep/vegetables/frying-deep-vegetables-tempura.jpg",
     },
+    shrimps: "steps/frying/deep/frying-deep-shrimps.jpg",
   },
 };
 
 const grilling = {
   meat: {
     red: {
-      steak: "grilling-meat-red-steak.jpg",
-      burgers: "grilling-meat-red-burgers.jpg",
-      ribs: "grilling-meat-red-ribs.jpg",
+      steak: "steps/grilling/meat/red/grilling-meat-red-steak.jpg",
+      burgers: "steps/grilling/meat/red/grilling-meat-red-burgers.jpg",
+      ribs: "steps/grilling/meat/red/grilling-meat-red-ribs.jpg",
     },
     poultry: {
-      breast: "grilling-meat-poultry-breast.jpg",
-      thighs: "grilling-meat-poultry-thighs.jpg",
-      wings: "grilling-meat-poultry-wings.jpg",
-      drumsticks: "grilling-meat-poultry-drumsticks.jpg",
+      breast: "steps/grilling/meat/poultry/grilling-meat-poultry-breast.jpg",
+      thighs: "steps/grilling/meat/poultry/grilling-meat-poultry-thighs.jpg",
+      wings: "steps/grilling/meat/poultry/grilling-meat-poultry-wings.jpg",
+      drumsticks:
+        "steps/grilling/meat/poultry/grilling-meat-poultry-drumsticks.jpg",
     },
   },
   vegetables: {
-    corn: "grilling-vegetables-corn.jpg",
-    peppers: "grilling-vegetables-peppers.jpg",
-    onions: "grilling-vegetables-onions.jpg",
-    tomatoes: "grilling-vegetables-tomatoes.jpg",
-    mix: "grilling-vegetables-mix.jpg",
+    corn: "steps/grilling/vegetables/grilling-vegetables-corn.jpg",
+    peppers: "steps/grilling/vegetables/grilling-vegetables-peppers.jpg",
+    onions: "steps/grilling/vegetables/grilling-vegetables-onions.jpg",
+    tomatoes: "steps/grilling/vegetables/grilling-vegetables-tomatoes.jpg",
+    mix: "steps/grilling/vegetables/grilling-vegetables-mix.jpg",
   },
   fish: {
-    red: "grilling-fish-red.jpg",
-    white: "grilling-fish-white.jpg",
-    shrimp: "grilling-fish-shrimp.jpg",
-    calamari: "grilling-fish-calamari.jpg",
+    red: "steps/grilling/fish/grilling-fish-red.jpg",
+    white: "steps/grilling/fish/grilling-fish-white.jpg",
+    shrimp: "steps/grilling/fish/grilling-fish-shrimp.jpg",
+    calamari: "steps/grilling/fish/grilling-fish-calamari.jpg",
   },
   skewers: {
-    meat: "grilling-skewers-meat.jpg",
-    veggie: "grilling-skewers-veggie.jpg",
-    mixed: "grilling-skewers-mixed.jpg",
+    meat: "steps/grilling/skewers/grilling-skewers-meat.jpg",
+    veggie: "steps/grilling/skewers/grilling-skewers-veggie.jpg",
+    mixed: "steps/grilling/skewers/grilling-skewers-mixed.jpg",
   },
-  halloumi: "grilling-halloumi.jpg",
+  halloumi: "steps/grilling/grilling-halloumi.jpg",
 };
 
 const baking = {
   oven: {
     bread: {
-      loaf: "baking-oven-bread-loaf.jpg",
-      baguette: "baking-oven-bread-baguette.jpg",
-      rolls: "baking-oven-bread-rolls.jpg",
+      loaf: "steps/baking/oven/bread/baking-oven-bread-loaf.jpg",
+      baguette: "steps/baking/oven/bread/baking-oven-bread-baguette.jpg",
+      rolls: "steps/baking/oven/bread/baking-oven-bread-rolls.jpg",
     },
     dessert: {
       cake: {
-        chocolate: "baking-oven-dessert-cake-chocolate.jpg",
-        vanilla: "baking-oven-dessert-cake-vanilla.jpg",
-        cheesecake: "baking-oven-dessert-cake-cheesecake.jpg",
+        chocolate:
+          "steps/baking/oven/dessert/cake/baking-oven-dessert-cake-chocolate.jpg",
+        vanilla:
+          "steps/baking/oven/dessert/cake/baking-oven-dessert-cake-vanilla.jpg",
+        cheesecake:
+          "steps/baking/oven/dessert/cake/baking-oven-dessert-cake-cheesecake.jpg",
       },
-      cookies: "baking-oven-dessert-cookies.jpg",
-      brownies: "baking-oven-dessert-brownies.jpg",
+      cookies: "steps/baking/oven/dessert/baking-oven-dessert-cookies.jpg",
+      brownies: "steps/baking/oven/dessert/baking-oven-dessert-brownies.jpg",
     },
     savory: {
-      quiche: "baking-oven-savory-quiche.jpg",
-      casserole: "baking-oven-savory-casserole.jpg",
-      lasagna: "baking-oven-savory-lasagna.jpg",
+      quiche: "steps/baking/oven/savory/baking-oven-savory-quiche.jpg",
+      casserole: "steps/baking/oven/savory/baking-oven-savory-casserole.jpg",
+      lasagna: "steps/baking/oven/savory/baking-oven-savory-lasagna.jpg",
     },
   },
   pastry: {
-    pie: "baking-pastry-pie.jpg",
+    pie: "steps/baking/pastry/baking-pastry-pie.jpg",
     tart: {
-      fruit: "baking-pastry-tart-fruit.jpg",
-      chocolate: "baking-pastry-tart-chocolate.jpg",
-      savory: "baking-pastry-tart-savory.jpg",
+      fruit: "steps/baking/pastry/tart/baking-pastry-tart-fruit.jpg",
+      chocolate: "steps/baking/pastry/tart/baking-pastry-tart-chocolate.jpg",
+      savory: "steps/baking/pastry/tart/baking-pastry-tart-savory.jpg",
     },
     puffPastry: {
-      croissant: "baking-pastry-puffPastry-croissant.jpg",
-      palmier: "baking-pastry-puffPastry-palmier.jpg",
-      volAuVent: "baking-pastry-puffPastry-volAuVent.jpg",
+      croissant:
+        "steps/baking/pastry/puffPastry/baking-pastry-puffPastry-croissant.jpg",
+      palmier:
+        "steps/baking/pastry/puffPastry/baking-pastry-puffPastry-palmier.jpg",
+      volAuVent:
+        "steps/baking/pastry/puffPastry/baking-pastry-puffPastry-volAuVent.jpg",
     },
   },
 };
@@ -251,139 +331,222 @@ const baking = {
 const roasting = {
   oven: {
     meat: {
-      chicken: "roasting-oven-meat-chicken.jpg",
-      drumsticks: "roasting-oven-meat-drumsticks.jpg",
-      loaf: "roasting-oven-meat-loaf.jpg",
-      white: "roasting-oven-meat-white.jpg",
-      red: "roasting-oven-meat-red.jpg",
+      chicken: {
+        foil: "steps/roasting/oven/meat/chicken/roasting-oven-meat-chicken-foil.jpg",
+        general:
+          "steps/roasting/oven/meat/chicken/roasting-oven-meat-chicken.jpg",
+      },
+      drumsticks: {
+        foil: "steps/roasting/oven/meat/drumsticks/roasting-oven-meat-drumsticks-foil.jpg",
+        general:
+          "steps/roasting/oven/meat/drumsticks/roasting-oven-meat-drumsticks.jpg",
+      },
+      loaf: {
+        foil: "steps/roasting/oven/meat/loaf/roasting-oven-meat-loaf-foil.jpg",
+        general: "steps/roasting/oven/meat/loaf/roasting-oven-meat-loaf.jpg",
+      },
+      red: {
+        foil: "steps/roasting/oven/meat/red/roasting-oven-meat-red-foil.jpg",
+        general: "steps/roasting/oven/meat/red/roasting-oven-meat-red.jpg",
+      },
     },
     fish: {
-      red: "roasting-oven-fish-red.jpg",
-      white: "roasting-oven-fish-white.jpg",
-      crab: "roasting-oven-fish-crab.jpg",
-      lobster: "roasting-oven-fish-lobster.jpg",
-      shrimps: "roasting-oven-fish-shrimps.jpg",
+      red: "steps/roasting/oven/fish/red/roasting-oven-fish-red.jpg",
+      white: "steps/roasting/oven/fish/white/roasting-oven-fish-white.jpg",
+      crab: "steps/roasting/oven/fish/crab/roasting-oven-fish-crab.jpg",
+      lobster:
+        "steps/roasting/oven/fish/lobster/roasting-oven-fish-lobster.jpg",
+      shrimps:
+        "steps/roasting/oven/fish/shrimps/roasting-oven-fish-shrimps.jpg",
+      full: {
+        foil: "steps/roasting/oven/fish/full/roasting-oven-fish-full-alumini-foil.jpg",
+        general: "steps/roasting/oven/fish/full/roasting-oven-fish-full.jpg",
+      },
     },
-    vegetablesMix: "roasting-oven-vegetablesMix.jpg",
+    vegetablesMix: "steps/roasting/oven/roasting-oven-vegetablesMix.jpg",
   },
 };
 
 const steaming = {
   vegetables: {
-    green: "steaming-vegetables-green.jpg",
-    potatoes: "steaming-vegetables-potatoes.jpg",
-    carrots: "steaming-vegetables-carrots.jpg",
+    green: "steps/steaming/vegetables/steaming-vegetables-green.jpg",
+    potatoes: "steps/steaming/vegetables/steaming-vegetables-potatoes.jpg",
+    carrots: "steps/steaming/vegetables/steaming-vegetables-carrots.jpg",
+    broccoli: "steps/steaming/vegetables/steaming-vegetables-brocolli.jpg",
+    cauliflower: "steps/steaming/vegetables/steaming-vegetables-califlower.jpg",
+    mix: "steps/steaming/vegetables/steaming-vegetables-mix.jpg",
   },
   meat: {
-    chicken: "steaming-meat-chicken.jpg",
-    drumsticks: "steaming-meat-drumsticks.jpg",
-    red: "steaming-meat-red.jpg",
-    white: "steaming-meat-white.jpg",
+    chicken: "steps/steaming/meat/steaming-meat-chicken.jpg",
+    drumsticks: "steps/steaming/meat/steaming-meat-drumsticks.jpg",
+    red: {
+      cubes: "steps/steaming/meat/red/steaming-meat-red-cubes.jpg",
+      steak: "steps/steaming/meat/red/steaming-meat-red-steak.jpg",
+    },
   },
   fish: {
-    red: "steaming-fish-red.jpg",
-    white: "steaming-fish-white.jpg",
-    crab: "steaming-fish-crab.jpg",
-    lobster: "steaming-fish-lobster.jpg",
-    shrimps: "steaming-fish-shrimps.jpg",
+    red: "steps/steaming/fish/red/steaming-fish-red.jpg",
+    white: "steps/steaming/fish/white/steaming-fish-white.jpg",
+    crab: "steps/steaming/fish/crab/steaming-fish-crab.jpg",
+    lobster: "steps/steaming/fish/lobster/steaming-fish-lobster.jpg",
+    shrimps: "steps/steaming/fish/shrimps/steaming-fish-shrimps.jpg",
   },
-  dumplings: "steaming-dumplings.jpg",
-  rice: "steaming-rice.jpg",
+  dumplings: {
+    chinkali: "steps/steaming/steaming-dumplings-chinkali.jpg",
+    pierogi: "steps/steaming/steaming-pierogi.jpg",
+  },
+  grain: "steps/steaming/steaming-grain.jpg",
+  rice: "steps/steaming/steaming-rice.jpg",
 };
 
 const seasoning = {
-  herbs: "seasoning-herbs.jpg",
+  herbs: "steps/seasoning/seasoning-herbs.jpg",
   spices: {
-    curry: "seasoning-spices-curry.jpg",
-    black: "seasoning-spices-black.jpg",
-    paprika: "seasoning-spices-paprika.jpg",
-    white: "seasoning-spices-white.jpg",
+    black: "steps/seasoning/seasoning-spices-black.jpg",
+    curry: "steps/seasoning/seasoning-spices-curry.jpg",
+    green: "steps/seasoning/seasoning-spices-green.jpg",
+    mix: "steps/seasoning/seasoning-spices-mix.jpg",
+    paprika: "steps/seasoning/seasoning-spices-paprika.jpg",
+    white: "steps/seasoning/seasoning-spices-white.jpg",
+  },
+  coating: {
+    chickenMedallions:
+      "steps/seasoning/coating/seasoning-coating-chicken-medalions.jpg",
+    fishRedFillets:
+      "steps/seasoning/coating/seasoning-coating-fish-red-fillets.jpg",
+    fishWhiteFillets:
+      "steps/seasoning/coating/seasoning-coating-fish-white-fillets.jpg",
+    redMeatMedallions:
+      "steps/seasoning/coating/seasoning-coating-red-meat-medalions.jpg",
   },
 };
 
 const stirring = {
-  soupPot: {
-    red: "stirring-soupPot-red.jpg",
-    white: "stirring-soupPot-white.jpg",
-    green: "stirring-soupPot-green.jpg",
+  pan: {
+    fish: {
+      fish: "steps/stirring/pan/fish/stirring-pan-fish-fish.jpg",
+      vegetableFish:
+        "steps/stirring/pan/fish/stirring-pan-fish-vegetableFish.jpg",
+      pastaFish: "steps/stirring/pan/fish/stirring-pan-fish-pastaFish.jpg",
+      riceFish: "steps/stirring/pan/fish/stirring-pan-fish-riceFish.jpg",
+      riceVeggies: "steps/stirring/pan/fish/stirring-pan-fish-rice-veggies.jpg",
+    },
+    meat: {
+      red: "steps/stirring/pan/meat/red/stirring-pan-meat-red.jpg",
+      pastaMeat: "steps/stirring/pan/meat/stirring-pan-meat-pasta.jpg",
+      riceMeat: "steps/stirring/pan/meat/stirring-pan-meat-rice.jpg",
+      riceVeggies: "steps/stirring/pan/meat/stirring-pan-meat-rice-veggies.jpg",
+    },
+    dumplings: "steps/stirring/pan/stirring-pan-dumplings.jpg",
+    pasta: "steps/stirring/pan/stirring-pan-pasta.jpg",
+    rice: {
+      general: "steps/stirring/pan/stirring-pan-rice.jpg",
+      veggies: "steps/stirring/pan/stirring-pan-rice-veggies.jpg",
+    },
+    vegetables: "steps/stirring/pan/stirring-pan-vegetables.jpg",
   },
   saucePan: {
-    tomato: "stirring-saucePan-tomato.jpg",
-    cream: "stirring-saucePan-cream.jpg",
-    green: "stirring-saucePan-green.jpg",
+    tomato: "steps/stirring/saucePan/stirring-saucePan-tomato.jpg",
+    cream: "steps/stirring/saucePan/stirring-saucePan-cream.jpg",
+    green: "steps/stirring/saucePan/stirring-saucePan-green.jpg",
   },
-  pan: {
-    vegetables: "stirring-pan-vegetables.jpg",
-    meat: {
-      red: "stirring-pan-meat-red.jpg",
-      white: "stirring-pan-meat-white.jpg",
-      vegetableMeat: "stirring-pan-meat-vegetableMeat.jpg",
-      pastaMeat: "stirring-pan-meat-pastaMeat.jpg",
-      riceMeat: "stirring-pan-meat-riceMeat.jpg",
+  soupPot: {
+    red: {
+      soup: "steps/stirring/soupPot/red/stirring-soupPot-red-soup.jpg",
+      general: "steps/stirring/soupPot/red/stirring-soupPot-red.jpg",
     },
-    fish: {
-      fish: "stirring-pan-fish-fish.jpg",
-      vegetableFish: "stirring-pan-fish-vegetableFish.jpg",
-      pastaFish: "stirring-pan-fish-pastaFish.jpg",
-      riceFish: "stirring-pan-fish-riceFish.jpg",
+    white: {
+      soup: "steps/stirring/soupPot/white/stirring-soupPot-white-soup.jpg",
+      general: "steps/stirring/soupPot/white/stirring-soupPot-white.jpg",
     },
-    dumplings: "stirring-pan-dumplings.jpg",
-    pasta: "stirring-pan-pasta.jpg",
-    rice: "stirring-pan-rice.jpg",
+    green: {
+      soup: "steps/stirring/soupPot/green/stirring-soupPot-green-soup.jpg",
+      general: "steps/stirring/soupPot/green/stirring-soupPot-green.jpg",
+    },
+    curry: {
+      soup: "steps/stirring/soupPot/curry/stirring-soupPot-curry-soup.jpg",
+      general: "steps/stirring/soupPot/curry/stirring-soupPot-curry.jpg",
+    },
   },
 };
 
 const stewing = {
   meat: {
-    red: "stewing-meat-red.jpg",
-    white: "stewing-meat-white.jpg",
+    red: {
+      cubes: "steps/stewing/meat/red/stewing-meat-red-cubes.jpg",
+      gulash: "steps/stewing/meat/red/stewing-meat-red-gulash.jpg",
+      withVeggies: "steps/stewing/meat/red/stewing-meat-red-with-veggies.jpg",
+    },
   },
   fish: {
-    red: "stewing-fish-red.jpg",
-    white: "stewing-fish-white.jpg",
-    shrimp: "stewing-fish-shrimp.jpg",
-    calamari: "stewing-fish-calamari.jpg",
+    red: "steps/stewing/fish/red/stewing-fish-red.jpg",
+    white: "steps/stewing/fish/white/stewing-fish-white.jpg",
+    shrimp: "steps/stewing/fish/shrimp/stewing-fish-shrimp.jpg",
   },
   vegetables: {
-    potato: "stewing-vegetables-potato.jpg",
-    mix: "stewing-vegetables-mix.jpg",
+    mix: "steps/stewing/vegetables/stewing-vegetables-mix.jpg",
+    potatoesTomatoes:
+      "steps/stewing/vegetables/stewing-vegetables-potatoes-tomatoes.jpg",
   },
 };
 
 const tendering = {
   meat: {
-    red: "tendering-meat-red.jpg",
-    white: "tendering-meat-white.jpg",
-    chicken: "tendering-meat-chicken.jpg",
-  },
-  fish: {
-    red: "tendering-fish-red.jpg",
-    white: "tendering-fish-white.jpg",
+    chicken: {
+      breast: "steps/tendering/meat/chicken/tendering-meat-chicken-breast.jpg",
+      medallions:
+        "steps/tendering/meat/chicken/tendering-meat-chicken-medalions.jpg",
+    },
+    red: {
+      chop: "steps/tendering/meat/red/tendering-meat-red-chop.jpg",
+      medallions: "steps/tendering/meat/red/tendering-meat-red-medalions.jpg",
+    },
   },
 };
 
 const waiting = {
   dough: {
-    rising: "waiting-dough-rising.jpg",
-    proofing: "waiting-dough-proofing.jpg",
+    rising: "steps/waiting/dough/waiting-dough-rising.jpg",
+    proofing: "steps/waiting/dough/waiting-dough-proofing.jpg",
   },
   marinating: {
-    meat: {
-      red: "waiting-marinating-meat-red.jpg",
-      white: "waiting-marinating-meat-white.jpg",
-      chicken: "waiting-marinating-meat-chicken.jpg",
+    fish: {
+      whiteFillets:
+        "steps/waiting/marinating/fish/waiting-marinating-fish-white-fillets.jpg",
+      whole: "steps/waiting/marinating/fish/waiting-marinating-fish-whole.jpg",
     },
-    fish: "waiting-marinating-fish.jpg",
+    meat: {
+      chicken: {
+        breast:
+          "steps/waiting/marinating/meat/chicken/waiting-marinating-meat-chicken-breast.jpg",
+        drumsticks:
+          "steps/waiting/marinating/meat/chicken/waiting-marinating-meat-chicken-drumsticks.jpg",
+        medallions:
+          "steps/waiting/marinating/meat/chicken/waiting-marinating-meat-chicken-medalions.jpg",
+        wings:
+          "steps/waiting/marinating/meat/chicken/waiting-marinating-meat-chicken-wings.jpg",
+      },
+      red: {
+        cubes:
+          "steps/waiting/marinating/meat/red/waiting-marinating-meat-red-cubes.jpg",
+        medallions:
+          "steps/waiting/marinating/meat/red/waiting-marinating-meat-red-medalions.jpg",
+      },
+    },
   },
 };
 
 const kitchenAppliances = {
-  microwave: "kitchenAppliances-microwave.jpg",
-  blender: "kitchenAppliances-blender.jpg",
-  multiCooker: "kitchenAppliances-multiCooker.jpg",
+  blender: "steps/kitchenAppliances/kitchenAppliances-blender.jpg",
+  cheeseGrating: "steps/kitchenAppliances/kitchenAppliances-cheese-grating.jpg",
+  deepFryer: "steps/kitchenAppliances/kitchenAppliances-deep-fryer.jpg",
+  handBlender: "steps/kitchenAppliances/kitchenAppliances-hand-blender.jpg",
+  meatGrinding: "steps/kitchenAppliances/kitchenAppliances-meat-grounding.jpg",
+  mixer: "steps/kitchenAppliances/kitchenAppliances-mixer.jpg",
+  multiCooker: "steps/kitchenAppliances/kitchenAppliances-multi-cooker.jpg",
 };
 
-const steps = {
+export const steps = {
   cutting,
   boiling,
   mixing,
@@ -463,7 +626,31 @@ const basePath = "public/assets/images/steps";
 const promptFilePath = path.join("./", "prompts.txt");
 
 // Initialize the prompts file (clear existing content if any)
-fs.writeFileSync(promptFilePath, "AI Prompts for Cooking Images:\n\n");
+// fs.writeFileSync(promptFilePath, "AI Prompts for Cooking Images:\n\n");
 
 // Call the function with the steps object, base path, and prompts file path
-generatePrompts(steps, basePath, promptFilePath);
+// generatePrompts(steps, basePath, promptFilePath);
+
+const toCamelCase = (str) => {
+  return str
+    .replace(/[-_ ](.)/g, (match, group1) => group1.toUpperCase())
+    .replace(/^[A-Z]/, (match) => match.toLowerCase());
+};
+
+// Recursive function to extract image paths
+const extractImagePaths = (obj, result = {}) => {
+  for (const key in obj) {
+    if (typeof obj[key] === "object" && obj[key] !== null) {
+      extractImagePaths(obj[key], result); // Recurse into nested objects
+    } else if (typeof obj[key] === "string" && obj[key].endsWith(".jpg")) {
+      const formattedKey = obj[key].replace(".jpg", "").split("/");
+      result[formattedKey[formattedKey.length - 1].replace(/-/g, "_")] =
+        obj[key];
+    }
+  }
+  return result;
+};
+
+const imagePaths = extractImagePaths(steps);
+
+console.log(imagePaths);
