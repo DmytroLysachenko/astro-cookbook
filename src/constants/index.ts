@@ -17,9 +17,9 @@ const baking = {
   baking_oven_bread_rolls:
     "steps/baking/oven/bread/baking-oven-bread-rolls.jpg",
   baking_oven_dessert_cake_cheesecake:
-    "steps/baking/oven/dessert/cake/baking-oven-dessert-cake-cheesecake.jpg",
+    "steps/baking/oven/dessert/baking-oven-dessert-cake-cheesecake.jpg",
   baking_oven_dessert_cake_chocolate:
-    "steps/baking/oven/dessert/cake/baking-oven-dessert-cake-chocolate.jpg",
+    "steps/baking/oven/dessert/baking-oven-dessert-cake-chocolate.jpg",
   baking_oven_dessert_brownies:
     "steps/baking/oven/dessert/baking-oven-dessert-brownies.jpg",
   baking_oven_dessert_cookies:
@@ -33,12 +33,11 @@ const baking = {
   baking_oven_savory_rolls:
     "steps/baking/oven/savory/baking-oven-savory-rolls.jpg",
   baking_pastry_pie: "steps/baking/pastry/baking-pastry-pie.jpg",
-  baking_pastry_tart_fruit:
-    "steps/baking/pastry/tart/baking-pastry-tart-fruit.jpg",
+  baking_pastry_tart_fruit: "steps/baking/pastry/baking-pastry-tart-fruit.jpg",
   baking_pastry_puffPastry_croissant:
-    "steps/baking/pastry/puffPastry/baking-pastry-puffPastry-croissant.jpg",
+    "steps/baking/pastry/baking-pastry-puffPastry-croissant.jpg",
   baking_pastry_puffPastry_palmier:
-    "steps/baking/pastry/puffPastry/baking-pastry-puffPastry-palmier.jpg",
+    "steps/baking/pastry/baking-pastry-puffPastry-palmier.jpg",
 };
 const boiling = {
   boiling_pasta_long: "steps/boiling/pasta/boiling-pasta-long.jpg",
@@ -102,25 +101,25 @@ const cutting = {
   cutting_fruits_watermelon:
     "steps/cutting/fruits/cutting-fruits-watermelon.jpg",
   cutting_fruits_berries_blackberry:
-    "steps/cutting/fruits/berries/cutting-fruits-berries-blackberry.jpg",
+    "steps/cutting/fruits/cutting-fruits-berries-blackberry.jpg",
   cutting_fruits_berries_blueberry:
-    "steps/cutting/fruits/berries/cutting-fruits-berries-blueberry.jpg",
+    "steps/cutting/fruits/cutting-fruits-berries-blueberry.jpg",
   cutting_fruits_berries_raspberry:
-    "steps/cutting/fruits/berries/cutting-fruits-berries-raspberry.jpg",
+    "steps/cutting/fruits/cutting-fruits-berries-raspberry.jpg",
   cutting_fruits_berries_strawberry:
-    "steps/cutting/fruits/berries/cutting-fruits-berries-strawberry.jpg",
+    "steps/cutting/fruits/cutting-fruits-berries-strawberry.jpg",
   cutting_meat_poultry_breasts:
-    "steps/cutting/meat/poultry/cutting-meat-poultry-breasts.jpg",
+    "steps/cutting/meat/cutting-meat-poultry-breasts.jpg",
   cutting_meat_poultry_drumsticks:
-    "steps/cutting/meat/poultry/cutting-meat-poultry-drumsticks.jpg",
+    "steps/cutting/meat/cutting-meat-poultry-drumsticks.jpg",
   cutting_meat_poultry_pieces:
-    "steps/cutting/meat/poultry/cutting-meat-poultry-pieces.jpg",
+    "steps/cutting/meat/cutting-meat-poultry-pieces.jpg",
   cutting_meat_poultry_whole:
-    "steps/cutting/meat/poultry/cutting-meat-poultry-whole.jpg",
-  cutting_meat_red_chops: "steps/cutting/meat/red/cutting-meat-red-chops.jpg",
-  cutting_meat_red_cubes: "steps/cutting/meat/red/cutting-meat-red-cubes.jpg",
-  cutting_meat_red_ribs: "steps/cutting/meat/red/cutting-meat-red-ribs.jpg",
-  cutting_meat_red_steak: "steps/cutting/meat/red/cutting-meat-red-steak.jpg",
+    "steps/cutting/meat/cutting-meat-poultry-whole.jpg",
+  cutting_meat_red_chops: "steps/cutting/meat/cutting-meat-red-chops.jpg",
+  cutting_meat_red_cubes: "steps/cutting/meat/cutting-meat-red-cubes.jpg",
+  cutting_meat_red_ribs: "steps/cutting/meat/cutting-meat-red-ribs.jpg",
+  cutting_meat_red_steak: "steps/cutting/meat/cutting-meat-red-steak.jpg",
   cutting_vegetables_carrot:
     "steps/cutting/vegetables/cutting-vegetables-carrot.jpg",
   cutting_vegetables_cucumber:
@@ -149,17 +148,17 @@ const cutting = {
 const frying = {
   frying_deep_fish: "steps/frying/deep/frying-deep-fish.jpg",
   frying_deep_meat_poultry_breast:
-    "steps/frying/deep/meat/poultry/frying-deep-meat-poultry-breast.jpg",
+    "steps/frying/deep/meat/frying-deep-meat-poultry-breast.jpg",
   frying_deep_meat_poultry_nuggets:
-    "steps/frying/deep/meat/poultry/frying-deep-meat-poultry-nuggets.jpg",
+    "steps/frying/deep/meat/frying-deep-meat-poultry-nuggets.jpg",
   frying_deep_meat_poultry_wings:
-    "steps/frying/deep/meat/poultry/frying-deep-meat-poultry-wings.jpg",
+    "steps/frying/deep/meat/frying-deep-meat-poultry-wings.jpg",
   frying_deep_meat_red_belly:
-    "steps/frying/deep/meat/red/frying-deep-meat-red-belly.jpg",
+    "steps/frying/deep/meat/frying-deep-meat-red-belly.jpg",
   frying_deep_meat_red_chops:
-    "steps/frying/deep/meat/red/frying-deep-meat-red-chops.jpg",
+    "steps/frying/deep/meat/frying-deep-meat-red-chops.jpg",
   frying_deep_meat_red_cubes:
-    "steps/frying/deep/meat/red/frying-deep-meat-red-cubes.jpg",
+    "steps/frying/deep/meat/frying-deep-meat-red-cubes.jpg",
   frying_deep_shrimps: "steps/frying/deep/frying-deep-shrimps.jpg",
   frying_deep_vegetables_fries:
     "steps/frying/deep/vegetables/frying-deep-vegetables-fries.jpg",
@@ -168,35 +167,34 @@ const frying = {
   frying_pan_fish_cubes: "steps/frying/pan/fish/frying-pan-fish-cubes.jpg",
   frying_pan_fish_lobster: "steps/frying/pan/fish/frying-pan-fish-lobster.jpg",
   frying_pan_fish_red_with_veggies:
-    "steps/frying/pan/fish/red/frying-pan-fish-red-with-veggies.jpg",
-  frying_pan_fish_red: "steps/frying/pan/fish/red/frying-pan-fish-red.jpg",
+    "steps/frying/pan/fish/frying-pan-fish-red-with-veggies.jpg",
+  frying_pan_fish_red: "steps/frying/pan/fish/frying-pan-fish-red.jpg",
   frying_pan_fish_shrimps: "steps/frying/pan/fish/frying-pan-fish-shrimps.jpg",
   frying_pan_fish_white_with_veggies:
-    "steps/frying/pan/fish/white/frying-pan-fish-white-with-veggies.jpg",
-  frying_pan_fish_white:
-    "steps/frying/pan/fish/white/frying-pan-fish-white.jpg",
+    "steps/frying/pan/fish/frying-pan-fish-white-with-veggies.jpg",
+  frying_pan_fish_white: "steps/frying/pan/fish/frying-pan-fish-white.jpg",
   frying_pan_meat_poultry_breast:
-    "steps/frying/pan/meat/poultry/frying-pan-meat-poultry-breast.jpg",
+    "steps/frying/pan/meat/frying-pan-meat-poultry-breast.jpg",
   frying_pan_meat_poultry_cubes:
-    "steps/frying/pan/meat/poultry/frying-pan-meat-poultry-cubes.jpg",
+    "steps/frying/pan/meat/frying-pan-meat-poultry-cubes.jpg",
   frying_pan_meat_poultry_drumsticks:
-    "steps/frying/pan/meat/poultry/frying-pan-meat-poultry-drumsticks.jpg",
+    "steps/frying/pan/meat/frying-pan-meat-poultry-drumsticks.jpg",
   frying_pan_meat_poultry_wings:
-    "steps/frying/pan/meat/poultry/frying-pan-meat-poultry-wings.jpg",
+    "steps/frying/pan/meat/frying-pan-meat-poultry-wings.jpg",
   frying_pan_meat_poultry_with_veggies:
-    "steps/frying/pan/meat/poultry/frying-pan-meat-poultry-with-veggies.jpg",
+    "steps/frying/pan/meat/frying-pan-meat-poultry-with-veggies.jpg",
   frying_pan_meat_red_burgers:
-    "steps/frying/pan/meat/red/frying-pan-meat-red-burgers.jpg",
+    "steps/frying/pan/meat/frying-pan-meat-red-burgers.jpg",
   frying_pan_meat_red_chops:
-    "steps/frying/pan/meat/red/frying-pan-meat-red-chops.jpg",
+    "steps/frying/pan/meat/frying-pan-meat-red-chops.jpg",
   frying_pan_meat_red_cubes:
-    "steps/frying/pan/meat/red/frying-pan-meat-red-cubes.jpg",
+    "steps/frying/pan/meat/frying-pan-meat-red-cubes.jpg",
   frying_pan_meat_red_ribs:
-    "steps/frying/pan/meat/red/frying-pan-meat-red-ribs.jpg",
+    "steps/frying/pan/meat/frying-pan-meat-red-ribs.jpg",
   frying_pan_meat_red_steak:
-    "steps/frying/pan/meat/red/frying-pan-meat-red-steak.jpg",
+    "steps/frying/pan/meat/frying-pan-meat-red-steak.jpg",
   frying_pan_meat_red_with_veggies:
-    "steps/frying/pan/meat/red/frying-pan-meat-red-with-veggies.jpg",
+    "steps/frying/pan/meat/frying-pan-meat-red-with-veggies.jpg",
   frying_pan_substance_creamy:
     "steps/frying/pan/substance/frying-pan-substance-creamy.jpg",
   frying_pan_substance_curry:
@@ -224,18 +222,17 @@ const grilling = {
   grilling_fish_shrimp: "steps/grilling/fish/grilling-fish-shrimp.jpg",
   grilling_fish_white: "steps/grilling/fish/grilling-fish-white.jpg",
   grilling_meat_poultry_breast:
-    "steps/grilling/meat/poultry/grilling-meat-poultry-breast.jpg",
+    "steps/grilling/meat/grilling-meat-poultry-breast.jpg",
   grilling_meat_poultry_drumsticks:
-    "steps/grilling/meat/poultry/grilling-meat-poultry-drumsticks.jpg",
+    "steps/grilling/meat/grilling-meat-poultry-drumsticks.jpg",
   grilling_meat_poultry_thighs:
-    "steps/grilling/meat/poultry/grilling-meat-poultry-thighs.jpg",
+    "steps/grilling/meat/grilling-meat-poultry-thighs.jpg",
   grilling_meat_poultry_wings:
-    "steps/grilling/meat/poultry/grilling-meat-poultry-wings.jpg",
+    "steps/grilling/meat/grilling-meat-poultry-wings.jpg",
   grilling_meat_red_burgers:
-    "steps/grilling/meat/red/grilling-meat-red-burgers.jpg",
-  grilling_meat_red_ribs: "steps/grilling/meat/red/grilling-meat-red-ribs.jpg",
-  grilling_meat_red_steak:
-    "steps/grilling/meat/red/grilling-meat-red-steak.jpg",
+    "steps/grilling/meat/grilling-meat-red-burgers.jpg",
+  grilling_meat_red_ribs: "steps/grilling/meat/grilling-meat-red-ribs.jpg",
+  grilling_meat_red_steak: "steps/grilling/meat/grilling-meat-red-steak.jpg",
   grilling_skewers_meat: "steps/grilling/skewers/grilling-skewers-meat.jpg",
   grilling_skewers_mixed: "steps/grilling/skewers/grilling-skewers-mixed.jpg",
   grilling_skewers_veggie: "steps/grilling/skewers/grilling-skewers-veggie.jpg",
@@ -298,35 +295,33 @@ const mixing = {
 };
 const roasting = {
   roasting_oven_fish_crab:
-    "steps/roasting/oven/fish/crab/roasting-oven-fish-crab.jpg",
+    "steps/roasting/oven/fish/roasting-oven-fish-crab.jpg",
   roasting_oven_fish_full_alumini_foil:
-    "steps/roasting/oven/fish/full/roasting-oven-fish-full-alumini-foil.jpg",
+    "steps/roasting/oven/fish/roasting-oven-fish-full-alumini-foil.jpg",
   roasting_oven_fish_full:
-    "steps/roasting/oven/fish/full/roasting-oven-fish-full.jpg",
+    "steps/roasting/oven/fish/roasting-oven-fish-full.jpg",
   roasting_oven_fish_lobster:
-    "steps/roasting/oven/fish/lobster/roasting-oven-fish-lobster.jpg",
-  roasting_oven_fish_red:
-    "steps/roasting/oven/fish/red/roasting-oven-fish-red.jpg",
+    "steps/roasting/oven/fish/roasting-oven-fish-lobster.jpg",
+  roasting_oven_fish_red: "steps/roasting/oven/fish/roasting-oven-fish-red.jpg",
   roasting_oven_fish_shrimps:
-    "steps/roasting/oven/fish/shrimps/roasting-oven-fish-shrimps.jpg",
+    "steps/roasting/oven/fish/roasting-oven-fish-shrimps.jpg",
   roasting_oven_fish_white:
-    "steps/roasting/oven/fish/white/roasting-oven-fish-white.jpg",
+    "steps/roasting/oven/fish/roasting-oven-fish-white.jpg",
   roasting_oven_meat_chicken_foil:
-    "steps/roasting/oven/meat/chicken/roasting-oven-meat-chicken-foil.jpg",
+    "steps/roasting/oven/meat/roasting-oven-meat-chicken-foil.jpg",
   roasting_oven_meat_chicken:
-    "steps/roasting/oven/meat/chicken/roasting-oven-meat-chicken.jpg",
+    "steps/roasting/oven/meat/roasting-oven-meat-chicken.jpg",
   roasting_oven_meat_drumsticks_foil:
-    "steps/roasting/oven/meat/drumsticks/roasting-oven-meat-drumsticks-foil.jpg",
+    "steps/roasting/oven/meat/roasting-oven-meat-drumsticks-foil.jpg",
   roasting_oven_meat_drumsticks:
-    "steps/roasting/oven/meat/drumsticks/roasting-oven-meat-drumsticks.jpg",
+    "steps/roasting/oven/meat/roasting-oven-meat-drumsticks.jpg",
   roasting_oven_meat_loaf_foil:
-    "steps/roasting/oven/meat/loaf/roasting-oven-meat-loaf-foil.jpg",
+    "steps/roasting/oven/meat/roasting-oven-meat-loaf-foil.jpg",
   roasting_oven_meat_loaf:
-    "steps/roasting/oven/meat/loaf/roasting-oven-meat-loaf.jpg",
+    "steps/roasting/oven/meat/roasting-oven-meat-loaf.jpg",
   roasting_oven_meat_red_foil:
-    "steps/roasting/oven/meat/red/roasting-oven-meat-red-foil.jpg",
-  roasting_oven_meat_red:
-    "steps/roasting/oven/meat/red/roasting-oven-meat-red.jpg",
+    "steps/roasting/oven/meat/roasting-oven-meat-red-foil.jpg",
+  roasting_oven_meat_red: "steps/roasting/oven/meat/roasting-oven-meat-red.jpg",
   roasting_oven_vegetablesMix:
     "steps/roasting/oven/roasting-oven-vegetablesMix.jpg",
 };
@@ -347,19 +342,15 @@ const seasoning = {
   seasoning_spices_white: "steps/seasoning/seasoning-spices-white.jpg",
 };
 const steaming = {
-  steaming_fish_crab: "steps/steaming/fish/crab/steaming-fish-crab.jpg",
-  steaming_fish_lobster:
-    "steps/steaming/fish/lobster/steaming-fish-lobster.jpg",
-  steaming_fish_red: "steps/steaming/fish/red/steaming-fish-red.jpg",
-  steaming_fish_shrimps:
-    "steps/steaming/fish/shrimps/steaming-fish-shrimps.jpg",
-  steaming_fish_white: "steps/steaming/fish/white/steaming-fish-white.jpg",
+  steaming_fish_crab: "steps/steaming/fish/steaming-fish-crab.jpg",
+  steaming_fish_lobster: "steps/steaming/fish/steaming-fish-lobster.jpg",
+  steaming_fish_red: "steps/steaming/fish/steaming-fish-red.jpg",
+  steaming_fish_shrimps: "steps/steaming/fish/steaming-fish-shrimps.jpg",
+  steaming_fish_white: "steps/steaming/fish/steaming-fish-white.jpg",
   steaming_meat_chicken: "steps/steaming/meat/steaming-meat-chicken.jpg",
   steaming_meat_drumsticks: "steps/steaming/meat/steaming-meat-drumsticks.jpg",
-  steaming_meat_red_cubes:
-    "steps/steaming/meat/red/steaming-meat-red-cubes.jpg",
-  steaming_meat_red_steak:
-    "steps/steaming/meat/red/steaming-meat-red-steak.jpg",
+  steaming_meat_red_cubes: "steps/steaming/meat/steaming-meat-red-cubes.jpg",
+  steaming_meat_red_steak: "steps/steaming/meat/steaming-meat-red-steak.jpg",
   steaming_vegetables_brocolli:
     "steps/steaming/vegetables/steaming-vegetables-brocolli.jpg",
   steaming_vegetables_califlower:
