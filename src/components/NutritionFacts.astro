@@ -3,18 +3,15 @@ import { calculateNutritionFacts } from "@/lib/utils";
 import { getIngredientsByIdArray } from "@/services/ingredients";
 
 export type TFullIngredientsData = typeof fullIngredientsData;
-// NutritionFacts.astro (SSG)
 
 const { ingredients } = Astro.props as {
   ingredients: { name: string; quantity: string; grams: number; id: number }[];
 };
 
-// Fetch ingredient nutrition data once during build
 const fullIngredientsData = await getIngredientsByIdArray(
   ingredients.map((i) => i.id)
 );
 
-// Calculate per 100g values
 const per100g = calculateNutritionFacts(ingredients, fullIngredientsData);
 ---
 

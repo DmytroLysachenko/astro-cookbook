@@ -9,6 +9,7 @@ export const users = pgTable("users", {
     .default(sql`gen_random_uuid()`), // Automatically generate UUID
   name: text("name").notNull(),
   email: text("email").unique().notNull(),
+  avatar: text("avatar"),
   bio: text("bio"),
   lastActive: timestamp("last_active").defaultNow(),
   createdAt: timestamp("created_at").defaultNow(),

@@ -15,7 +15,7 @@ export default defineConfig({
     }),
   ],
   callbacks: {
-    async signIn({ user: { name, email } }) {
+    async signIn({ user: { name, email, image } }) {
       if (!name || !email) return false;
 
       try {
@@ -29,6 +29,7 @@ export default defineConfig({
         await createUser({
           name,
           email,
+          avatar: image,
         });
 
         return true;

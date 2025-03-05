@@ -1,11 +1,91 @@
 ---
 const today = new Date();
+
+const quickLinks = [
+  { href: '/recipes', text: 'Recipes' },
+  { href: '/categories', text: 'Categories' },
+  { href: '/meal-planner', text: 'Meal Planner' },
+  { href: '/cooking-tips', text: 'Cooking Tips' },
+];
+
+const categories = [
+  { href: '/category/breakfast', text: 'Breakfast' },
+  { href: '/category/lunch', text: 'Lunch' },
+  { href: '/category/dinner', text: 'Dinner' },
+  { href: '/category/desserts', text: 'Desserts' },
+];
+
+const about = [
+  { href: '/about-us', text: 'About Us' },
+  { href: '/our-team', text: 'Our Team' },
+  { href: '/contact', text: 'Contact' },
+  { href: '/faq', text: 'FAQ' },
+];
+
+const social = [
+  { href: 'https://facebook.com/cookingspot', text: 'Facebook', icon: 'facebook' },
+  { href: 'https://instagram.com/cookingspot', text: 'Instagram', icon: 'instagram' },
+  { href: 'https://pinterest.com/cookingspot', text: 'Pinterest', icon: 'pinterest' },
+  { href: 'https://youtube.com/cookingspot', text: 'YouTube', icon: 'youtube' },
+];
 ---
 
-<footer class="bg-background text-foreground py-12">
-  <div class="container text-center">
-    <p class="text-md">
-      &copy; {today.getFullYear()} Cooking Spot. All rights reserved.
-    </p>
+<footer class="bg-linear-0 from-primary/20 to-secondary/5 text-muted-foreground py-12">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-lg font-semibold text-foreground mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          {quickLinks.map(link => (
+            <li><a href={link.href} class="hover:text-primary transition-colors">{link.text}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold text-foreground mb-4">Recipe Categories</h3>
+        <ul class="space-y-2">
+          {categories.map(category => (
+            <li><a href={category.href} class="hover:text-primary transition-colors">{category.text}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold text-foreground mb-4">About Cooking Spot</h3>
+        <ul class="space-y-2">
+          {about.map(item => (
+            <li><a href={item.href} class="hover:text-primary transition-colors">{item.text}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold text-foreground mb-4">Connect With Us</h3>
+        <ul class="space-y-2">
+          {social.map(platform => (
+            <li>
+              <a href={platform.href} class="hover:text-primary transition-colors flex items-center">
+                <span class="mr-2">{platform.text}</span>
+                <!-- You can replace these with actual icons -->
+                <span class="text-xs">[{platform.icon}]</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <div class="mt-12 pt-8 border-t border-border">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-sm">
+          &copy; {today.getFullYear()} Cooking Spot. All rights reserved.
+        </p>
+        <nav class="mt-4 md:mt-0">
+          <ul class="flex space-x-4 text-sm">
+            <li><a href="/privacy-policy" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms-of-service" class="hover:text-primary transition-colors">Terms of Service</a></li>
+            <li><a href="/sitemap" class="hover:text-primary transition-colors">Sitemap</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
   </div>
 </footer>
+

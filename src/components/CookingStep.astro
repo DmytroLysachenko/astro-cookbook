@@ -13,16 +13,14 @@ interface CookingStepProps {
 const { action = "default", href, className } = Astro.props as CookingStepProps;
 
 const imagePath = href ? href : `/assets/images/${STEPS_IMAGES[action]}`;
-
-console.log(imagePath);
 ---
 
-<div class={`step-image ${className || ""}`}>
+<div class={`${className || ""}`}>
   <Image
     src={imagePath}
     alt={`${action} step`}
     width={1000}
     height={1000}
-    class="w-full lg:w-[50%] h-auto"
+    class="w-full lg:w-[65%] h-auto"
   />
 </div>

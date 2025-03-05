@@ -1,0 +1,103 @@
+---
+import BioEditor from "@/components/react/BioEditor";
+import UserAvatar from "@/components/react/UserAvatar";
+import { db } from "@/db";
+import { rates } from "@/db/schema/rates";
+import { recipes } from "@/db/schema/recipes";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getUser } from "@/services/auth";
+import { getCollection } from "astro:content";
+import { getSession } from "auth-astro/server";
+import { eq } from "drizzle-orm";
+import RecipesList from "@/components/RecipesList.astro";
+
+export const prerender = false;
+
+const allRecipes = await getCollection("recipe");
+
+const session = await getSession(Astro.request);
+
+if (!session || !session.user || !session.user.email) {
+  return Astro.redirect("/");
+}
+
+const user = await getUser(session.user.email);
+
+if (!user) {
+  return Astro.redirect("/");
+}
+
+const ratedRecipesIds = await db
+  .select({ id: rates.recipeId })
+  .from(rates)
+  .where(eq(rates.userId, user.id))
+  .leftJoin(recipes, eq(rates.recipeId, recipes.id))
+  .then((res) => (res.length > 0 ? res.map((r) => r.id) : []));
+
+const addedRecipesIds = await db
+  .select({ id: recipes.id })
+  .from(recipes)
+  .where(eq(recipes.createdBy, user.id))
+  .then((res) => (res.length > 0 ? res.map((r) => r.id) : []));
+
+const ratedRecipes = allRecipes.filter((recipe) =>
+  ratedRecipesIds.includes(recipe.data.id)
+);
+
+const addedRecipes = allRecipes.filter((recipe) =>
+  addedRecipesIds.includes(recipe.data.id)
+);
+---
+
+<BaseLayout
+  title="User Dashboard"
+  description="User Dashboard"
+>
+  <h1 class="text-3xl font-bold mb-8">User Dashboard</h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="md:col-span-1">
+      <div class="bg-card rounded-lg shadow p-6">
+        <UserAvatar
+          client:load
+          name={user.name}
+          avatar={user.avatar ?? undefined}
+        />
+        <h2 class="text-xl font-semibold mt-4">{user.name}</h2>
+        <p class="text-muted-foreground">{user.email}</p>
+        <BioEditor
+          client:load
+          initialBio={user.bio ?? ""}
+        />
+      </div>
+    </div>
+
+    <div class="md:col-span-2">
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4">Rated Recipes</h2>
+        {
+          ratedRecipes.length > 0 ? (
+            <RecipesList recipes={ratedRecipes} />
+          ) : (
+            <p class="text-muted-foreground">
+              You haven't rated any recipes yet.
+            </p>
+          )
+        }
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Added Recipes</h2>
+        {
+          addedRecipes.length > 0 ? (
+            <RecipesList recipes={addedRecipes} />
+          ) : (
+            <p class="text-muted-foreground">
+              You haven't added any recipes yet.
+            </p>
+          )
+        }
+      </section>
+    </div>
+  </div></BaseLayout
+>

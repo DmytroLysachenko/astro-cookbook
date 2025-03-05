@@ -41,12 +41,10 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     if (previousRate) {
-      const response = await db
+      await db
         .update(rates)
         .set({ rate })
         .where(and(eq(rates.userId, userId), eq(rates.recipeId, recipeId)));
-
-      console.log(response);
     } else {
       await db.insert(rates).values({
         userId,
