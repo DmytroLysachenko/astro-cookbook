@@ -1,20 +1,23 @@
 ---
 import { Image } from "astro:assets";
+import { STEPS_IMAGES } from "@/constants";
+
+type TPresetCookingAction = keyof typeof STEPS_IMAGES;
 
 interface CookingStepProps {
-  action: CookingAction; // Use the type here
-  variant?: number; // Optional variant number for the image (e.g., 2, 3, etc.)
+  action?: TPresetCookingAction; // Use the type here
+  href?: string; // Optional variant number for the image (e.g., 2, 3, etc.)
   className?: string; // Optional className for custom styling
 }
 
-const { action, variant, className } = Astro.props as CookingStepProps;
+const { action = "default", href, className } = Astro.props as CookingStepProps;
 
-// Construct the image name based on the action and variant
-const imageName = variant ? `${action}-${variant}.jpg` : `${action}.jpg`;
-const imagePath = `/assets/images/steps/${imageName}`;
+const imagePath = href ? href : `/assets/images/${STEPS_IMAGES[action]}`;
+
+console.log(imagePath);
 ---
 
-<div class={className ?? ""}>
+<div class={`step-image ${className || ""}`}>
   <Image
     src={imagePath}
     alt={`${action} step`}
