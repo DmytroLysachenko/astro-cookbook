@@ -37,12 +37,7 @@ export const updateUser = async (
       .update(users)
       .set(userData)
       .where(eq(users[variant], value))
-      .returning({
-        id: users.id,
-        email: users.email,
-        name: users.name,
-        avatar: users.avatar,
-      })
+      .returning()
       .then((user) => user[0]);
 
     return updatedUser;

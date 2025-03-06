@@ -53,7 +53,9 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
     }
     return true;
   };
+
   const ikUploadRef = useRef<HTMLInputElement | null>(null);
+
   return (
     <ImageKitProvider>
       <div className="flex flex-col">

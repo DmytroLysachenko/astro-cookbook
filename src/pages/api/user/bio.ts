@@ -14,6 +14,7 @@ export const POST: APIRoute = async ({ request }) => {
         headers: { "Content-Type": "application/json" },
       });
     }
+
     if (Date.parse(session.expires) < Date.now()) {
       return new Response(JSON.stringify({ error: "Session expired" }), {
         status: 401,
@@ -30,16 +31,16 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    const { avatar } = await request.json();
+    const { bio } = await request.json();
 
-    if (!avatar) {
+    if (!bio) {
       return new Response(JSON.stringify({ error: "Bad request" }), {
         status: 400,
         headers: { "Content-Type": "application/json" },
       });
     }
 
-    const newUser = await updateUser(user.id, { avatar }, "id");
+    const newUser = await updateUser(user.id, { bio }, "id");
 
     return new Response(JSON.stringify(newUser), {
       status: 200,

@@ -26,10 +26,10 @@ export default defineConfig({
       if (!name || !email) return false;
 
       try {
-        const existantUser = await getUser(email);
+        const existingUser = await getUser(email, "email");
 
-        if (existantUser) {
-          await updateUser(email, { lastActive: new Date() });
+        if (existingUser) {
+          await updateUser(email, { lastActive: new Date() }, "email");
           return true;
         }
 
