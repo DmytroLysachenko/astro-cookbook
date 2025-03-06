@@ -3,10 +3,18 @@ import Image from "astro/components/Image.astro";
 import { headerLinks, SITE_TITLE } from "../constants";
 import Navigation from "./Navigation.astro";
 
-import Auth from "./react/Auth";
+import LoggedAuth from "./react/LoggedAuth";
 import { getSession } from "auth-astro/server";
+import { getUser } from "@/services/auth";
+import PublicAuth from "./react/PublicAuth";
 
 const session = await getSession(Astro.request);
+
+let user;
+
+if (session && session.user && session.user.email) {
+  user = await getUser(session.user.email);
+}
 ---
 
 <header class="bg-background text-foreground shadow-sm">
@@ -31,10 +39,16 @@ const session = await getSession(Astro.request);
     />
 
     <div class="flex gap-6 justify-end items-center min-w-[40px] min-h-10">
-      <Auth
-        user={session?.user}
-        client:only="react"
-      />
+      {
+        user ? (
+          <LoggedAuth
+            user={user}
+            client:only="react"
+          />
+        ) : (
+          <PublicAuth client:only="react" />
+        )
+      }
     </div>
   </div>
 </header>

@@ -2,16 +2,23 @@ import { createUser, getUser, updateUser } from "@/services/auth";
 import GitHub from "@auth/core/providers/github";
 import Google from "@auth/core/providers/google";
 import { defineConfig } from "auth-astro";
+import {
+  GOOGLE_CLIENT_ID,
+  GOOGLE_CLIENT_SECRET,
+  GITHUB_CLIENT_ID,
+  GITHUB_CLIENT_SECRET,
+} from "astro:env/server";
+import { imagekit } from "@/lib/image-kit";
 
 export default defineConfig({
   providers: [
     Google({
-      clientId: import.meta.env.GOOGLE_CLIENT_ID,
-      clientSecret: import.meta.env.GOOGLE_CLIENT_SECRET,
+      clientId: GOOGLE_CLIENT_ID,
+      clientSecret: GOOGLE_CLIENT_SECRET,
     }),
     GitHub({
-      clientId: import.meta.env.GITHUB_CLIENT_ID,
-      clientSecret: import.meta.env.GITHUB_CLIENT_SECRET,
+      clientId: GITHUB_CLIENT_ID,
+      clientSecret: GITHUB_CLIENT_SECRET,
     }),
   ],
   callbacks: {
@@ -26,10 +33,25 @@ export default defineConfig({
           return true;
         }
 
+        if (!image) {
+          await createUser({
+            name,
+            email,
+          });
+
+          return true;
+        }
+
+        const uploadedAvatar = await imagekit.upload({
+          file: image,
+          fileName: name,
+          folder: "/cookbook/user-avatars",
+        });
+
         await createUser({
           name,
           email,
-          avatar: image,
+          avatar: uploadedAvatar.filePath,
         });
 
         return true;

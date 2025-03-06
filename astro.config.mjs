@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
@@ -33,4 +33,58 @@ export default defineConfig({
   },
 
   adapter: vercel(),
+  env: {
+    schema: {
+      DATABASE_URL: envField.string({
+        context: "server",
+        access: "secret",
+        optional: false,
+      }),
+      GOOGLE_CLIENT_ID: envField.string({
+        context: "server",
+        access: "public",
+        optional: false,
+      }),
+      GOOGLE_CLIENT_SECRET: envField.string({
+        context: "server",
+        access: "secret",
+        optional: false,
+      }),
+      GITHUB_CLIENT_ID: envField.string({
+        context: "server",
+        access: "secret",
+        optional: false,
+      }),
+      GITHUB_CLIENT_SECRET: envField.string({
+        context: "server",
+        access: "secret",
+        optional: false,
+      }),
+      IMAGEKIT_URL_ENDPOINT: envField.string({
+        context: "client",
+        access: "public",
+        optional: false,
+      }),
+      IMAGEKIT_PUBLIC_KEY: envField.string({
+        context: "client",
+        access: "public",
+        optional: false,
+      }),
+      IMAGEKIT_PRIVATE_KEY: envField.string({
+        context: "server",
+        access: "secret",
+        optional: false,
+      }),
+      BASE_URL: envField.string({
+        context: "client",
+        access: "public",
+        optional: false,
+      }),
+      API_BASE_URL: envField.string({
+        context: "client",
+        access: "public",
+        optional: false,
+      }),
+    },
+  },
 });

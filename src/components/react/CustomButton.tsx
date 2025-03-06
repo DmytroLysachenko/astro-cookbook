@@ -31,7 +31,7 @@ const CustomButton = ({
   return (
     <Button
       onClick={handleClick}
-      className={cn("cursor-pointer", props.className)}
+      className={cn(props.className)}
       variant={variant}
       size={size}
       asChild={isLink}
