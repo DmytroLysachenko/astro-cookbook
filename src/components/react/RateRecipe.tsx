@@ -2,7 +2,6 @@ import { useState } from "react";
 
 const StarRating = ({
   recipeId,
-  userId,
   initialRating = 0,
 }: {
   recipeId: string;
@@ -16,7 +15,7 @@ const StarRating = ({
       const response = await fetch(`/api/rate-recipe`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId, recipeId, rating: newRating }),
+        body: JSON.stringify({ recipeId, rating: newRating }),
       });
 
       if (response.ok) {
