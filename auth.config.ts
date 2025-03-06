@@ -45,7 +45,7 @@ export default defineConfig({
         const uploadedAvatar = await imagekit.upload({
           file: image,
           fileName: name,
-          folder: "/cookbook/user-avatars",
+          folder: "/cooking-spot/user-avatars",
         });
 
         await createUser({

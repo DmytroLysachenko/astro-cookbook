@@ -3,44 +3,75 @@ import { useRef, useState } from "react";
 import { Button } from "../ui/button";
 import ImageKitProvider from "./ImageKitProvider";
 import { IKImage, IKUpload } from "imagekitio-react";
-import { X } from "lucide-react";
+import type { UploadResponse } from "imagekit/dist/libs/interfaces";
+import { API_BASE_URL } from "astro:env/client";
+
 interface UserAvatarProps {
-  name: string;
-  avatar?: string;
+  avatar: string;
+  userId: string;
 }
 
 const UserAvatar: React.FC<UserAvatarProps> = ({
-  name,
   avatar: initialAvatar,
+  userId,
 }) => {
   const [avatar, setAvatar] = useState(initialAvatar);
+  const [isMutated, setIsMutated] = useState(false);
 
-  const onError = (err) => {
+  const onError = (err: Error) => {
     console.log("Error", err);
   };
 
-  const onSuccess = (res) => {
-    console.log("Success", res);
+  const onSuccess = async (res: UploadResponse) => {
+    setAvatar(res.filePath);
+    setIsMutated(true);
+  };
+
+  const handleSubmit = async (avatar: string) => {
+    try {
+      console.log(avatar);
+      await fetch(`${API_BASE_URL}/image-kit/avatar`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId, avatar }),
+      });
+
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const onValidate = (file: File) => {
+    if (!file.type.includes("image")) {
+      return false;
+    }
+    if (file.size > 2 * 1024 * 1024) {
+      return false;
+    }
+    return true;
   };
   const ikUploadRef = useRef<HTMLInputElement | null>(null);
   return (
     <ImageKitProvider>
       <div className="flex flex-col">
         <IKImage
-          path={avatar as string}
+          path={avatar}
           transformation={[{ width: "300", height: "300" }]}
           className="rounded-full overflow-hidden"
           width={300}
           height={300}
         />
         <IKUpload
-          folder="/cookbook/user-avatars"
-          fileName="test-upload.png"
+          folder="/cooking-spot/user-avatars"
+          useUniqueFileName={true}
           onError={onError}
           onSuccess={onSuccess}
           ref={ikUploadRef}
-          style={{ display: "none" }}
-          validateFile={(file: { size: number }) => file.size < 2000000}
+          className="hidden"
+          validateFile={onValidate}
         />
         <div className="flex items-center gap-4 py-3 px-1">
           <div className="flex flex-col gap-2 w-full">
@@ -55,18 +86,16 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
                 Upload
               </Button>
             )}
-          </div>
-
-          {ikUploadRef && (
             <Button
               variant="outline"
-              className="w-fit mt-auto cursor-pointer"
               size="sm"
-              onClick={() => ikUploadRef.current?.abort()}
+              className="w-full cursor-pointer"
+              onClick={() => handleSubmit(avatar)}
+              disabled={!isMutated}
             >
-              <X className="size-4" />
+              Submit
             </Button>
-          )}
+          </div>
         </div>
       </div>
     </ImageKitProvider>

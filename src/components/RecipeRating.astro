@@ -18,7 +18,7 @@ const session = await getSession(Astro.request);
 let user = null;
 
 if (session && session.user && session.user.email) {
-  user = await getUser(session.user.email);
+  user = await getUser(session.user.email, "email");
 }
 
 const { name, rating, ratingCount, views } = recipe ?? {};

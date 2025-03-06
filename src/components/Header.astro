@@ -13,7 +13,7 @@ const session = await getSession(Astro.request);
 let user;
 
 if (session && session.user && session.user.email) {
-  user = await getUser(session.user.email);
+  user = await getUser(session.user.email, "email");
 }
 ---
 

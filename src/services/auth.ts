@@ -5,9 +5,9 @@ import { eq, type InferInsertModel } from "drizzle-orm";
 type TCreateUserData = InferInsertModel<typeof users>;
 type TUpdateUserData = Partial<TCreateUserData>;
 
-export const getUser = async (email: string) => {
+export const getUser = async (value: string, variant: "email" | "id") => {
   try {
-    const user = await db.select().from(users).where(eq(users.email, email));
+    const user = await db.select().from(users).where(eq(users[variant], value));
 
     return user[0] ?? null;
   } catch (error) {
@@ -27,12 +27,23 @@ export const createUser = async (userData: TCreateUserData) => {
   }
 };
 
-export const updateUser = async (email: string, userData: TUpdateUserData) => {
+export const updateUser = async (
+  value: string,
+  userData: TUpdateUserData,
+  variant: "email" | "id",
+) => {
   try {
     const updatedUser = await db
       .update(users)
       .set(userData)
-      .where(eq(users.email, email));
+      .where(eq(users[variant], value))
+      .returning({
+        id: users.id,
+        email: users.email,
+        name: users.name,
+        avatar: users.avatar,
+      })
+      .then((user) => user[0]);
 
     return updatedUser;
   } catch (error) {

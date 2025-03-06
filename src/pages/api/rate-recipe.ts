@@ -6,6 +6,8 @@ import { users } from "@/db/schema/users";
 import { recipes } from "@/db/schema/recipes";
 import { rates } from "@/db/schema/rates";
 
+export const prerender = false;
+
 export const POST: APIRoute = async ({ request }) => {
   try {
     const { userId, recipeId, rating: rate } = await request.json();

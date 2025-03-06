@@ -17,7 +17,7 @@ const LoggedAuth = ({ user }: { user: TUser }) => {
         <PopoverTrigger>
           <Avatar className="size-10 cursor-pointer">
             <AvatarImage
-              src={`${IMAGEKIT_URL_ENDPOINT}${user.avatar}`}
+              src={`${IMAGEKIT_URL_ENDPOINT}/${user.avatar}`}
               alt={user.name ?? "avatar"}
             />
             <AvatarFallback className="flex justify-center items-center font-semibold bg-muted text-md">
