@@ -7,13 +7,19 @@ import LoggedAuth from "./react/LoggedAuth";
 import { getSession } from "auth-astro/server";
 import { getUser } from "@/services/auth";
 import PublicAuth from "./react/PublicAuth";
+import type { TUser } from "@/db/schema/users";
 
-const session = await getSession(Astro.request);
+const { user } = Astro.props as { user?: TUser };
 
-let user;
+let userData: TUser | undefined | null;
 
-if (session && session.user && session.user.email) {
-  user = await getUser(session.user.email, "email");
+if (user) {
+  userData = { ...user };
+} else {
+  const session = await getSession(Astro.request);
+  if (session && session.user && session.user.email) {
+    userData = await getUser(session.user.email, "email");
+  }
 }
 ---
 
@@ -40,9 +46,9 @@ if (session && session.user && session.user.email) {
 
     <div class="flex gap-6 justify-end items-center min-w-[40px] min-h-10">
       {
-        user ? (
+        userData ? (
           <LoggedAuth
-            user={user}
+            user={userData}
             client:only="react"
           />
         ) : (

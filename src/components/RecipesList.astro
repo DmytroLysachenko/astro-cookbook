@@ -3,12 +3,25 @@ import RecipeCard from "./RecipeCard.astro";
 import type { TRecipeCollectionEntry } from "@/types";
 import { getRecipesRatingDataByIdArray } from "@/services/recipes";
 
-const { recipes } = Astro.props as { recipes: TRecipeCollectionEntry[] };
+const { recipes, ratingData } = Astro.props as {
+  recipes: TRecipeCollectionEntry[];
+  ratingData?: {
+    id: string;
+    rating: number;
+    ratingCount: number;
+    view: number;
+  }[];
+};
 
-const recipesIds = recipes.map((recipe) => recipe.data.id);
+let recipesRatingData;
 
-const recipesRatingData =
-  (await getRecipesRatingDataByIdArray(recipesIds)) ?? [];
+if (ratingData) {
+  recipesRatingData = ratingData;
+} else {
+  const recipesIds = recipes.map((recipe) => recipe.data.id);
+
+  recipesRatingData = (await getRecipesRatingDataByIdArray(recipesIds)) ?? [];
+}
 ---
 
 <div class="grid-responsive">

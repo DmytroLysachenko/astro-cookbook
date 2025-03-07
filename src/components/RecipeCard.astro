@@ -33,7 +33,7 @@ const { recipe, ratingData: { rating = 0, ratingCount = 0 } = {} } =
     <h2 class="text-xl font-bold mb-2">
       <a
         href={`/recipes/${recipe.id}`}
-        class="text-gray-900 hover:text-red-500 transition-colors duration-300"
+        class="text-gray-900 hover:text-red-500 transition-colors duration-300 line-clamp-2"
       >
         {recipe.title}
       </a>
@@ -44,9 +44,12 @@ const { recipe, ratingData: { rating = 0, ratingCount = 0 } = {} } =
       <span class="ml-2 text-sm text-gray-600">{ratingCount} Ratings</span>
     </div>
 
-    <div class="text-sm text-gray-600">
-      Cook time: {recipe.cookingTime} minutes | Portions: {recipe.portions}
-    </div>
+    <p class="text-sm text-gray-600">
+      Cook time: {recipe.cookingTime} minutes |
+    </p>
+    <p class="text-sm text-gray-600">
+      Portions: {recipe.portions}
+    </p>
 
     <div class="mt-2 flex flex-wrap gap-2">
       {

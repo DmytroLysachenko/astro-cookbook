@@ -2,6 +2,7 @@ import type React from "react";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
+import { API_BASE_URL } from "astro:env/client";
 
 interface BioEditorProps {
   initialBio: string;
@@ -11,9 +12,20 @@ const BioEditor: React.FC<BioEditorProps> = ({ initialBio }) => {
   const [bio, setBio] = useState(initialBio);
   const [isEditing, setIsEditing] = useState(false);
 
-  const handleSave = () => {
-    // TODO: Implement API call to save bio
-    setIsEditing(false);
+  //TODO:Add toasts all around project API interactions.
+
+  const handleSave = async () => {
+    try {
+      await fetch(`${API_BASE_URL}/user/bio`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ bio }),
+      });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsEditing(false);
+    }
   };
 
   return (
@@ -27,7 +39,11 @@ const BioEditor: React.FC<BioEditorProps> = ({ initialBio }) => {
             className="mb-2"
           />
 
-          <Button onClick={handleSave} size="sm" className=" cursor-pointer">
+          <Button
+            onClick={async () => await handleSave()}
+            size="sm"
+            className=" cursor-pointer"
+          >
             Save
           </Button>
 

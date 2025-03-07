@@ -6,6 +6,8 @@ export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
   try {
+    //TODO:Make middleware for auth-protected API
+
     const session = await getSession(request);
 
     if (!session || !session.user || !session.user.email) {

@@ -11,7 +11,7 @@ export const prerender = false;
 const { searchParams } = Astro.url;
 const currentPage = Number(searchParams.get("page")) || 1;
 const pageSize = 12;
-const sortBy = searchParams.get("sort") || "newest";
+const sortBy = searchParams.get("sort") || "";
 const category = searchParams.get("category") || "";
 const cuisine = searchParams.get("cuisine") || "";
 
@@ -31,26 +31,22 @@ if (cuisine) {
   );
 }
 
-// // Apply sorting
-// switch (sortBy) {
-//   case "title":
-//     filteredRecipes.sort((a, b) => a.data.title.localeCompare(b.data.title));
-//     break;
-//   case "cookTime":
-//     filteredRecipes.sort((a, b) => a.data.cookingTime - b.data.cookingTime);
-//     break;
-//   case "portions":
-//     filteredRecipes.sort((a, b) => b.data.portions - a.data.portions);
-//     break;
-//   case "newest":
-//   default:
-//     // Assuming you have a 'date' field in your frontmatter
-//     filteredRecipes.sort(
-//       (a, b) =>
-//         new Date(b.data.date || 0).getTime() -
-//         new Date(a.data.date || 0).getTime()
-//     );
-// }
+console.log(sortBy);
+
+switch (sortBy) {
+  case "title":
+    filteredRecipes.sort((a, b) => a.data.title.localeCompare(b.data.title));
+    break;
+  case "cookTime":
+    filteredRecipes.sort((a, b) => a.data.cookingTime - b.data.cookingTime);
+    break;
+  case "portions":
+    filteredRecipes.sort((a, b) => b.data.portions - a.data.portions);
+    break;
+  default:
+    filteredRecipes.sort((a, b) => a.data.title.localeCompare(b.data.title));
+    break;
+}
 
 // Calculate pagination
 const totalRecipes = filteredRecipes.length;
@@ -59,7 +55,8 @@ const startIndex = (currentPage - 1) * pageSize;
 const endIndex = Math.min(startIndex + pageSize, totalRecipes);
 const currentRecipes = filteredRecipes.slice(startIndex, endIndex);
 
-// Get unique categories and cuisines for filter
+//TODO:Add categories and cuisines to db
+
 const categories = [
   ...new Set(allRecipes.flatMap((recipe) => recipe.data.categories)),
 ];
@@ -96,10 +93,7 @@ const cuisines = [...new Set(allRecipes.map((recipe) => recipe.data.cuisine))];
           </div>
         </div>
 
-        <RecipesList
-          server:defer
-          recipes={currentRecipes}
-        />
+        <RecipesList recipes={currentRecipes} />
 
         {
           totalPages > 1 && (
