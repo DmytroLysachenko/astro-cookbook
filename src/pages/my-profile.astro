@@ -13,8 +13,6 @@ import RecipesList from "@/components/RecipesList.astro";
 
 export const prerender = false;
 
-const allRecipes = await getCollection("recipe");
-
 const session = await getSession(Astro.request);
 
 if (
@@ -57,13 +55,14 @@ const [ratedRecipesRatingData, addedRecipesRatingData] = await Promise.all([
     .groupBy(recipes.id),
 ]);
 
-const ratedRecipes = allRecipes.filter((recipe) =>
-  ratedRecipesRatingData.map((r) => r.id).includes(recipe.data.id)
-);
-
-const addedRecipes = allRecipes.filter((recipe) =>
-  addedRecipesRatingData.map((r) => r.id).includes(recipe.data.id)
-);
+const [ratedRecipes, addedRecipes] = await Promise.all([
+  getCollection("recipe", (entry) =>
+    ratedRecipesRatingData.map((r) => r.id).includes(entry.data.id)
+  ),
+  getCollection("recipe", (entry) =>
+    addedRecipesRatingData.map((r) => r.id).includes(entry.data.id)
+  ),
+]);
 ---
 
 <BaseLayout
@@ -98,9 +97,8 @@ const addedRecipes = allRecipes.filter((recipe) =>
               <a
                 class="text-gray-900
             hover:text-red-500
-            transition-colors
-            duration-300
-            line-clamp-2"
+            transition-all
+            text-lg"
                 href="/recipes"
               >
                 See more...

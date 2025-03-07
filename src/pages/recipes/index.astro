@@ -5,6 +5,9 @@ import Pagination from "../../components/Pagination.astro";
 import FilterSidebar from "../../components/FilterSidebar.astro";
 import { capitalize } from "@/lib/utils";
 import RecipesList from "@/components/RecipesList.astro";
+import { db } from "@/db";
+import { categories } from "@/db/schema/categories";
+import { cuisines } from "@/db/schema/cuisines";
 
 export const prerender = false;
 // Get search params for pagination and filtering
@@ -15,21 +18,16 @@ const sortBy = searchParams.get("sort") || "";
 const category = searchParams.get("category") || "";
 const cuisine = searchParams.get("cuisine") || "";
 
-// Get all recipes
-const allRecipes = await getCollection("recipe");
+const filteredRecipes = await getCollection("recipe", (entry) => {
+  const categoryFilter = category
+    ? entry.data.categories.includes(category.toLowerCase())
+    : true;
+  const cuisineFilter = cuisine
+    ? entry.data.cuisine.toLowerCase() === cuisine.toLowerCase()
+    : true;
 
-// Apply filters if needed
-let filteredRecipes = allRecipes;
-if (category) {
-  filteredRecipes = filteredRecipes.filter((recipe) =>
-    recipe.data.categories.includes(category.toLowerCase())
-  );
-}
-if (cuisine) {
-  filteredRecipes = filteredRecipes.filter(
-    (recipe) => recipe.data.cuisine.toLowerCase() === cuisine.toLowerCase()
-  );
-}
+  return categoryFilter && cuisineFilter;
+});
 
 console.log(sortBy);
 
@@ -57,10 +55,17 @@ const currentRecipes = filteredRecipes.slice(startIndex, endIndex);
 
 //TODO:Add categories and cuisines to db
 
-const categories = [
-  ...new Set(allRecipes.flatMap((recipe) => recipe.data.categories)),
-];
-const cuisines = [...new Set(allRecipes.map((recipe) => recipe.data.cuisine))];
+const [allCategories, allCuisines] = await Promise.all([
+  db
+    .select()
+    .from(categories)
+    .then((cat) => cat.map((c) => c.name)),
+  db
+    .select()
+    .from(cuisines)
+    .then((cui) => cui.map((c) => c.name)),
+]);
+console.log(allCategories, allCuisines);
 ---
 
 <BaseLayout title="Recipes">
@@ -69,8 +74,8 @@ const cuisines = [...new Set(allRecipes.map((recipe) => recipe.data.cuisine))];
       <!-- Sidebar with filters -->
 
       <FilterSidebar
-        categories={categories}
-        cuisines={cuisines}
+        categories={allCategories}
+        cuisines={allCuisines}
         currentCategory={category}
         currentCuisine={cuisine}
         currentSort={sortBy}

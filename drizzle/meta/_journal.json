@@ -71,6 +71,13 @@
       "when": 1741198832001,
       "tag": "0009_certain_doctor_strange",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1741341758988,
+      "tag": "0010_careless_stryfe",
+      "breakpoints": true
     }
   ]
 }
