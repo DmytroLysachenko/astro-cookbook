@@ -15,3 +15,9 @@ export type ErrorResult = {
 };
 
 export type Result<T> = SuccessResult<T> | ErrorResult;
+
+export interface IIngredient {
+  id: string;
+  name: string;
+  category: string;
+}

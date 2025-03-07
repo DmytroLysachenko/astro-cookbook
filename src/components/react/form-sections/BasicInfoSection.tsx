@@ -1,13 +1,10 @@
-"use client";
-
-import type React from "react";
+import React from "react";
 import { useFormContext } from "react-hook-form";
 import {
   FormField,
   FormItem,
   FormLabel,
   FormControl,
-  FormDescription,
   FormMessage,
 } from "../../ui/form";
 import { Input } from "../../ui/input";
@@ -20,6 +17,7 @@ import {
   SelectValue,
 } from "../../ui/select";
 import { Checkbox } from "../../ui/checkbox";
+import { capitalize } from "@/lib/utils";
 
 interface BasicInfoProps {
   cuisines: Array<{ id: string; name: string }>;
@@ -32,11 +30,29 @@ const BasicInfo: React.FC<BasicInfoProps> = ({
   categories,
   languages,
 }) => {
-  const { control, setValue } = useFormContext();
+  const { control, setValue, watch } = useFormContext();
+  const selectedCategories = watch("categories") || [];
 
   // const handleImageUpload = (imageUrl: string) => {
   //   setValue("mainImage", imageUrl);
   // };
+  const handleCategoryChange = (checked: boolean, categoryId: string) => {
+    if (checked) {
+      // Add the category if it's not already selected
+      if (!selectedCategories.includes(categoryId)) {
+        // Limit to 3 categories
+        if (selectedCategories.length < 3) {
+          setValue("categories", [...selectedCategories, categoryId]);
+        }
+      }
+    } else {
+      // Remove the category
+      setValue(
+        "categories",
+        selectedCategories.filter((id: string) => id !== categoryId),
+      );
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -49,9 +65,6 @@ const BasicInfo: React.FC<BasicInfoProps> = ({
             <FormControl>
               <Input placeholder="Enter recipe title" {...field} />
             </FormControl>
-            <FormDescription>
-              Choose a descriptive title for your recipe.
-            </FormDescription>
             <FormMessage />
           </FormItem>
         )}
@@ -60,7 +73,7 @@ const BasicInfo: React.FC<BasicInfoProps> = ({
       <FormField
         control={control}
         name="mainImage"
-        render={({ field }) => (
+        render={() => (
           <FormItem>
             <FormLabel>Main Image URL</FormLabel>
             <FormControl>
@@ -69,9 +82,7 @@ const BasicInfo: React.FC<BasicInfoProps> = ({
                 value={field.value as string}
               /> */}
             </FormControl>
-            <FormDescription>
-              Upload or provide a URL for the main image of your recipe.
-            </FormDescription>
+
             <FormMessage />
           </FormItem>
         )}
@@ -89,9 +100,7 @@ const BasicInfo: React.FC<BasicInfoProps> = ({
                 {...field}
               />
             </FormControl>
-            <FormDescription>
-              Write a brief description for SEO purposes.
-            </FormDescription>
+
             <FormMessage />
           </FormItem>
         )}
@@ -164,51 +173,31 @@ const BasicInfo: React.FC<BasicInfoProps> = ({
         )}
       />
 
-      <FormField
-        control={control}
-        name="categories"
-        render={() => (
-          <FormItem>
-            <FormLabel>Categories (select up to 3)</FormLabel>
-            <div className="grid grid-cols-2 gap-2">
-              {categories.map((category) => (
-                <FormField
-                  key={category.id}
-                  control={control}
-                  name="categories"
-                  render={({ field }) => {
-                    return (
-                      <FormItem
-                        key={category.id}
-                        className="flex flex-row items-start space-x-3 space-y-0"
-                      >
-                        <FormControl>
-                          <Checkbox
-                            checked={field.value?.includes(category.id)}
-                            onCheckedChange={(checked) => {
-                              return checked
-                                ? field.onChange([...field.value, category.id])
-                                : field.onChange(
-                                    field.value?.filter(
-                                      (value: string) => value !== category.id,
-                                    ),
-                                  );
-                            }}
-                          />
-                        </FormControl>
-                        <FormLabel className="font-normal">
-                          {category.name}
-                        </FormLabel>
-                      </FormItem>
-                    );
-                  }}
-                />
-              ))}
+      <FormItem>
+        <FormLabel>Categories (select up to 3)</FormLabel>
+        <div className="grid grid-cols-2 gap-2">
+          {categories.map((category) => (
+            <div key={category.id} className="flex items-center space-x-2">
+              <Checkbox
+                id={`category-${category.id}`}
+                checked={selectedCategories.includes(category.id)}
+                onCheckedChange={(checked) =>
+                  handleCategoryChange(checked as boolean, category.id)
+                }
+              />
+              <label
+                htmlFor={`category-${category.id}`}
+                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              >
+                {capitalize(category.name)}
+              </label>
             </div>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
+          ))}
+        </div>
+        <FormMessage>
+          {selectedCategories.length > 3 ? "Maximum 3 categories allowed" : ""}
+        </FormMessage>
+      </FormItem>
 
       <FormField
         control={control}

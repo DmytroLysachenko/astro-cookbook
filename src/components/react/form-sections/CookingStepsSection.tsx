@@ -1,4 +1,4 @@
-import type React from "react";
+import React from "react";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import {
   FormField,
@@ -17,21 +17,25 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../../ui/select";
+import { capitalize } from "@/lib/utils";
 
 interface CookingStepsProps {
   stepsImages: Record<string, string>;
 }
 
 const CookingSteps: React.FC<CookingStepsProps> = ({ stepsImages }) => {
-  const { control, setValue } = useFormContext();
+  const {
+    control,
+    // setValue
+  } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control,
     name: "steps",
   });
 
-  const handleImageUpload = (imageUrl: string, index: number) => {
-    setValue(`steps.${index}.image`, imageUrl);
-  };
+  // const handleImageUpload = (imageUrl: string, index: number) => {
+  //   setValue(`steps.${index}.image`, imageUrl);
+  // };
 
   return (
     <div className="space-y-6">
@@ -92,7 +96,10 @@ const CookingSteps: React.FC<CookingStepsProps> = ({ stepsImages }) => {
                       </SelectTrigger>
                       <SelectContent>
                         {Object.entries(stepsImages).map(([key, value]) => (
-                          <SelectItem key={key} value={value}>
+                          <SelectItem
+                            key={key}
+                            value={capitalize(value).replace("_", " ")}
+                          >
                             {key}
                           </SelectItem>
                         ))}

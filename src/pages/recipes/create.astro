@@ -1,26 +1,13 @@
 ---
 import CreateRecipeForm from "@/components/react/CreateRecipeForm";
+import { db } from "@/db";
+import { categories } from "@/db/schema/categories";
+import { cuisines } from "@/db/schema/cuisines";
+import { ingredients } from "@/db/schema/ingredients";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { capitalize } from "@/lib/utils";
 
 export const prerender = false;
-
-// Fetch required data
-const cuisines = [
-  { id: "1", name: "Polish" },
-  { id: "2", name: "Italian" },
-  { id: "3", name: "Japanese" },
-  // Add more cuisines
-];
-
-const categories = [
-  { id: "1", name: "dinner" },
-  { id: "2", name: "lunch" },
-  { id: "3", name: "breakfast" },
-  { id: "4", name: "dessert" },
-  { id: "5", name: "stew" },
-  { id: "6", name: "comfort food" },
-  // Add more categories
-];
 
 const languages = [
   { code: "en", name: "English" },
@@ -28,25 +15,35 @@ const languages = [
   { code: "es", name: "Spanish" },
 ];
 
-const ingredients = [
-  { id: "650", name: "Cabbage" },
-  { id: "682", name: "Pork Shoulder" },
-  { id: "643", name: "Onion" },
-  // Add more ingredients
-];
+const allCuisines = await db.select().from(cuisines);
+const allCategories = await db.select().from(categories);
+const allIngredients = await db
+  .select({
+    id: ingredients.id,
+    name: ingredients.name,
+    category: ingredients.category,
+  })
+  .from(ingredients)
+  .then((res) =>
+    res.map((res) => ({
+      ...res,
+      category: capitalize(res.category).replace("_", " "),
+      id: res.id.toString(),
+    }))
+  );
 ---
 
 <BaseLayout title="Create New Recipe - Cooking Spot">
   <main class="container mx-auto px-4 py-8">
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-4xl mx-auto min-h-screen">
       <h1 class="text-3xl font-bold mb-8">Create New Recipe</h1>
 
       <CreateRecipeForm
-        client:load
-        cuisines={cuisines}
-        categories={categories}
+        client:only="react"
+        cuisines={allCuisines}
+        categories={allCategories}
         languages={languages}
-        ingredients={ingredients}
+        ingredients={allIngredients}
       />
     </div>
   </main>

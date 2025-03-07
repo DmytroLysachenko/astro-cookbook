@@ -7,13 +7,14 @@ import { Form } from "../ui/form";
 import BasicInfo from "./form-sections/BasicInfoSection";
 import IngredientsSection from "./form-sections/IngredientsSection";
 import CookingSteps from "./form-sections/CookingStepsSection";
+import type { IIngredient } from "@/types";
 import { STEPS_IMAGES } from "@/constants";
 
 interface CreateRecipeFormProps {
   cuisines: Array<{ id: string; name: string }>;
   categories: Array<{ id: string; name: string }>;
   languages: Array<{ code: string; name: string }>;
-  ingredients: Array<{ id: string; name: string }>;
+  ingredients: IIngredient[];
 }
 
 const recipeSchema = z.object({
@@ -75,6 +76,7 @@ const CreateRecipeForm: React.FC<CreateRecipeFormProps> = ({
     try {
       // Here you would typically handle file uploads and create the MDX content
       console.log(data);
+
       // Implement the API call and MDX generation here
     } catch (error) {
       console.error("Error creating recipe:", error);
@@ -98,7 +100,7 @@ const CreateRecipeForm: React.FC<CreateRecipeFormProps> = ({
           <Button type="button" variant="outline">
             Cancel
           </Button>
-          <Button type="submit">Create Recipe</Button>
+          <Button>Create Recipe</Button>
         </div>
       </form>
     </Form>
