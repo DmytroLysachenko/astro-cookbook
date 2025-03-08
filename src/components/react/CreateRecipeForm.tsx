@@ -46,7 +46,7 @@ const recipeSchema = z.object({
         content: z
           .string()
           .min(20, "Step content must be at least 20 characters"),
-        image: z.union([z.string().url(), z.instanceof(File)]),
+        image: z.union([z.string().url(), z.string()]),
       }),
     )
     .min(3, "Recipe must have introduction, at least one step, and conclusion"),
@@ -75,7 +75,7 @@ const CreateRecipeForm: React.FC<CreateRecipeFormProps> = ({
   const onSubmit = async (data: RecipeFormData) => {
     try {
       // Here you would typically handle file uploads and create the MDX content
-      console.log(data);
+      console.log(JSON.stringify(data));
 
       // Implement the API call and MDX generation here
     } catch (error) {

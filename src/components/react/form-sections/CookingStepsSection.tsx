@@ -88,7 +88,10 @@ const CookingSteps: React.FC<CookingStepsProps> = ({ stepsImages }) => {
                       value={field.value as string}
                     /> */}
                     <Select
-                      onValueChange={(value) => field.onChange(value)}
+                      onValueChange={(value) => {
+                        field.onChange(value);
+                        console.log(value);
+                      }}
                       value={field.value as string}
                     >
                       <SelectTrigger className="w-[180px]">
@@ -97,8 +100,8 @@ const CookingSteps: React.FC<CookingStepsProps> = ({ stepsImages }) => {
                       <SelectContent>
                         {Object.entries(stepsImages).map(([key, value]) => (
                           <SelectItem
-                            key={key}
-                            value={capitalize(value).replace("_", " ")}
+                            key={capitalize(key).replace("_", " ")}
+                            value={value}
                           >
                             {key}
                           </SelectItem>

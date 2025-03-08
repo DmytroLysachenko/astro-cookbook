@@ -73,7 +73,7 @@ const BasicInfo: React.FC<BasicInfoProps> = ({
       <FormField
         control={control}
         name="mainImage"
-        render={() => (
+        render={({ field }) => (
           <FormItem>
             <FormLabel>Main Image URL</FormLabel>
             <FormControl>
@@ -81,6 +81,7 @@ const BasicInfo: React.FC<BasicInfoProps> = ({
                 onUpload={handleImageUpload}
                 value={field.value as string}
               /> */}
+              <Input placeholder="Enter url" {...field} />
             </FormControl>
 
             <FormMessage />
@@ -162,8 +163,8 @@ const BasicInfo: React.FC<BasicInfoProps> = ({
               </FormControl>
               <SelectContent>
                 {cuisines.map((cuisine) => (
-                  <SelectItem key={cuisine.id} value={cuisine.id}>
-                    {cuisine.name}
+                  <SelectItem key={cuisine.name} value={cuisine.name}>
+                    {capitalize(cuisine.name)}
                   </SelectItem>
                 ))}
               </SelectContent>
