@@ -1,9 +1,10 @@
 import { db } from "@/db";
 import { users } from "@/db/schema/users";
-import { eq, type InferInsertModel } from "drizzle-orm";
+import { eq, type InferInsertModel, type InferSelectModel } from "drizzle-orm";
 
-type TCreateUserData = InferInsertModel<typeof users>;
-type TUpdateUserData = Partial<TCreateUserData>;
+export type TCreateUserData = InferInsertModel<typeof users>;
+export type TUpdateUserData = Partial<TCreateUserData>;
+export type TUser = InferSelectModel<typeof users>;
 
 export const getUser = async (value: string, variant: "email" | "id") => {
   try {

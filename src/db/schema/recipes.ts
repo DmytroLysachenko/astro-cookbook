@@ -1,6 +1,6 @@
 import { pgTable, integer, timestamp, uuid } from "drizzle-orm/pg-core";
 import { users } from "./users";
-import { sql, type InferSelectModel } from "drizzle-orm";
+import { sql } from "drizzle-orm";
 
 export const recipes = pgTable("recipes", {
   id: uuid("id")
@@ -13,5 +13,3 @@ export const recipes = pgTable("recipes", {
   updatedAt: timestamp("updated_at").defaultNow(), // Last update timestamp
   views: integer("views").default(0).notNull(),
 });
-
-export type TRecipe = InferSelectModel<typeof recipes>;

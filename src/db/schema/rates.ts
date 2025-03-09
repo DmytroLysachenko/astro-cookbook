@@ -7,7 +7,6 @@ import {
 } from "drizzle-orm/pg-core";
 import { users } from "./users";
 import { recipes } from "./recipes";
-import type { InferInsertModel } from "drizzle-orm";
 
 //TODO: DB relations to fix
 
@@ -25,5 +24,3 @@ export const rates = pgTable(
   },
   (table) => [primaryKey({ columns: [table.userId, table.recipeId] })],
 );
-
-export type TRecipe = InferInsertModel<typeof rates>;

@@ -4,6 +4,8 @@ import { inArray, type InferSelectModel } from "drizzle-orm";
 
 export type TIngredientData = InferSelectModel<typeof ingredients>;
 
+export type TIngredient = InferSelectModel<typeof ingredients>;
+
 export const getIngredientsByIdArray = async (ingredientsList: number[]) => {
   try {
     const allIngredients = await db

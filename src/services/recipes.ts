@@ -12,6 +12,7 @@ import {
 } from "drizzle-orm";
 
 export type TRecipeData = InferSelectModel<typeof recipes>;
+export type TRecipe = InferSelectModel<typeof recipes>;
 type TCreateRecipeData = InferInsertModel<typeof recipes>;
 type TUpdateRecipeData = Partial<TCreateRecipeData>;
 

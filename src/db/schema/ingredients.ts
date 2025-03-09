@@ -1,4 +1,3 @@
-import type { InferSelectModel } from "drizzle-orm";
 import { pgTable, serial, text, numeric, pgEnum } from "drizzle-orm/pg-core";
 
 export const ingredientCategories = pgEnum("category", [
@@ -42,5 +41,3 @@ export const ingredients = pgTable("ingredients", {
   category: ingredientCategories().notNull(),
   description: text("description"),
 });
-
-export type TIngredient = InferSelectModel<typeof ingredients>;

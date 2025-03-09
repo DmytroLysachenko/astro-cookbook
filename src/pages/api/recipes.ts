@@ -10,7 +10,7 @@ export const prerender = false;
 export const POST: APIRoute = async ({ request, locals: { user } }) => {
   try {
     const { recipeId, rating: rate } = await request.json();
-    console.log(recipeId);
+
     const [recipe, previousRate] = await Promise.all([
       db
         .select()
