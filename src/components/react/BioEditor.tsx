@@ -16,7 +16,7 @@ const BioEditor: React.FC<BioEditorProps> = ({ initialBio }) => {
 
   const handleSave = async () => {
     try {
-      await fetch(`${API_BASE_URL}/user/bio`, {
+      await fetch(`${API_BASE_URL}/user`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ bio }),

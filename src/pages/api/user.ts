@@ -31,7 +31,7 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    const { bio } = await request.json();
+    const { bio, name, email } = await request.json();
 
     if (!bio) {
       return new Response(JSON.stringify({ error: "Bad request" }), {
@@ -40,7 +40,7 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    const newUser = await updateUser(user.id, { bio }, "id");
+    const newUser = await updateUser(user.id, { bio, name, email }, "id");
 
     return new Response(JSON.stringify(newUser), {
       status: 200,
