@@ -8,8 +8,6 @@ import {
 import { users } from "./users";
 import { recipes } from "./recipes";
 
-//TODO: DB relations to fix
-
 export const rates = pgTable(
   "rates",
   {

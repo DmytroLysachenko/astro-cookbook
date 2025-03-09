@@ -30,39 +30,21 @@ if (!user) {
   return Astro.redirect("/");
 }
 
-const [ratedRecipesRatingData, addedRecipesRatingData] = await Promise.all([
-  db
-    .select({
-      id: recipes.id,
-      rating: avg(rates.rate).mapWith(Number),
-      ratingCount: count(rates.recipeId).mapWith(Number),
-      view: recipes.views,
-    })
-    .from(recipes)
-    .where(eq(rates.userId, user.id))
-    .leftJoin(rates, eq(recipes.id, rates.recipeId))
-    .groupBy(recipes.id),
-  db
-    .select({
-      id: recipes.id,
-      rating: avg(rates.rate).mapWith(Number),
-      ratingCount: count(rates.recipeId).mapWith(Number),
-      view: recipes.views,
-    })
-    .from(recipes)
-    .where(eq(recipes.createdBy, user.id))
-    .leftJoin(rates, eq(recipes.id, rates.recipeId))
-    .groupBy(recipes.id),
-]);
+const ratedRecipesRatingData = await db
+  .select({
+    id: recipes.id,
+    rating: avg(rates.rate).mapWith(Number),
+    ratingCount: count(rates.recipeId).mapWith(Number),
+    view: recipes.views,
+  })
+  .from(recipes)
+  .where(eq(rates.userId, user.id))
+  .leftJoin(rates, eq(recipes.id, rates.recipeId))
+  .groupBy(recipes.id);
 
-const [ratedRecipes, addedRecipes] = await Promise.all([
-  getCollection("recipe", (entry) =>
-    ratedRecipesRatingData.map((r) => r.id).includes(entry.data.id)
-  ),
-  getCollection("recipe", (entry) =>
-    addedRecipesRatingData.map((r) => r.id).includes(entry.data.id)
-  ),
-]);
+const ratedRecipes = await getCollection("recipe", (entry) =>
+  ratedRecipesRatingData.map((r) => r.id).includes(entry.data.id)
+);
 ---
 
 <BaseLayout
@@ -116,38 +98,6 @@ const [ratedRecipes, addedRecipes] = await Promise.all([
           ) : (
             <p class="text-muted-foreground">
               You haven't rated any recipes yet.
-            </p>
-          )
-        }
-      </section>
-
-      <section>
-        <div class="flex justify-between">
-          <h2 class="text-2xl font-semibold mb-4">Added Recipes</h2>
-          {
-            addedRecipes.length > 8 && (
-              <a
-                class="text-gray-900
-            hover:text-red-500
-            transition-all
-            text-lg
-            "
-                href="/recipes"
-              >
-                See more...
-              </a>
-            )
-          }
-        </div>
-        {
-          addedRecipes.length > 0 ? (
-            <RecipesList
-              recipes={addedRecipes.slice(0, 8)}
-              ratingData={addedRecipesRatingData}
-            />
-          ) : (
-            <p class="text-muted-foreground">
-              You haven't added any recipes yet.
             </p>
           )
         }

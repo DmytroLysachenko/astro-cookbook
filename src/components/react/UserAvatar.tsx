@@ -29,7 +29,6 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
 
   const handleSubmit = async (avatar: string) => {
     try {
-      console.log(avatar);
       await fetch(`${API_BASE_URL}/image-kit/avatar`, {
         method: "POST",
         headers: {

@@ -5,9 +5,8 @@ import Navigation from "./Navigation.astro";
 
 import LoggedAuth from "./react/LoggedAuth";
 import { getSession } from "auth-astro/server";
-import { getUser } from "@/services/auth";
+import { getUser, type TUser } from "@/services/auth";
 import PublicAuth from "./react/PublicAuth";
-import type { TUser } from "@/db/schema/users";
 
 const { user } = Astro.props as { user?: TUser };
 
