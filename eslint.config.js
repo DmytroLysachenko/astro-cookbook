@@ -12,6 +12,7 @@ export default tseslint.config(
       "**/.astro",
       "**/.github",
       "**/.changeset",
+      "**/.vercel",
     ],
   },
 
@@ -42,5 +43,5 @@ export default tseslint.config(
     languageOptions: {
       globals: globals.node,
     },
-  }
+  },
 );

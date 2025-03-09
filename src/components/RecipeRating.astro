@@ -2,10 +2,7 @@
 import { getSession } from "auth-astro/server";
 import RateRecipe from "./react/RateRecipe";
 import { getUser } from "@/services/auth";
-import { db } from "@/db";
-import { avg, count, eq } from "drizzle-orm";
-import { rates } from "@/db/schema/rates";
-import { views } from "@/db/schema/views";
+import { getRatingDataBySlug } from "@/services/rates";
 
 const { slug } = Astro.props;
 
@@ -17,24 +14,18 @@ if (session && session.user && session.user.email) {
   user = await getUser(session.user.email, "email");
 }
 
-const [ratingData, viewsData] = await Promise.all([
-  db
-    .select({ rating: avg(rates.rate), ratingCount: count(rates.id) })
-    .from(rates)
-    .where(eq(rates.recipeSlug, slug))
-    .then((data) => (data.length > 0 ? data[0] : null)),
-  db
-    .select()
-    .from(views)
-    .where(eq(views.recipeSlug, slug))
-    .then((data) => (data.length > 0 ? data[0] : null)),
-]);
+const ratingData = await getRatingDataBySlug(slug);
+
+console.log(ratingData);
 ---
 
 <section>
-  <p>⭐ <strong>Rating:</strong> {ratingData?.rating ?? 0} / 5 ⭐</p>
+  <p>
+    ⭐ <strong>Rating:</strong>
+    {parseFloat(ratingData?.rating ?? "0")} / 5 ⭐
+  </p>
   <p>👥 <strong>Rating Count:</strong> {ratingData?.ratingCount ?? 0}</p>
-  <p>👀 <strong>Views:</strong> {viewsData?.count ?? 0}</p>
+  <p>👀 <strong>Views:</strong> {ratingData?.views ?? 0}</p>
 
   {
     user && (
@@ -42,7 +33,7 @@ const [ratingData, viewsData] = await Promise.all([
         client:only="react"
         recipeSlug={slug}
         userId={user.id}
-        initialRating={Number(ratingData?.rating ?? 0)}
+        initialRating={parseFloat(ratingData?.rating ?? "0")}
       />
     )
   }

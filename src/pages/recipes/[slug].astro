@@ -47,4 +47,16 @@ const { Content } = await render(recipe);
 
     <Content />
   </div>
+  <script define:vars={{ slug }}>
+    document.addEventListener("DOMContentLoaded", async () => {
+      console.log("incrementing views", slug);
+      await fetch(`/api/increment-views`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          recipeSlug: slug,
+        }),
+      });
+    });
+  </script>
 </BaseLayout>
