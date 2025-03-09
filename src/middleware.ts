@@ -5,8 +5,10 @@ import { getUser } from "./services/auth";
 
 export const authMiddleware = defineMiddleware(async (context, next) => {
   if (
-    context.routePattern.startsWith("/api/") &&
-    !context.routePattern.includes("auth")
+    (context.routePattern.startsWith("/api/") &&
+      !context.routePattern.includes("auth") &&
+      !context.routePattern.includes("increment-views")) ||
+    context.routePattern.includes("my-profile")
   ) {
     const session = await getSession(context.request);
 

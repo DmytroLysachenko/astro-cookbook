@@ -1,0 +1,71 @@
+---
+slug: "banana-peanut-butter-smoothie"
+title: "Banana and Peanut Butter Smoothie"
+mainImage: "https://media.istockphoto.com/id/456789012/pl/zdj%C4%99cie/banana-peanut-butter-smoothie.webp?s=2048x2048&w=is&k=20&c=REPhFUpU1x0uyRJHiKwhMilpgpsyo7yj7AdNK71XZS8="
+description: "A creamy and delicious smoothie made with bananas, peanut butter, and milk."
+cookingTime: 5 # in minutes
+portions: 2
+cuisine: "American"
+categories: ["smoothie", "quick meal", "healthy"]
+language: "en"
+ingredients:
+  - name: "Banana"
+    quantity: "2"
+    grams: 240
+    id: "623" # Banana
+
+  - name: "Peanut Butter"
+    quantity: "2 tbsp"
+    grams: 30
+    id: "819" # Peanuts (used as a substitute for peanut butter)
+
+  - name: "Milk"
+    quantity: "300ml"
+    grams: 300
+    id: "812" # Whole Milk
+
+  - name: "Honey"
+    quantity: "1 tbsp"
+    grams: 15
+    id: "843" # Honey
+---
+
+import IngredientsList from "../../components/IngredientsList.astro";
+import CookingStep from "../../components/CookingStep.astro";
+import NutritionFacts from "../../components/NutritionFacts.astro";
+import RecipeRating from "../../components/RecipeRating.astro";
+
+## Introduction
+
+This **Banana and Peanut Butter Smoothie** is a **creamy and delicious drink** that’s perfect for breakfast or a snack. The combination of **bananas** and **peanut butter** makes this smoothie both satisfying and nutritious.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Ingredients
+
+Peel the **bananas**.
+
+<CookingStep action="cutting_fruits_banana" />
+
+### Step 2: Blend the Smoothie
+
+In a blender, combine the **bananas**, **peanut butter**, **milk**, and **honey**. Blend until smooth.
+
+<CookingStep action="mixing_bowl_fruits_smoothie" />
+
+### Step 3: Serve & Enjoy!
+
+Pour the smoothie into glasses and serve immediately.
+
+## Final Thoughts
+
+This **Banana and Peanut Butter Smoothie** is a **quick and easy recipe** that’s perfect for a healthy snack or breakfast. The combination of **bananas and peanut butter** makes it a delicious and satisfying treat. Enjoy this recipe with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

@@ -1,1 +1,0 @@
-ALTER TABLE "rates" RENAME COLUMN "liked_at" TO "rated_at";

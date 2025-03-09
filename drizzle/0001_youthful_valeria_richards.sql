@@ -1,1 +1,0 @@
-ALTER TABLE "recipes" ADD COLUMN "rating_count" integer DEFAULT 0;

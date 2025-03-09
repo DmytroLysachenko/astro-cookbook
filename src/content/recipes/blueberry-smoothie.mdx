@@ -1,0 +1,71 @@
+---
+slug: "blueberry-smoothie"
+title: "Blueberry Smoothie"
+mainImage: "https://media.istockphoto.com/id/1122334455/pl/zdj%C4%99cie/blueberry-smoothie.webp?s=2048x2048&w=is&k=20&c=REPhFUpU1x0uyRJHiKwhMilpgpsyo7yj7AdNK71XZS8="
+description: "A refreshing and healthy smoothie made with blueberries, banana, and Greek yogurt."
+cookingTime: 5 # in minutes
+portions: 2
+cuisine: "American"
+categories: ["smoothie", "healthy", "quick meal"]
+language: "en"
+ingredients:
+  - name: "Blueberries"
+    quantity: "150g"
+    grams: 150
+    id: "625" # Blueberries
+
+  - name: "Banana"
+    quantity: "1"
+    grams: 120
+    id: "623" # Banana
+
+  - name: "Greek Yogurt"
+    quantity: "100g"
+    grams: 100
+    id: "813" # Greek Yogurt
+
+  - name: "Milk"
+    quantity: "200ml"
+    grams: 200
+    id: "812" # Whole Milk
+---
+
+import IngredientsList from "../../components/IngredientsList.astro";
+import CookingStep from "../../components/CookingStep.astro";
+import NutritionFacts from "../../components/NutritionFacts.astro";
+import RecipeRating from "../../components/RecipeRating.astro";
+
+## Introduction
+
+This **Blueberry Smoothie** is a **quick and healthy drink** perfect for breakfast or a snack. The combination of **blueberries, banana, and Greek yogurt** creates a creamy and delicious smoothie that’s packed with nutrients.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Ingredients
+
+Peel the **banana** and wash the **blueberries**.
+
+<CookingStep action="cutting_fruits_banana" />
+
+### Step 2: Blend the Smoothie
+
+In a blender, combine the **blueberries**, **banana**, **Greek yogurt**, and **milk**. Blend until smooth.
+
+<CookingStep action="mixing_bowl_fruits_smoothie" />
+
+### Step 3: Serve & Enjoy!
+
+Pour the smoothie into glasses and serve immediately.
+
+## Final Thoughts
+
+This **Blueberry Smoothie** is a **refreshing and nutritious option** for any time of the day. The combination of **sweet blueberries, creamy banana, and tangy Greek yogurt** makes it a delicious and healthy treat. Enjoy this easy recipe with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

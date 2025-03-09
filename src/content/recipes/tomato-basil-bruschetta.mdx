@@ -1,0 +1,86 @@
+---
+slug: "tomato-basil-bruschetta"
+title: "Tomato and Basil Bruschetta"
+mainImage: "https://media.istockphoto.com/id/567890123/pl/zdj%C4%99cie/tomato-basil-bruschetta.webp?s=2048x2048&w=is&k=20&c=REPhFUpU1x0uyRJHiKwhMilpgpsyo7yj7AdNK71XZS8="
+description: "A classic Italian appetizer made with fresh tomatoes, basil, and toasted bread."
+cookingTime: 15 # in minutes
+portions: 4
+cuisine: "Italian"
+categories: ["appetizer", "quick meal", "healthy"]
+language: "en"
+ingredients:
+  - name: "Tomatoes"
+    quantity: "4"
+    grams: 400
+    id: "642" # Tomato
+
+  - name: "Basil"
+    quantity: "1 handful"
+    grams: 10
+    id: "840" # Parsley (used as a substitute for basil)
+
+  - name: "Baguette"
+    quantity: "1"
+    grams: 200
+    id: "835" # Whole Wheat Bread (used as a substitute for baguette)
+
+  - name: "Olive Oil"
+    quantity: "3 tbsp"
+    grams: 45
+    id: "837" # Olive Oil
+
+  - name: "Garlic"
+    quantity: "2 cloves"
+    grams: 10
+    id: "644" # Garlic
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "../../components/IngredientsList.astro";
+import CookingStep from "../../components/CookingStep.astro";
+import NutritionFacts from "../../components/NutritionFacts.astro";
+import RecipeRating from "../../components/RecipeRating.astro";
+
+## Introduction
+
+This **Tomato and Basil Bruschetta** is a **classic Italian appetizer** that’s perfect for any occasion. The combination of **fresh tomatoes**, **basil**, and **toasted bread** makes this dish both simple and delicious.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Ingredients
+
+Chop the **tomatoes** and **basil**. Slice the **baguette** and toast it. Mince the **garlic**.
+
+<CookingStep action="cutting_vegetables_tomato" />
+
+### Step 2: Assemble the Bruschetta
+
+In a bowl, mix the **tomatoes**, **basil**, **olive oil**, **garlic**, **salt**, and **black pepper**. Spoon the mixture onto the toasted **baguette slices**.
+
+<CookingStep action="mixing_bowl_vegetables_salad" />
+
+### Step 3: Serve & Enjoy!
+
+Serve the bruschetta immediately as an appetizer or snack.
+
+## Final Thoughts
+
+This **Tomato and Basil Bruschetta** is a **simple yet flavorful dish** that’s perfect for any occasion. The combination of **fresh tomatoes and basil** on **toasted bread** makes it a crowd-pleaser. Enjoy this easy recipe with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

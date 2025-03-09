@@ -1,35 +1,25 @@
 ---
 import RecipeCard from "./RecipeCard.astro";
 import type { TRecipeCollectionEntry } from "@/types";
-import { getRecipesRatingDataByIdArray } from "@/services/recipes";
+import { getRatingDataBySlugArray } from "@/services/rates";
 
-const { recipes, ratingData } = Astro.props as {
+const { recipes } = Astro.props as {
   recipes: TRecipeCollectionEntry[];
-  ratingData?: {
-    id: string;
-    rating: number;
-    ratingCount: number;
-    view: number;
-  }[];
 };
 
-let recipesRatingData;
+const recipesSlugs = recipes.map((recipe) => recipe.data.slug);
 
-if (ratingData) {
-  recipesRatingData = ratingData;
-} else {
-  const recipesIds = recipes.map((recipe) => recipe.data.id);
-
-  recipesRatingData = (await getRecipesRatingDataByIdArray(recipesIds)) ?? [];
-}
+const recipesRatingData = await getRatingDataBySlugArray(recipesSlugs);
 ---
 
 <div class="grid-responsive">
   {
     recipes.map((recipe) => (
       <RecipeCard
-        recipe={recipe.data}
-        ratingData={recipesRatingData.find((r) => r.id === recipe.data.id)}
+        recipe={{
+          ...recipe.data,
+          ...recipesRatingData.find((r) => r.slug === recipe.data.slug),
+        }}
       />
     ))
   }

@@ -1,0 +1,81 @@
+---
+slug: "spinach-feta-omelette"
+title: "Spinach and Feta Omelette"
+mainImage: "https://media.istockphoto.com/id/123456789/pl/zdj%C4%99cie/spinach-feta-omelette.webp?s=2048x2048&w=is&k=20&c=REPhFUpU1x0uyRJHiKwhMilpgpsyo7yj7AdNK71XZS8="
+description: "A fluffy omelette filled with fresh spinach and tangy feta cheese."
+cookingTime: 10 # in minutes
+portions: 2
+cuisine: "Mediterranean"
+categories: ["breakfast", "quick meal", "healthy"]
+language: "en"
+ingredients:
+  - name: "Eggs"
+    quantity: "4"
+    grams: 200
+    id: "1282" # Chicken Egg (Whole)
+
+  - name: "Spinach"
+    quantity: "100g"
+    grams: 100
+    id: "637" # Spinach
+
+  - name: "Feta Cheese"
+    quantity: "50g"
+    grams: 50
+    id: "816" # Feta Cheese
+
+  - name: "Olive Oil"
+    quantity: "1 tbsp"
+    grams: 15
+    id: "837" # Olive Oil
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "../../components/IngredientsList.astro";
+import CookingStep from "../../components/CookingStep.astro";
+import NutritionFacts from "../../components/NutritionFacts.astro";
+import RecipeRating from "../../components/RecipeRating.astro";
+
+## Introduction
+
+This **Spinach and Feta Omelette** is a **quick and nutritious breakfast** that’s packed with flavor. The combination of **fresh spinach** and **tangy feta cheese** makes this omelette a delicious way to start your day.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Ingredients
+
+Wash and chop the **spinach**. Crumble the **feta cheese**.
+
+<CookingStep action="cutting_vegetables_lettuce" />
+
+### Step 2: Cook the Omelette
+
+In a bowl, whisk the **eggs** with **salt** and **black pepper**. Heat the **olive oil** in a pan, add the **spinach**, and cook until wilted. Pour the eggs over the spinach and sprinkle with **feta cheese**. Cook until the eggs are set.
+
+<CookingStep action="frying_pan_eggs" />
+
+### Step 3: Serve & Enjoy!
+
+Fold the omelette and serve immediately.
+
+## Final Thoughts
+
+This **Spinach and Feta Omelette** is a **simple yet flavorful dish** that’s perfect for a quick breakfast or brunch. The combination of **spinach and feta** adds a Mediterranean twist to a classic omelette. Enjoy this easy recipe with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

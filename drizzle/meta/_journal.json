@@ -5,85 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1740825018403,
-      "tag": "0000_bizarre_groot",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1740948705110,
-      "tag": "0001_youthful_valeria_richards",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1741034440088,
-      "tag": "0002_tired_grey_gargoyle",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1741036869700,
-      "tag": "0003_soft_boom_boom",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "7",
-      "when": 1741036914195,
-      "tag": "0004_broken_karma",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "7",
-      "when": 1741037026912,
-      "tag": "0005_lumpy_gamma_corps",
-      "breakpoints": true
-    },
-    {
-      "idx": 6,
-      "version": "7",
-      "when": 1741043580338,
-      "tag": "0006_dear_prima",
-      "breakpoints": true
-    },
-    {
-      "idx": 7,
-      "version": "7",
-      "when": 1741043816719,
-      "tag": "0007_open_secret_warriors",
-      "breakpoints": true
-    },
-    {
-      "idx": 8,
-      "version": "7",
-      "when": 1741089119894,
-      "tag": "0008_flippant_young_avengers",
-      "breakpoints": true
-    },
-    {
-      "idx": 9,
-      "version": "7",
-      "when": 1741198832001,
-      "tag": "0009_certain_doctor_strange",
-      "breakpoints": true
-    },
-    {
-      "idx": 10,
-      "version": "7",
-      "when": 1741341758988,
-      "tag": "0010_careless_stryfe",
-      "breakpoints": true
-    },
-    {
-      "idx": 11,
-      "version": "7",
-      "when": 1741525152458,
-      "tag": "0011_dark_stingray",
+      "when": 1741562248886,
+      "tag": "0000_quiet_the_enforcers",
       "breakpoints": true
     }
   ]

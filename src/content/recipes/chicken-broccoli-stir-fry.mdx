@@ -1,0 +1,86 @@
+---
+slug: "chicken-broccoli-stir-fry"
+title: "Chicken and Broccoli Stir-Fry"
+mainImage: "https://media.istockphoto.com/id/345678901/pl/zdj%C4%99cie/chicken-broccoli-stir-fry.webp?s=2048x2048&w=is&k=20&c=REPhFUpU1x0uyRJHiKwhMilpgpsyo7yj7AdNK71XZS8="
+description: "A quick and healthy stir-fry made with tender chicken and fresh broccoli."
+cookingTime: 20 # in minutes
+portions: 4
+cuisine: "Asian"
+categories: ["stir-fry", "quick meal", "healthy"]
+language: "en"
+ingredients:
+  - name: "Chicken Breast"
+    quantity: "400g"
+    grams: 400
+    id: "669" # Chicken Breast
+
+  - name: "Broccoli"
+    quantity: "300g"
+    grams: 300
+    id: "636" # Broccoli
+
+  - name: "Soy Sauce"
+    quantity: "3 tbsp"
+    grams: 45
+    id: "1286" # Soy Sauce (Regular)
+
+  - name: "Garlic"
+    quantity: "2 cloves"
+    grams: 10
+    id: "644" # Garlic
+
+  - name: "Olive Oil"
+    quantity: "2 tbsp"
+    grams: 30
+    id: "837" # Olive Oil
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "../../components/IngredientsList.astro";
+import CookingStep from "../../components/CookingStep.astro";
+import NutritionFacts from "../../components/NutritionFacts.astro";
+import RecipeRating from "../../components/RecipeRating.astro";
+
+## Introduction
+
+This **Chicken and Broccoli Stir-Fry** is a **quick and healthy meal** that’s perfect for busy weeknights. The combination of **tender chicken** and **fresh broccoli** makes this dish both nutritious and delicious.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Ingredients
+
+Slice the **chicken breast** into thin strips. Cut the **broccoli** into florets. Mince the **garlic**.
+
+<CookingStep action="cutting_meat_poultry_breasts" />
+
+### Step 2: Cook the Stir-Fry
+
+Heat the **olive oil** in a pan and sauté the **garlic** until fragrant. Add the **chicken** and cook until browned. Add the **broccoli** and **soy sauce**, and stir-fry until the broccoli is tender. Season with **salt** and **black pepper**.
+
+<CookingStep action="frying_pan_meat_poultry_with_veggies" />
+
+### Step 3: Serve & Enjoy!
+
+Serve the stir-fry hot with rice or noodles.
+
+## Final Thoughts
+
+This **Chicken and Broccoli Stir-Fry** is a **quick and easy dish** that’s perfect for a healthy weeknight dinner. The combination of **chicken and broccoli** makes it a nutritious and satisfying meal. Enjoy this recipe with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

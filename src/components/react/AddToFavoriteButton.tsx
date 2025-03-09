@@ -1,6 +1,7 @@
 import { Heart } from "lucide-react";
 
-const AddToFavoriteButton = ({ id }: { id: string }) => {
+const AddToFavoriteButton = ({ slug }: { slug: string }) => {
+  console.log(slug);
   return (
     <button
       className="absolute top-4 right-4 bg-red-500 text-white p-2 rounded-full hover:bg-red-600 transition-colors duration-300"

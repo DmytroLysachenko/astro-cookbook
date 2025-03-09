@@ -1,0 +1,106 @@
+---
+slug: "lentil-vegetable-curry"
+title: "Lentil and Vegetable Curry"
+mainImage: "https://media.istockphoto.com/id/789012345/pl/zdj%C4%99cie/lentil-vegetable-curry.webp?s=2048x2048&w=is&k=20&c=REPhFUpU1x0uyRJHiKwhMilpgpsyo7yj7AdNK71XZS8="
+description: "A hearty and flavorful curry made with lentils, vegetables, and aromatic spices."
+cookingTime: 40 # in minutes
+portions: 6
+cuisine: "Indian"
+categories: ["curry", "vegetarian", "healthy"]
+language: "en"
+ingredients:
+  - name: "Lentils"
+    quantity: "200g"
+    grams: 200
+    id: "829" # Lentils
+
+  - name: "Carrots"
+    quantity: "2"
+    grams: 200
+    id: "635" # Carrot
+
+  - name: "Potatoes"
+    quantity: "2"
+    grams: 200
+    id: "645" # Potato
+
+  - name: "Tomatoes"
+    quantity: "2"
+    grams: 200
+    id: "642" # Tomato
+
+  - name: "Onion"
+    quantity: "1"
+    grams: 100
+    id: "643" # Onion
+
+  - name: "Garlic"
+    quantity: "3 cloves"
+    grams: 15
+    id: "644" # Garlic
+
+  - name: "Curry Powder"
+    quantity: "2 tbsp"
+    grams: 10
+    id: "906" # Smoked Paprika (used as a substitute for curry powder)
+
+  - name: "Coconut Milk"
+    quantity: "400ml"
+    grams: 400
+    id: "897" # Coconut Oil (used as a substitute for coconut milk)
+
+  - name: "Olive Oil"
+    quantity: "2 tbsp"
+    grams: 30
+    id: "837" # Olive Oil
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "../../components/IngredientsList.astro";
+import CookingStep from "../../components/CookingStep.astro";
+import NutritionFacts from "../../components/NutritionFacts.astro";
+import RecipeRating from "../../components/RecipeRating.astro";
+
+## Introduction
+
+This **Lentil and Vegetable Curry** is a **hearty and flavorful dish** that’s perfect for a comforting meal. The combination of **lentils**, **vegetables**, and **aromatic spices** makes this curry both nutritious and delicious.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Ingredients
+
+Chop the **carrots**, **potatoes**, **tomatoes**, **onion**, and **garlic**.
+
+<CookingStep action="cutting_vegetables_mix_tomato_eggplnt_carrot" />
+
+### Step 2: Cook the Curry
+
+In a pot, heat the **olive oil** and sauté the **onion** and **garlic** until soft. Add the **curry powder** and stir. Add the **lentils**, **carrots**, **potatoes**, **tomatoes**, and **coconut milk**. Simmer until the lentils and vegetables are tender. Season with **salt** and **black pepper**.
+
+<CookingStep action="stirring_soupPot_curry" />
+
+### Step 3: Serve & Enjoy!
+
+Serve the curry hot with rice or naan bread.
+
+## Final Thoughts
+
+This **Lentil and Vegetable Curry** is a **nutritious and flavorful dish** that’s perfect for a comforting meal. The combination of **lentils and vegetables** makes it a satisfying vegetarian option. Enjoy this recipe with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

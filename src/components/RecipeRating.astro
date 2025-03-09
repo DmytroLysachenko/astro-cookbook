@@ -1,17 +1,13 @@
 ---
-import { getRecipeDataById, viewRecipeById } from "@services/recipes"; // Function to fetch from DB
 import { getSession } from "auth-astro/server";
 import RateRecipe from "./react/RateRecipe";
 import { getUser } from "@/services/auth";
 import { db } from "@/db";
+import { avg, count, eq } from "drizzle-orm";
 import { rates } from "@/db/schema/rates";
-import { and, eq } from "drizzle-orm";
+import { views } from "@/db/schema/views";
 
-const { id } = Astro.props;
-
-await viewRecipeById(id);
-
-const recipe = await getRecipeDataById(id);
+const { slug } = Astro.props;
 
 const session = await getSession(Astro.request);
 
@@ -21,32 +17,32 @@ if (session && session.user && session.user.email) {
   user = await getUser(session.user.email, "email");
 }
 
-const { name, rating, ratingCount, views } = recipe ?? {};
-
-let userRating = 0;
-if (user && user.id) {
-  userRating =
-    (await db
-      .select()
-      .from(rates)
-      .where(and(eq(rates.recipeId, id), eq(rates.userId, user.id)))
-      .then((rate) => rate[0]?.rate)) ?? 0;
-}
+const [ratingData, viewsData] = await Promise.all([
+  db
+    .select({ rating: avg(rates.rate), ratingCount: count(rates.id) })
+    .from(rates)
+    .where(eq(rates.recipeSlug, slug))
+    .then((data) => (data.length > 0 ? data[0] : null)),
+  db
+    .select()
+    .from(views)
+    .where(eq(views.recipeSlug, slug))
+    .then((data) => (data.length > 0 ? data[0] : null)),
+]);
 ---
 
 <section>
-  <p>👤 <strong>Author:</strong> {name}</p>
-  <p>⭐ <strong>Rating:</strong> {rating ?? 0} / 5 ⭐</p>
-  <p>👥 <strong>Rating Count:</strong> {ratingCount}</p>
-  <p>👀 <strong>Views:</strong> {views}</p>
+  <p>⭐ <strong>Rating:</strong> {ratingData?.rating ?? 0} / 5 ⭐</p>
+  <p>👥 <strong>Rating Count:</strong> {ratingData?.ratingCount ?? 0}</p>
+  <p>👀 <strong>Views:</strong> {viewsData?.count ?? 0}</p>
 
   {
     user && (
       <RateRecipe
         client:only="react"
-        recipeId={id}
+        recipeSlug={slug}
         userId={user.id}
-        initialRating={userRating}
+        initialRating={Number(ratingData?.rating ?? 0)}
       />
     )
   }

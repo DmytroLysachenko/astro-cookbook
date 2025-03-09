@@ -4,21 +4,35 @@ import { capitalize } from "@/lib/utils";
 import type { TRecipeCollectionData } from "@/types";
 import Image from "astro/components/Image.astro";
 
-const { recipe, ratingData: { rating = 0, ratingCount = 0 } = {} } =
-  Astro.props as {
-    recipe: TRecipeCollectionData;
-    ratingData?: { rating: number; ratingCount: number };
+const {
+  recipe: {
+    rating,
+    ratingCount,
+    slug,
+    mainImage,
+    title,
+    cuisine,
+    cookingTime,
+    portions,
+    categories,
+  },
+} = Astro.props as {
+  recipe: TRecipeCollectionData & {
+    rating: number;
+    ratingCount: number;
+    views: number;
   };
+};
 ---
 
 <div class="card">
   <a
-    href={`/recipes/${recipe.id}`}
+    href={`/recipes/${slug}`}
     class="rounded-lg overflow-hidden block"
   >
     <Image
-      src={recipe.mainImage || "/placeholder.svg?height=250&width=400"}
-      alt={recipe.title}
+      src={mainImage || "/placeholder.svg?height=250&width=400"}
+      alt={title}
       width={400}
       height={250}
       class="w-full h-48 object-cover"
@@ -27,15 +41,15 @@ const { recipe, ratingData: { rating = 0, ratingCount = 0 } = {} } =
 
   <div class="p-4">
     <div class="text-sm uppercase font-medium text-gray-500 mb-1">
-      {recipe.cuisine}
+      {cuisine}
     </div>
 
     <h2 class="text-xl font-bold mb-2">
       <a
-        href={`/recipes/${recipe.id}`}
+        href={`/recipes/${slug}`}
         class="text-gray-900 hover:text-red-500 transition-colors duration-300 line-clamp-2"
       >
-        {recipe.title}
+        {title}
       </a>
     </h2>
 
@@ -45,15 +59,15 @@ const { recipe, ratingData: { rating = 0, ratingCount = 0 } = {} } =
     </div>
 
     <p class="text-sm text-gray-600">
-      Cook time: {recipe.cookingTime} minutes |
+      Cook time: {cookingTime} minutes |
     </p>
     <p class="text-sm text-gray-600">
-      Portions: {recipe.portions}
+      Portions: {portions}
     </p>
 
     <div class="mt-2 flex flex-wrap gap-2">
       {
-        recipe.categories.map((category: string) => (
+        categories.map((category: string) => (
           <span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full">
             {capitalize(category)}
           </span>

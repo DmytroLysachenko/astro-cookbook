@@ -1,0 +1,92 @@
+---
+slug: "zucchini-and-carrot-fritters"
+title: "Zucchini and Carrot Fritters"
+mainImage: "https://media.istockphoto.com/id/1234567890/pl/zdj%C4%99cie/zucchini-carrot-fritters.webp?s=2048x2048&w=is&k=20&c=REPhFUpU1x0uyRJHiKwhMilpgpsyo7yj7AdNK71XZS8="
+description: "Crispy and flavorful fritters made with grated zucchini, carrots, and a touch of seasoning."
+cookingTime: 20 # in minutes
+portions: 4
+cuisine: "International"
+categories: ["fritters", "vegetarian", "healthy"]
+language: "en"
+ingredients:
+  - name: "Zucchini"
+    quantity: "2"
+    grams: 300
+    id: "639" # Zucchini
+
+  - name: "Carrots"
+    quantity: "2"
+    grams: 200
+    id: "635" # Carrot
+
+  - name: "Eggs"
+    quantity: "2"
+    grams: 100
+    id: "1282" # Chicken Egg (Whole)
+
+  - name: "Flour"
+    quantity: "100g"
+    grams: 100
+    id: "1199" # All-Purpose Flour
+
+  - name: "Olive Oil"
+    quantity: "2 tbsp"
+    grams: 30
+    id: "837" # Olive Oil
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "../../components/IngredientsList.astro";
+import CookingStep from "../../components/CookingStep.astro";
+import NutritionFacts from "../../components/NutritionFacts.astro";
+import RecipeRating from "../../components/RecipeRating.astro";
+
+## Introduction
+
+These **Zucchini and Carrot Fritters** are a **crispy and flavorful dish** that’s perfect for a quick and healthy meal. The combination of **grated zucchini** and **carrots** makes these fritters both nutritious and delicious.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Ingredients
+
+Grate the **zucchini** and **carrots**. Squeeze out any excess moisture.
+
+<CookingStep action="cutting_vegetables_zucchini" />
+
+### Step 2: Mix the Batter
+
+In a bowl, combine the grated **zucchini**, **carrots**, **eggs**, **flour**, **salt**, and **black pepper**. Mix until well combined.
+
+<CookingStep action="mixing_bowl_liquids_batter" />
+
+### Step 3: Cook the Fritters
+
+Heat the **olive oil** in a pan and spoon the batter into the pan to form fritters. Cook until golden brown on both sides.
+
+<CookingStep action="frying_pan_vegetables_fries" />
+
+### Step 4: Serve & Enjoy!
+
+Serve the fritters hot with your favorite dipping sauce.
+
+## Final Thoughts
+
+These **Zucchini and Carrot Fritters** are a **quick and healthy dish** that’s perfect for a light meal or snack. The combination of **zucchini and carrots** makes them both nutritious and flavorful. Enjoy this recipe with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

@@ -1,0 +1,76 @@
+---
+slug: "avocado-tomato-toast"
+title: "Avocado and Tomato Toast"
+mainImage: "https://media.istockphoto.com/id/987654321/pl/zdj%C4%99cie/avocado-toast.webp?s=2048x2048&w=is&k=20&c=REPhFUpU1x0uyRJHiKwhMilpgpsyo7yj7AdNK71XZS8="
+description: "A simple and delicious avocado toast topped with fresh tomatoes and a sprinkle of salt."
+cookingTime: 10 # in minutes
+portions: 2
+cuisine: "American"
+categories: ["breakfast", "quick meal", "healthy"]
+language: "en"
+ingredients:
+  - name: "Avocado"
+    quantity: "1"
+    grams: 150
+    id: "624" # Avocado
+
+  - name: "Tomato"
+    quantity: "1"
+    grams: 100
+    id: "642" # Tomato
+
+  - name: "Whole Wheat Bread"
+    quantity: "2 slices"
+    grams: 60
+    id: "835" # Whole Wheat Bread
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "../../components/IngredientsList.astro";
+import CookingStep from "../../components/CookingStep.astro";
+import NutritionFacts from "../../components/NutritionFacts.astro";
+import RecipeRating from "../../components/RecipeRating.astro";
+
+## Introduction
+
+This **Avocado and Tomato Toast** is a **quick and nutritious breakfast** option that’s both satisfying and easy to make. The **creamy avocado** pairs perfectly with the **juicy tomatoes**, all on a slice of **whole wheat bread**.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Ingredients
+
+Slice the **avocado** and **tomato**. Toast the **whole wheat bread**.
+
+<CookingStep action="cutting_vegetables_tomato" />
+
+### Step 2: Assemble the Toast
+
+Spread the **avocado slices** on the toasted bread. Top with **tomato slices** and sprinkle with **salt** and **black pepper**.
+
+<CookingStep action="mixing_bowl_vegetables_salad" />
+
+### Step 3: Serve & Enjoy!
+
+Serve the toast immediately for a quick and healthy breakfast.
+
+## Final Thoughts
+
+This **Avocado and Tomato Toast** is a **simple yet delicious way** to start your day. The combination of **creamy avocado and fresh tomatoes** on **whole wheat bread** makes it a nutritious and satisfying meal. Enjoy this easy recipe any day of the week!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />
