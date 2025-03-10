@@ -10,14 +10,13 @@ export const getRatingDataBySlugArray = async (recipesSlugs: string[]) => {
     .select({
       slug: rates.recipeSlug,
       rating: avg(rates.rate),
-      ratingCount: rates.rate,
+      ratingCount: count(rates.rate),
       views: views.count,
     })
     .from(views)
     .leftJoin(rates, eq(rates.recipeSlug, views.recipeSlug))
     .where(inArray(views.recipeSlug, recipesSlugs))
-    .groupBy(views.recipeSlug, rates.recipeSlug)
-    .execute();
+    .groupBy(views.recipeSlug, rates.recipeSlug);
 
   return result;
 };
@@ -34,7 +33,6 @@ export const getRatingDataBySlug = async (recipesSlug: string) => {
     .leftJoin(rates, eq(rates.recipeSlug, views.recipeSlug))
     .where(eq(views.recipeSlug, recipesSlug))
     .groupBy(views.recipeSlug, rates.recipeSlug)
-    .execute()
     .then((rows) => rows[0] ?? null);
 
   return result;

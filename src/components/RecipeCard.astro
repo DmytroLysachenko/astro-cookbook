@@ -9,7 +9,7 @@ const {
     rating,
     ratingCount,
     slug,
-    mainImage,
+    previewImage,
     title,
     cuisine,
     cookingTime,
@@ -31,7 +31,7 @@ const {
     class="rounded-lg overflow-hidden block"
   >
     <Image
-      src={mainImage || "/placeholder.svg?height=250&width=400"}
+      src={`/assets/images/previews/${previewImage}`}
       alt={title}
       width={400}
       height={250}

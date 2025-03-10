@@ -8,7 +8,7 @@ const recipe = defineCollection({
     slug: z.string(),
     title: z.string(), // Recipe title
     description: z.string(), // Short description of the dish
-    mainImage: z.string(), // URL/path to the main recipe image
+    previewImage: z.string(), // Name of picture in previews folder
     cookingTime: z.number(), // Cooking time in minutes
     portions: z.number(), // Number of servings
     cuisine: z.string(), // Cuisine type (e.g., Italian, French)
