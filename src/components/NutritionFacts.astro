@@ -11,8 +11,9 @@ const { ingredients } = Astro.props as {
 const fullIngredientsData = await getIngredientsByIdArray(
   ingredients.map((i) => i.id)
 );
-
+console.log(ingredients, fullIngredientsData);
 const per100g = calculateNutritionFacts(ingredients, fullIngredientsData);
+// console.log(per100g);
 ---
 
 <table>

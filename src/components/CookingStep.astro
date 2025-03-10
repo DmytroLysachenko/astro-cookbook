@@ -8,9 +8,15 @@ interface CookingStepProps {
   action?: TPresetCookingAction; // Use the type here
   href?: string; // Optional variant number for the image (e.g., 2, 3, etc.)
   className?: string; // Optional className for custom styling
+  alt?: string;
 }
 
-const { action = "default", href, className } = Astro.props as CookingStepProps;
+const {
+  action = "default",
+  href,
+  className,
+  alt,
+} = Astro.props as CookingStepProps;
 
 const imagePath = href ? href : `/assets/images/${STEPS_IMAGES[action]}`;
 ---
@@ -18,7 +24,7 @@ const imagePath = href ? href : `/assets/images/${STEPS_IMAGES[action]}`;
 <div class={`${className || ""}`}>
   <Image
     src={imagePath}
-    alt={`${action} step`}
+    alt={alt ? alt : `${action} step`}
     width={1000}
     height={1000}
     class="w-full lg:w-[65%] h-auto"

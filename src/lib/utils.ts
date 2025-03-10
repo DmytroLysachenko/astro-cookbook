@@ -64,7 +64,6 @@ export const calculateNutritionFacts = (
   ingredients: { name: string; quantity: string; grams: number; id: number }[],
   nutritionData: TFullIngredientsData,
 ) => {
-  // Calculate total values
   let totalWeight = 0;
   const totals = {
     calories: 0,
@@ -81,17 +80,37 @@ export const calculateNutritionFacts = (
     protein: 0,
   };
 
-  if (!ingredients || !nutritionData) return totals;
+  if (
+    !ingredients ||
+    !nutritionData ||
+    ingredients.length === 0 ||
+    nutritionData.length === 0
+  ) {
+    console.warn("Empty ingredients or nutrition data provided.");
+    return totals;
+  }
 
   for (const ingredient of ingredients) {
-    // Find the matching nutrition data for the ingredient
-    const data = nutritionData.find((i) => i.name === ingredient.name);
-    if (!data) continue;
+    const data = nutritionData.find(
+      (i) => Number(i.id) === Number(ingredient.id),
+    );
 
-    // Add to total weight
+    if (!data) {
+      console.warn(
+        `Nutrition data not found for ingredient with ID: ${ingredient.id}`,
+      );
+      continue;
+    }
+
+    if (!ingredient.grams || ingredient.grams <= 0) {
+      console.warn(
+        `Invalid grams value for ingredient with ID: ${ingredient.id}`,
+      );
+      continue;
+    }
+
     totalWeight += ingredient.grams;
 
-    // Calculate nutritional values based on ingredient weight
     const weight = ingredient.grams;
     totals.calories += (data.calories * weight) / 100;
     totals.totalFat += (data.totalFat * weight) / 100;
@@ -107,22 +126,23 @@ export const calculateNutritionFacts = (
     totals.protein += (data.protein * weight) / 100;
   }
 
-  const per100g = totalWeight
-    ? {
-        calories: (totals.calories / totalWeight) * 100,
-        totalFat: (totals.totalFat / totalWeight) * 100,
-        saturatedFat: (totals.saturatedFat / totalWeight) * 100,
-        transFat: (totals.transFat / totalWeight) * 100,
-        polyunsaturatedFat: (totals.polyunsaturatedFat / totalWeight) * 100,
-        monounsaturatedFat: (totals.monounsaturatedFat / totalWeight) * 100,
-        cholesterol: (totals.cholesterol / totalWeight) * 100,
-        sodium: (totals.sodium / totalWeight) * 100,
-        totalCarbs: (totals.totalCarbs / totalWeight) * 100,
-        dietaryFiber: (totals.dietaryFiber / totalWeight) * 100,
-        sugars: (totals.sugars / totalWeight) * 100,
-        protein: (totals.protein / totalWeight) * 100,
-      }
-    : totals;
+  const per100g =
+    totalWeight > 0
+      ? {
+          calories: (totals.calories / totalWeight) * 100,
+          totalFat: (totals.totalFat / totalWeight) * 100,
+          saturatedFat: (totals.saturatedFat / totalWeight) * 100,
+          transFat: (totals.transFat / totalWeight) * 100,
+          polyunsaturatedFat: (totals.polyunsaturatedFat / totalWeight) * 100,
+          monounsaturatedFat: (totals.monounsaturatedFat / totalWeight) * 100,
+          cholesterol: (totals.cholesterol / totalWeight) * 100,
+          sodium: (totals.sodium / totalWeight) * 100,
+          totalCarbs: (totals.totalCarbs / totalWeight) * 100,
+          dietaryFiber: (totals.dietaryFiber / totalWeight) * 100,
+          sugars: (totals.sugars / totalWeight) * 100,
+          protein: (totals.protein / totalWeight) * 100,
+        }
+      : totals;
 
   return per100g;
 };
