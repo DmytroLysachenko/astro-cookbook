@@ -36,7 +36,8 @@ const BioEditor: React.FC<BioEditorProps> = ({ initialBio }) => {
           <Textarea
             value={bio}
             onChange={(e) => setBio(e.target.value)}
-            className="mb-2"
+            className="mb-2 resize-none"
+            rows={6}
           />
 
           <Button

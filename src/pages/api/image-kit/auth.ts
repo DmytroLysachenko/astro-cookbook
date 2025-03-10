@@ -3,6 +3,7 @@ import type { APIRoute } from "astro";
 
 export const GET: APIRoute = async () => {
   try {
+    console.log("GET /api/image-kit/auth");
     const response = imagekit.getAuthenticationParameters();
 
     return new Response(JSON.stringify(response), {

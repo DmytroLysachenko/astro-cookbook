@@ -2,7 +2,7 @@
 import { db } from "@/db";
 import { comments } from "@/db/schema/comments";
 import { users } from "@/db/schema/users";
-import { eq } from "drizzle-orm";
+import { count, desc, eq } from "drizzle-orm";
 import DynamicCommentsSection from "./react/DynamicCommentsSection";
 import { getSession } from "auth-astro/server";
 import { getUser } from "@/services/auth";
@@ -20,26 +20,36 @@ if (session && session.user && session.user.email) {
 }
 
 // Fetch comments with user data
-const commentsWithUsers = await db
-  .select({
-    id: comments.id,
-    commentText: comments.commentText,
-    createdAt: comments.createdAt,
-    user: {
-      id: users.id,
-      name: users.name,
-      avatar: users.avatar,
-    },
-  })
-  .from(comments)
-  .leftJoin(users, eq(comments.userId, users.id))
-  .where(eq(comments.recipeSlug, slug))
-  .orderBy(comments.createdAt);
+const [commentsWithUsers, totalCommentsResult] = await Promise.all([
+  db
+    .select({
+      id: comments.id,
+      commentText: comments.commentText,
+      createdAt: comments.createdAt,
+      user: {
+        id: users.id,
+        name: users.name,
+        avatar: users.avatar,
+      },
+    })
+    .from(comments)
+    .leftJoin(users, eq(comments.userId, users.id))
+    .where(eq(comments.recipeSlug, slug))
+    .orderBy(desc(comments.createdAt))
+    .limit(10),
+  db
+    .select({ count: count(comments) })
+    .from(comments)
+    .where(eq(comments.recipeSlug, slug)),
+]);
+
+const totalComments = Number(totalCommentsResult[0].count);
 ---
 
 <DynamicCommentsSection
   recipeSlug={slug}
   initialComments={commentsWithUsers}
   isLoggedIn={isLoggedIn}
+  initialTotalComments={totalComments}
   client:only="react"
 />

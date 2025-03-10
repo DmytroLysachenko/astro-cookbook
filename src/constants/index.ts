@@ -6,6 +6,8 @@ import twitter from "../../public/assets/icons/twitter.svg";
 export const SITE_TITLE = "Cooking Spot";
 export const SITE_DESCRIPTION = "Welcome to my cookbook website!";
 
+export const COMMENTS_PER_PAGE = 10;
+
 export const headerLinks = [
   { href: "/recipes", text: "Recipes" },
   { href: "/about", text: "About" },
@@ -42,12 +44,11 @@ export const social = [
 // Define private routes
 export const privateRoutes = ["/my-profile"];
 
-export const privateApiRoutes = [
+export const PRIVATE_API_ROUTES = [
   "/api/user",
   "/api/recipe/like",
   "/api/recipe/rate",
   "/api/comments/create",
-  "/api/image-kit/auth",
   "/api/image-kit/avatar",
 ];
 

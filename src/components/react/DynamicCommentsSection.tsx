@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { MessageCircle } from "lucide-react";
 import CommentInput from "./CommentInput";
+import { Button } from "@/components/ui/button";
 import UserAvatar from "./UserAvatar";
+import { COMMENTS_PER_PAGE } from "@/constants";
 
 interface Comment {
   id: string;
@@ -17,6 +19,7 @@ interface Comment {
 interface DynamicCommentsSectionProps {
   recipeSlug: string;
   initialComments: Comment[];
+  initialTotalComments: number;
   isLoggedIn?: boolean;
 }
 
@@ -24,29 +27,58 @@ export default function DynamicCommentsSection({
   recipeSlug,
   initialComments,
   isLoggedIn,
+  initialTotalComments,
 }: DynamicCommentsSectionProps) {
   const [comments, setComments] = useState<Comment[]>(initialComments);
+  const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [totalComments, setTotalComments] = useState(initialTotalComments);
 
-  const fetchComments = async () => {
+  const fetchComments = async (pageNumber: number) => {
+    setIsLoading(true);
     try {
-      const response = await fetch(`/api/comments?recipeSlug=${recipeSlug}`);
+      const response = await fetch(
+        `/api/comments?recipeSlug=${recipeSlug}&page=${pageNumber}&limit=${COMMENTS_PER_PAGE}`,
+      );
       if (response.ok) {
         const newComments = await response.json();
-        setComments(newComments);
+        if (pageNumber === 1) {
+          setComments(newComments);
+        } else {
+          setComments((prevComments) => [...prevComments, ...newComments]);
+        }
+        setPage(pageNumber);
       }
     } catch (error) {
       console.error("Error fetching comments:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const handleCommentAdded = () => {
-    fetchComments();
+  const handleLoadMore = () => {
+    fetchComments(page + 1);
   };
+
+  const handleCommentAdded = () => {
+    fetchComments(1);
+    setTotalComments(totalComments + 1);
+  };
+
+  const hasMoreComments = comments.length < totalComments;
 
   return (
     <section className="mt-12 space-y-8">
-      <h2 className="text-2xl font-bold">Comments</h2>
-
+      <h2 className="text-2xl font-bold">Comments ({totalComments})</h2>
+      {isLoggedIn && (
+        <div className="mt-8">
+          <h3 className="text-xl font-semibold mb-4">Add a Comment</h3>
+          <CommentInput
+            recipeSlug={recipeSlug}
+            onCommentAdded={handleCommentAdded}
+          />
+        </div>
+      )}
       {comments.length > 0 ? (
         <div className="space-y-6">
           {comments.map((comment) => (
@@ -82,13 +114,11 @@ export default function DynamicCommentsSection({
         </div>
       )}
 
-      {isLoggedIn && (
-        <div className="mt-8">
-          <h3 className="text-xl font-semibold mb-4">Add a Comment</h3>
-          <CommentInput
-            recipeSlug={recipeSlug}
-            onCommentAdded={handleCommentAdded}
-          />
+      {hasMoreComments && (
+        <div className="text-center">
+          <Button onClick={handleLoadMore} disabled={isLoading}>
+            {isLoading ? "Loading..." : "Load More Comments"}
+          </Button>
         </div>
       )}
     </section>

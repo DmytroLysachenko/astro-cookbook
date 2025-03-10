@@ -50,8 +50,9 @@ export default function CommentInput({
         onChange={(e) => setCommentText(e.target.value)}
         placeholder="Leave a comment..."
         required
-        className="w-full"
+        className="w-full resize-none"
         disabled={isSubmitting}
+        rows={5}
       />
       <Button type="submit" disabled={isSubmitting}>
         {isSubmitting ? "Submitting..." : "Submit Comment"}

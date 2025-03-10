@@ -2,14 +2,14 @@ import type { APIRoute } from "astro";
 import { db } from "@/db";
 import { comments } from "@/db/schema/comments";
 import { users } from "@/db/schema/users";
-import { eq } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 
 export const prerender = false;
 
 export const GET: APIRoute = async ({ url }) => {
-  console.log("Fetching comments...");
-  console.log(url);
   const recipeSlug = url.searchParams.get("recipeSlug");
+  const page = Number(url.searchParams.get("page")) || 1;
+  const limit = Number(url.searchParams.get("limit")) || 10;
 
   if (!recipeSlug) {
     return new Response(JSON.stringify({ error: "Recipe slug is required" }), {
@@ -33,7 +33,9 @@ export const GET: APIRoute = async ({ url }) => {
       .from(comments)
       .leftJoin(users, eq(comments.userId, users.id))
       .where(eq(comments.recipeSlug, recipeSlug))
-      .orderBy(comments.createdAt);
+      .orderBy(desc(comments.createdAt))
+      .limit(limit)
+      .offset((page - 1) * limit);
 
     return new Response(JSON.stringify(fetchedComments), {
       headers: { "Content-Type": "application/json" },
