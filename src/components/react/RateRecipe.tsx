@@ -12,7 +12,7 @@ const StarRating = ({
 
   const rateRecipe = async (newRating: number) => {
     try {
-      const response = await fetch(`/api/rate-recipe`, {
+      const response = await fetch(`/api/recipe/rate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ recipeSlug, rating: newRating }),

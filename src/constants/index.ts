@@ -1,10 +1,42 @@
+import facebook from "../../public/assets/icons/facebook.svg";
+import instagram from "../../public/assets/icons/instagram.svg";
+import youtube from "../../public/assets/icons/youtube.svg";
+import twitter from "../../public/assets/icons/twitter.svg";
+
 export const SITE_TITLE = "Cooking Spot";
 export const SITE_DESCRIPTION = "Welcome to my cookbook website!";
 
 export const headerLinks = [
   { href: "/recipes", text: "Recipes" },
   { href: "/about", text: "About" },
-  { href: "/contact", text: "Contact" },
+  { href: "/ingredients", text: "Ingredients" },
+];
+export const quickLinks = [
+  { href: "/", text: "Home" },
+  { href: "/recipes", text: "Recipes" },
+  { href: "/ingredients", text: "Ingredients" },
+];
+
+export const categories = [
+  { href: "/category/breakfast", text: "Breakfast" },
+  { href: "/category/lunch", text: "Lunch" },
+  { href: "/category/dinner", text: "Dinner" },
+  { href: "/category/desserts", text: "Desserts" },
+];
+
+export const social = [
+  {
+    href: "https://facebook.com",
+    text: "Facebook",
+    icon: facebook,
+  },
+  {
+    href: "https://instagram.com",
+    text: "Instagram",
+    icon: instagram,
+  },
+  { href: "https://twitter.com", text: "Twitter", icon: twitter },
+  { href: "https://youtube.com", text: "YouTube", icon: youtube },
 ];
 
 const baking = {

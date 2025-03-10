@@ -65,7 +65,7 @@ const favoriteRecipes = await getCollection("recipe", (entry) =>
     <div class="md:col-span-2">
       <section class="mb-8">
         <div class="flex justify-between">
-          <h2 class="text-2xl font-semibold mb-4">Rated Recipes</h2>
+          <h2 class="text-2xl font-semibold mb-4">Favorite Recipes</h2>
           {
             ratedRecipes.length > 8 && (
               <a
@@ -85,16 +85,22 @@ const favoriteRecipes = await getCollection("recipe", (entry) =>
           favoriteRecipes.length > 0 ? (
             <RecipesList recipes={favoriteRecipes.slice(0, 8)} />
           ) : (
-            <p class="text-muted-foreground">
-              You haven't favorite any recipes yet.
-            </p>
+            <div class="text-muted-foreground flex flex-col gap-3 items-center justify-center text-xl h-60">
+              <p>You don't have any favorite recipes yet.</p>
+              <a
+                href="/recipes"
+                class=" font-semibold leading-6 text-muted-foreground hover:text-primary transition-all"
+              >
+                Let's change it!
+              </a>
+            </div>
           )
         }
       </section>
       <div class="md:col-span-2">
         <section class="mb-8">
           <div class="flex justify-between">
-            <h2 class="text-2xl font-semibold mb-4">Favorite Recipes</h2>
+            <h2 class="text-2xl font-semibold mb-4">Rated Recipes</h2>
             {
               ratedRecipes.length > 8 && (
                 <a
@@ -114,9 +120,15 @@ const favoriteRecipes = await getCollection("recipe", (entry) =>
             ratedRecipes.length > 0 ? (
               <RecipesList recipes={ratedRecipes.slice(0, 8)} />
             ) : (
-              <p class="text-muted-foreground">
-                You haven't rated any recipes yet.
-              </p>
+              <div class="text-muted-foreground flex flex-col gap-3 items-center justify-center text-xl h-60">
+                <p> You haven't rated any recipes yet.</p>
+                <a
+                  href="/recipes"
+                  class=" font-semibold leading-6 text-muted-foreground hover:text-primary transition-all"
+                >
+                  Let's change it!
+                </a>
+              </div>
             )
           }
         </section>

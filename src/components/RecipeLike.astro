@@ -1,0 +1,35 @@
+---
+import { db } from "@/db";
+import { likes } from "@/db/schema/likes";
+import { and, eq } from "drizzle-orm";
+import AddToFavoriteButton from "./react/AddToFavoriteButton";
+import { getSession } from "auth-astro/server";
+import { getUser } from "@/services/auth";
+
+const { slug } = Astro.props as { slug: string };
+const session = await getSession(Astro.request);
+let user;
+let initialState;
+
+if (session && session.user && session.user.email) {
+  user = await getUser(session.user.email, "email");
+}
+
+if (user) {
+  initialState = await db
+    .select()
+    .from(likes)
+    .where(and(eq(likes.recipeSlug, slug), eq(likes.userId, user.id)))
+    .then((res) => res.length > 0);
+}
+---
+
+{
+  user ? (
+    <AddToFavoriteButton
+      slug={slug}
+      initiallyIsLiked={Boolean(initialState)}
+      client:only="react"
+    />
+  ) : null
+}

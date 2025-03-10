@@ -41,3 +41,5 @@ export const ingredients = pgTable("ingredients", {
   category: ingredientCategories().notNull(),
   description: text("description"),
 });
+
+export type TIngredientsCategories = typeof ingredientCategories;

@@ -3,8 +3,9 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import { render } from "astro:content";
-import RecipeRating from "@/components/RecipeRating.astro";
 import { Image } from "astro:assets";
+import RecipeRating from "@/components/RecipeRating.astro";
+import RecipeLike from "@/components/RecipeLike.astro";
 
 export async function getStaticPaths() {
   const recipes = await getCollection("recipe");
@@ -38,7 +39,13 @@ const { Content } = await render(recipe);
       height={400}
     />
 
-    <h1>{title}</h1>
+    <h1 class="relative flex items-center gap-4">
+      {title}
+      <RecipeLike
+        server:defer
+        slug={slug}
+      />
+    </h1>
 
     <RecipeRating
       server:defer
