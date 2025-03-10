@@ -1,43 +1,72 @@
 // src/middleware.ts
-import { defineMiddleware } from "astro:middleware";
+import { defineMiddleware, sequence } from "astro:middleware";
 import { getSession } from "auth-astro/server";
 import { getUser } from "./services/auth";
+import { privateApiRoutes, privateRoutes } from "./constants";
 
+// Authentication middleware
 export const authMiddleware = defineMiddleware(async (context, next) => {
-  if (
-    (context.routePattern.startsWith("/api/") &&
-      !context.routePattern.includes("auth") &&
-      !context.routePattern.includes("increment-views")) ||
-    context.routePattern.includes("my-profile")
-  ) {
-    const session = await getSession(context.request);
+  const { url, request } = context;
+
+  const isPrivateRoute = privateRoutes.includes(url.pathname);
+  const isPrivateApiRoute = privateApiRoutes.includes(url.pathname);
+
+  if (isPrivateRoute || isPrivateApiRoute) {
+    const session = await getSession(request);
 
     if (!session || !session.user || !session.user.email) {
-      return new Response(JSON.stringify({ error: "Unauthorized" }), {
-        status: 401,
-        headers: { "Content-Type": "application/json" },
-      });
+      if (isPrivateApiRoute) {
+        return new Response(JSON.stringify({ error: "Unauthorized" }), {
+          status: 401,
+          headers: { "Content-Type": "application/json" },
+        });
+      } else {
+        return Response.redirect(new URL("/", url.origin), 302);
+      }
     }
+
     if (Date.parse(session.expires) < Date.now()) {
-      return new Response(JSON.stringify({ error: "Session expired" }), {
-        status: 401,
-        headers: { "Content-Type": "application/json" },
-      });
+      if (isPrivateApiRoute) {
+        return new Response(JSON.stringify({ error: "Session expired" }), {
+          status: 401,
+          headers: { "Content-Type": "application/json" },
+        });
+      } else {
+        return Response.redirect(new URL("/", url.origin), 302);
+      }
     }
 
     const user = await getUser(session.user.email, "email");
 
     if (!user) {
-      return new Response(JSON.stringify({ error: "Unauthorized" }), {
-        status: 401,
-        headers: { "Content-Type": "application/json" },
-      });
+      if (isPrivateApiRoute) {
+        return new Response(JSON.stringify({ error: "Unauthorized" }), {
+          status: 401,
+          headers: { "Content-Type": "application/json" },
+        });
+      } else {
+        return Response.redirect(new URL("/", url.origin), 302);
+      }
     }
 
     context.locals.user = user;
   }
 
+  // Continue to the next middleware or route handler
   return next();
 });
 
-export const onRequest = authMiddleware;
+// Middleware for handling non-existent pages
+export const notFoundMiddleware = defineMiddleware(async (context, next) => {
+  const response = await next();
+
+  // If the response is a 404 and it's not an API route, redirect to the home page
+  if (response.status === 404 && !context.url.pathname.startsWith("/api")) {
+    return Response.redirect(new URL("/", context.url.origin), 302);
+  }
+
+  return response;
+});
+
+// Combine the middleware
+export const onRequest = sequence(authMiddleware, notFoundMiddleware);

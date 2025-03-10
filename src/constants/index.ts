@@ -18,10 +18,10 @@ export const quickLinks = [
 ];
 
 export const categories = [
-  { href: "/category/breakfast", text: "Breakfast" },
-  { href: "/category/lunch", text: "Lunch" },
-  { href: "/category/dinner", text: "Dinner" },
-  { href: "/category/desserts", text: "Desserts" },
+  { href: "/recipes?category=breakfast", text: "Breakfast" },
+  { href: "/recipes?category=dinner", text: "Dinner" },
+  { href: "/recipes?category=healthy", text: "Healthy" },
+  { href: "/recipes?category=dessert", text: "Desserts" },
 ];
 
 export const social = [
@@ -37,6 +37,18 @@ export const social = [
   },
   { href: "https://twitter.com", text: "Twitter", icon: twitter },
   { href: "https://youtube.com", text: "YouTube", icon: youtube },
+];
+
+// Define private routes
+export const privateRoutes = ["/my-profile"];
+
+export const privateApiRoutes = [
+  "/api/user",
+  "/api/recipe/like",
+  "/api/recipe/rate",
+  "/api/comments/create",
+  "/api/image-kit/auth",
+  "/api/image-kit/avatar",
 ];
 
 const baking = {

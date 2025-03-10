@@ -1,0 +1,45 @@
+---
+import { db } from "@/db";
+import { comments } from "@/db/schema/comments";
+import { users } from "@/db/schema/users";
+import { eq } from "drizzle-orm";
+import DynamicCommentsSection from "./react/DynamicCommentsSection";
+import { getSession } from "auth-astro/server";
+import { getUser } from "@/services/auth";
+
+const { slug } = Astro.props;
+
+const session = await getSession(Astro.request);
+
+let isLoggedIn = false;
+
+if (session && session.user && session.user.email) {
+  const user = await getUser(session.user.email, "email");
+
+  isLoggedIn = Boolean(user);
+}
+
+// Fetch comments with user data
+const commentsWithUsers = await db
+  .select({
+    id: comments.id,
+    commentText: comments.commentText,
+    createdAt: comments.createdAt,
+    user: {
+      id: users.id,
+      name: users.name,
+      avatar: users.avatar,
+    },
+  })
+  .from(comments)
+  .leftJoin(users, eq(comments.userId, users.id))
+  .where(eq(comments.recipeSlug, slug))
+  .orderBy(comments.createdAt);
+---
+
+<DynamicCommentsSection
+  recipeSlug={slug}
+  initialComments={commentsWithUsers}
+  isLoggedIn={isLoggedIn}
+  client:only="react"
+/>

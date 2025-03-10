@@ -7,6 +7,8 @@ import { Image } from "astro:assets";
 import RecipeRating from "@/components/RecipeRating.astro";
 import RecipeLike from "@/components/RecipeLike.astro";
 
+import CommentsSection from "@/components/CommentsSection.astro";
+
 export async function getStaticPaths() {
   const recipes = await getCollection("recipe");
 
@@ -53,10 +55,14 @@ const { Content } = await render(recipe);
     />
 
     <Content />
+
+    <CommentsSection
+      server:defer
+      slug={slug}
+    />
   </div>
   <script define:vars={{ slug }}>
     document.addEventListener("DOMContentLoaded", async () => {
-      console.log("incrementing views", slug);
       await fetch(`/api/increment-views`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

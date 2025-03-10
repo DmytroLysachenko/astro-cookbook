@@ -1,6 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { signOut } from "auth-astro/client";
-
 import {
   Popover,
   PopoverContent,
@@ -8,25 +6,14 @@ import {
 } from "@/components/ui/popover";
 import { LogOut, UserIcon } from "lucide-react";
 
-import { IMAGEKIT_URL_ENDPOINT } from "astro:env/client";
 import type { TUser } from "@/services/auth";
+import UserAvatar from "./UserAvatar";
 
 const LoggedAuth = ({ user }: { user: TUser }) => {
   return (
     <Popover>
       <PopoverTrigger>
-        <Avatar className="size-10 cursor-pointer">
-          <AvatarImage
-            src={`${IMAGEKIT_URL_ENDPOINT}/${user.avatar}`}
-            alt={user.name ?? "avatar"}
-          />
-          <AvatarFallback className="flex justify-center items-center font-semibold bg-muted text-md">
-            {user.name
-              ?.split(" ")
-              .map((name) => name[0])
-              .join("") ?? "US"}
-          </AvatarFallback>
-        </Avatar>
+        <UserAvatar name={user.name} avatar={user.avatar ?? ""} />
       </PopoverTrigger>
 
       <PopoverContent
