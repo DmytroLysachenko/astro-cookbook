@@ -2,13 +2,13 @@
 import { defineMiddleware, sequence } from "astro:middleware";
 import { getSession } from "auth-astro/server";
 import { getUser } from "./services/auth";
-import { PRIVATE_API_ROUTES, privateRoutes } from "./constants";
+import { PRIVATE_API_ROUTES, PRIVATE_ROUTES } from "./constants";
 
 // Authentication middleware
 export const authMiddleware = defineMiddleware(async (context, next) => {
   const { url, request } = context;
 
-  const isPrivateRoute = privateRoutes.includes(url.pathname);
+  const isPrivateRoute = PRIVATE_ROUTES.includes(url.pathname);
   const isPrivateApiRoute = PRIVATE_API_ROUTES.includes(url.pathname);
 
   if (isPrivateRoute || isPrivateApiRoute) {

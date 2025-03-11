@@ -1,6 +1,6 @@
 ---
 import Image from "astro/components/Image.astro";
-import { headerLinks, SITE_TITLE } from "../constants";
+import { HEADER_LINKS, SITE_TITLE } from "../constants";
 import Navigation from "./Navigation.astro";
 
 import LoggedAuth from "./react/LoggedAuth";
@@ -23,7 +23,7 @@ if (user) {
 ---
 
 <header class="bg-background text-foreground shadow-sm">
-  <div class="container grid grid-cols-3 py-4">
+  <div class="container grid grid-cols-3 py-1 md:py-4">
     <a
       href="/"
       class="font-semibold bg-transparent text-center text-sm flex justify-center items-center w-fit gap-1"
@@ -39,7 +39,7 @@ if (user) {
     </a>
 
     <Navigation
-      links={headerLinks}
+      links={HEADER_LINKS}
       currentPath={Astro.url.pathname}
     />
 

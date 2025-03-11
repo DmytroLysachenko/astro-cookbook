@@ -63,15 +63,15 @@ const cuisinesOptions = cuisines.map((cuisine: string) => ({
 
 <script>
   // Helper function to get the initial state from localStorage
-  function getInitialState(section: string) {
+  const getInitialState = (section: string) => {
     const savedState = localStorage.getItem(`accordion-${section}`);
     return savedState ? JSON.parse(savedState) : true; // Default to expanded if no saved state
-  }
+  };
 
   // Helper function to save the state to localStorage
-  function saveState(section: string, isExpanded: boolean) {
+  const saveState = (section: string, isExpanded: boolean) => {
     localStorage.setItem(`accordion-${section}`, JSON.stringify(isExpanded));
-  }
+  };
 
   // Initialize accordion state on page load
   document.querySelectorAll(".accordion-button").forEach((button) => {
