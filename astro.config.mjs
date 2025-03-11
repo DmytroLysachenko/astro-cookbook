@@ -6,13 +6,33 @@ import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 import auth from "auth-astro";
 import path from "path";
-
 import vercel from "@astrojs/vercel";
+import dotenv from "dotenv";
+import { PRIVATE_ROUTES } from "./src/constants/config";
+
+dotenv.config();
+
+// eslint-disable-next-line no-undef
+const site = process.env.BASE_URL;
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://example.com",
-  integrations: [mdx(), sitemap(), react(), auth()],
+  site,
+  integrations: [
+    mdx(),
+    sitemap({
+      filter: (page) => {
+        for (const route of PRIVATE_ROUTES) {
+          if (page.includes(route)) {
+            return false;
+          }
+        }
+        return true;
+      },
+    }),
+    react(),
+    auth(),
+  ],
   output: "static",
   vite: {
     plugins: [tailwindcss()],

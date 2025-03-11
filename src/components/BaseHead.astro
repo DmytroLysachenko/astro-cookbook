@@ -1,6 +1,4 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
 
 interface Props {
@@ -14,7 +12,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const {
   title = "Cooking spot Site",
   description = "Cooking site with best recipes",
-  image = "/blog-placeholder-1.jpg",
+  image = "/assets/images/logo.png",
 } = Astro.props;
 ---
 
@@ -26,8 +24,8 @@ const {
 />
 <link
   rel="icon"
-  type="image/svg+xml"
-  href="/favicon.svg"
+  type="image/ico+xml"
+  href="/favicon.ico"
 />
 <link
   rel="sitemap"
