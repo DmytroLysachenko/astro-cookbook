@@ -2,19 +2,24 @@
 import { getSession } from "auth-astro/server";
 import RateRecipe from "./react/RateRecipe";
 import { getUser } from "@/services/auth";
-import { getRatingDataBySlug } from "@/services/rates";
+import { getRatingDataBySlug, getUserRateBySlug } from "@/services/rates";
 
 const { slug } = Astro.props;
 
-const session = await getSession(Astro.request);
+const [session, ratingData] = await Promise.all([
+  getSession(Astro.request),
+  getRatingDataBySlug(slug),
+]);
 
 let user = null;
-
+let initialRating = null;
 if (session && session.user && session.user.email) {
   user = await getUser(session.user.email, "email");
 }
 
-const ratingData = await getRatingDataBySlug(slug);
+if (user) {
+  initialRating = await getUserRateBySlug(slug, user.id);
+}
 ---
 
 <section>
@@ -31,7 +36,7 @@ const ratingData = await getRatingDataBySlug(slug);
         client:only="react"
         recipeSlug={slug}
         userId={user.id}
-        initialRating={parseFloat(ratingData?.rating ?? "0")}
+        initialRating={initialRating ?? 0}
       />
     )
   }

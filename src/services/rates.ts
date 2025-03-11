@@ -1,7 +1,14 @@
 import { db } from "@/db";
 import { rates } from "@/db/schema/rates";
 import { views } from "@/db/schema/views";
-import { eq, inArray, avg, count, type InferInsertModel } from "drizzle-orm";
+import {
+  eq,
+  inArray,
+  avg,
+  count,
+  type InferInsertModel,
+  and,
+} from "drizzle-orm";
 
 export type TRecipe = InferInsertModel<typeof rates>;
 
@@ -34,6 +41,16 @@ export const getRatingDataBySlug = async (recipesSlug: string) => {
     .where(eq(views.recipeSlug, recipesSlug))
     .groupBy(views.recipeSlug, rates.recipeSlug)
     .then((rows) => rows[0] ?? null);
+
+  return result;
+};
+
+export const getUserRateBySlug = async (slug: string, userId: string) => {
+  const result = await db
+    .select()
+    .from(rates)
+    .where(and(eq(rates.recipeSlug, slug), eq(rates.userId, userId)))
+    .then((res) => (res.length > 0 ? res[0].rate : null));
 
   return result;
 };
