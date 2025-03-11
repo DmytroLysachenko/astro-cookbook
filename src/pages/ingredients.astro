@@ -1,57 +1,115 @@
 ---
-import Pagination from "@/components/Pagination.astro";
+import { buildFilterUrl } from "@/lib/utils";
 import { db } from "@/db";
 import { ingredients } from "@/db/schema/ingredients";
+import { capitalize } from "@/lib/utils";
+import { asc, count, desc, eq } from "drizzle-orm";
+import Pagination from "@/components/Pagination.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { buildFilterUrl, capitalize } from "@/lib/utils";
-import { count } from "drizzle-orm";
+import { Selector } from "@/components/react/CustomSelector";
+
+type TSortOption = "name" | "calories" | "protein" | "totalFat" | "totalCarbs";
+type TSortOrder = "asc" | "desc";
 
 export const prerender = false;
 
-// Get search params for pagination and sorting
-const { searchParams } = Astro.url;
-const currentPage = Number(searchParams.get("page")) || 1;
-const pageSize = 20; // Number of ingredients per page
-const sortBy = searchParams.get("sort") || "name";
-const sortOrder = searchParams.get("order") || "asc";
+const pageSize = 10;
 
 const categoriesResult = await db
   .select({ category: ingredients.category })
   .from(ingredients)
   .groupBy(ingredients.category);
+
 const categories = categoriesResult.map((row) => row.category);
 
-console.log(categories);
+type TCategoryFilterOption = (typeof categories)[number];
 
-let categoryFilter = searchParams.get("category");
+const validSortFields: TSortOption[] = [
+  "name",
+  "calories",
+  "protein",
+  "totalFat",
+  "totalCarbs",
+];
 
-// Fetch total count for pagination
-const countResult = await db
-  .select({ count: count(ingredients) })
+const validSortOrders: TSortOrder[] = ["asc", "desc"];
+
+const { searchParams } = Astro.url;
+
+let currentPage = 1;
+let sortBy: TSortOption = "name";
+let sortOrder: TSortOrder = "asc";
+let categoryFilter: TCategoryFilterOption | null = null;
+
+const pageParam = searchParams.get("page");
+if (pageParam && !isNaN(Number(pageParam))) {
+  currentPage = Math.max(1, Number(pageParam));
+}
+
+const sortByParam = searchParams.get("sort");
+
+// @ts-expect-error Type assertion required: The runtime check ensures `sortByParam` is a valid `TSortOption`, but TypeScript cannot infer this due to the dynamic nature of `searchParams`.
+if (sortByParam && validSortFields.includes(sortByParam)) {
+  sortBy = sortByParam as TSortOption;
+}
+
+const sortOrderParam = searchParams.get("order");
+
+// @ts-expect-error Type assertion required: Similar to sortBy, the runtime check validates `sortOrderParam` against `validSortOrders`, but TypeScript needs explicit type confirmation.
+if (sortOrderParam && validSortOrders.includes(sortOrderParam)) {
+  sortOrder = sortOrderParam as TSortOrder;
+}
+
+const categoryParam = searchParams.get("category");
+if (categoryParam) {
+  // @ts-expect-error Type assertion required: The runtime check verifies `categoryParam` against the `categories` array, but TypeScript requires a type assertion to proceed.
+  categoryFilter = categories.includes(categoryParam) ? categoryParam : null;
+}
+
+let totalIngredientsQuery = db
+  .select({ count: count().as("count") })
   .from(ingredients);
+if (categoryFilter) {
+  // @ts-expect-error Type refinement required: TypeScript cannot infer the type narrowing within the conditional block. Explicitly asserting the type allows the query to proceed.
+  totalIngredientsQuery = totalIngredientsQuery.where(
+    eq(ingredients.category, categoryFilter)
+  );
+}
 
-const totalIngredients = Number(countResult[0].count);
-
-const totalPages = Math.ceil(totalIngredients / pageSize);
-
-// Execute query
-const ingredientsList = await db
+let ingredientsQuery = db
   .select()
   .from(ingredients)
+  .orderBy(
+    sortOrder === "asc" ? asc(ingredients[sortBy]) : desc(ingredients[sortBy])
+  )
   .offset(pageSize * (currentPage - 1))
   .limit(pageSize);
 
-// Calculate pagination
+if (categoryFilter) {
+  // @ts-expect-error Type refinement required: Similar to the total count query, TypeScript requires explicit type narrowing for the category filter.
+  ingredientsQuery = ingredientsQuery.where(
+    eq(ingredients.category, categoryFilter)
+  );
+}
 
-// Get all categories for filter dropdown
+const [countResult, ingredientsList] = await Promise.all([
+  totalIngredientsQuery,
+  ingredientsQuery,
+]);
+
+const totalIngredients = Number(countResult[0].count);
+const totalPages = Math.ceil(totalIngredients / pageSize);
 
 // Helper function to format numeric values
 function formatNumber(value: number | string, decimals = 1): string {
   return Number(value).toFixed(decimals);
 }
 
-// Build the base URL for pagination
-const baseUrl = `/ingredients?sort=${sortBy}&order=${sortOrder}${categoryFilter ? `&category=${categoryFilter}` : ""}&page=`;
+const baseUrl = buildFilterUrl("/ingredients", {
+  sort: sortBy,
+  order: sortOrder,
+  category: categoryFilter || "all", // Use "all" as the default value
+});
 ---
 
 <BaseLayout
@@ -64,89 +122,51 @@ const baseUrl = `/ingredients?sort=${sortBy}&order=${sortOrder}${categoryFilter 
     class="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
   >
     <!-- Category Filter -->
-    <div>
-      <label
-        for="category-filter"
-        class="block text-sm font-medium mb-1"
-        >Filter by Category:</label
-      >
-      <select
-        id="category-filter"
-        class="rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 px-2"
-        onchange="window.location.href=`/ingredients?sort=${sortBy}&order=${sortOrder}&category=${this.value}`"
-      >
-        <option
-          value=""
-          class="px-2"
-          >All Categories</option
-        >
-        {
-          categories.map((category) => (
-            <option
-              value={category}
-              selected={category === categoryFilter}
-            >
-              {capitalize(category).replace("_", " ")}
-            </option>
-          ))
-        }
-      </select>
+    <div class="min-h-[64px]">
+      <label class="block text-sm font-medium mb-1">Filter by Category:</label>
+      <Selector
+        id="category"
+        client:only="react"
+        options={[
+          { value: "all", label: "All Categories" },
+          ...categories.map((category) => ({
+            value: category,
+            label: capitalize(category).replace("_", " "),
+          })),
+        ]}
+        defaultValue={categoryFilter ?? "all"}
+        className="w-[200px]"
+      />
     </div>
 
     <!-- Sort Controls -->
-    <div>
-      <label
-        for="sort-by"
-        class="block text-sm font-medium mb-1"
-        >Sort by:</label
-      >
-      <div class="flex gap-8">
-        <select
-          id="sort-by"
-          class="rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"
-        >
-          <option
-            value="name"
-            selected={sortBy === "name"}
-            >Name</option
-          >
-          <option
-            value="calories"
-            selected={sortBy === "calories"}
-            >Calories</option
-          >
-          <option
-            value="protein"
-            selected={sortBy === "protein"}
-            >Protein</option
-          >
-          <option
-            value="totalFat"
-            selected={sortBy === "totalFat"}
-            >Total Fat</option
-          >
-          <option
-            value="totalCarbs"
-            selected={sortBy === "totalCarbs"}
-            >Total Carbs</option
-          >
-        </select>
+    <div class="min-h-[128px] sm:min-h-[64px]">
+      <label class="block text-sm font-medium mb-1">Sort by:</label>
+      <div class="flex flex-col sm:flex-row gap-8">
+        <Selector
+          id="sort"
+          client:only="react"
+          options={[
+            { value: "name", label: "Name" },
+            { value: "calories", label: "Calories" },
+            { value: "protein", label: "Protein" },
+            { value: "totalFat", label: "Total Fat" },
+            { value: "totalCarbs", label: "Total Carbs" },
+          ]}
+          defaultValue={sortBy}
+          className="w-[150px]"
+        />
 
-        <select
-          id="sort-order"
-          class="rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"
-        >
-          <option
-            value="asc"
-            selected={sortOrder === "asc"}
-            >Ascending</option
-          >
-          <option
-            value="desc"
-            selected={sortOrder === "desc"}
-            >Descending</option
-          >
-        </select>
+        <Selector
+          client:only="react"
+          id="order"
+          options={[
+            { value: "asc", label: "Ascending" },
+            { value: "desc", label: "Descending" },
+          ]}
+          defaultValue={sortOrder}
+          className="w-[150px]"
+        />
       </div>
     </div>
   </div>
