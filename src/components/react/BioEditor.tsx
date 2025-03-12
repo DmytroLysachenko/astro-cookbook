@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
 import { API_BASE_URL } from "astro:env/client";
+import { Toaster } from "../ui/sonner";
+import { toast } from "sonner";
 
 interface BioEditorProps {
   initialBio: string;
@@ -12,8 +14,6 @@ const BioEditor: React.FC<BioEditorProps> = ({ initialBio }) => {
   const [bio, setBio] = useState(initialBio);
   const [isEditing, setIsEditing] = useState(false);
 
-  //TODO:Add toasts all around project API interactions.
-
   const handleSave = async () => {
     try {
       await fetch(`${API_BASE_URL}/user`, {
@@ -21,8 +21,10 @@ const BioEditor: React.FC<BioEditorProps> = ({ initialBio }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ bio }),
       });
+      toast.success("Bio successfully updated!");
     } catch (error) {
       console.log(error);
+      toast.error("Something went wrong!");
     } finally {
       setIsEditing(false);
     }
@@ -70,6 +72,7 @@ const BioEditor: React.FC<BioEditorProps> = ({ initialBio }) => {
           </Button>
         </>
       )}
+      <Toaster richColors />
     </div>
   );
 };

@@ -1,10 +1,12 @@
 import type React from "react";
 import { useRef, useState } from "react";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import ImageKitProvider from "./ImageKitProvider";
 import { IKImage, IKUpload } from "imagekitio-react";
 import type { UploadResponse } from "imagekit/dist/libs/interfaces";
 import { API_BASE_URL } from "astro:env/client";
+import { Toaster } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 interface UserAvatarProps {
   avatar: string;
@@ -36,9 +38,10 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
         },
         body: JSON.stringify({ userId, avatar }),
       });
-
+toast.success('')
       window.location.reload();
     } catch (error) {
+      toast.error("Something went wrong!");
       console.log(error);
     }
   };
@@ -56,50 +59,53 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
   const ikUploadRef = useRef<HTMLInputElement | null>(null);
 
   return (
-    <ImageKitProvider>
-      <div className="flex flex-col">
-        <IKImage
-          path={avatar}
-          transformation={[{ width: "300", height: "300" }]}
-          className="rounded-full overflow-hidden"
-          width={300}
-          height={300}
-        />
-        <IKUpload
-          folder="/cooking-spot/user-avatars"
-          useUniqueFileName={true}
-          onError={onError}
-          onSuccess={onSuccess}
-          ref={ikUploadRef}
-          className="hidden"
-          validateFile={onValidate}
-        />
-        <div className="flex items-center gap-4 py-3 px-1">
-          <div className="flex flex-col gap-2 w-full">
-            <p>Upload new avatar:</p>
-            {ikUploadRef && (
+    <>
+      <ImageKitProvider>
+        <div className="flex flex-col">
+          <IKImage
+            path={avatar}
+            transformation={[{ width: "300", height: "300" }]}
+            className="rounded-full overflow-hidden"
+            width={300}
+            height={300}
+          />
+          <IKUpload
+            folder="/cooking-spot/user-avatars"
+            useUniqueFileName={true}
+            onError={onError}
+            onSuccess={onSuccess}
+            ref={ikUploadRef}
+            className="hidden"
+            validateFile={onValidate}
+          />
+          <div className="flex items-center gap-4 py-3 px-1">
+            <div className="flex flex-col gap-2 w-full">
+              <p>Upload new avatar:</p>
+              {ikUploadRef && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full cursor-pointer"
+                  onClick={() => ikUploadRef.current?.click()}
+                >
+                  Upload
+                </Button>
+              )}
               <Button
                 variant="outline"
                 size="sm"
                 className="w-full cursor-pointer"
-                onClick={() => ikUploadRef.current?.click()}
+                onClick={() => handleSubmit(avatar)}
+                disabled={!isMutated}
               >
-                Upload
+                Submit
               </Button>
-            )}
-            <Button
-              variant="outline"
-              size="sm"
-              className="w-full cursor-pointer"
-              onClick={() => handleSubmit(avatar)}
-              disabled={!isMutated}
-            >
-              Submit
-            </Button>
+            </div>
           </div>
         </div>
-      </div>
-    </ImageKitProvider>
+      </ImageKitProvider>
+      <Toaster richColors />
+    </>
   );
 };
 

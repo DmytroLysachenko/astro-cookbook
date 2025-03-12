@@ -6,7 +6,7 @@ import { capitalize } from "@/lib/utils";
 import { asc, count, desc, eq } from "drizzle-orm";
 import Pagination from "@/components/Pagination.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { Selector } from "@/components/react/CustomSelector";
+import { Selector } from "@/components/react/recipes/CustomSelector";
 import { INGREDIENTS_PER_PAGE } from "@/constants";
 
 type TSortOption = "name" | "calories" | "protein" | "totalFat" | "totalCarbs";

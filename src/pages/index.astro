@@ -1,9 +1,11 @@
 ---
-import SubscribeForm from "@/components/react/SubscribeForm";
+import SubscribeForm from "@/components/react/forms/SubscribeForm";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CustomButton from "@/components/react/CustomButton";
 import { getCollection } from "astro:content";
 import RecipesList from "@/components/RecipesList.astro";
+
+import RecipeCardsSekeleton from "@/components/RecipeCardsSekeleton.astro";
 
 const handleClick = () => console.log("clicked");
 
@@ -49,7 +51,9 @@ const recipes = await getCollection("recipe");
     <RecipesList
       server:defer
       recipes={recipes.slice(0, 4)}
-    />
+    >
+      <RecipeCardsSekeleton slot="fallback" /></RecipesList
+    >
   </section>
 
   <section class="py-20 rounded-lg">

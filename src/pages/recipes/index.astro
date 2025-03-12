@@ -5,6 +5,8 @@ import Pagination from "../../components/Pagination.astro";
 import FilterSidebar from "../../components/FilterSidebar.astro";
 import { capitalize } from "@/lib/utils";
 import RecipesList from "@/components/RecipesList.astro";
+import RecipeCardsSekeleton from "@/components/RecipeCardsSekeleton.astro";
+import FilterSkeleton from "@/components/FilterSkeleton.astro";
 
 export const prerender = false;
 // Get search params for pagination and filtering
@@ -70,7 +72,9 @@ const currentRecipes = filteredRecipes.slice(startIndex, endIndex);
         currentCuisine={cuisine}
         currentSort={sortBy}
         server:defer
-      />
+      >
+        <FilterSkeleton slot="fallback" />
+      </FilterSidebar>
 
       <div class="flex-1">
         <div class="flex justify-between items-center mb-8">
@@ -88,7 +92,12 @@ const currentRecipes = filteredRecipes.slice(startIndex, endIndex);
           </div>
         </div>
 
-        <RecipesList recipes={currentRecipes} />
+        <RecipesList
+          recipes={currentRecipes}
+          server:defer
+        >
+          <RecipeCardsSekeleton slot="fallback" />
+        </RecipesList>
 
         {
           totalPages > 1 && (

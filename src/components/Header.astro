@@ -3,10 +3,10 @@ import Image from "astro/components/Image.astro";
 import { HEADER_LINKS, SITE_TITLE } from "../constants";
 import Navigation from "./Navigation.astro";
 
-import LoggedAuth from "./react/LoggedAuth";
 import { getSession } from "auth-astro/server";
 import { getUser, type TUser } from "@/services/auth";
-import PublicAuth from "./react/PublicAuth";
+import LoggedAuth from "./react/auth/LoggedAuth";
+import PublicAuth from "./react/auth/PublicAuth";
 
 const { user } = Astro.props as { user?: TUser };
 

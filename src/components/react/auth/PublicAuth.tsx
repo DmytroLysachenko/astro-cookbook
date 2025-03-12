@@ -1,6 +1,7 @@
 import { signIn } from "auth-astro/client";
-import { Button } from "../ui/button";
+
 import { OAUTH_PROVIDERS } from "@/constants";
+import { Button } from "@/components/ui/button";
 
 const PublicAuth = () => {
   return (

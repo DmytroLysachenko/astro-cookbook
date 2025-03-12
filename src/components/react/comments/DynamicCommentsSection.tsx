@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MessageCircle } from "lucide-react";
 import CommentInput from "./CommentInput";
 import { Button } from "@/components/ui/button";
-import UserAvatar from "./UserAvatar";
+import UserAvatar from "../avatar/UserAvatar";
 import { COMMENTS_PER_PAGE } from "@/constants";
 
 interface Comment {

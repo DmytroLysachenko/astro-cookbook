@@ -1,6 +1,7 @@
 import React from "react";
-import { Button } from "../ui/button";
+
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 type TSize = "default" | "sm" | "lg" | "icon";
 type TVariant = "default" | "destructive" | "outline" | "secondary" | "ghost";

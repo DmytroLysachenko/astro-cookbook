@@ -7,7 +7,7 @@ import {
 import { LogOut, UserIcon } from "lucide-react";
 
 import type { TUser } from "@/services/auth";
-import UserAvatar from "./UserAvatar";
+import UserAvatar from "../avatar/UserAvatar";
 
 const LoggedAuth = ({ user }: { user: TUser }) => {
   return (
