@@ -3,10 +3,13 @@ export const SITE_DESCRIPTION = "Welcome to the Cooking Spot cookbook website!";
 
 export const COMMENTS_PER_PAGE = 10;
 
+export const INGREDIENTS_PER_PAGE = 20;
+
 export const HEADER_LINKS = [
   { href: "/recipes", text: "Recipes" },
   { href: "/about", text: "About" },
   { href: "/ingredients", text: "Ingredients" },
+  { href: "/contact-us", text: "Contact" },
 ];
 
 export const OAUTH_PROVIDERS = [
@@ -43,13 +46,13 @@ export const SOCIAL_LINKS = [
   },
   {
     href: "https://twitter.com",
-    text: "Twitter",
-    icon: "/assets/icons/youtube.svg",
+    text: "X (twitter)",
+    icon: "/assets/icons/twitter.svg",
   },
   {
     href: "https://youtube.com",
     text: "YouTube",
-    icon: "/assets/icons/twitter.svg",
+    icon: "/assets/icons/youtube.svg",
   },
 ];
 

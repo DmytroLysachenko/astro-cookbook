@@ -6,14 +6,14 @@ const { links } = Astro.props as {
 };
 ---
 
-<nav class="relative flex items-center justify-center">
+<nav class="relative flex items-center justify-center min-h-14">
   <!-- Desktop Navigation -->
   <div class="hidden md:flex space-x-10 justify-center">
     {
       links.map((link) => (
         <a
           href={link.href}
-          class="transition-all cursor-pointer hover:bg-muted/20 px-4 py-2 rounded-md"
+          class="transition-all cursor-pointer hover:bg-muted/20 px-4 py-2 rounded-md line-clamp-1 text-base"
         >
           {link.text}
         </a>
@@ -37,7 +37,7 @@ const { links } = Astro.props as {
 
     <div
       id="mobile-menu"
-      class="absolute py-1 px-2 top-14 right-1/2 translate-x-1/2 w-48 bg-background border border-border/20 border-t-0 rounded-md rounded-t-none shadow-lg hidden"
+      class="absolute py-1 px-2 top-16 right-1/2 translate-x-1/2 w-48 bg-background border border-border/20 border-t-0 rounded-md rounded-t-none shadow-lg hidden min-w-[360px]"
     >
       {
         links.map((link) => (
@@ -61,7 +61,7 @@ const { links } = Astro.props as {
   const currentLink = document.querySelector(`a[href="${currentPath}"]`);
 
   if (currentLink) {
-    currentLink.classList.add("bg-muted/10");
+    currentLink.classList.add("bg-muted/30");
   }
 
   button?.addEventListener("click", () => {
