@@ -1,13 +1,12 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-import BaseLayout from "../../layouts/BaseLayout.astro";
-
 import { render } from "astro:content";
 import { Image } from "astro:assets";
-import RecipeRating from "@/components/RecipeRating.astro";
-import RecipeLike from "@/components/RecipeLike.astro";
 
-import CommentsSection from "@/components/CommentsSection.astro";
+import RecipeLike from "@/components/astro/recipe-page/RecipeLike.astro";
+import RecipeRating from "@/components/astro/recipe-page/RecipeRating.astro";
+import CommentsSection from "@/components/astro/recipe-page/CommentsSection.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
   const recipes = await getCollection("recipe");

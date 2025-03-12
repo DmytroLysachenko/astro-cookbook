@@ -2,6 +2,16 @@
 import { ChevronDown } from "lucide-react";
 import { buildFilterUrl } from "@/lib/utils";
 
+interface Props {
+  title: string;
+  options: { value: string; label: string }[];
+  currentValue: string;
+  paramKey: string;
+  currentSort?: string;
+  currentCategory?: string;
+  currentCuisine?: string;
+}
+
 const {
   title,
   options,

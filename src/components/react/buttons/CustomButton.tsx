@@ -8,7 +8,7 @@ type TVariant = "default" | "destructive" | "outline" | "secondary" | "ghost";
 
 interface ButtonProps {
   title: string;
-  handleClick: () => void;
+  handleClick?: () => void;
   icon?: React.ReactNode;
   isIconLeft?: boolean;
   className?: string;
@@ -20,7 +20,7 @@ interface ButtonProps {
 
 const CustomButton = ({
   title,
-  handleClick,
+  handleClick = () => {},
   icon,
   isIconLeft,
   variant = "default",

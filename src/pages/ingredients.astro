@@ -1,13 +1,12 @@
 ---
-import { buildFilterUrl } from "@/lib/utils";
+import { buildFilterUrl, capitalize, formatNumber } from "@/lib/utils";
 import { db } from "@/db";
 import { ingredients } from "@/db/schema/ingredients";
-import { capitalize } from "@/lib/utils";
 import { asc, count, desc, eq } from "drizzle-orm";
-import Pagination from "@/components/Pagination.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Selector } from "@/components/react/recipes/CustomSelector";
 import { INGREDIENTS_PER_PAGE } from "@/constants";
+import Pagination from "@/components/astro/pages-structure/Pagination.astro";
 
 type TSortOption = "name" | "calories" | "protein" | "totalFat" | "totalCarbs";
 type TSortOrder = "asc" | "desc";
@@ -16,13 +15,12 @@ export const prerender = false;
 
 const pageSize = INGREDIENTS_PER_PAGE;
 
-const categoriesResult = await db
-  .select({ category: ingredients.category })
-  .from(ingredients)
-  .groupBy(ingredients.category);
-
-const categories = categoriesResult.map((row) => row.category);
-
+const categories = (
+  await db
+    .select({ category: ingredients.category })
+    .from(ingredients)
+    .groupBy(ingredients.category)
+).map((row) => row.category);
 type TCategoryFilterOption = (typeof categories)[number];
 
 const validSortFields: TSortOption[] = [
@@ -32,84 +30,52 @@ const validSortFields: TSortOption[] = [
   "totalFat",
   "totalCarbs",
 ];
-
 const validSortOrders: TSortOrder[] = ["asc", "desc"];
 
 const { searchParams } = Astro.url;
 
-let currentPage = 1;
-let sortBy: TSortOption = "name";
-let sortOrder: TSortOrder = "asc";
-let categoryFilter: TCategoryFilterOption | null = null;
+const currentPage = Math.max(1, Number(searchParams.get("page"))) || 1;
+const sortBy = validSortFields.includes(searchParams.get("sort") as TSortOption)
+  ? (searchParams.get("sort") as TSortOption)
+  : "name";
+const sortOrder = validSortOrders.includes(
+  searchParams.get("order") as TSortOrder
+)
+  ? (searchParams.get("order") as TSortOrder)
+  : "asc";
+const categoryFilter = categories.includes(
+  searchParams.get("category") as TCategoryFilterOption
+)
+  ? (searchParams.get("category") as TCategoryFilterOption)
+  : null;
 
-const pageParam = searchParams.get("page");
-if (pageParam && !isNaN(Number(pageParam))) {
-  currentPage = Math.max(1, Number(pageParam));
-}
-
-const sortByParam = searchParams.get("sort");
-
-// @ts-expect-error Type assertion required: The runtime check ensures `sortByParam` is a valid `TSortOption`, but TypeScript cannot infer this due to the dynamic nature of `searchParams`.
-if (sortByParam && validSortFields.includes(sortByParam)) {
-  sortBy = sortByParam as TSortOption;
-}
-
-const sortOrderParam = searchParams.get("order");
-
-// @ts-expect-error Type assertion required: Similar to sortBy, the runtime check validates `sortOrderParam` against `validSortOrders`, but TypeScript needs explicit type confirmation.
-if (sortOrderParam && validSortOrders.includes(sortOrderParam)) {
-  sortOrder = sortOrderParam as TSortOrder;
-}
-
-const categoryParam = searchParams.get("category");
-if (categoryParam) {
-  // @ts-expect-error Type assertion required: The runtime check verifies `categoryParam` against the `categories` array, but TypeScript requires a type assertion to proceed.
-  categoryFilter = categories.includes(categoryParam) ? categoryParam : null;
-}
-
-let totalIngredientsQuery = db
-  .select({ count: count().as("count") })
-  .from(ingredients);
-if (categoryFilter) {
-  // @ts-expect-error Type refinement required: TypeScript cannot infer the type narrowing within the conditional block. Explicitly asserting the type allows the query to proceed.
-  totalIngredientsQuery = totalIngredientsQuery.where(
-    eq(ingredients.category, categoryFilter)
-  );
-}
-
-let ingredientsQuery = db
+const baseQuery = db
   .select()
   .from(ingredients)
   .orderBy(
     sortOrder === "asc" ? asc(ingredients[sortBy]) : desc(ingredients[sortBy])
-  )
-  .offset(pageSize * (currentPage - 1))
-  .limit(pageSize);
+  );
+const totalIngredientsQuery = db
+  .select({ count: count().as("count") })
+  .from(ingredients);
 
 if (categoryFilter) {
-  // @ts-expect-error Type refinement required: Similar to the total count query, TypeScript requires explicit type narrowing for the category filter.
-  ingredientsQuery = ingredientsQuery.where(
-    eq(ingredients.category, categoryFilter)
-  );
+  baseQuery.where(eq(ingredients.category, categoryFilter));
+  totalIngredientsQuery.where(eq(ingredients.category, categoryFilter));
 }
 
 const [countResult, ingredientsList] = await Promise.all([
   totalIngredientsQuery,
-  ingredientsQuery,
+  baseQuery.offset(pageSize * (currentPage - 1)).limit(pageSize),
 ]);
 
 const totalIngredients = Number(countResult[0].count);
 const totalPages = Math.ceil(totalIngredients / pageSize);
 
-// Helper function to format numeric values
-function formatNumber(value: number | string, decimals = 1): string {
-  return Number(value).toFixed(decimals);
-}
-
 const baseUrl = buildFilterUrl("/ingredients", {
   sort: sortBy,
   order: sortOrder,
-  category: categoryFilter || "all", // Use "all" as the default value
+  category: categoryFilter || "all",
 });
 ---
 
@@ -122,7 +88,6 @@ const baseUrl = buildFilterUrl("/ingredients", {
   <div
     class="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
   >
-    <!-- Category Filter -->
     <div class="min-h-[64px]">
       <label class="block text-sm font-medium mb-1">Filter by Category:</label>
       <Selector
@@ -140,101 +105,66 @@ const baseUrl = buildFilterUrl("/ingredients", {
       />
     </div>
 
-    <!-- Sort Controls -->
-    <div class="min-h-[128px] sm:min-h-[64px]">
-      <label class="block text-sm font-medium mb-1">Sort by:</label>
-      <div class="flex flex-col sm:flex-row gap-8">
-        <Selector
-          id="sort"
-          client:only="react"
-          options={[
-            { value: "name", label: "Name" },
-            { value: "calories", label: "Calories" },
-            { value: "protein", label: "Protein" },
-            { value: "totalFat", label: "Total Fat" },
-            { value: "totalCarbs", label: "Total Carbs" },
-          ]}
-          defaultValue={sortBy}
-          className="w-[150px]"
-        />
-
+    <div class="min-h-[128px] sm:min-h-[64px] flex gap-4">
+      <label class="block text-sm font-medium mb-1"
+        >Sort by:
+        <div class="flex flex-col sm:flex-row gap-8">
+          <Selector
+            id="sort"
+            client:only="react"
+            options={validSortFields.map((field) => ({
+              value: field,
+              label: capitalize(field),
+            }))}
+            defaultValue={sortBy}
+            className="w-[150px]"
+          />
+        </div>
+      </label>
+      <label class="block text-sm font-medium mb-1"
+        >Sort order:
         <Selector
           client:only="react"
           id="order"
-          options={[
-            { value: "asc", label: "Ascending" },
-            { value: "desc", label: "Descending" },
-          ]}
+          options={validSortOrders.map((order) => ({
+            value: order,
+            label: capitalize(order),
+          }))}
           defaultValue={sortOrder}
           className="w-[150px]"
         />
-      </div>
+      </label>
     </div>
   </div>
 
-  <!-- Ingredients Table -->
   <div class="overflow-x-auto">
     <table
       class="min-w-full bg-white border border-secondary/50 shadow-md rounded-lg"
     >
       <thead class="bg-gray-50">
         <tr>
-          <th
-            class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >Name</th
-          >
-          <th
-            class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >Category</th
-          >
-          <th
-            class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >Calories</th
-          >
-          <th
-            class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >Protein (g)</th
-          >
-          <th
-            class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >Total Fat (g)</th
-          >
-          <th
-            class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >Sat. Fat (g)</th
-          >
-          <th
-            class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >Trans Fat (g)</th
-          >
-          <th
-            class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >Poly. Fat (g)</th
-          >
-          <th
-            class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >Mono. Fat (g)</th
-          >
-          <th
-            class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >Cholesterol (mg)</th
-          >
-          <th
-            class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >Sodium (mg)</th
-          >
-          <th
-            class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >Total Carbs (g)</th
-          >
-          <th
-            class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >Fiber (g)</th
-          >
-          <th
-            class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >Sugars (g)</th
-          >
+          {
+            [
+              "Name",
+              "Category",
+              "Calories",
+              "Protein (g)",
+              "Total Fat (g)",
+              "Sat. Fat (g)",
+              "Trans Fat (g)",
+              "Poly. Fat (g)",
+              "Mono. Fat (g)",
+              "Cholesterol (mg)",
+              "Sodium (mg)",
+              "Total Carbs (g)",
+              "Fiber (g)",
+              "Sugars (g)",
+            ].map((header) => (
+              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                {header}
+              </th>
+            ))
+          }
         </tr>
       </thead>
       <tbody class="divide-y divide-secondary/50">
@@ -290,7 +220,6 @@ const baseUrl = buildFilterUrl("/ingredients", {
     </table>
   </div>
 
-  <!-- Pagination -->
   {
     totalPages > 1 && (
       <Pagination

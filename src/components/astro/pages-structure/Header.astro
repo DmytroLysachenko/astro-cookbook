@@ -1,14 +1,19 @@
 ---
 import Image from "astro/components/Image.astro";
-import { HEADER_LINKS, SITE_TITLE } from "../constants";
+
 import Navigation from "./Navigation.astro";
 
 import { getSession } from "auth-astro/server";
 import { getUser, type TUser } from "@/services/auth";
-import LoggedAuth from "./react/auth/LoggedAuth";
-import PublicAuth from "./react/auth/PublicAuth";
+import { HEADER_LINKS, SITE_TITLE } from "@/constants";
+import LoggedAuth from "@/components/react/auth/LoggedAuth";
+import PublicAuth from "@/components/react/auth/PublicAuth";
 
-const { user } = Astro.props as { user?: TUser };
+interface Props {
+  user?: TUser;
+}
+
+const { user } = Astro.props;
 
 let userData: TUser | undefined | null;
 
@@ -39,10 +44,7 @@ if (user) {
       />
     </a>
 
-    <Navigation
-      links={HEADER_LINKS}
-      currentPath={Astro.url.pathname}
-    />
+    <Navigation links={HEADER_LINKS} />
 
     <div class="flex gap-6 justify-end items-center min-w-[40px] min-h-10">
       {

@@ -1,7 +1,6 @@
-// Your Drizzle database client
 import { and, eq } from "drizzle-orm";
 import type { APIRoute } from "astro";
-import { rates } from "@/db/schema/rates"; // Updated schema with recipeSlug
+import { rates } from "@/db/schema/rates";
 import { db } from "@/db";
 
 export const prerender = false;
@@ -17,7 +16,6 @@ export const POST: APIRoute = async ({ request, locals: { user } }) => {
       });
     }
 
-    // Check if the user has already rated this recipe
     const previousRate = await db
       .select()
       .from(rates)
@@ -25,14 +23,12 @@ export const POST: APIRoute = async ({ request, locals: { user } }) => {
       .then((rate) => rate[0]);
 
     if (previousRate) {
-      // Update the existing rating
       await db
         .update(rates)
         .set({ rate })
         .where(and(eq(rates.userId, user.id), eq(rates.recipeSlug, recipeSlug)))
         .execute();
     } else {
-      // Insert a new rating
       await db
         .insert(rates)
         .values({

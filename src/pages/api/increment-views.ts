@@ -1,5 +1,3 @@
-// src/pages/api/increment-views.ts
-
 import { db } from "@/db";
 import { views } from "@/db/schema/views";
 import type { APIRoute } from "astro";
@@ -18,7 +16,6 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   try {
-    // Check if the recipe exists in the views table
     const existingView = await db
       .select()
       .from(views)
@@ -26,14 +23,12 @@ export const POST: APIRoute = async ({ request }) => {
       .execute();
 
     if (existingView.length > 0) {
-      // Increment the view count
       await db
         .update(views)
         .set({ count: existingView[0].count + 1 })
         .where(eq(views.recipeSlug, recipeSlug))
         .execute();
     } else {
-      // Insert a new record with count = 1
       await db.insert(views).values({ recipeSlug, count: 1 }).execute();
     }
 

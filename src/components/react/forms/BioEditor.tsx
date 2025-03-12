@@ -1,10 +1,12 @@
 import type React from "react";
 import { useState } from "react";
-import { Button } from "../ui/button";
-import { Textarea } from "../ui/textarea";
+
 import { API_BASE_URL } from "astro:env/client";
-import { Toaster } from "../ui/sonner";
+
 import { toast } from "sonner";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Toaster } from "@/components/ui/sonner";
 
 interface BioEditorProps {
   initialBio: string;

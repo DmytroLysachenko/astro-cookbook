@@ -1,4 +1,3 @@
-// Your Drizzle database client
 import { and, eq } from "drizzle-orm";
 import type { APIRoute } from "astro";
 import { db } from "@/db";

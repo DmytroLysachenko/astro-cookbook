@@ -1,13 +1,11 @@
 ---
-import SubscribeForm from "@/components/react/forms/SubscribeForm";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import CustomButton from "@/components/react/CustomButton";
 import { getCollection } from "astro:content";
-import RecipesList from "@/components/RecipesList.astro";
 
-import RecipeCardsSekeleton from "@/components/RecipeCardsSekeleton.astro";
-
-const handleClick = () => console.log("clicked");
+import SubscribeForm from "@/components/react/forms/SubscribeForm";
+import CustomButton from "@/components/react/buttons/CustomButton";
+import RecipesList from "@/components/astro/recipe-cards/RecipesList.astro";
+import RecipeCardsSekeleton from "@/components/astro/recipe-cards/RecipeCardsSekeleton.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const recipes = await getCollection("recipe");
 ---
@@ -31,7 +29,6 @@ const recipes = await getCollection("recipe");
       <CustomButton
         variant="outline"
         title="Get Started"
-        handleClick={handleClick}
         isLink
         href="/recipes"
         client:visible

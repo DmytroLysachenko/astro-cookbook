@@ -1,14 +1,14 @@
 ---
-import BioEditor from "@/components/react/BioEditor";
+import { getCollection } from "astro:content";
+import { eq } from "drizzle-orm";
+
 import UserAvatar from "@/components/react/avatar/UserAvatarUpload";
 import { db } from "@/db";
 import { rates } from "@/db/schema/rates";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
-
-import { eq } from "drizzle-orm";
-import RecipesList from "@/components/RecipesList.astro";
 import { likes } from "@/db/schema/likes";
+import BioEditor from "@/components/react/forms/BioEditor";
+import RecipesList from "@/components/astro/recipe-cards/RecipesList.astro";
 
 export const prerender = false;
 

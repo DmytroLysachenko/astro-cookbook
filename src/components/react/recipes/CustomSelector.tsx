@@ -4,9 +4,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../../ui/select";
-
-// Mark as a Client Component
+} from "@/components/ui/select";
 
 interface SelectorProps {
   id: string;

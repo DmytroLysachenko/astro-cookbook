@@ -1,6 +1,15 @@
 ---
 import FilterSection from "./FilterSection.astro";
 import { capitalize } from "@/lib/utils";
+
+interface Props {
+  categories: string[];
+  cuisines: string[];
+  currentCategory?: string;
+  currentCuisine?: string;
+  currentSort?: string;
+}
+
 const {
   categories = [],
   cuisines = [],

@@ -1,4 +1,4 @@
-import type { TFullIngredientsData } from "@/components/NutritionFacts.astro";
+import type { TFullIngredientsData } from "@/components/astro/recipe-page/NutritionFacts.astro";
 
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -149,7 +149,7 @@ export const calculateNutritionFacts = (
 
 export const buildFilterUrl = (
   path: string,
-  params: { [key: string]: string },
+  params: { [key: string]: string | undefined },
 ): string => {
   const searchParams = new URLSearchParams();
 
@@ -164,4 +164,8 @@ export const buildFilterUrl = (
   const queryString = searchParams.toString();
 
   return queryString ? `${path}?${queryString}` : path;
+};
+
+export const formatNumber = (value: number | string, decimals = 1) => {
+  return Number(value).toFixed(decimals);
 };

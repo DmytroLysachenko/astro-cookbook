@@ -3,9 +3,11 @@ import RecipeCard from "./RecipeCard.astro";
 import type { TRecipeCollectionEntry } from "@/types";
 import { getRatingDataBySlugArray } from "@/services/rates";
 
-const { recipes } = Astro.props as {
+interface Props {
   recipes: TRecipeCollectionEntry[];
-};
+}
+
+const { recipes } = Astro.props;
 
 const recipesSlugs = recipes.map((recipe) => recipe.data.slug);
 
@@ -17,8 +19,8 @@ const recipesRatingData = await getRatingDataBySlugArray(recipesSlugs);
     recipes.map((recipe) => (
       <RecipeCard
         recipe={{
+          ...recipesRatingData.find((r) => r.slug === recipe.data.slug)!,
           ...recipe.data,
-          ...recipesRatingData.find((r) => r.slug === recipe.data.slug),
         }}
       />
     ))

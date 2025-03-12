@@ -18,7 +18,7 @@ const LoggedAuth = ({ user }: { user: TUser }) => {
 
       <PopoverContent
         side="bottom"
-        sideOffset={16}
+        sideOffset={26}
         className="border-t-0 rounded-t-none max-w-36 z-10 bg-background border-muted/40"
       >
         <ul className="flex flex-col gap-2">

@@ -1,12 +1,14 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Pagination from "../../components/Pagination.astro";
-import FilterSidebar from "../../components/FilterSidebar.astro";
+
 import { capitalize } from "@/lib/utils";
-import RecipesList from "@/components/RecipesList.astro";
-import RecipeCardsSekeleton from "@/components/RecipeCardsSekeleton.astro";
-import FilterSkeleton from "@/components/FilterSkeleton.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import FilterSidebar from "@/components/astro/filter/FilterSidebar.astro";
+import FilterSkeleton from "@/components/astro/filter/FilterSkeleton.astro";
+import RecipesList from "@/components/astro/recipe-cards/RecipesList.astro";
+import RecipeCardsSekeleton from "@/components/astro/recipe-cards/RecipeCardsSekeleton.astro";
+import Pagination from "@/components/astro/pages-structure/Pagination.astro";
+
 
 export const prerender = false;
 // Get search params for pagination and filtering

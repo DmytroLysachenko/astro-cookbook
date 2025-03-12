@@ -1,8 +1,17 @@
 ---
-import StarRating from "./StarRating.astro";
 import { capitalize } from "@/lib/utils";
 import type { TRecipeCollectionData } from "@/types";
 import Image from "astro/components/Image.astro";
+import StarRating from "@/components/astro/recipe-page/StarRating.astro";
+
+interface Props {
+  recipe: TRecipeCollectionData & {
+    slug: string | null;
+    rating: string | null;
+    ratingCount: number;
+    views: number;
+  };
+}
 
 const {
   recipe: {
@@ -16,13 +25,7 @@ const {
     portions,
     categories,
   },
-} = Astro.props as {
-  recipe: TRecipeCollectionData & {
-    rating: number;
-    ratingCount: number;
-    views: number;
-  };
-};
+} = Astro.props;
 ---
 
 <div class="card">
@@ -67,7 +70,7 @@ const {
 
     <div class="mt-2 flex flex-wrap gap-2">
       {
-        categories.map((category: string) => (
+        categories.map((category) => (
           <span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full">
             {capitalize(category)}
           </span>

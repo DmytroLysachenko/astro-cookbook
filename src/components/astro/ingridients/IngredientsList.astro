@@ -1,5 +1,9 @@
 ---
-// IngredientsList.astro (SSG)
+interface Props {
+  ingredients: { name: string; quantity: string }[];
+  portions: number;
+}
+
 const { ingredients, portions } = Astro.props;
 ---
 
