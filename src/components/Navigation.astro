@@ -6,7 +6,10 @@ const { links } = Astro.props as {
 };
 ---
 
-<nav class="relative flex items-center justify-center min-h-14">
+<nav
+  id="header-nav"
+  class="relative flex items-center justify-center min-h-14"
+>
   <!-- Desktop Navigation -->
   <div class="hidden md:flex space-x-10 justify-center">
     {
@@ -57,8 +60,12 @@ const { links } = Astro.props as {
   const button = document.getElementById("mobile-menu-button");
   const buttonIcon = document.getElementById("mobile-menu-button-icon");
   const menu = document.getElementById("mobile-menu");
+  const navigationPanel = document.getElementById("header-nav");
   const currentPath = window.location.pathname;
-  const currentLink = document.querySelector(`a[href="${currentPath}"]`);
+
+  const currentLink = navigationPanel?.querySelector(
+    `a[href="${currentPath}"]`
+  );
 
   if (currentLink) {
     currentLink.classList.add("bg-muted/30");
