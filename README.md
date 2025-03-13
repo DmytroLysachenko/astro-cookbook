@@ -1,68 +1,110 @@
-# Astro Starter Kit: Blog
+# Cooking Spot - A Modern Recipe Platform
 
+![Cooking Spot](https://ik.imagekit.io/lysachenkodmytro/cooking-spot/Screenshot%202025-03-13%20at%2015-48-13%20Cooking%20Spot.png) <!-- Replace with actual banner image URL -->
+
+## 🚀 Overview
+
+Cooking Spot is a high-performance, SEO-optimized, and scalable recipe website built with **Astro v5**. The platform efficiently combines **SSG, SSR, and CSR** using Astro's **Island architecture**, ensuring maximum speed while keeping dynamic features interactive.
+
+Users can explore recipes, filter and sort them, view ingredient nutrition data, and engage with content by liking, rating, and commenting. A personalized profile allows users to manage their interactions and update their avatars.
+
+## ✨ Features
+
+- 🔥 **High-performance Astro v5 site** with **SSG-first approach**
+- 🛠 **Astro Islands for interactivity** (CSR for dynamic UI parts, SSR for real-time data, and SSG for static content)
+- 🏗 **MDX-powered content collections** for storing recipes
+- 🔐 **OAuth authentication** with Google, Facebook, and GitHub via **Auth.js**
+- 📊 **PostgreSQL + Drizzle ORM** for storing user interactions (likes, ratings, comments)
+- 🖼 **Avatar management** via **ImageKit** (file upload & storage)
+- 💡 **SEO-optimized** for maximum discoverability
+- 🎨 **Tailwind CSS + shadcn/ui** for modern styling
+- 🌍 **Edge-optimized backend logic** using Astro API endpoints
+- ✅ **Code quality ensured** with **ESLint & Prettier**
+
+## 🏗 Tech Stack
+
+- **Frontend:** Astro v5, React, Tailwind CSS, shadcn/ui
+- **Backend:** Astro API routes, PostgreSQL (Neon DB), Drizzle ORM
+- **Auth:** Auth.js (OAuth with Google, Facebook, GitHub)
+- **Storage:** MDX for recipes, PostgreSQL for dynamic content
+- **Hosting:** Vercel
+- **Utilities:** ESLint, Prettier, ImageKit for media handling
+
+## 📸 Screenshots
+
+![Recipe List](https://ik.imagekit.io/lysachenkodmytro/cooking-spot/Screenshot%202025-03-13%20at%2015-53-45%20Recipes.png?updatedAt=1741877992242)
+![User Profile](https://ik.imagekit.io/lysachenkodmytro/cooking-spot/Screenshot%202025-03-13%20at%2015-54-57%20User%20Dashboard.png?updatedAt=1741877992218)
+
+## ⚡ Setup & Installation
+
+1. **Clone the repo:**
+   ```sh
+   git clone https://github.com/DmytroLysachenko/astro-cookbook.git
+   cd astro-cookbook
+   ```
+2. **Install dependencies:**
+   ```sh
+   npm install  # or pnpm install / yarn install
+   ```
+3. **Set up environment variables:**
+   Create a `.env` file and configure database, OAuth, and ImageKit settings.
+   ```env
+   DATABASE_URL=
+   AUTH_TRUST_HOST=true
+   AUTH_SECRET=
+   GOOGLE_CLIENT_ID=
+   GOOGLE_CLIENT_SECRET=
+   GITHUB_CLIENT_ID=
+   GITHUB_CLIENT_SECRET=
+   FACEBOOK_CLIENT_ID=
+   FACEBOOK_CLIENT_SECRET=
+   IMAGEKIT_URL_ENDPOINT=
+   IMAGEKIT_PUBLIC_KEY=
+   IMAGEKIT_PRIVATE_KEY=
+   BASE_URL=
+   API_BASE_URL=
+   ```
+
+````
+4. **Run the development server:**
 ```sh
-npm create astro@latest -- --template blog
-```
+npm run dev  # Start the Astro dev server on port 4321
+````
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/blog/devcontainer.json)
+5. **Build for production:**
+   ```sh
+   npm run build  # Generates static output
+   ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🛠 Key Functionalities
 
-![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+### 🌟 Recipe Pages
 
-Features:
+- MDX-based recipes for fast, SEO-friendly content
+- Dynamic elements like comments, ratings, and likes (SSR islands)
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+### 👤 User Profile
 
-## 🚀 Project Structure
+- Manage bio & avatar (ImageKit integration)
+- View liked & rated recipes
 
-Inside of your Astro project, you'll see the following folders and files:
+### 🔥 Interactive Features
 
-```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
+- Like, rate, and comment on recipes (CSR-enabled UI for instant feedback)
+- Sort & filter recipes dynamically (SSR-powered data fetching)
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### 🔐 Authentication
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- OAuth via Google, Facebook, GitHub
+- Astro API endpoints for secure authentication
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+## 📬 Contact
 
-Any static assets, like images, can be placed in the `public/` directory.
+For inquiries or collaborations, reach out:
 
-## 🧞 Commands
+- **GitHub:** [Dmytro Lysachenko](https://github.com/DmytroLysachenko)
+- **Email:** dlysachenko98@gmail.com
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+Made with ❤️ using Astro v5 & Tailwind CSS 🚀
