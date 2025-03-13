@@ -14,6 +14,7 @@ const recipe = defineCollection({
     cuisine: z.string(), // Cuisine type (e.g., Italian, French)
     categories: z.array(z.string()), // Array of tags/categories
     language: z.string(), // Language code (e.g., "en", "ua")
+    created: z.string().date(), // Date when the recipe was created
     ingredients: z.array(
       z.object({ name: z.string(), quantity: z.string(), grams: z.number() }),
     ), // Object mapping ingredient names to their human-readable values

@@ -8,10 +8,10 @@ import { Selector } from "@/components/react/recipes/CustomSelector";
 import { INGREDIENTS_PER_PAGE } from "@/constants";
 import Pagination from "@/components/astro/pages-structure/Pagination.astro";
 
+export const prerender = false;
+
 type TSortOption = "name" | "calories" | "protein" | "totalFat" | "totalCarbs";
 type TSortOrder = "asc" | "desc";
-
-export const prerender = false;
 
 const pageSize = INGREDIENTS_PER_PAGE;
 

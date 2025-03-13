@@ -1,0 +1,101 @@
+---
+slug: "sushi-rolls"
+title: "Sushi Rolls (Japanese Sushi)"
+previewImage: "sushi-rolls.jpg"
+description: "A classic Japanese dish made with vinegared rice, nori, and various fillings like fish and vegetables."
+cookingTime: 60 # in minutes
+portions: 4
+cuisine: "Japanese"
+categories: ["sushi", "dinner", "seafood"]
+language: "en"
+created: "2024-11-22"
+ingredients:
+  - name: "Sushi Rice"
+    quantity: "300g"
+    grams: 300
+    id: "1256" # White Rice
+
+  - name: "Nori Sheets"
+    quantity: "4"
+    grams: 8
+    id: "915" # Seaweed (Nori)
+
+  - name: "Fresh Salmon"
+    quantity: "200g"
+    grams: 200
+    id: "695" # Salmon
+
+  - name: "Cucumber"
+    quantity: "1"
+    grams: 100
+    id: "641" # Cucumber
+
+  - name: "Avocado"
+    quantity: "1"
+    grams: 150
+    id: "624" # Avocado
+
+  - name: "Rice Vinegar"
+    quantity: "50ml"
+    grams: 50
+    id: "1261" # Vinegar (White)
+
+  - name: "Sugar"
+    quantity: "1 tbsp"
+    grams: 12
+    id: "927" # Brown Sugar
+
+  - name: "Salt"
+    quantity: "1 tsp"
+    grams: 5
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Soy Sauce"
+    quantity: "50ml"
+    grams: 50
+    id: "1286" # Soy Sauce (Regular)
+---
+
+import IngredientsList from "@/components/astro/recipe-page/IngredientsList.astro";
+import CookingStep from "@/components/astro/recipe-page/CookingStep.astro";
+import NutritionFacts from "@/components/astro/recipe-page/NutritionFacts.astro";
+import RecipeRating from "@/components/astro/recipe-page/RecipeRating.astro";
+
+## Introduction
+
+Sushi Rolls are a **classic Japanese dish** made with vinegared rice, nori, and various fillings like fish and vegetables. This dish is **fresh and flavorful**, perfect for a light dinner or snack. Enjoy this traditional Japanese recipe with your family and friends!
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Sushi Rice
+
+Rinse the **sushi rice** until the water runs clear. Cook according to package instructions. Mix **rice vinegar**, **sugar**, and **salt** in a small bowl, then fold into the cooked rice.
+
+<CookingStep action="boiling_grains_rice" alt="Cooking sushi rice" />
+
+### Step 2: Prepare the Fillings
+
+Slice the **salmon**, **cucumber**, and **avocado** into thin strips.
+
+<CookingStep action="cutting_fish_red" alt="Cutting salmon" />
+
+### Step 3: Assemble the Sushi Rolls
+
+Place a **nori sheet** on a bamboo mat. Spread a thin layer of **sushi rice** over the nori, leaving a 1cm border at the top. Arrange the **salmon**, **cucumber**, and **avocado** in the center. Roll tightly using the bamboo mat.
+
+### Step 4: Slice and Serve
+
+Slice the sushi roll into 6-8 pieces using a sharp knife. Serve with **soy sauce** and enjoy!
+
+## Final Thoughts
+
+Sushi Rolls are a **fresh and flavorful dish** that’s perfect for a light dinner or snack. The combination of **vinegared rice, nori, and fresh fillings** creates a satisfying dish. Enjoy this traditional Japanese recipe with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

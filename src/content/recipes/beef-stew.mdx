@@ -1,0 +1,127 @@
+---
+slug: "beef-stew"
+title: "Beef Stew"
+previewImage: "beef-stew.jpg"
+description: "A hearty and comforting beef stew made with tender beef, vegetables, and a rich broth."
+cookingTime: 120
+portions: 6
+cuisine: "American"
+categories: ["main course", "dinner", "comfort food"]
+language: "en"
+created: "2024-10-12"
+ingredients:
+  - name: "Beef Chuck"
+    quantity: "800g"
+    grams: 800
+    id: "677"
+
+  - name: "Carrot"
+    quantity: "3"
+    grams: 200
+    id: "635"
+
+  - name: "Potato"
+    quantity: "4"
+    grams: 400
+    id: "645"
+
+  - name: "Onion"
+    quantity: "2"
+    grams: 200
+    id: "643"
+
+  - name: "Garlic"
+    quantity: "4 cloves"
+    grams: 12
+    id: "644"
+
+  - name: "Beef Stock"
+    quantity: "1 liter"
+    grams: 1000
+    id: "1244"
+
+  - name: "Tomato Paste"
+    quantity: "2 tbsp"
+    grams: 30
+    id: "1169"
+
+  - name: "Bay Leaf"
+    quantity: "2"
+    grams: 2
+    id: "1236"
+
+  - name: "Thyme"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1181"
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135"
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258"
+
+  - name: "Vegetable Oil"
+    quantity: "2 tbsp"
+    grams: 30
+    id: "1262"
+---
+
+import IngredientsList from "@/components/astro/recipe-page/IngredientsList.astro";
+import CookingStep from "@/components/astro/recipe-page/CookingStep.astro";
+import NutritionFacts from "@/components/astro/recipe-page/NutritionFacts.astro";
+import RecipeRating from "@/components/astro/recipe-page/RecipeRating.astro";
+
+## Introduction
+
+Beef Stew is a **classic comfort food** that’s perfect for a cold day. This dish features **tender beef**, **root vegetables**, and a **rich, flavorful broth** that’s sure to warm you up.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Brown the Beef
+
+Heat **vegetable oil** in a large pot. Add the **beef chuck** pieces and brown them on all sides.
+
+<CookingStep action="frying_pan_meat_red_cubes" alt="Browning beef cubes" />
+
+### Step 2: Sauté the Vegetables
+
+Add **chopped onions**, **minced garlic**, and **sliced carrots** to the pot. Sauté until the vegetables are softened.
+
+<CookingStep action="frying_pan_vegetables_onions" alt="Sautéing vegetables" />
+
+### Step 3: Add the Remaining Ingredients
+
+Add **diced potatoes**, **beef stock**, **tomato paste**, **bay leaves**, **thyme**, **salt**, and **black pepper** to the pot. Stir well to combine.
+
+<CookingStep
+  action="stewing_meat_red_with_veggies"
+  alt="Adding ingredients to the pot"
+/>
+
+### Step 4: Simmer the Stew
+
+Bring the stew to a boil, then reduce the heat and let it simmer for **1.5 to 2 hours** until the beef is tender.
+
+<CookingStep action="stewing_meat_red_cubes" alt="Simmering beef stew" />
+
+### Step 5: Serve & Enjoy!
+
+Serve the beef stew hot with **crusty bread** or **mashed potatoes**.
+
+## Final Thoughts
+
+This **beef stew** is a **hearty and comforting dish** that’s perfect for a family dinner. The **tender beef** and **flavorful broth** make this stew a favorite for any occasion. Enjoy this dish with your loved ones!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

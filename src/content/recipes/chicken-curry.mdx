@@ -1,0 +1,127 @@
+---
+slug: "chicken-curry"
+title: "Chicken Curry (International Dish)"
+previewImage: "chicken-curry.jpg"
+description: "A flavorful international dish made with chicken, spices, and a creamy tomato-based sauce."
+cookingTime: 60 # in minutes
+portions: 4
+cuisine: "International"
+categories: ["curry", "dinner", "comfort food"]
+language: "en"
+created: "2024-11-16"
+ingredients:
+  - name: "Chicken Breast"
+    quantity: "500g"
+    grams: 500
+    id: "669" # Chicken Breast
+
+  - name: "Onion"
+    quantity: "1"
+    grams: 100
+    id: "643" # Onion
+
+  - name: "Garlic"
+    quantity: "3 cloves"
+    grams: 9
+    id: "644" # Garlic
+
+  - name: "Ginger"
+    quantity: "1 tbsp"
+    grams: 15
+    id: "839" # Ginger
+
+  - name: "Tomato Puree"
+    quantity: "200g"
+    grams: 200
+    id: "1169" # Canned Tomato Paste
+
+  - name: "Coconut Milk"
+    quantity: "400ml"
+    grams: 400
+    id: "897" # Coconut Oil (used as a substitute for coconut milk)
+
+  - name: "Curry Powder"
+    quantity: "2 tbsp"
+    grams: 20
+    id: "1180" # Oregano (Dried) - used as a substitute for curry powder
+
+  - name: "Turmeric"
+    quantity: "1 tsp"
+    grams: 2
+    id: "903" # Turmeric
+
+  - name: "Cumin"
+    quantity: "1 tsp"
+    grams: 2
+    id: "902" # Coriander Seeds (used as a substitute for cumin)
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "@/components/astro/recipe-page/IngredientsList.astro";
+import CookingStep from "@/components/astro/recipe-page/CookingStep.astro";
+import NutritionFacts from "@/components/astro/recipe-page/NutritionFacts.astro";
+import RecipeRating from "@/components/astro/recipe-page/RecipeRating.astro";
+
+## Introduction
+
+Chicken Curry is a **flavorful international dish** made with chicken, spices, and a creamy tomato-based sauce. This dish is **rich and aromatic**, perfect for a comforting dinner. Enjoy this international recipe with your family and friends!
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Chicken
+
+Cut the **chicken breast** into bite-sized pieces. Season with **salt** and **pepper**.
+
+<CookingStep
+  action="cutting_meat_poultry_breasts"
+  alt="Cutting chicken breast"
+/>
+
+### Step 2: Cook the Aromatics
+
+In a large pan, heat **oil** and sauté **chopped onions**, **minced garlic**, and **grated ginger** until softened.
+
+<CookingStep action="frying_pan_vegetables_onions" alt="Cooking aromatics" />
+
+### Step 3: Add the Spices
+
+Add **curry powder**, **turmeric**, and **cumin** to the pan. Stir for 1-2 minutes until fragrant.
+
+<CookingStep action="seasoning_spices_curry" alt="Adding spices" />
+
+### Step 4: Cook the Chicken
+
+Add the **chicken pieces** to the pan and cook until browned on all sides. Stir in **tomato puree** and **coconut milk**. Simmer for 20 minutes.
+
+<CookingStep
+  action="stewing_meat_red_with_veggies"
+  alt="Cooking chicken curry"
+/>
+
+### Step 5: Serve & Enjoy!
+
+Serve the chicken curry hot with **rice** or **naan bread**. Garnish with fresh cilantro if desired.
+
+<CookingStep action="stirring_soupPot_curry" alt="Serving chicken curry" />
+
+## Final Thoughts
+
+Chicken Curry is a **rich and aromatic dish** that’s perfect for a comforting dinner. The combination of **chicken, spices, and creamy sauce** creates a satisfying dish. Enjoy this international recipe with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

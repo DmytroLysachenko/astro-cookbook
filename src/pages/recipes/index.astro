@@ -9,7 +9,6 @@ import RecipesList from "@/components/astro/recipe-cards/RecipesList.astro";
 import RecipeCardsSekeleton from "@/components/astro/recipe-cards/RecipeCardsSekeleton.astro";
 import Pagination from "@/components/astro/pages-structure/Pagination.astro";
 
-
 export const prerender = false;
 // Get search params for pagination and filtering
 const { searchParams } = Astro.url;
@@ -40,6 +39,12 @@ const filteredRecipes = allRecipes.filter((recipe) => {
 });
 
 switch (sortBy) {
+  case "newest":
+    filteredRecipes.sort(
+      (a, b) =>
+        new Date(b.data.created).getTime() - new Date(a.data.created).getTime()
+    );
+    break;
   case "title":
     filteredRecipes.sort((a, b) => a.data.title.localeCompare(b.data.title));
     break;

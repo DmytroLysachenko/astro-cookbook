@@ -1,0 +1,129 @@
+---
+slug: "moussaka"
+title: "Moussaka (Greek Eggplant Casserole)"
+previewImage: "moussaka.jpg"
+description: "A traditional Greek casserole made with layers of eggplant, ground lamb, and a creamy béchamel sauce."
+cookingTime: 90 # in minutes
+portions: 6
+cuisine: "Greek"
+categories: ["casserole", "dinner", "comfort food"]
+language: "en"
+created: "2024-12-25"
+ingredients:
+  - name: "Eggplant"
+    quantity: "2 large"
+    grams: 600
+    id: "658" # Eggplant
+
+  - name: "Ground Lamb"
+    quantity: "500g"
+    grams: 500
+    id: "674" # Ground Beef (80% lean) - used as a substitute for ground lamb
+
+  - name: "Potatoes"
+    quantity: "300g"
+    grams: 300
+    id: "645" # Potato
+
+  - name: "Onion"
+    quantity: "1"
+    grams: 100
+    id: "643" # Onion
+
+  - name: "Garlic"
+    quantity: "3 cloves"
+    grams: 9
+    id: "644" # Garlic
+
+  - name: "Tomato Puree"
+    quantity: "200g"
+    grams: 200
+    id: "1169" # Canned Tomato Paste
+
+  - name: "Olive Oil"
+    quantity: "100ml"
+    grams: 100
+    id: "837" # Olive Oil
+
+  - name: "Milk"
+    quantity: "500ml"
+    grams: 500
+    id: "812" # Whole Milk
+
+  - name: "Butter"
+    quantity: "50g"
+    grams: 50
+    id: "838" # Butter
+
+  - name: "Flour"
+    quantity: "50g"
+    grams: 50
+    id: "1199" # All-Purpose Flour
+
+  - name: "Nutmeg"
+    quantity: "1/2 tsp"
+    grams: 1
+    id: "1111" # Mace (used as a substitute for nutmeg)
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "@/components/astro/recipe-page/IngredientsList.astro";
+import CookingStep from "@/components/astro/recipe-page/CookingStep.astro";
+import NutritionFacts from "@/components/astro/recipe-page/NutritionFacts.astro";
+import RecipeRating from "@/components/astro/recipe-page/RecipeRating.astro";
+
+## Introduction
+
+Moussaka is a **traditional Greek casserole** made with layers of eggplant, ground lamb, and a creamy béchamel sauce. This dish is **rich and flavorful**, perfect for a hearty dinner. Enjoy this classic Greek recipe with your family and friends!
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Eggplant
+
+Slice the **eggplant** into 1cm thick slices. Sprinkle with **salt** and let sit for 30 minutes to remove bitterness. Rinse and pat dry.
+
+<CookingStep action="cutting_vegetables_eggplant" alt="Cutting eggplant" />
+
+### Step 2: Cook the Lamb
+
+In a large pan, heat **olive oil** and sauté **chopped onions** and **minced garlic** until softened. Add **ground lamb** and cook until browned. Stir in **tomato puree**, **salt**, and **pepper**. Simmer for 10 minutes.
+
+<CookingStep action="frying_pan_meat_red_cubes" alt="Cooking ground lamb" />
+
+### Step 3: Prepare the Béchamel Sauce
+
+In a saucepan, melt **butter** and stir in **flour** to make a roux. Gradually add **milk**, stirring constantly until thickened. Season with **nutmeg**, **salt**, and **pepper**.
+
+<CookingStep action="stirring_saucePan_cream" alt="Preparing béchamel sauce" />
+
+### Step 4: Assemble the Moussaka
+
+Layer the **eggplant slices**, **lamb mixture**, and **béchamel sauce** in a baking dish. Repeat layers, finishing with béchamel on top.
+
+<CookingStep action="baking_oven_savory_casserole" alt="Assembling moussaka" />
+
+### Step 5: Bake & Serve
+
+Bake in a preheated oven at 180°C for 45 minutes, or until golden brown. Let cool slightly before serving.
+
+## Final Thoughts
+
+Moussaka is a **rich and flavorful casserole** that’s perfect for a hearty dinner. The combination of **eggplant, lamb, and béchamel sauce** creates a satisfying dish. Enjoy this traditional Greek recipe with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

@@ -1,0 +1,128 @@
+---
+slug: "vegetable-stir-fry"
+title: "Vegetable Stir-Fry"
+previewImage: "vegetable-stir-fry.jpg"
+description: "A quick and healthy vegetable stir-fry made with a mix of fresh vegetables and a savory sauce."
+cookingTime: 20
+portions: 4
+cuisine: "Asian"
+categories: ["main course", "dinner", "healthy"]
+language: "en"
+created: "2024-11-26"
+ingredients:
+  - name: "Broccoli"
+    quantity: "200g"
+    grams: 200
+    id: "636"
+
+  - name: "Carrot"
+    quantity: "2"
+    grams: 150
+    id: "635"
+
+  - name: "Bell Pepper"
+    quantity: "2"
+    grams: 200
+    id: "640"
+
+  - name: "Snow Peas"
+    quantity: "100g"
+    grams: 100
+    id: "1268"
+
+  - name: "Garlic"
+    quantity: "3 cloves"
+    grams: 9
+    id: "644"
+
+  - name: "Ginger"
+    quantity: "1 inch"
+    grams: 10
+    id: "839"
+
+  - name: "Soy Sauce"
+    quantity: "3 tbsp"
+    grams: 45
+    id: "1286"
+
+  - name: "Sesame Oil"
+    quantity: "1 tbsp"
+    grams: 15
+    id: "901"
+
+  - name: "Vegetable Oil"
+    quantity: "2 tbsp"
+    grams: 30
+    id: "1262"
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135"
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258"
+---
+
+import IngredientsList from "@/components/astro/recipe-page/IngredientsList.astro";
+import CookingStep from "@/components/astro/recipe-page/CookingStep.astro";
+import NutritionFacts from "@/components/astro/recipe-page/NutritionFacts.astro";
+import RecipeRating from "@/components/astro/recipe-page/RecipeRating.astro";
+
+## Introduction
+
+Vegetable Stir-Fry is a **quick and healthy dish** that’s perfect for a busy weeknight. This dish features a **mix of fresh vegetables** and a **savory sauce** that’s both delicious and nutritious.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Vegetables
+
+Cut the **broccoli**, **carrots**, **bell peppers**, and **snow peas** into bite-sized pieces.
+
+<CookingStep
+  action="cutting_vegetables_mix_tomato_califlower"
+  alt="Cutting vegetables"
+/>
+
+### Step 2: Sauté the Aromatics
+
+Heat **vegetable oil** in a large pan or wok. Add **minced garlic** and **grated ginger**. Sauté until fragrant.
+
+<CookingStep
+  action="frying_pan_vegetables_onions"
+  alt="Sautéing garlic and ginger"
+/>
+
+### Step 3: Stir-Fry the Vegetables
+
+Add the **prepared vegetables** to the pan. Stir-fry for **5-7 minutes** until the vegetables are tender but still crisp.
+
+<CookingStep action="stirring_pan_vegetables" alt="Stir-frying vegetables" />
+
+### Step 4: Add the Sauce
+
+Add **soy sauce**, **sesame oil**, **salt**, and **black pepper** to the pan. Stir well to coat the vegetables with the sauce.
+
+<CookingStep
+  action="seasoning_spices_black"
+  alt="Adding sauce to the vegetables"
+/>
+
+### Step 5: Serve & Enjoy!
+
+Serve the vegetable stir-fry hot with **steamed rice** or **noodles**.
+
+## Final Thoughts
+
+This **vegetable stir-fry** is a **quick and healthy dish** that’s perfect for any occasion. The **mix of fresh vegetables** and **savory sauce** makes this dish both delicious and nutritious. Enjoy this dish with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

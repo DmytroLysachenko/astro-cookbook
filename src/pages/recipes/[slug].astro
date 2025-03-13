@@ -39,6 +39,9 @@ const { Content } = await render(recipe);
       width={400}
       height={400}
     />
+    <p class="text-base">
+      📆 Created on: <span class="font-bold">{recipe.data.created}</span>
+    </p>
 
     <h1 class="relative flex items-center gap-4">
       {title}
