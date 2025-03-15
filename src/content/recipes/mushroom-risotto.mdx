@@ -1,0 +1,114 @@
+---
+slug: "mushroom-risotto"
+title: "Mushroom Risotto"
+previewImage: "mushroom-risotto.jpg"
+description: "A creamy and flavorful risotto made with Arborio rice, mushrooms, and Parmesan cheese, perfect for a comforting dinner."
+cookingTime: 40 # in minutes
+portions: 4
+cuisine: "Italian"
+categories: ["rice", "dinner", "vegetarian"]
+language: "en"
+created: "2025-03-15"
+ingredients:
+  - name: "Arborio Rice"
+    quantity: "300g"
+    grams: 300
+    id: "1256" # White Rice (used as a substitute for Arborio rice)
+
+  - name: "Mushrooms"
+    quantity: "300g"
+    grams: 300
+    id: "1255" # White Mushrooms
+
+  - name: "Onion"
+    quantity: "1"
+    grams: 100
+    id: "643" # Onion
+
+  - name: "Garlic"
+    quantity: "2 cloves"
+    grams: 6
+    id: "644" # Garlic
+
+  - name: "Vegetable Stock"
+    quantity: "1 liter"
+    grams: 1000
+    id: "1228" # Vegetable Stock
+
+  - name: "Parmesan Cheese"
+    quantity: "100g"
+    grams: 100
+    id: "880" # Parmesan
+
+  - name: "Butter"
+    quantity: "50g"
+    grams: 50
+    id: "838" # Butter
+
+  - name: "Olive Oil"
+    quantity: "2 tbsp"
+    grams: 30
+    id: "837" # Olive Oil
+
+  - name: "White Wine"
+    quantity: "100ml"
+    grams: 100
+    id: "1215" # Dry White Wine
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "@/components/astro/recipe-page/IngredientsList.astro";
+import CookingStep from "@/components/astro/recipe-page/CookingStep.astro";
+import NutritionFacts from "@/components/astro/recipe-page/NutritionFacts.astro";
+import RecipeRating from "@/components/astro/recipe-page/RecipeRating.astro";
+
+## Introduction
+
+**Mushroom Risotto** is a **creamy and flavorful dish** that’s perfect for a comforting dinner. Made with Arborio rice, mushrooms, and Parmesan cheese, this risotto is both rich and satisfying.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Ingredients
+
+Chop the **onion** and **garlic**. Slice the **mushrooms**. Grate the **Parmesan cheese**.
+
+### Step 2: Sauté the Vegetables
+
+In a large pan, heat **olive oil** and **butter** over medium heat. Add the **onion and garlic** and sauté until softened. Add the **mushrooms** and cook until they release their moisture and become golden.
+
+<CookingStep
+  action="frying_pan_vegetables_mushrooms"
+  alt="Sautéing mushrooms and onions in a pan"
+/>
+
+### Step 3: Cook the Rice
+
+Add the **Arborio rice** to the pan and stir to coat the grains with the oil and butter. Pour in the **white wine** and cook until it has evaporated. Gradually add the **vegetable stock**, one ladle at a time, stirring constantly until the rice is creamy and cooked through.
+
+<CookingStep action="stirring_pan_rice" alt="Stirring risotto in a pan" />
+
+### Step 4: Finish and Serve
+
+Stir in the **Parmesan cheese** and season with **salt and pepper**. Serve the risotto hot, garnished with extra Parmesan if desired.
+
+## Final Thoughts
+
+This **Mushroom Risotto** is a **rich and comforting dish** that’s perfect for any occasion. The creamy texture and earthy flavor of the mushrooms make this risotto a favorite. Enjoy!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

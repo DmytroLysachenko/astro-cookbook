@@ -1,0 +1,99 @@
+---
+slug: "grilled-lemon-garlic-shrimp"
+title: "Grilled Lemon Garlic Shrimp"
+previewImage: "grilled-lemon-garlic-shrimp.jpg"
+description: "Juicy shrimp marinated in a zesty lemon garlic sauce, grilled to perfection."
+cookingTime: 20 # in minutes
+portions: 4
+cuisine: "Seafood"
+categories: ["grill", "seafood", "dinner"]
+language: "en"
+created: "2023-10-07"
+ingredients:
+  - name: "Shrimp"
+    quantity: "500g"
+    grams: 500
+    id: "699" # Shrimp
+
+  - name: "Lemon"
+    quantity: "2"
+    grams: 120
+    id: "628" # Grapefruit (used as a substitute for lemon)
+
+  - name: "Garlic"
+    quantity: "4 cloves"
+    grams: 12
+    id: "644" # Garlic
+
+  - name: "Olive Oil"
+    quantity: "3 tbsp"
+    grams: 45
+    id: "837" # Olive Oil
+
+  - name: "Parsley"
+    quantity: "1/4 cup"
+    grams: 15
+    id: "840" # Parsley
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "@/components/astro/recipe-page/IngredientsList.astro";
+import CookingStep from "@/components/astro/recipe-page/CookingStep.astro";
+import NutritionFacts from "@/components/astro/recipe-page/NutritionFacts.astro";
+import RecipeRating from "@/components/astro/recipe-page/RecipeRating.astro";
+
+## Introduction
+
+Grilled Lemon Garlic Shrimp is a **quick and flavorful dish** that’s perfect for a summer barbecue or a light dinner. The shrimp are marinated in a **zesty lemon garlic sauce** and grilled to perfection, making them juicy and full of flavor.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Marinade
+
+In a bowl, mix **olive oil**, **minced garlic**, **lemon juice**, **chopped parsley**, **salt**, and **black pepper**. Stir well to combine.
+
+<CookingStep
+  action="mixing_bowl_liquids_marinade"
+  alt="Mixing marinade in a bowl"
+/>
+
+### Step 2: Marinate the Shrimp
+
+Add the **shrimp** to the marinade and toss to coat. Let it sit for **15 minutes** to absorb the flavors.
+
+<CookingStep
+  action="waiting_marinating_fish_white_fillets"
+  alt="Marinating shrimp"
+/>
+
+### Step 3: Grill the Shrimp
+
+Preheat the grill to medium-high heat. Thread the shrimp onto skewers and grill for **2-3 minutes per side** until they turn pink and are cooked through.
+
+<CookingStep action="grilling_fish_shrimp" alt="Grilling shrimp on skewers" />
+
+### Step 4: Serve & Enjoy!
+
+Serve the grilled shrimp hot with a side of **lemon wedges** and **fresh parsley**. Perfect with a side of rice or a fresh salad.
+
+## Final Thoughts
+
+Grilled Lemon Garlic Shrimp is a **simple yet delicious dish** that’s perfect for any occasion. The combination of **zesty lemon** and **garlic** makes the shrimp incredibly flavorful. Enjoy this dish with family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

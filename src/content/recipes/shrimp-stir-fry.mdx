@@ -1,0 +1,124 @@
+---
+slug: "shrimp-stir-fry"
+title: "Shrimp Stir Fry"
+previewImage: "shrimp-stir-fry.jpg"
+description: "A quick and flavorful stir fry made with shrimp, fresh vegetables, and a savory sauce, perfect for a weeknight dinner."
+cookingTime: 20 # in minutes
+portions: 4
+cuisine: "Asian"
+categories: ["stir fry", "dinner", "quick meal"]
+language: "en"
+created: "2025-03-15"
+ingredients:
+  - name: "Shrimp"
+    quantity: "500g"
+    grams: 500
+    id: "699" # Shrimp
+
+  - name: "Broccoli"
+    quantity: "200g"
+    grams: 200
+    id: "636" # Broccoli
+
+  - name: "Bell Pepper"
+    quantity: "2"
+    grams: 200
+    id: "640" # Bell Pepper
+
+  - name: "Carrot"
+    quantity: "2"
+    grams: 150
+    id: "635" # Carrot
+
+  - name: "Soy Sauce"
+    quantity: "3 tbsp"
+    grams: 45
+    id: "1286" # Soy Sauce (Regular)
+
+  - name: "Garlic"
+    quantity: "3 cloves"
+    grams: 9
+    id: "644" # Garlic
+
+  - name: "Ginger"
+    quantity: "1 tbsp"
+    grams: 15
+    id: "839" # Ginger
+
+  - name: "Sesame Oil"
+    quantity: "1 tbsp"
+    grams: 15
+    id: "901" # Sesame Oil
+
+  - name: "Cornstarch"
+    quantity: "1 tbsp"
+    grams: 10
+    id: "1206" # Rice Flour (used as a substitute for cornstarch)
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "@/components/astro/recipe-page/IngredientsList.astro";
+import CookingStep from "@/components/astro/recipe-page/CookingStep.astro";
+import NutritionFacts from "@/components/astro/recipe-page/NutritionFacts.astro";
+import RecipeRating from "@/components/astro/recipe-page/RecipeRating.astro";
+
+## Introduction
+
+**Shrimp Stir Fry** is a **quick and flavorful dish** that’s perfect for a weeknight dinner. Made with fresh shrimp, vegetables, and a savory sauce, this stir fry is both healthy and delicious.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Ingredients
+
+Peel and devein the **shrimp**. Chop the **broccoli, bell pepper, and carrot** into bite-sized pieces. Mince the **garlic** and grate the **ginger**.
+
+<CookingStep
+  action="cutting_fish_shrimps"
+  alt="Preparing shrimp and vegetables"
+/>
+
+### Step 2: Cook the Shrimp
+
+Heat **sesame oil** in a large pan or wok over medium-high heat. Add the **shrimp** and cook until pink and opaque, about 2-3 minutes. Remove the shrimp from the pan and set aside.
+
+<CookingStep action="frying_pan_fish_shrimps" alt="Cooking shrimp in a pan" />
+
+### Step 3: Stir Fry the Vegetables
+
+In the same pan, add the **garlic and ginger** and sauté until fragrant. Add the **broccoli, bell pepper, and carrot** and stir fry for **5-7 minutes**, or until the vegetables are tender-crisp.
+
+<CookingStep
+  action="stirring_pan_vegetables"
+  alt="Stir frying vegetables in a pan"
+/>
+
+### Step 4: Combine and Serve
+
+Return the shrimp to the pan. In a small bowl, mix the **soy sauce, cornstarch, and water** to create a sauce. Pour the sauce over the shrimp and vegetables and cook until the sauce thickens. Serve hot with rice or noodles.
+
+<CookingStep
+  action="stirring_pan_fish_rice_veggies"
+  alt="Stir frying shrimp and vegetables with sauce"
+/>
+
+## Final Thoughts
+
+This **Shrimp Stir Fry** is a **quick and healthy meal** that’s packed with flavor. The combination of fresh shrimp, vegetables, and a savory sauce makes this dish a family favorite. Enjoy!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

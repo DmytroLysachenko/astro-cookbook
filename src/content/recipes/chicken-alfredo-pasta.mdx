@@ -1,0 +1,109 @@
+---
+slug: "chicken-alfredo-pasta"
+title: "Chicken Alfredo Pasta"
+previewImage: "chicken-alfredo-pasta.jpg"
+description: "A creamy and comforting pasta dish made with tender chicken, fettuccine, and a rich Alfredo sauce."
+cookingTime: 30 # in minutes
+portions: 4
+cuisine: "Italian"
+categories: ["pasta", "dinner", "comfort food"]
+language: "en"
+created: "2025-03-15"
+ingredients:
+  - name: "Fettuccine Pasta"
+    quantity: "300g"
+    grams: 300
+    id: "957" # Elbow Macaroni (used as a substitute for fettuccine)
+
+  - name: "Chicken Breast"
+    quantity: "400g"
+    grams: 400
+    id: "669" # Chicken Breast
+
+  - name: "Heavy Cream"
+    quantity: "200ml"
+    grams: 200
+    id: "1247" # Cream (Heavy)
+
+  - name: "Butter"
+    quantity: "50g"
+    grams: 50
+    id: "838" # Butter
+
+  - name: "Garlic"
+    quantity: "3 cloves"
+    grams: 9
+    id: "644" # Garlic
+
+  - name: "Parmesan Cheese"
+    quantity: "100g"
+    grams: 100
+    id: "880" # Parmesan
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "@/components/astro/recipe-page/IngredientsList.astro";
+import CookingStep from "@/components/astro/recipe-page/CookingStep.astro";
+import NutritionFacts from "@/components/astro/recipe-page/NutritionFacts.astro";
+import RecipeRating from "@/components/astro/recipe-page/RecipeRating.astro";
+
+## Introduction
+
+Chicken Alfredo Pasta is a **creamy and comforting dish** that combines tender chicken with fettuccine and a rich Alfredo sauce. This recipe is **quick and easy** to make, perfect for a weeknight dinner or a special occasion.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Cook the Pasta
+
+Bring a large pot of salted water to a boil. Add the **fettuccine pasta** and cook according to the package instructions until al dente. Drain and set aside.
+
+<CookingStep action="boiling_pasta_long" alt="Boiling pasta in a pot" />
+
+### Step 2: Cook the Chicken
+
+Season the **chicken breast** with **salt and pepper**. In a large pan, melt **butter** over medium heat. Add the chicken and cook until golden brown and cooked through. Remove from the pan and set aside.
+
+<CookingStep
+  action="frying_pan_meat_poultry_breast"
+  alt="Frying chicken breast in a pan"
+/>
+
+### Step 3: Prepare the Alfredo Sauce
+
+In the same pan, add **minced garlic** and sauté until fragrant. Pour in the **heavy cream** and bring to a gentle simmer. Stir in the **grated Parmesan cheese** until the sauce is smooth and creamy.
+
+<CookingStep
+  action="stirring_saucePan_cream"
+  alt="Stirring creamy sauce in a pan"
+/>
+
+### Step 4: Combine and Serve
+
+Slice the cooked chicken and add it to the Alfredo sauce. Toss in the cooked pasta and mix until well coated. Serve hot with an extra sprinkle of Parmesan cheese and black pepper.
+
+<CookingStep
+  action="stirring_pan_meat_pasta"
+  alt="Stirring pasta with chicken and sauce"
+/>
+
+## Final Thoughts
+
+Chicken Alfredo Pasta is a **rich and satisfying dish** that’s sure to please everyone at the table. The creamy Alfredo sauce pairs perfectly with the tender chicken and al dente pasta. Enjoy this classic Italian dish with your family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

@@ -1,0 +1,122 @@
+---
+slug: "vegetable-lasagna"
+title: "Vegetable Lasagna"
+previewImage: "vegetable-lasagna.jpg"
+description: "A hearty and healthy lasagna made with layers of pasta, fresh vegetables, and a creamy béchamel sauce."
+cookingTime: 60 # in minutes
+portions: 6
+cuisine: "Italian"
+categories: ["pasta", "dinner", "vegetarian"]
+language: "en"
+created: "2025-03-15"
+ingredients:
+  - name: "Lasagna Sheets"
+    quantity: "12"
+    grams: 300
+    id: "957" # Elbow Macaroni (used as a substitute for lasagna sheets)
+
+  - name: "Zucchini"
+    quantity: "2"
+    grams: 300
+    id: "639" # Zucchini
+
+  - name: "Eggplant"
+    quantity: "1"
+    grams: 200
+    id: "658" # Eggplant
+
+  - name: "Tomatoes"
+    quantity: "4"
+    grams: 400
+    id: "642" # Tomato
+
+  - name: "Mozzarella Cheese"
+    quantity: "200g"
+    grams: 200
+    id: "879" # Mozzarella
+
+  - name: "Parmesan Cheese"
+    quantity: "100g"
+    grams: 100
+    id: "880" # Parmesan
+
+  - name: "Olive Oil"
+    quantity: "2 tbsp"
+    grams: 30
+    id: "837" # Olive Oil
+
+  - name: "Garlic"
+    quantity: "3 cloves"
+    grams: 9
+    id: "644" # Garlic
+
+  - name: "Basil"
+    quantity: "1 handful"
+    grams: 10
+    id: "1179" # Basil (Dried)
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "@/components/astro/recipe-page/IngredientsList.astro";
+import CookingStep from "@/components/astro/recipe-page/CookingStep.astro";
+import NutritionFacts from "@/components/astro/recipe-page/NutritionFacts.astro";
+import RecipeRating from "@/components/astro/recipe-page/RecipeRating.astro";
+
+## Introduction
+
+**Vegetable Lasagna** is a **hearty and healthy dish** that’s perfect for a vegetarian dinner. Made with layers of pasta, fresh vegetables, and a creamy béchamel sauce, this lasagna is both delicious and nutritious.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Vegetables
+
+Preheat the oven to 180°C (350°F). Slice the **zucchini, eggplant, and tomatoes** into thin slices. Sauté the **garlic** in **olive oil** until fragrant, then add the vegetables and cook until softened.
+
+<CookingStep
+  action="frying_pan_mix_vegetableMix"
+  alt="Sautéing vegetables in a pan"
+/>
+
+### Step 2: Prepare the Béchamel Sauce
+
+In a saucepan, melt **butter** and whisk in **flour** to create a roux. Gradually add **milk** while whisking continuously until the sauce thickens. Season with **salt, pepper, and nutmeg**.
+
+<CookingStep
+  action="stirring_saucePan_cream"
+  alt="Stirring béchamel sauce in a saucepan"
+/>
+
+### Step 3: Assemble the Lasagna
+
+In a baking dish, layer the **lasagna sheets, vegetables, béchamel sauce, and mozzarella cheese**. Repeat the layers until all ingredients are used, finishing with a layer of béchamel sauce and a sprinkle of **Parmesan cheese**.
+
+<CookingStep
+  action="baking_oven_savory_lasagna"
+  alt="Assembling lasagna in a baking dish"
+/>
+
+### Step 4: Bake and Serve
+
+Bake the lasagna in the preheated oven for **30-40 minutes**, or until the top is golden and bubbly. Let it rest for 10 minutes before serving.
+
+## Final Thoughts
+
+This **Vegetable Lasagna** is a **delicious and healthy alternative** to traditional meat lasagna. The layers of pasta, fresh vegetables, and creamy béchamel sauce make this dish a family favorite. Enjoy!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

@@ -1,0 +1,104 @@
+---
+slug: "grilled-chicken-skewers"
+title: "Grilled Chicken Skewers"
+previewImage: "grilled-chicken-skewers.jpg"
+description: "Tender chicken skewers marinated in a savory herb sauce, grilled to perfection."
+cookingTime: 30 # in minutes
+portions: 4
+cuisine: "Poultry"
+categories: ["grill", "chicken", "dinner"]
+language: "en"
+created: "2023-10-07"
+ingredients:
+  - name: "Chicken Breast"
+    quantity: "500g"
+    grams: 500
+    id: "669" # Chicken Breast
+
+  - name: "Olive Oil"
+    quantity: "3 tbsp"
+    grams: 45
+    id: "837" # Olive Oil
+
+  - name: "Garlic"
+    quantity: "3 cloves"
+    grams: 9
+    id: "644" # Garlic
+
+  - name: "Lemon"
+    quantity: "1"
+    grams: 60
+    id: "628" # Grapefruit (used as a substitute for lemon)
+
+  - name: "Rosemary"
+    quantity: "1 tbsp"
+    grams: 2
+    id: "1182" # Rosemary (Dried)
+
+  - name: "Thyme"
+    quantity: "1 tbsp"
+    grams: 2
+    id: "1181" # Thyme (Dried)
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "@/components/astro/recipe-page/IngredientsList.astro";
+import CookingStep from "@/components/astro/recipe-page/CookingStep.astro";
+import NutritionFacts from "@/components/astro/recipe-page/NutritionFacts.astro";
+import RecipeRating from "@/components/astro/recipe-page/RecipeRating.astro";
+
+## Introduction
+
+Grilled Chicken Skewers are a **classic barbecue dish** that’s perfect for any gathering. The chicken is marinated in a **savory herb sauce** and grilled to juicy perfection. Serve with your favorite sides for a complete meal.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Marinade
+
+In a bowl, mix **olive oil**, **minced garlic**, **lemon juice**, **rosemary**, **thyme**, **salt**, and **black pepper**. Stir well to combine.
+
+<CookingStep
+  action="mixing_bowl_liquids_marinade"
+  alt="Mixing marinade in a bowl"
+/>
+
+### Step 2: Marinate the Chicken
+
+Cut the **chicken breast** into cubes and add them to the marinade. Toss to coat and let it sit for **30 minutes** to absorb the flavors.
+
+<CookingStep
+  action="waiting_marinating_meat_chicken_breast"
+  alt="Marinating chicken"
+/>
+
+### Step 3: Grill the Skewers
+
+Preheat the grill to medium-high heat. Thread the chicken onto skewers and grill for **5-7 minutes per side** until fully cooked.
+
+<CookingStep action="grilling_skewers_meat" alt="Grilling chicken skewers" />
+
+### Step 4: Serve & Enjoy!
+
+Serve the grilled chicken skewers hot with a side of **grilled vegetables** or **rice**. Perfect for a summer barbecue!
+
+## Final Thoughts
+
+Grilled Chicken Skewers are a **crowd-pleasing dish** that’s easy to prepare and full of flavor. The combination of **herbs** and **garlic** makes the chicken incredibly tasty. Enjoy this dish with family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

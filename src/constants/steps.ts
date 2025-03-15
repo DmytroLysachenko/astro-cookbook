@@ -253,6 +253,7 @@ const kitchenAppliances = {
     "steps/kitchenAppliances/kitchenAppliances-multi-cooker.jpg",
   kitchenAppliances_grater:
     "steps/kitchenAppliances/kitchenAppliances-grater.jpg",
+  kitchenAppliances_oven: "steps/kitchenAppliances/kitchenAppliances-oven.jpg",
 };
 const mixing = {
   mixing_bowl_fruits_fruitSalad:

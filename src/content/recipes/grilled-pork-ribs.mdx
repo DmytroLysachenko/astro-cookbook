@@ -1,0 +1,94 @@
+---
+slug: "grilled-pork-ribs"
+title: "Grilled Pork Ribs"
+previewImage: "grilled-pork-ribs.jpg"
+description: "Juicy pork ribs marinated in a smoky barbecue sauce, grilled to perfection."
+cookingTime: 60 # in minutes
+portions: 4
+cuisine: "Pork"
+categories: ["grill", "pork", "dinner"]
+language: "en"
+created: "2023-10-07"
+ingredients:
+  - name: "Pork Ribs"
+    quantity: "1 kg"
+    grams: 1000
+    id: "678" # Beef Short Ribs (used as a substitute for pork ribs)
+
+  - name: "Barbecue Sauce"
+    quantity: "1 cup"
+    grams: 240
+    id: "1295" # Barbecue Sauce
+
+  - name: "Garlic"
+    quantity: "4 cloves"
+    grams: 12
+    id: "644" # Garlic
+
+  - name: "Paprika"
+    quantity: "1 tbsp"
+    grams: 8
+    id: "906" # Smoked Paprika
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "@/components/astro/recipe-page/IngredientsList.astro";
+import CookingStep from "@/components/astro/recipe-page/CookingStep.astro";
+import NutritionFacts from "@/components/astro/recipe-page/NutritionFacts.astro";
+import RecipeRating from "@/components/astro/recipe-page/RecipeRating.astro";
+
+## Introduction
+
+Grilled Pork Ribs are a **classic barbecue dish** that’s perfect for any gathering. The ribs are marinated in a **smoky barbecue sauce** and grilled to juicy perfection. Serve with your favorite sides for a complete meal.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Marinade
+
+In a bowl, mix **barbecue sauce**, **minced garlic**, **paprika**, **salt**, and **black pepper**. Stir well to combine.
+
+<CookingStep
+  action="mixing_bowl_liquids_marinade"
+  alt="Mixing marinade in a bowl"
+/>
+
+### Step 2: Marinate the Ribs
+
+Coat the **pork ribs** with the marinade and let them sit for **1 hour** to absorb the flavors.
+
+<CookingStep
+  action="waiting_marinating_meat_red_cubes"
+  alt="Marinating pork ribs"
+/>
+
+### Step 3: Grill the Ribs
+
+Preheat the grill to medium heat. Grill the ribs for **20-25 minutes per side**, basting with additional barbecue sauce, until fully cooked and slightly charred.
+
+<CookingStep action="grilling_meat_red_ribs" alt="Grilling pork ribs" />
+
+### Step 4: Serve & Enjoy!
+
+Serve the grilled pork ribs hot with a side of **coleslaw** or **cornbread**. Perfect for a summer barbecue!
+
+## Final Thoughts
+
+Grilled Pork Ribs are a **crowd-pleasing dish** that’s easy to prepare and full of flavor. The combination of **smoky barbecue sauce** and **grilled ribs** makes them incredibly tasty. Enjoy this dish with family and friends!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />

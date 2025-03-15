@@ -1,0 +1,126 @@
+---
+slug: "tomato-basil-soup"
+title: "Tomato Basil Soup"
+previewImage: "tomato-basil-soup.jpg"
+description: "A classic and comforting soup made with ripe tomatoes, fresh basil, and a touch of cream, perfect for a cozy meal."
+cookingTime: 40 # in minutes
+portions: 4
+cuisine: "Italian"
+categories: ["soup", "dinner", "vegetarian"]
+language: "en"
+created: "2024-11-15"
+ingredients:
+  - name: "Tomatoes"
+    quantity: "1kg"
+    grams: 1000
+    id: "642" # Tomato
+
+  - name: "Onion"
+    quantity: "1"
+    grams: 100
+    id: "643" # Onion
+
+  - name: "Garlic"
+    quantity: "3 cloves"
+    grams: 9
+    id: "644" # Garlic
+
+  - name: "Basil"
+    quantity: "1 handful"
+    grams: 10
+    id: "1179" # Basil (Dried)
+
+  - name: "Vegetable Stock"
+    quantity: "500ml"
+    grams: 500
+    id: "1228" # Vegetable Stock
+
+  - name: "Heavy Cream"
+    quantity: "100ml"
+    grams: 100
+    id: "1247" # Cream (Heavy)
+
+  - name: "Olive Oil"
+    quantity: "2 tbsp"
+    grams: 30
+    id: "837" # Olive Oil
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 1
+    id: "1135" # Bamboo Salt (used as a placeholder for regular salt)
+
+  - name: "Black Pepper"
+    quantity: "1 tsp"
+    grams: 2
+    id: "1258" # Black Pepper (Ground)
+---
+
+import IngredientsList from "@/components/astro/recipe-page/IngredientsList.astro";
+import CookingStep from "@/components/astro/recipe-page/CookingStep.astro";
+import NutritionFacts from "@/components/astro/recipe-page/NutritionFacts.astro";
+import RecipeRating from "@/components/astro/recipe-page/RecipeRating.astro";
+
+## Introduction
+
+**Tomato Basil Soup** is a **classic and comforting dish** that’s perfect for a cozy meal. Made with ripe tomatoes, fresh basil, and a touch of cream, this soup is both rich and flavorful.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Vegetables
+
+Chop the **tomatoes, onion, and garlic**.
+
+<CookingStep
+  action="cutting_vegetables_tomato"
+  alt="Chopping tomatoes and vegetables"
+/>
+
+### Step 2: Sauté the Vegetables
+
+In a large pot, heat **olive oil** over medium heat. Add the **onion and garlic** and sauté until softened. Add the **tomatoes** and cook until they start to break down.
+
+<CookingStep
+  action="frying_pan_vegetables_tomato"
+  alt="Sautéing tomatoes and onions in a pot"
+/>
+
+### Step 3: Simmer the Soup
+
+Add the **vegetable stock** and **basil** to the pot. Bring to a boil, then reduce the heat and simmer for **20 minutes**.
+
+<CookingStep
+  action="stirring_soupPot_red_soup"
+  alt="Simmering tomato soup in a pot"
+/>
+
+### Step 4: Blend and Finish
+
+Use an immersion blender to puree the soup until smooth. Stir in the **heavy cream** and season with **salt and pepper**.
+
+<CookingStep
+  action="kitchenAppliances_hand_blender"
+  alt="Blending tomato soup"
+/>
+
+### Step 5: Serve & Enjoy!
+
+Serve the soup hot, garnished with fresh basil leaves and a drizzle of olive oil.
+
+<CookingStep
+  action="stirring_soupPot_red"
+  alt="Serving tomato basil soup in a bowl"
+/>
+
+## Final Thoughts
+
+This **Tomato Basil Soup** is a **rich and comforting dish** that’s perfect for any occasion. The combination of ripe tomatoes, fresh basil, and cream makes this soup a family favorite. Enjoy!
+
+<NutritionFacts ingredients={frontmatter.ingredients} />
