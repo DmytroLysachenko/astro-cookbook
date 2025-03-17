@@ -10,8 +10,8 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const {
-  title = "Cooking spot Site",
-  description = "Cooking site with best recipes",
+  title = "Cooking Spot | Discover Delicious Recipes",
+  description = "With Cooking Spot, you can discover delicious recipes and share your own culinary creations with the world. Whether you're a seasoned chef or just starting to cook, Cooking Spot has got you covered!",
   image = "/assets/images/logo.png",
 } = Astro.props;
 ---
@@ -178,7 +178,7 @@ const {
 />
 <meta
   property="og:image"
-  content={new URL(image, Astro.url)}
+  content={new URL(image, Astro.site)}
 />
 
 <!-- Twitter -->
@@ -200,5 +200,5 @@ const {
 />
 <meta
   property="twitter:image"
-  content={new URL(image, Astro.url)}
+  content={new URL(image, Astro.site)}
 />

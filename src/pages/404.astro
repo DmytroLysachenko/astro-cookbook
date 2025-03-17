@@ -1,5 +1,15 @@
 ---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
 Astro.redirect("/");
 ---
 
-<div></div>
+<BaseLayout title="Cooking Spot | 404 - Page Not Found">
+  <div
+    class="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center"
+  >
+    <h1 class="text-6xl font-bold mb-4">404</h1>
+    <p class="text-xl mb-8">Oops! The page you're looking for doesn't exist.</p>
+    <p class="text-xl mb-8">Redirecting to the home page...</p>
+  </div>
+</BaseLayout>

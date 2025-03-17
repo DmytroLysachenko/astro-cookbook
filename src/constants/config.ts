@@ -46,7 +46,7 @@ export const SOCIAL_LINKS = [
   },
   {
     href: "https://twitter.com",
-    text: "X (twitter)",
+    text: "X (Twitter)",
     icon: "/assets/icons/twitter.svg",
   },
   {
