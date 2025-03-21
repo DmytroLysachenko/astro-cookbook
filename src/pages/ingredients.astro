@@ -82,151 +82,153 @@ const baseUrl = buildFilterUrl("/ingredients", {
 <BaseLayout
   title="Cooking Spot | Ingredients Nutritional Facts"
   description="Discover the nutritional facts of cooking ingredients. Get information on calories, protein, fat, and carbohydrates for a wide range of ingredients."
->
-  <h1 class="text-3xl font-bold mb-6">Ingredients Nutritional Facts</h1>
+  ><div class="mx-auto px-4">
+    <h1 class="text-3xl font-bold mb-6">Ingredients Nutritional Facts</h1>
 
-  <div
-    class="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
-  >
-    <div class="min-h-[64px]">
-      <label class="block text-sm font-medium mb-1">Filter by Category:</label>
-      <Selector
-        id="category"
-        client:only="react"
-        options={[
-          { value: "all", label: "All Categories" },
-          ...categories.map((category) => ({
-            value: category,
-            label: capitalize(category).replace("_", " "),
-          })),
-        ]}
-        defaultValue={categoryFilter ?? "all"}
-        className="w-[200px]"
-      />
-    </div>
+    <div
+      class="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
+    >
+      <div class="min-h-[64px]">
+        <label class="block text-sm font-medium mb-1">Filter by Category:</label
+        >
+        <Selector
+          id="category"
+          client:only="react"
+          options={[
+            { value: "all", label: "All Categories" },
+            ...categories.map((category) => ({
+              value: category,
+              label: capitalize(category).replace("_", " "),
+            })),
+          ]}
+          defaultValue={categoryFilter ?? "all"}
+          className="w-[200px]"
+        />
+      </div>
 
-    <div class="min-h-[128px] sm:min-h-[64px] flex gap-4">
-      <label class="block text-sm font-medium mb-1"
-        >Sort by:
-        <div class="flex flex-col sm:flex-row gap-8">
+      <div class="min-h-[128px] sm:min-h-[64px] flex gap-4">
+        <label class="block text-sm font-medium mb-1"
+          >Sort by:
+          <div class="flex flex-col sm:flex-row gap-8">
+            <Selector
+              id="sort"
+              client:only="react"
+              options={validSortFields.map((field) => ({
+                value: field,
+                label: capitalize(field),
+              }))}
+              defaultValue={sortBy}
+              className="w-[150px]"
+            />
+          </div>
+        </label>
+        <label class="block text-sm font-medium mb-1"
+          >Sort order:
           <Selector
-            id="sort"
             client:only="react"
-            options={validSortFields.map((field) => ({
-              value: field,
-              label: capitalize(field),
+            id="order"
+            options={validSortOrders.map((order) => ({
+              value: order,
+              label: capitalize(order),
             }))}
-            defaultValue={sortBy}
+            defaultValue={sortOrder}
             className="w-[150px]"
           />
-        </div>
-      </label>
-      <label class="block text-sm font-medium mb-1"
-        >Sort order:
-        <Selector
-          client:only="react"
-          id="order"
-          options={validSortOrders.map((order) => ({
-            value: order,
-            label: capitalize(order),
-          }))}
-          defaultValue={sortOrder}
-          className="w-[150px]"
-        />
-      </label>
+        </label>
+      </div>
     </div>
-  </div>
 
-  <div class="overflow-x-auto">
-    <table
-      class="min-w-full bg-white border border-secondary/50 shadow-md rounded-lg"
-    >
-      <thead class="bg-gray-50">
-        <tr>
+    <div class="overflow-x-auto">
+      <table
+        class="min-w-full bg-white border border-secondary/50 shadow-md rounded-lg"
+      >
+        <thead class="bg-gray-50">
+          <tr>
+            {
+              [
+                "Name",
+                "Category",
+                "Calories",
+                "Protein (g)",
+                "Total Fat (g)",
+                "Sat. Fat (g)",
+                "Trans Fat (g)",
+                "Poly. Fat (g)",
+                "Mono. Fat (g)",
+                "Cholesterol (mg)",
+                "Sodium (mg)",
+                "Total Carbs (g)",
+                "Fiber (g)",
+                "Sugars (g)",
+              ].map((header) => (
+                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  {header}
+                </th>
+              ))
+            }
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-secondary/50">
           {
-            [
-              "Name",
-              "Category",
-              "Calories",
-              "Protein (g)",
-              "Total Fat (g)",
-              "Sat. Fat (g)",
-              "Trans Fat (g)",
-              "Poly. Fat (g)",
-              "Mono. Fat (g)",
-              "Cholesterol (mg)",
-              "Sodium (mg)",
-              "Total Carbs (g)",
-              "Fiber (g)",
-              "Sugars (g)",
-            ].map((header) => (
-              <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                {header}
-              </th>
+            ingredientsList.map((ingredient) => (
+              <tr class="hover:bg-gray-50 border border-t-1 border-">
+                <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
+                  {ingredient.name}
+                </td>
+                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
+                  {capitalize(ingredient.category).replace("_", " ")}
+                </td>
+                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
+                  {formatNumber(ingredient.calories)}
+                </td>
+                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
+                  {formatNumber(ingredient.protein)}
+                </td>
+                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
+                  {formatNumber(ingredient.totalFat)}
+                </td>
+                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
+                  {formatNumber(ingredient.saturatedFat)}
+                </td>
+                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
+                  {formatNumber(ingredient.transFat)}
+                </td>
+                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
+                  {formatNumber(ingredient.polyunsaturatedFat)}
+                </td>
+                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
+                  {formatNumber(ingredient.monounsaturatedFat)}
+                </td>
+                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
+                  {formatNumber(ingredient.cholesterol)}
+                </td>
+                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
+                  {formatNumber(ingredient.sodium)}
+                </td>
+                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
+                  {formatNumber(ingredient.totalCarbs)}
+                </td>
+                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
+                  {formatNumber(ingredient.dietaryFiber)}
+                </td>
+                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
+                  {formatNumber(ingredient.sugars)}
+                </td>
+              </tr>
             ))
           }
-        </tr>
-      </thead>
-      <tbody class="divide-y divide-secondary/50">
-        {
-          ingredientsList.map((ingredient) => (
-            <tr class="hover:bg-gray-50 border border-t-1 border-">
-              <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
-                {ingredient.name}
-              </td>
-              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                {capitalize(ingredient.category).replace("_", " ")}
-              </td>
-              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                {formatNumber(ingredient.calories)}
-              </td>
-              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                {formatNumber(ingredient.protein)}
-              </td>
-              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                {formatNumber(ingredient.totalFat)}
-              </td>
-              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                {formatNumber(ingredient.saturatedFat)}
-              </td>
-              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                {formatNumber(ingredient.transFat)}
-              </td>
-              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                {formatNumber(ingredient.polyunsaturatedFat)}
-              </td>
-              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                {formatNumber(ingredient.monounsaturatedFat)}
-              </td>
-              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                {formatNumber(ingredient.cholesterol)}
-              </td>
-              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                {formatNumber(ingredient.sodium)}
-              </td>
-              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                {formatNumber(ingredient.totalCarbs)}
-              </td>
-              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                {formatNumber(ingredient.dietaryFiber)}
-              </td>
-              <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                {formatNumber(ingredient.sugars)}
-              </td>
-            </tr>
-          ))
-        }
-      </tbody>
-    </table>
-  </div>
+        </tbody>
+      </table>
+    </div>
 
-  {
-    totalPages > 1 && (
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        baseUrl={`${baseUrl}&page=`}
-      />
-    )
-  }
+    {
+      totalPages > 1 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          baseUrl={`${baseUrl}&page=`}
+        />
+      )
+    }
+  </div>
 </BaseLayout>
