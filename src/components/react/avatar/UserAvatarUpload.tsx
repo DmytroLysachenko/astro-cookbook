@@ -19,8 +19,10 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
 }) => {
   const [avatar, setAvatar] = useState(initialAvatar);
   const [isMutated, setIsMutated] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
 
   const onError = (err: Error) => {
+    toast.error("Something went wrong! Try again later.");
     console.log("Error", err);
   };
 
@@ -30,6 +32,7 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
   };
 
   const handleSubmit = async (avatar: string) => {
+    setIsUpdating(true);
     try {
       await fetch(`${API_BASE_URL}/image-kit/avatar`, {
         method: "POST",
@@ -38,11 +41,13 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
         },
         body: JSON.stringify({ userId, avatar }),
       });
-toast.success('')
+      toast.success("Avatar successfully updated!");
       window.location.reload();
     } catch (error) {
       toast.error("Something went wrong!");
       console.log(error);
+    } finally {
+      setIsUpdating(false);
     }
   };
 
@@ -51,6 +56,7 @@ toast.success('')
       return false;
     }
     if (file.size > 2 * 1024 * 1024) {
+      toast.error("Image size should be less than 2MB");
       return false;
     }
     return true;
@@ -87,6 +93,7 @@ toast.success('')
                   size="sm"
                   className="w-full cursor-pointer"
                   onClick={() => ikUploadRef.current?.click()}
+                  disabled={isUpdating}
                 >
                   Upload
                 </Button>
@@ -96,7 +103,7 @@ toast.success('')
                 size="sm"
                 className="w-full cursor-pointer"
                 onClick={() => handleSubmit(avatar)}
-                disabled={!isMutated}
+                disabled={!isMutated || isUpdating}
               >
                 Submit
               </Button>
