@@ -65,11 +65,10 @@ Users can explore recipes, filter and sort them, view ingredient nutrition data,
    API_BASE_URL=
    ```
 
-````
 4. **Run the development server:**
-```sh
-npm run dev  # Start the Astro dev server on port 4321
-````
+   ```sh
+   npm run dev  # Start the Astro dev server on port 4321
+   ```
 
 5. **Build for production:**
    ```sh
