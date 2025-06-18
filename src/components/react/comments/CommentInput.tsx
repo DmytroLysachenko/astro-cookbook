@@ -8,10 +8,7 @@ interface CommentInputProps {
   onCommentAdded: () => void;
 }
 
-export default function CommentInput({
-  recipeSlug,
-  onCommentAdded,
-}: CommentInputProps) {
+const CommentInput = ({ recipeSlug, onCommentAdded }: CommentInputProps) => {
   const [commentText, setCommentText] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -59,4 +56,6 @@ export default function CommentInput({
       </Button>
     </form>
   );
-}
+};
+
+export default CommentInput;

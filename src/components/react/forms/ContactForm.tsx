@@ -16,8 +16,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 
-// Replace Card component with div and Tailwind classes
-export default function ContactForm() {
+const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const formSchema = z.object({
@@ -173,4 +172,6 @@ export default function ContactForm() {
       <Toaster richColors />
     </>
   );
-}
+};
+
+export default ContactForm;

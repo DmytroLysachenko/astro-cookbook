@@ -14,7 +14,6 @@ export const prerender = false;
 
 const { user } = Astro.locals;
 
-// Fetch slugs of recipes rated by the user
 const [ratedRecipesSlugs, favoriteRecipesSlugs] = await Promise.all([
   db
     .select({ slug: rates.recipeSlug })

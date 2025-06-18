@@ -23,12 +23,12 @@ interface DynamicCommentsSectionProps {
   isLoggedIn?: boolean;
 }
 
-export default function DynamicCommentsSection({
+const DynamicCommentsSection = ({
   recipeSlug,
   initialComments,
   isLoggedIn,
   initialTotalComments,
-}: DynamicCommentsSectionProps) {
+}: DynamicCommentsSectionProps) => {
   const [comments, setComments] = useState<Comment[]>(initialComments);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
@@ -123,4 +123,6 @@ export default function DynamicCommentsSection({
       )}
     </section>
   );
-}
+};
+
+export default DynamicCommentsSection;

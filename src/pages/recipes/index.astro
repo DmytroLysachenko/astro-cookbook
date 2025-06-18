@@ -10,7 +10,7 @@ import RecipeCardsSekeleton from "@/components/astro/recipe-cards/RecipeCardsSek
 import Pagination from "@/components/astro/pages-structure/Pagination.astro";
 
 export const prerender = false;
-// Get search params for pagination and filtering
+
 const { searchParams } = Astro.url;
 const currentPage = Number(searchParams.get("page")) || 1;
 const pageSize = 12;
@@ -59,7 +59,6 @@ switch (sortBy) {
     break;
 }
 
-// Calculate pagination
 const totalRecipes = filteredRecipes.length;
 const totalPages = Math.ceil(totalRecipes / pageSize);
 const startIndex = (currentPage - 1) * pageSize;
