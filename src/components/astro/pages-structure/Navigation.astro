@@ -12,7 +12,6 @@ const { links } = Astro.props;
   id="header-nav"
   class="relative flex items-center justify-center min-h-14"
 >
-  <!-- Desktop Navigation -->
   <div class="hidden md:flex space-x-10 justify-center">
     {
       links.map((link) => (
@@ -26,7 +25,6 @@ const { links } = Astro.props;
     }
   </div>
 
-  <!-- Mobile Navigation -->
   <div class="md:hidden mx-auto">
     <div
       id="mobile-menu-button"
@@ -78,7 +76,6 @@ const { links } = Astro.props;
     buttonIcon?.classList.toggle("rotate-180");
   });
 
-  // Close the menu when clicking outside
   document.addEventListener("click", (event) => {
     if (
       !button?.contains(event.target as Node) &&

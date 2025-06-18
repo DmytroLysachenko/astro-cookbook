@@ -5,9 +5,9 @@ import { STEPS_IMAGES } from "@/constants";
 type TPresetCookingAction = keyof typeof STEPS_IMAGES;
 
 interface CookingStepProps {
-  action?: TPresetCookingAction; // Use the type here
-  href?: string; // Optional variant number for the image (e.g., 2, 3, etc.)
-  className?: string; // Optional className for custom styling
+  action?: TPresetCookingAction;
+  href?: string;
+  className?: string;
   alt?: string;
 }
 

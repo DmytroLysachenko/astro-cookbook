@@ -1,4 +1,3 @@
-// @ts-check
 import eslint from "@eslint/js";
 import eslintPluginAstro from "eslint-plugin-astro";
 import globals from "globals";
@@ -15,29 +14,20 @@ export default tseslint.config(
       "**/.vercel",
     ],
   },
-
-  // Global config
-  // JavaScript
   eslint.configs.recommended,
-  // TypeScript
   ...tseslint.configs.recommended,
   {
     rules: {
       "@typescript-eslint/no-explicit-any": "off",
     },
   },
-  // Allow triple-slash references in `*.d.ts` files.
   {
     files: ["**/*.d.ts"],
     rules: {
       "@typescript-eslint/triple-slash-reference": "off",
     },
   },
-
-  // Astro
   ...eslintPluginAstro.configs.recommended,
-
-  // Set globals for Node scripts.
   {
     files: ["scripts/**"],
     languageOptions: {

@@ -18,7 +18,6 @@ const {
   currentSort = "newest",
 } = Astro.props;
 
-// Sort options
 const sortOptions = [
   { value: "newest", label: "Newest First" },
   { value: "title", label: "Alphabetical" },
@@ -46,7 +45,6 @@ const cuisinesOptions = cuisines.map((cuisine: string) => ({
     >
   </div>
 
-  <!-- Sort options -->
   <FilterSection
     title="Sort By"
     options={sortOptions}
@@ -56,7 +54,6 @@ const cuisinesOptions = cuisines.map((cuisine: string) => ({
     currentCuisine={currentCuisine}
   />
 
-  <!-- Category filter -->
   <FilterSection
     title="Categories"
     options={categoriesOptions}
@@ -66,7 +63,6 @@ const cuisinesOptions = cuisines.map((cuisine: string) => ({
     currentCuisine={currentCuisine}
   />
 
-  <!-- Cuisine filter -->
   <FilterSection
     title="Cuisines"
     options={cuisinesOptions}
@@ -78,23 +74,19 @@ const cuisinesOptions = cuisines.map((cuisine: string) => ({
 </div>
 
 <script>
-  // Helper function to get the initial state from localStorage
   const getInitialState = (section: string) => {
     const savedState = localStorage.getItem(`accordion-${section}`);
-    return savedState ? JSON.parse(savedState) : true; // Default to expanded if no saved state
+    return savedState ? JSON.parse(savedState) : true;
   };
 
-  // Helper function to save the state to localStorage
   const saveState = (section: string, isExpanded: boolean) => {
     localStorage.setItem(`accordion-${section}`, JSON.stringify(isExpanded));
   };
 
-  // Initialize accordion state on page load
   document.querySelectorAll(".accordion-button").forEach((button) => {
     const section = button.getAttribute("data-section")!;
     const isExpanded = getInitialState(section);
 
-    // Set initial state
     button.setAttribute("aria-expanded", isExpanded);
     const content = button.nextElementSibling!;
     content.classList.toggle("hidden", !isExpanded);
@@ -102,17 +94,14 @@ const cuisinesOptions = cuisines.map((cuisine: string) => ({
     const icon = button.querySelector(".accordion-icon")!;
     icon.classList.toggle("rotate-180", isExpanded);
 
-    // Add click event listener
     button.addEventListener("click", () => {
       const isExpanded = button.getAttribute("aria-expanded") === "true";
       const newState = !isExpanded;
 
-      // Update UI
       button.setAttribute("aria-expanded", newState.toString());
       content.classList.toggle("hidden", isExpanded);
       icon.classList.toggle("rotate-180", newState);
 
-      // Save state to localStorage
       saveState(section, newState);
     });
   });

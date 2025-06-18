@@ -15,7 +15,6 @@ dotenv.config();
 // eslint-disable-next-line no-undef
 const site = process.env.BASE_URL;
 
-// https://astro.build/config
 export default defineConfig({
   site,
   integrations: [

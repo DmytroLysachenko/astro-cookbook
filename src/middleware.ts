@@ -1,10 +1,8 @@
-// src/middleware.ts
 import { defineMiddleware, sequence } from "astro:middleware";
 import { getSession } from "auth-astro/server";
 import { getUser } from "./services/auth";
 import { PRIVATE_API_ROUTES, PRIVATE_ROUTES } from "./constants";
 
-// Authentication middleware
 export const authMiddleware = defineMiddleware(async (context, next) => {
   const { url, request } = context;
 
@@ -52,15 +50,12 @@ export const authMiddleware = defineMiddleware(async (context, next) => {
     context.locals.user = user;
   }
 
-  // Continue to the next middleware or route handler
   return next();
 });
 
-// Middleware for handling non-existent pages
 export const notFoundMiddleware = defineMiddleware(async (context, next) => {
   const response = await next();
 
-  // If the response is a 404 and it's not an API route, redirect to the home page
   if (response.status === 404 && !context.url.pathname.startsWith("/api")) {
     return Response.redirect(new URL("/", context.url.origin), 302);
   }
@@ -68,5 +63,4 @@ export const notFoundMiddleware = defineMiddleware(async (context, next) => {
   return response;
 });
 
-// Combine the middleware
 export const onRequest = sequence(authMiddleware, notFoundMiddleware);

@@ -9,8 +9,6 @@ interface Props {
 
 const { currentPage, totalPages, baseUrl } = Astro.props;
 
-// Generate page numbers to display
-
 const pageNumbers = getPageNumbers(totalPages, currentPage);
 ---
 
@@ -19,7 +17,6 @@ const pageNumbers = getPageNumbers(totalPages, currentPage);
   class="mt-8"
 >
   <ul class="flex justify-center items-center gap-1">
-    <!-- Previous page button -->
     <li>
       <a
         href={currentPage > 1 ? `${baseUrl}${currentPage - 1}` : "#"}
@@ -34,7 +31,6 @@ const pageNumbers = getPageNumbers(totalPages, currentPage);
       </a>
     </li>
 
-    <!-- Page numbers -->
     {
       pageNumbers.map((page) => (
         <li>
@@ -57,7 +53,6 @@ const pageNumbers = getPageNumbers(totalPages, currentPage);
       ))
     }
 
-    <!-- Next page button -->
     <li>
       <a
         href={currentPage < totalPages ? `${baseUrl}${currentPage + 1}` : "#"}
