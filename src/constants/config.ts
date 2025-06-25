@@ -56,7 +56,7 @@ export const SOCIAL_LINKS = [
   },
 ];
 
-// Define private routes
+// Private routes
 
 export const PRIVATE_ROUTES = ["/my-profile"];
 
