@@ -71,7 +71,7 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
           <IKImage
             path={avatar}
             transformation={[{ width: "300", height: "300" }]}
-            className="rounded-full overflow-hidden"
+            className="rounded-full overflow-hidden mx-auto"
             width={300}
             height={300}
           />

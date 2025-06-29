@@ -17,7 +17,7 @@ const pageNumbers = getPageNumbers(totalPages, currentPage);
   class="mt-8"
 >
   <ul class="flex justify-center items-center gap-1">
-    <li>
+    <li class="flex h-full items-center justify-center">
       <a
         href={currentPage > 1 ? `${baseUrl}${currentPage - 1}` : "#"}
         class={`px-3 py-2 rounded-md ${
@@ -27,7 +27,7 @@ const pageNumbers = getPageNumbers(totalPages, currentPage);
         }`}
         aria-disabled={currentPage === 1}
       >
-        &laquo; Prev
+        &laquo; <span class="hidden sm:inline">Prev</span>
       </a>
     </li>
 
@@ -53,7 +53,7 @@ const pageNumbers = getPageNumbers(totalPages, currentPage);
       ))
     }
 
-    <li>
+    <li class="flex h-full items-center justify-center">
       <a
         href={currentPage < totalPages ? `${baseUrl}${currentPage + 1}` : "#"}
         class={`px-3 py-2 rounded-md ${
@@ -63,7 +63,7 @@ const pageNumbers = getPageNumbers(totalPages, currentPage);
         }`}
         aria-disabled={currentPage === totalPages}
       >
-        Next &raquo;
+        <span class="hidden sm:inline">Next</span> &raquo;
       </a>
     </li>
   </ul>

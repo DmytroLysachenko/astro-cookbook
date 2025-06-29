@@ -13,7 +13,11 @@ const LoggedAuth = ({ user }: { user: TUser }) => {
   return (
     <Popover>
       <PopoverTrigger>
-        <UserAvatar name={user.name} avatar={user.avatar ?? ""} />
+        <UserAvatar
+          name={user.name}
+          avatar={user.avatar ?? ""}
+          className="md:size-14"
+        />
       </PopoverTrigger>
 
       <PopoverContent
