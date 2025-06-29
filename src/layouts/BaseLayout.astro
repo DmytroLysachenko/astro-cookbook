@@ -8,9 +8,10 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  background?: boolean;
 }
 
-const { title, description, image } = Astro.props;
+const { title, description, image, background } = Astro.props;
 ---
 
 <html lang="en">
@@ -26,9 +27,29 @@ const { title, description, image } = Astro.props;
     <Header server:defer>
       <HeaderSkeleton slot="fallback" />
     </Header>
-    <main class="container py-12">
-      <slot />
-    </main>
+    <div class="flex">
+      {
+        background && (
+          <div
+            class="min-h-full hidden md:block w-34 xl:w-48 bg-[url('/assets/images/bg-texture-2-left.png')] xl:bg-[url('/assets/images/bg-big-texture-left.png')] bg-repeat-y bg-opacity-100 bg-left-top bg-fit pointer-events-none z-0 opacity-40"
+            aria-hidden="true"
+          />
+        )
+      }
+
+      <main class="container py-4 md:py-8 lg:py-12">
+        <slot />
+      </main>
+
+      {
+        background && (
+          <div
+            class="min-h-full hidden md:block w-34 xl:w-48 bg-[url('/assets/images/bg-texture-2-right.png')] xl:bg-[url('/assets/images/bg-big-texture-right.png')] bg-repeat-y bg-right-top bg-fit pointer-events-none z-0 opacity-40"
+            aria-hidden="true"
+          />
+        )
+      }
+    </div>
     <Footer />
   </body>
 </html>

@@ -277,7 +277,7 @@ input[type="number"] {
 
   /* Cards */
   .card {
-    @apply bg-card text-card-foreground rounded-lg shadow-md p-3 flex flex-col gap-3 justify-between;
+    @apply bg-gray-100 hover:shadow-lg transition-shadow duration-300 text-card-foreground rounded-lg shadow-md p-3 flex flex-col gap-3 justify-between;
   }
 
   /* Alerts */
