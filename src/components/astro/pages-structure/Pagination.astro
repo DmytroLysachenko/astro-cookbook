@@ -18,17 +18,24 @@ const pageNumbers = getPageNumbers(totalPages, currentPage);
 >
   <ul class="flex justify-center items-center gap-1">
     <li class="flex h-full items-center justify-center">
-      <a
-        href={currentPage > 1 ? `${baseUrl}${currentPage - 1}` : "#"}
-        class={`px-3 py-2 rounded-md ${
-          currentPage === 1
-            ? "text-gray-400 cursor-not-allowed"
-            : "text-gray-700 hover:bg-gray-100"
-        }`}
-        aria-disabled={currentPage === 1}
-      >
-        &laquo; <span class="hidden sm:inline">Prev</span>
-      </a>
+      {
+        currentPage > 1 ? (
+          <a
+            href={`${baseUrl}${currentPage - 1}`}
+            class={`px-3 py-2 rounded-md ${
+              currentPage === 1
+                ? "text-gray-400 cursor-not-allowed"
+                : "text-gray-700 hover:bg-gray-100"
+            }`}
+          >
+            &laquo; <span class="hidden sm:inline">Prev</span>
+          </a>
+        ) : (
+          <span class="px-3 py-2 rounded-md text-gray-400 cursor-not-allowed">
+            &laquo; <span class="hidden sm:inline">Prev</span>
+          </span>
+        )
+      }
     </li>
 
     {
@@ -41,7 +48,7 @@ const pageNumbers = getPageNumbers(totalPages, currentPage);
               href={`${baseUrl}${page}`}
               class={`px-3 py-2 rounded-md ${
                 currentPage === page
-                  ? "bg-red-500 text-white"
+                  ? "bg-accent text-white"
                   : "text-gray-700 hover:bg-gray-100"
               }`}
               aria-current={currentPage === page ? "page" : undefined}
@@ -54,17 +61,22 @@ const pageNumbers = getPageNumbers(totalPages, currentPage);
     }
 
     <li class="flex h-full items-center justify-center">
-      <a
-        href={currentPage < totalPages ? `${baseUrl}${currentPage + 1}` : "#"}
-        class={`px-3 py-2 rounded-md ${
-          currentPage === totalPages
-            ? "text-gray-400 cursor-not-allowed"
-            : "text-gray-700 hover:bg-gray-100"
-        }`}
-        aria-disabled={currentPage === totalPages}
-      >
-        <span class="hidden sm:inline">Next</span> &raquo;
-      </a>
+      {
+        currentPage < totalPages ? (
+          <a
+            href={
+              currentPage < totalPages ? `${baseUrl}${currentPage + 1}` : "#"
+            }
+            class="px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100"
+          >
+            <span class="hidden sm:inline">Next</span> &raquo;
+          </a>
+        ) : (
+          <span class="text-gray-400 cursor-not-allowed px-3 py-2 rounded-md">
+            <span class="hidden sm:inline">Next</span> &raquo;
+          </span>
+        )
+      }
     </li>
   </ul>
 </nav>
