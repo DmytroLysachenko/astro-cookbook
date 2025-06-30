@@ -21,16 +21,16 @@ export const OAUTH_PROVIDERS = [
 // FOOTER
 
 export const QUICK_LINKS = [
-  { href: "/", text: "Home" },
-  { href: "/recipes", text: "Recipes" },
-  { href: "/ingredients", text: "Ingredients" },
+  { href: "/", text: "Home", emoji: "🏠" },
+  { href: "/recipes", text: "Recipes", emoji: "📓" },
+  { href: "/ingredients", text: "Ingredients", emoji: "🎒" },
 ];
 
 export const CATEGORIES_LINKS = [
-  { href: "/recipes?category=breakfast", text: "Breakfast" },
-  { href: "/recipes?category=dinner", text: "Dinner" },
-  { href: "/recipes?category=healthy", text: "Healthy" },
-  { href: "/recipes?category=dessert", text: "Desserts" },
+  { href: "/recipes?category=breakfast", text: "Breakfast", emoji: "🍳" },
+  { href: "/recipes?category=dinner", text: "Dinner", emoji: "🍽️" },
+  { href: "/recipes?category=healthy", text: "Healthy", emoji: "🍎" },
+  { href: "/recipes?category=dessert", text: "Desserts", emoji: "🍰" },
 ];
 
 export const SOCIAL_LINKS = [
