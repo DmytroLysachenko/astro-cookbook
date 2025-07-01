@@ -161,3 +161,20 @@ export const buildFilterUrl = (
 export const formatNumber = (value: number | string, decimals = 1) => {
   return Number(value).toFixed(decimals);
 };
+
+export const formatString = (value: string) => {
+  return capitalize(value.trim().replace(/_/g, " "));
+};
+
+export const formatTableValue = (value: unknown) => {
+  if (typeof value === "number") {
+    return formatNumber(value);
+  }
+
+  if (typeof value === "string") {
+    const numValue = parseFloat(value);
+    return isNaN(numValue) ? formatString(value) : formatNumber(numValue);
+  }
+
+  return "N/A";
+};

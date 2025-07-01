@@ -5,6 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useEffect } from "react";
 
 interface SelectorProps {
   id: string;
@@ -21,11 +22,15 @@ export function Selector({
   onValueChange,
   className,
 }: SelectorProps) {
+  useEffect(() => {
+    const loader = document.getElementById(`${id}-selector-loader`);
+    if (loader) loader.style.display = "none";
+  }, []);
+
   const handleValueChange = (value: string) => {
     if (onValueChange) {
-      onValueChange(value); // Call the custom handler if provided
+      onValueChange(value);
     } else {
-      // Default behavior: Update the URL
       const url = new URL(window.location.href);
       url.searchParams.set(id, value);
       window.location.replace(url.href);

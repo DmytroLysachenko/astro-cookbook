@@ -1,11 +1,11 @@
 ---
-import { buildFilterUrl, capitalize, formatNumber } from "@/lib/utils";
+import { buildFilterUrl, capitalize, formatTableValue } from "@/lib/utils";
 import { db } from "@/db";
 import { ingredients } from "@/db/schema/ingredients";
 import { asc, count, desc, eq } from "drizzle-orm";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Selector } from "@/components/react/recipes/CustomSelector";
-import { INGREDIENTS_PER_PAGE } from "@/constants";
+import { INGREDIENTS_PER_PAGE, INGREDIENTS_TABLE_COLUMNS } from "@/constants";
 import Pagination from "@/components/astro/pages-structure/Pagination.astro";
 
 export const prerender = false;
@@ -84,7 +84,11 @@ const baseUrl = buildFilterUrl("/ingredients", {
   description="Discover the nutritional facts of cooking ingredients. Get information on calories, protein, fat, and carbohydrates for a wide range of ingredients."
 >
   <div class="mx-auto px-4">
-    <h1 class="text-3xl font-bold mb-6">Ingredients Nutritional Facts</h1>
+    <h1 class="text-3xl font-bold mb-6">
+      Ingredients Nutritional Facts <span
+        class="text-sm text-foreground/60 font-body">(per 100g)</span
+      >
+    </h1>
 
     <div
       class="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
@@ -92,6 +96,11 @@ const baseUrl = buildFilterUrl("/ingredients", {
       <div class="min-h-[64px]">
         <label class="block text-sm font-medium mb-1">Filter by Category:</label
         >
+        <div
+          id="category-selector-loader"
+          class="flex items-center justify-between h-9 w-[200px] bg-gray-200 rounded-md px-4 animate-pulse"
+        >
+        </div>
         <Selector
           id="category"
           client:only="react"
@@ -112,21 +121,30 @@ const baseUrl = buildFilterUrl("/ingredients", {
       >
         <label class="block text-sm font-medium mb-1"
           >Sort by:
-          <div class="flex flex-col sm:flex-row gap-8">
-            <Selector
-              id="sort"
-              client:only="react"
-              options={validSortFields.map((field) => ({
-                value: field,
-                label: capitalize(field),
-              }))}
-              defaultValue={sortBy}
-              className="w-[150px]"
-            />
+          <div
+            id="sort-selector-loader"
+            class="flex items-center justify-between h-9 w-[150px] bg-gray-200 rounded-md px-4 animate-pulse"
+          >
           </div>
+
+          <Selector
+            id="sort"
+            client:only="react"
+            options={validSortFields.map((field) => ({
+              value: field,
+              label: capitalize(field),
+            }))}
+            defaultValue={sortBy}
+            className="w-[150px]"
+          />
         </label>
         <label class="block text-sm font-medium mb-1"
           >Sort order:
+          <div
+            id="order-selector-loader"
+            class="flex items-center justify-between h-9 w-[150px] bg-gray-200 rounded-md px-4 animate-pulse"
+          >
+          </div>
           <Selector
             client:only="react"
             id="order"
@@ -140,7 +158,6 @@ const baseUrl = buildFilterUrl("/ingredients", {
         </label>
       </div>
     </div>
-
     <div class="overflow-x-auto">
       <table
         class="w-full bg-white border border-secondary/50 shadow-md rounded-lg"
@@ -148,24 +165,12 @@ const baseUrl = buildFilterUrl("/ingredients", {
         <thead class="bg-gray-50">
           <tr>
             {
-              [
-                "Name",
-                "Category",
-                "Calories",
-                "Protein (g)",
-                "Total Fat (g)",
-                "Sat. Fat (g)",
-                "Trans Fat (g)",
-                "Poly. Fat (g)",
-                "Mono. Fat (g)",
-                "Cholesterol (mg)",
-                "Sodium (mg)",
-                "Total Carbs (g)",
-                "Fiber (g)",
-                "Sugars (g)",
-              ].map((header) => (
-                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  {header}
+              INGREDIENTS_TABLE_COLUMNS.map(({ data, title }) => (
+                <th
+                  data-column={data}
+                  class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  {title}
                 </th>
               ))
             }
@@ -175,48 +180,16 @@ const baseUrl = buildFilterUrl("/ingredients", {
           {
             ingredientsList.map((ingredient) => (
               <tr class="hover:bg-gray-50 border border-t-1 border-">
-                <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
-                  {ingredient.name}
-                </td>
-                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                  {capitalize(ingredient.category).replace("_", " ")}
-                </td>
-                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                  {formatNumber(ingredient.calories)}
-                </td>
-                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                  {formatNumber(ingredient.protein)}
-                </td>
-                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                  {formatNumber(ingredient.totalFat)}
-                </td>
-                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                  {formatNumber(ingredient.saturatedFat)}
-                </td>
-                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                  {formatNumber(ingredient.transFat)}
-                </td>
-                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                  {formatNumber(ingredient.polyunsaturatedFat)}
-                </td>
-                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                  {formatNumber(ingredient.monounsaturatedFat)}
-                </td>
-                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                  {formatNumber(ingredient.cholesterol)}
-                </td>
-                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                  {formatNumber(ingredient.sodium)}
-                </td>
-                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                  {formatNumber(ingredient.totalCarbs)}
-                </td>
-                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                  {formatNumber(ingredient.dietaryFiber)}
-                </td>
-                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500 text-center">
-                  {formatNumber(ingredient.sugars)}
-                </td>
+                {INGREDIENTS_TABLE_COLUMNS.map(({ data }) => (
+                  <th
+                    data-column={data}
+                    class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    {formatTableValue(
+                      ingredient[data as keyof typeof ingredient]
+                    )}
+                  </th>
+                ))}
               </tr>
             ))
           }

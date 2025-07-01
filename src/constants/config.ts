@@ -5,6 +5,23 @@ export const COMMENTS_PER_PAGE = 10;
 
 export const INGREDIENTS_PER_PAGE = 20;
 
+export const INGREDIENTS_TABLE_COLUMNS = [
+  { title: "Name", data: "name" },
+  { title: "Category", data: "category" },
+  { title: "Calories", data: "calories" },
+  { title: "Protein (g)", data: "protein" },
+  { title: "Total Fat (g)", data: "totalFat" },
+  { title: "Sat. Fat (g)", data: "saturatedFat" },
+  { title: "Trans Fat (g)", data: "transFat" },
+  { title: "Poly. Fat (g)", data: "polyunsaturatedFat" },
+  { title: "Mono. Fat (g)", data: "monounsaturatedFat" },
+  { title: "Cholesterol (mg)", data: "cholesterol" },
+  { title: "Sodium (mg)", data: "sodium" },
+  { title: "Total Carbs (g)", data: "totalCarbs" },
+  { title: "Dietary Fiber (g)", data: "dietaryFiber" },
+  { title: "Sugars (g)", data: "sugars" },
+];
+
 export const HEADER_LINKS = [
   { href: "/recipes", text: "Recipes" },
   { href: "/about", text: "About" },
