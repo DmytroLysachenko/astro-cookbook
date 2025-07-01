@@ -1,12 +1,9 @@
-import { sql } from "drizzle-orm";
-
 import { pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
+
 import { users } from "./users";
 
 export const comments = pgTable("comments", {
-  id: uuid("id")
-    .primaryKey()
-    .default(sql`gen_random_uuid()`),
+  id: uuid("id").primaryKey().defaultRandom(),
   recipeSlug: text("recipe_slug").notNull(),
   userId: uuid("user_id")
     .references(() => users.id, { onDelete: "cascade" })

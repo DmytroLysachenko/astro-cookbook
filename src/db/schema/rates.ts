@@ -1,11 +1,9 @@
 import { pgTable, timestamp, uuid, text, integer } from "drizzle-orm/pg-core";
+
 import { users } from "./users";
-import { sql } from "drizzle-orm";
 
 export const rates = pgTable("rates", {
-  id: uuid("id")
-    .primaryKey()
-    .default(sql`gen_random_uuid()`),
+  id: uuid("id").primaryKey().defaultRandom(),
   userId: uuid("user_id")
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
