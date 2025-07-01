@@ -1,0 +1,119 @@
+---
+slug: "creamy-boiled-potatoes"
+title: "Creamy Boiled Potatoes with Herbs"
+previewImage: "creamy-boiled-potatoes.jpg"
+description: "Tender boiled potatoes smothered in a rich, herby cream sauce - a simple yet luxurious side dish."
+cookingTime: 30 # in minutes
+portions: 4
+cuisine: "European"
+categories: ["side dish", "vegetarian", "comfort food"]
+language: "en"
+created: "2025-07-01"
+ingredients:
+  - name: "Potatoes"
+    quantity: "800g"
+    grams: 800
+    id: "645" # Potato
+
+  - name: "Butter"
+    quantity: "50g"
+    grams: 50
+    id: "838" # Butter
+
+  - name: "Heavy Cream"
+    quantity: "200ml"
+    grams: 200
+    id: "1247" # Cream (Heavy)
+
+  - name: "Garlic"
+    quantity: "2 cloves"
+    grams: 6
+    id: "644" # Garlic
+
+  - name: "Fresh Parsley"
+    quantity: "20g"
+    grams: 20
+    id: "840" # Parsley
+
+  - name: "Dried Thyme"
+    quantity: "1 tsp"
+    grams: 1
+    id: "1181" # Thyme (Dried)
+
+  - name: "Salt"
+    quantity: "to taste"
+    grams: 5
+    id: "1135" # Bamboo Salt (placeholder)
+
+  - name: "Black Pepper"
+    quantity: "1/2 tsp"
+    grams: 1
+    id: "1258" # Black Pepper (Ground)
+
+  - name: "Lemon Juice"
+    quantity: "1 tbsp"
+    grams: 15
+    id: "1026" # Yuzu (used as substitute for lemon)
+---
+
+import IngredientsList from "@/components/astro/recipe-page/IngredientsList.astro";
+import CookingStep from "@/components/astro/recipe-page/CookingStep.astro";
+import NutritionFacts from "@/components/astro/recipe-page/NutritionFacts.astro";
+
+## Introduction
+
+These **creamy boiled potatoes** transform humble ingredients into an elegant side dish. The key is **perfectly cooked potatoes** paired with a velvety herb-infused cream sauce. This recipe works wonderfully with roasted meats or as part of a vegetarian spread.
+
+## Pro Tips Before You Start
+
+1. **Potato selection**: Choose waxy potatoes like Yukon Gold or red potatoes - they hold their shape better when boiled.
+2. **Even cooking**: Cut potatoes into uniform sizes so they cook at the same rate.
+3. **Salt your water**: Like pasta, potatoes absorb salt best during cooking.
+4. **Don't overcook**: Test with a fork at 12 minutes - they should be tender but not falling apart.
+
+## Ingredients
+
+<IngredientsList
+  ingredients={frontmatter.ingredients}
+  portions={frontmatter.portions}
+/>
+
+## Step-by-Step Cooking Guide
+
+### Step 1: Prepare the Potatoes
+
+Peel and cut potatoes into **2-inch chunks**. Place in a pot of cold **salted water** (about 1 tbsp salt per liter). Bring to a boil, then reduce to a simmer. Cook for **15-18 minutes** until just tender.
+
+<CookingStep
+  action="cutting-vegetables-potato"
+  alt="Cutting potatoes into chunks"
+/>
+
+**Chef's Tip:** Starting in cold water ensures even cooking throughout the potatoes.
+
+### Step 2: Make the Cream Sauce
+
+While potatoes cook, melt **butter** in a saucepan over medium heat. Add **minced garlic** and **thyme**, sautéing for 30 seconds until fragrant. Pour in **cream** and simmer for 3 minutes to thicken slightly. Finish with **lemon juice**, **salt**, and **pepper**.
+
+<CookingStep action="stirring-saucePan-cream" alt="Making cream sauce" />
+
+**Pro Technique:** The acid from lemon juice balances the richness and prevents the cream from tasting too heavy.
+
+### Step 3: Combine and Serve
+
+Drain potatoes well and return to the warm pot. Gently fold in the cream sauce and **chopped parsley**. Let stand for 2 minutes to allow flavors to meld.
+
+<CookingStep
+  action="mixing-creamy-potatoes"
+  alt="Combining potatoes with sauce"
+/>
+
+**Serving Suggestion:** Garnish with extra parsley and a grind of black pepper for visual appeal.
+
+## Final Thoughts
+
+This **deceptively simple dish** showcases how quality ingredients and proper technique can elevate basic potatoes. The creamy sauce clings beautifully to each tender piece, while the herbs provide freshness. For variations, try adding grated Parmesan or a pinch of smoked paprika.
+
+**Storage Tip:** Leftovers can be refrigerated for 3 days. Reheat gently with a splash of milk to refresh the sauce.
+
+<NutritionFacts ingredients={frontmatter.ingredients} />
