@@ -53,22 +53,22 @@ export const CATEGORIES_LINKS = [
 export const SOCIAL_LINKS = [
   {
     href: "https://facebook.com",
-    text: "Facebook",
+    text: "Facebook icon",
     icon: "/assets/icons/facebook.svg",
   },
   {
     href: "https://instagram.com",
-    text: "Instagram",
+    text: "Instagram icon",
     icon: "/assets/icons/instagram.svg",
   },
   {
     href: "https://twitter.com",
-    text: "X (Twitter)",
+    text: "X (Twitter) icon",
     icon: "/assets/icons/twitter.svg",
   },
   {
     href: "https://youtube.com",
-    text: "YouTube",
+    text: "YouTube icon",
     icon: "/assets/icons/youtube.svg",
   },
 ];
