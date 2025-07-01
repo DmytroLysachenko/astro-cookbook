@@ -19,13 +19,11 @@ const [ratedRecipesSlugs, favoriteRecipesSlugs] = await Promise.all([
     .select({ slug: rates.recipeSlug })
     .from(rates)
     .where(eq(rates.userId, user.id))
-    .execute()
     .then((rows) => rows.map((row) => row.slug)),
   db
     .select({ slug: likes.recipeSlug })
     .from(likes)
     .where(eq(likes.userId, user.id))
-    .execute()
     .then((rows) => rows.map((row) => row.slug)),
 ]);
 

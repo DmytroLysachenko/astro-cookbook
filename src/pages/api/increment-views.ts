@@ -19,17 +19,15 @@ export const POST: APIRoute = async ({ request }) => {
     const existingView = await db
       .select()
       .from(views)
-      .where(eq(views.recipeSlug, recipeSlug))
-      .execute();
+      .where(eq(views.recipeSlug, recipeSlug));
 
     if (existingView.length > 0) {
       await db
         .update(views)
         .set({ count: existingView[0].count + 1 })
-        .where(eq(views.recipeSlug, recipeSlug))
-        .execute();
+        .where(eq(views.recipeSlug, recipeSlug));
     } else {
-      await db.insert(views).values({ recipeSlug, count: 1 }).execute();
+      await db.insert(views).values({ recipeSlug, count: 1 });
     }
 
     return new Response(JSON.stringify({ success: true }), {

@@ -26,18 +26,16 @@ export const POST: APIRoute = async ({ request, locals: { user } }) => {
       await db
         .update(rates)
         .set({ rate })
-        .where(and(eq(rates.userId, user.id), eq(rates.recipeSlug, recipeSlug)))
-        .execute();
+        .where(
+          and(eq(rates.userId, user.id), eq(rates.recipeSlug, recipeSlug)),
+        );
     } else {
-      await db
-        .insert(rates)
-        .values({
-          userId: user.id,
-          recipeSlug,
-          rate,
-          ratedAt: new Date(),
-        })
-        .execute();
+      await db.insert(rates).values({
+        userId: user.id,
+        recipeSlug,
+        rate,
+        ratedAt: new Date(),
+      });
     }
 
     return new Response(JSON.stringify({ success: true }), {

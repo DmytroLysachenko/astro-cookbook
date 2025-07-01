@@ -1,7 +1,7 @@
 ---
 import { buildFilterUrl, capitalize, formatTableValue } from "@/lib/utils";
 import { db } from "@/db";
-import { ingredients } from "@/db/schema/ingredients";
+import { ingredientCategories, ingredients } from "@/db/schema/ingredients";
 import { asc, count, desc, eq } from "drizzle-orm";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Selector } from "@/components/react/recipes/CustomSelector";
@@ -15,12 +15,8 @@ type TSortOrder = "asc" | "desc";
 
 const pageSize = INGREDIENTS_PER_PAGE;
 
-const categories = (
-  await db
-    .select({ category: ingredients.category })
-    .from(ingredients)
-    .groupBy(ingredients.category)
-).map((row) => row.category);
+const categories = ingredientCategories.enumValues;
+
 type TCategoryFilterOption = (typeof categories)[number];
 
 const validSortFields: TSortOption[] = [

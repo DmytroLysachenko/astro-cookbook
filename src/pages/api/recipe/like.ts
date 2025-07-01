@@ -21,7 +21,6 @@ export const POST: APIRoute = async ({ request, locals: { user } }) => {
       .select()
       .from(likes)
       .where(and(eq(likes.userId, user.id), eq(likes.recipeSlug, recipeSlug)))
-      .execute()
       .then((res) => (res.length > 0 ? res[0] : null));
 
     if (existingLike) {

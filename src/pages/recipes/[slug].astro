@@ -4,8 +4,8 @@ import { render } from "astro:content";
 import { Image } from "astro:assets";
 
 import RecipeLike from "@/components/astro/recipe-page/RecipeLike.astro";
-import RecipeRating from "@/components/astro/recipe-page/RecipeRating.astro";
 import CommentsSection from "@/components/astro/recipe-page/CommentsSection.astro";
+import RecipeRating from "@/components/astro/recipe-page/RecipeRating.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
@@ -64,6 +64,7 @@ const { Content } = await render(recipe);
       slug={slug}
     />
   </div>
+
   <script define:vars={{ slug }}>
     document.addEventListener("DOMContentLoaded", async () => {
       await fetch(`/api/increment-views`, {
