@@ -31,7 +31,7 @@ const { title, description, image, background } = Astro.props;
       {
         background && (
           <div
-            class="min-h-full hidden md:block min-w-28 xl:min-w-40 bg-[url('@/images/bg-texture-2-left.png')] xl:bg-[url('@/images/bg-big-texture-left.png')] bg-repeat-y bg-opacity-100 bg-left-top bg-fit pointer-events-none z-0 opacity-40"
+            class="min-h-full hidden md:block min-w-28 xl:min-w-40 bg-[url('/assets/images/bg-texture-2-left.png')] xl:bg-[url('/assets/images/bg-big-texture-left.png')] bg-repeat-y bg-opacity-100 bg-left-top bg-fit pointer-events-none z-0 opacity-40"
             aria-hidden="true"
           />
         )
@@ -44,7 +44,7 @@ const { title, description, image, background } = Astro.props;
       {
         background && (
           <div
-            class="min-h-full hidden md:block min-w-28 xl:min-w-40 bg-[url('@/images/bg-texture-2-right.png')] xl:bg-[url('@/images/bg-big-texture-right.png')] bg-repeat-y bg-right-top bg-fit pointer-events-none z-0 opacity-40"
+            class="min-h-full hidden md:block min-w-28 xl:min-w-40 bg-[url('/assets/images/bg-texture-2-right.png')] xl:bg-[url('/assets/images/bg-big-texture-right.png')] bg-repeat-y bg-right-top bg-fit pointer-events-none z-0 opacity-40"
             aria-hidden="true"
           />
         )
