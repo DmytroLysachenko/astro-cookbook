@@ -28,7 +28,7 @@ export const getRatingDataBySlugArray = async (recipesSlugs: string[]) => {
   return result;
 };
 
-export const getRatingDataBySlug = async (recipesSlug: string) => {
+export const getRatingDataBySlug = async (recipeSlug: string) => {
   const result = await db
     .select({
       slug: rates.recipeSlug,
@@ -38,7 +38,7 @@ export const getRatingDataBySlug = async (recipesSlug: string) => {
     })
     .from(views)
     .leftJoin(rates, eq(rates.recipeSlug, views.recipeSlug))
-    .where(eq(views.recipeSlug, recipesSlug))
+    .where(eq(views.recipeSlug, recipeSlug))
     .groupBy(views.recipeSlug, rates.recipeSlug)
     .then((rows) => rows[0] ?? null);
 
