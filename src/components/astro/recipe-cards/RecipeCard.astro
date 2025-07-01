@@ -1,8 +1,9 @@
 ---
 import { capitalize } from "@/lib/utils";
 import type { TRecipeCollectionData } from "@/types";
-import Image from "astro/components/Image.astro";
+
 import StarRating from "@/components/astro/recipe-page/StarRating.astro";
+import { Image } from "astro:assets";
 
 interface Props {
   recipe: TRecipeCollectionData & {
@@ -34,7 +35,7 @@ const {
     class="rounded-lg overflow-hidden block"
   >
     <Image
-      src={`/assets/images/previews/${previewImage}`}
+      src={`/src/images/previews/${previewImage}`}
       alt={title}
       width={400}
       height={250}

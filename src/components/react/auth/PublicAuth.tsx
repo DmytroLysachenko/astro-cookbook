@@ -23,6 +23,7 @@ const PublicAuth = () => {
             src={iconPath}
             className="object-contain"
             alt={`${provider} icon`}
+            loading="lazy"
           />
         </Button>
       ))}

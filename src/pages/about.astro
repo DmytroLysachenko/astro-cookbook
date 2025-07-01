@@ -1,11 +1,16 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+
+import chefPreparingMeal from "@/images/chef-preparing-meal.webp";
+import cookingHero from "@/images/cooking-hero.webp";
+import recipeCollection from "@/images/recipe-collection.webp";
+import familyCooking from "@/images/family-cooking.webp";
 ---
 
 <BaseLayout
   title="Cooking Spot | About Cooking Spot"
   description="Cooking Spot - Your AI-powered cooking companion. Discover, rate, and comment on AI-generated recipes. Join us and explore the future of cooking!"
-  image="/blog-placeholder-about.jpg"
   background={true}
 >
   <div class="content">
@@ -20,8 +25,8 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
         and create the perfect dish for you.
       </p>
 
-      <img
-        src="/assets/images/cooking-hero.jpg"
+      <Image
+        src={cookingHero}
         alt="A vibrant kitchen scene with fresh ingredients, a chef preparing a meal, and a variety of colorful dishes on the table."
         class="rounded-lg shadow-md my-6 mx-auto w-[80%]"
       />
@@ -60,8 +65,8 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
         </div>
       </div>
 
-      <img
-        src="/assets/images/recipe-collection.jpg"
+      <Image
+        src={recipeCollection}
         alt="A diverse collection of recipes displayed on a table, including salads, soups, and main dishes."
         class="rounded-lg shadow-md my-6 mx-auto w-[80%]"
       />
@@ -88,8 +93,8 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
         </li>
       </ul>
 
-      <img
-        src="/assets/images/chef-preparing-meal.jpg"
+      <Image
+        src={chefPreparingMeal}
         alt="A professional chef preparing a meal in a modern kitchen, showcasing the art of cooking."
         class="rounded-lg shadow-md my-6 mx-auto w-[80%]"
       />
@@ -137,8 +142,8 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
         > and start your culinary journey with us!
       </p>
 
-      <img
-        src="/assets/images/family-cooking.jpg"
+      <Image
+        src={familyCooking}
         alt="A happy family cooking together in a cozy kitchen, showcasing the joy of shared cooking experiences."
         class="rounded-lg shadow-md my-6 mx-auto w-[80%]"
       />
