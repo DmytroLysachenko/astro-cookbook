@@ -15,7 +15,7 @@ const {
   alt,
 } = Astro.props as CookingStepProps;
 
-const imagePath = href ? href : `/src/images/steps/${action}.webp`;
+const imagePath = href ? href : `@/images/steps/${action}.webp`;
 ---
 
 <div class={`${className || ""}`}>
