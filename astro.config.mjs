@@ -9,6 +9,7 @@ import path from "path";
 import vercel from "@astrojs/vercel";
 import dotenv from "dotenv";
 import { PRIVATE_ROUTES } from "./src/constants/config";
+import { syncRecipesToDb } from "./integrations/syncRecipesToDb";
 
 dotenv.config();
 
@@ -31,7 +32,9 @@ export default defineConfig({
     }),
     react(),
     auth(),
+    syncRecipesToDb(),
   ],
+
   output: "static",
   vite: {
     plugins: [tailwindcss()],
