@@ -5,11 +5,17 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { LogOut, UserIcon } from "lucide-react";
+import { useEffect } from "react";
 
 import type { TUser } from "@/services/auth";
 import UserAvatar from "../avatar/UserAvatar";
 
 const LoggedAuth = ({ user }: { user: TUser }) => {
+  useEffect(() => {
+    const loader = document.getElementById("user-data-loader");
+    if (loader) loader.style.display = "none";
+  });
+
   return (
     <Popover>
       <PopoverTrigger>
@@ -23,7 +29,7 @@ const LoggedAuth = ({ user }: { user: TUser }) => {
       <PopoverContent
         side="bottom"
         sideOffset={26}
-        className="border-t-0 rounded-t-none max-w-36 z-10 bg-background border-muted/40"
+        className="border-t-0 rounded-t-none max-w-36 z-10 backdrop-blur-md bg-background/80 border-muted/40"
       >
         <ul className="flex flex-col gap-2">
           <li

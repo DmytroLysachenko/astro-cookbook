@@ -21,6 +21,7 @@ if (user) {
   userData = { ...user };
 } else {
   const session = await getSession(Astro.request);
+
   if (session && session.user && session.user.email) {
     userData = await getUser(session.user.email, "email");
   }
@@ -28,9 +29,9 @@ if (user) {
 ---
 
 <header
-  class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-700 transition-colors"
+  class="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-neutral-200 dark:border-neutral-700 transition-colors"
 >
-  <div class="container grid grid-cols-3 py-4 min-h-[92px]">
+  <div class="container flex justify-between py-4 min-h-[92px]">
     <a
       href="/"
       class="font-semibold bg-transparent text-center flex flex-col justify-center items-center w-fit gap-1"
@@ -47,13 +48,30 @@ if (user) {
     <Navigation links={HEADER_LINKS} />
 
     <div class="flex gap-6 justify-end items-center min-w-[40px] min-h-10">
+
       {
         userData ? (
+
+        <div  id="user-data-loader" class="size-10 md:size-14 bg-gray-200 rounded-full animate-pulse"></div>
           <LoggedAuth
             user={userData}
             client:only="react"
           />
         ) : (
+
+   <div id="user-data-loader"
+        class="flex items-center space-x-1 md:space-x-2 lg:space-x-3"
+      >
+        <div class="size-7 md:size-8 lg:size-10 bg-gray-200 rounded-full animate-pulse"></div>
+        <div
+          class="size-7 md:size-8 lg:size-10 bg-gray-200 rounded-full animate-pulse"
+        >
+        </div>
+        <div
+          class="size-7 md:size-8 lg:size-10 bg-gray-200 rounded-full animate-pulse"
+        >
+        </div>
+      </div>
           <PublicAuth client:only="react" />
         )
       }

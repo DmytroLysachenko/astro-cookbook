@@ -2,8 +2,14 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Toaster } from "@/components/ui/sonner";
+import { useEffect } from "react";
 
 const SubscribeForm = () => {
+  useEffect(() => {
+    const loader = document.getElementById("subscribe-form-loader");
+    if (loader) loader.style.display = "none";
+  }, []);
+
   return (
     <>
       <form

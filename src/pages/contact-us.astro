@@ -212,8 +212,18 @@ import ContactForm from "@/components/react/forms/ContactForm";
           </div>
         </div>
       </div>
-      <!-- Contact Form - React Component -->
+
       <div>
+        <div
+          id="form-loader"
+          class="inset-0 animate-pulse p-6 space-y-4 bg-gray-100"
+        >
+          <div class="h-6 bg-gray-300 rounded w-3/4"></div>
+          <div class="h-6 bg-gray-300 rounded w-1/2"></div>
+          <div class="h-40 bg-gray-300 rounded"></div>
+          <div class="h-10 bg-gray-400 rounded w-full mt-auto"></div>
+        </div>
+
         <ContactForm client:only="react" />
       </div>
     </div>

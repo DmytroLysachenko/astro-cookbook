@@ -50,7 +50,10 @@ const recipes = await getCollection("recipe");
       server:defer
       recipes={recipes.slice(0, 4)}
     >
-      <RecipeCardsSekeleton slot="fallback" /></RecipesList
+      <RecipeCardsSekeleton
+        slot="fallback"
+        quantity={4}
+      /></RecipesList
     >
   </section>
 
@@ -60,6 +63,13 @@ const recipes = await getCollection("recipe");
       <p class="text-muted-foreground mb-6">
         Subscribe to our newsletter for the latest recipes and cooking tips.
       </p>
+      <div
+        id="subscribe-form-loader"
+        class="flex items-center justify-center space-x-2 animate-pulse"
+      >
+        <div class="h-10 w-50 bg-gray-200 rounded-md"></div>
+        <div class="h-10 w-24 bg-gray-200 rounded-md"></div>
+      </div>
       <SubscribeForm client:only="react" />
     </div>
   </section>

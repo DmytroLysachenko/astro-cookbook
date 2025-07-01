@@ -10,14 +10,14 @@ const { links } = Astro.props;
 
 <nav
   id="header-nav"
-  class="relative flex items-center justify-center min-h-14"
+  class="flex items-center justify-center min-h-14"
 >
   <div class="hidden md:flex space-x-10 justify-center">
     {
       links.map((link) => (
         <a
           href={link.href}
-          class="transition-all cursor-pointer hover:bg-muted/20 px-4 py-2 rounded-md line-clamp-1 text-base"
+          class="transition-all cursor-pointer hover:bg-muted/20 px-4 py-2 rounded-md line-clamp-1 text-base "
         >
           {link.text}
         </a>
@@ -40,13 +40,13 @@ const { links } = Astro.props;
 
     <div
       id="mobile-menu"
-      class="absolute py-1 px-2 top-19 right-1/2 translate-x-1/2 w-48 bg-background border border-border/20 border-t-0 rounded-md rounded-t-none shadow-lg hidden min-w-[360px]"
+      class="absolute w-full top-full right-1/2 translate-x-1/2 border border-border/20 rounded-md rounded-t-none shadow-lg hidden min-w-[360px]"
     >
       {
         links.map((link) => (
           <a
             href={link.href}
-            class="block px-4 py-3 text-sm text-center hover:bg-muted/20  transition-all hover:hover-secondary border-b border-border/40 last:border-0"
+            class="block w-full px-4 py-3 text-sm text-center hover:bg-muted/90 backdrop-blur-md transition-all hover:hover-secondary border-b border-border/40 last:border-0 bg-background/90 text-foreground"
           >
             {link.text}
           </a>

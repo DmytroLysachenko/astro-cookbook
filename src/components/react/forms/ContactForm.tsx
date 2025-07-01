@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -18,6 +18,10 @@ import { Toaster } from "@/components/ui/sonner";
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  useEffect(() => {
+    const loader = document.getElementById("form-loader");
+    if (loader) loader.style.display = "none";
+  }, []);
 
   const formSchema = z.object({
     firstName: z.string().min(2, "First name must be at least 2 characters"),

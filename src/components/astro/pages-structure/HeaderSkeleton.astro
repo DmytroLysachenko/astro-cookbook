@@ -2,25 +2,35 @@
 // No props needed
 ---
 
-<header class="bg-background text-foreground shadow-sm">
-  <div class="container mx-auto px-4 h-16">
+<header class="sticky top-0 z-50 bg-background text-foreground shadow-sm">
+  <div class="container mx-auto px-4 h-[92px] md:h-[111px]">
     <div class="flex items-center justify-between h-full">
       <div class="flex items-center space-x-2">
-        <div class="w-8 h-8 bg-gray-200 rounded animate-pulse"></div>
-        <div class="w-24 h-6 bg-gray-200 rounded animate-pulse"></div>
+        <div class="size-12 bg-gray-200 rounded animate-pulse"></div>
       </div>
 
-      <nav class="hidden md:flex items-center space-x-8">
+      <div class="hidden md:flex items-center space-x-8">
         <div class="w-16 h-4 bg-gray-200 rounded animate-pulse"></div>
         <div class="w-12 h-4 bg-gray-200 rounded animate-pulse"></div>
         <div class="w-20 h-4 bg-gray-200 rounded animate-pulse"></div>
         <div class="w-16 h-4 bg-gray-200 rounded animate-pulse"></div>
-      </nav>
+      </div>
 
-      <div class="flex items-center space-x-4">
-        <div class="w-6 h-6 bg-gray-200 rounded-full animate-pulse"></div>
-        <div class="w-6 h-6 bg-gray-200 rounded-full animate-pulse"></div>
-        <div class="w-6 h-6 bg-gray-200 rounded-full animate-pulse"></div>
+      <div class="md:hidden w-20 h-6 bg-gray-200 rounded animate-pulse"></div>
+
+      <div class="flex items-center space-x-1 md:space-x-2 lg:space-x-3">
+        <div
+          class="size-7 md:size-8 lg:size-10 bg-gray-200 rounded-full animate-pulse"
+        >
+        </div>
+        <div
+          class="size-7 md:size-8 lg:size-10 bg-gray-200 rounded-full animate-pulse"
+        >
+        </div>
+        <div
+          class="size-7 md:size-8 lg:size-10 bg-gray-200 rounded-full animate-pulse"
+        >
+        </div>
       </div>
     </div>
   </div>

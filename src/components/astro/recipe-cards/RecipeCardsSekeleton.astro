@@ -1,10 +1,14 @@
 ---
 import RecipeCardSkeleton from "./RecipeCardSkeleton.astro";
+
+interface Props {
+  quantity?: number;
+}
+
+const { quantity = 4 } = Astro.props;
+const validQuantity = Math.max(1, Math.floor(quantity)); // Ensure at least 1 card and integer
 ---
 
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-  <RecipeCardSkeleton />
-  <RecipeCardSkeleton />
-  <RecipeCardSkeleton />
-  <RecipeCardSkeleton />
+<div class="grid-responsive">
+  {Array.from({ length: validQuantity }).map(() => <RecipeCardSkeleton />)}
 </div>
