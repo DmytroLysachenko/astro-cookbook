@@ -4,6 +4,7 @@ import type { TRecipeCollectionData } from "@/types";
 
 import StarRating from "@/components/astro/recipe-page/StarRating.astro";
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
 interface Props {
   recipe: TRecipeCollectionData & {
@@ -27,6 +28,13 @@ const {
     categories,
   },
 } = Astro.props;
+
+const allPreviews = import.meta.glob<{ default: ImageMetadata }>(
+  `/src/images/previews/*.{png,jpg,jpeg,webp}`,
+  { eager: true }
+);
+
+const localImage = allPreviews[`/src/images/previews/${previewImage}`].default;
 ---
 
 <div class="card">
@@ -35,7 +43,7 @@ const {
     class="rounded-lg overflow-hidden block"
   >
     <Image
-      src={`@/images/previews/${previewImage}`}
+      src={localImage}
       alt={title}
       width={400}
       height={250}

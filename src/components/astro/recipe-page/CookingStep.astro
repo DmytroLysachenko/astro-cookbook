@@ -1,4 +1,5 @@
 ---
+import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
 interface CookingStepProps {
@@ -15,15 +16,46 @@ const {
   alt,
 } = Astro.props as CookingStepProps;
 
-const imagePath = href ? href : `@/images/steps/${action}.webp`;
+const allSteps = import.meta.glob<{ default: ImageMetadata }>(
+  `/src/images/steps/*.{png,jpg,jpeg,webp}`,
+  { eager: true }
+);
+
+let imagePath;
+
+if (href) {
+  imagePath = href;
+} else {
+  const localImage = allSteps[`/src/images/steps/${action}.webp`];
+
+  if (!localImage) {
+    imagePath = allSteps["/src/images/steps/default.webp"].default;
+
+    return;
+  }
+
+  imagePath = localImage.default;
+}
 ---
 
 <div class={`${className || ""}`}>
-  <Image
-    src={imagePath}
-    alt={alt ? alt : `${action} step`}
-    width={1000}
-    height={1000}
-    class="w-full lg:w-[65%] h-auto"
-  />
+  {
+    href ? (
+      <Image
+        src={imagePath as string}
+        alt={alt ? alt : `${action} step`}
+        width={1000}
+        height={1000}
+        class="w-full lg:w-[65%] h-auto"
+      />
+    ) : (
+      <Image
+        src={imagePath as ImageMetadata}
+        alt={alt ? alt : `${action} step`}
+        width={1000}
+        height={1000}
+        class="w-full lg:w-[65%] h-auto"
+      />
+    )
+  }
 </div>

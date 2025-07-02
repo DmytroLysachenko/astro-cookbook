@@ -7,6 +7,7 @@ import RecipeLike from "@/components/astro/recipe-page/RecipeLike.astro";
 import CommentsSection from "@/components/astro/recipe-page/CommentsSection.astro";
 import RecipeRating from "@/components/astro/recipe-page/RecipeRating.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { ImageMetadata } from "astro";
 
 export async function getStaticPaths() {
   const recipes = await getCollection("recipe");
@@ -23,18 +24,25 @@ const recipe = Astro.props;
 
 const { previewImage, title, description, slug } = recipe.data;
 
+const allPreviews = import.meta.glob<{ default: ImageMetadata }>(
+  `/src/images/previews/*.{png,jpg,jpeg,webp}`,
+  { eager: true }
+);
+
+const localImage = allPreviews[`/src/images/previews/${previewImage}`].default;
+
 const { Content } = await render(recipe);
 ---
 
 <BaseLayout
   title={`Cooking Spot | ${title}`}
   description={description}
-  image={`/src/images/previews/${previewImage}`}
+  image={localImage.src}
   background={true}
 >
   <div class="content">
     <Image
-      src={`/src/images/previews/${previewImage}`}
+      src={localImage}
       alt={title}
       class="w-full max-w-[700px] object-cover"
       width={400}
