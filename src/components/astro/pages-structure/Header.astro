@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import Logo from "@/images/logo.png";
 import Navigation from "./Navigation.astro";
 
 import { getSession } from "auth-astro/server";
@@ -37,7 +38,7 @@ if (user) {
       class="font-semibold bg-transparent text-center flex flex-col justify-center items-center w-fit gap-1"
     >
       <Image
-        src="/assets/images/logo.png"
+        src={Logo}
         alt={`${SITE_TITLE} Logo`}
         class="max-w-[60px] md:max-w-[80px]"
         width={100}

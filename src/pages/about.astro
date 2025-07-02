@@ -1,6 +1,11 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
+
+import chefPreparingMeal from "@/images/chef-preparing-meal.webp";
+import cookingHero from "@/images/cooking-hero.webp";
+import recipeCollection from "@/images/recipe-collection.webp";
+import familyCooking from "@/images/family-cooking.webp";
 ---
 
 <BaseLayout
@@ -21,12 +26,9 @@ import { Image } from "astro:assets";
       </p>
 
       <Image
-        src="/assets/images/cooking-hero.webp"
+        src={cookingHero}
         alt="A vibrant kitchen scene with fresh ingredients, a chef preparing a meal, and a variety of colorful dishes on the table."
         class="rounded-lg shadow-md my-6 mx-auto w-[80%]"
-        width={800}
-        height={400}
-        inferSize={true}
       />
     </section>
 
@@ -64,12 +66,9 @@ import { Image } from "astro:assets";
       </div>
 
       <Image
-        src="/assets/images/recipe-collection.webp"
+        src={recipeCollection}
         alt="A diverse collection of recipes displayed on a table, including salads, soups, and main dishes."
         class="rounded-lg shadow-md my-6 mx-auto w-[80%]"
-        width={800}
-        height={400}
-        inferSize={true}
       />
     </section>
 
@@ -95,12 +94,9 @@ import { Image } from "astro:assets";
       </ul>
 
       <Image
-        src="/assets/images/chef-preparing-meal.webp"
+        src={chefPreparingMeal}
         alt="A professional chef preparing a meal in a modern kitchen, showcasing the art of cooking."
         class="rounded-lg shadow-md my-6 mx-auto w-[80%]"
-        width={800}
-        height={400}
-        inferSize={true}
       />
     </section>
 
@@ -147,12 +143,9 @@ import { Image } from "astro:assets";
       </p>
 
       <Image
-        src="/assets/images/family-cooking.webp"
+        src={familyCooking}
         alt="A happy family cooking together in a cozy kitchen, showcasing the joy of shared cooking experiences."
         class="rounded-lg shadow-md my-6 mx-auto w-[80%]"
-        width={800}
-        height={400}
-        inferSize={true}
       />
     </section>
   </div>
