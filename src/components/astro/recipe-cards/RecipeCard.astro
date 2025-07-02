@@ -34,7 +34,11 @@ const allPreviews = import.meta.glob<{ default: ImageMetadata }>(
   { eager: true }
 );
 
-const localImage = allPreviews[`/src/images/previews/${previewImage}`].default;
+let localImage = allPreviews[`/src/images/previews/${previewImage}`].default;
+
+if (!localImage) {
+  localImage = allPreviews["/src/images/previews/default.webp"].default;
+}
 ---
 
 <div class="card">

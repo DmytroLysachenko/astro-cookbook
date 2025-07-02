@@ -30,11 +30,9 @@ if (href) {
 
   if (!localImage) {
     imagePath = allSteps["/src/images/steps/default.webp"].default;
-
-    return;
+  } else {
+    imagePath = localImage.default;
   }
-
-  imagePath = localImage.default;
 }
 ---
 
