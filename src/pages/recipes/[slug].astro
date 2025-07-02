@@ -47,6 +47,8 @@ const { Content } = await render(recipe);
       class="w-full max-w-[700px] object-cover"
       width={400}
       height={400}
+      loading={"eager"}
+      fetchpriority={"high"}
     />
     <p class="text-base">
       📆 Created on: <span class="font-bold">{recipe.data.created}</span>

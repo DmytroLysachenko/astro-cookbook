@@ -16,12 +16,13 @@ const recipesRatingData = await getRatingDataBySlugArray(recipesSlugs);
 
 <div class="grid-responsive">
   {
-    recipes.map((recipe) => (
+    recipes.map((recipe, index) => (
       <RecipeCard
         recipe={{
           ...recipesRatingData.find((r) => r.slug === recipe.data.slug)!,
           ...recipe.data,
         }}
+        isFirst={index === 0}
       />
     ))
   }
