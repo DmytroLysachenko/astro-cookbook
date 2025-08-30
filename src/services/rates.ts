@@ -23,7 +23,10 @@ export const getRatingDataBySlugArray = async (recipesSlugs: string[]) => {
     .from(views)
     .leftJoin(rates, eq(rates.recipeSlug, views.recipeSlug))
     .where(inArray(views.recipeSlug, recipesSlugs))
-    .groupBy(views.recipeSlug, rates.recipeSlug);
+    .groupBy(views.recipeSlug, rates.recipeSlug)
+    .then((rows) =>
+      rows.map((row) => ({ ...row, rating: Number(row.rating) })),
+    );
 
   return result;
 };

@@ -1,11 +1,11 @@
 import { signOut } from "auth-astro/client";
+import { LogOut, UserIcon } from "lucide-react";
+import { useEffect } from "react";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { LogOut, UserIcon } from "lucide-react";
-import { useEffect } from "react";
 
 import type { TUser } from "@/services/auth";
 import UserAvatar from "../avatar/UserAvatar";

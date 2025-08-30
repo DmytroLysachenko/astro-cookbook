@@ -1,12 +1,16 @@
 ---
+import { count, desc, eq } from "drizzle-orm";
+import { getSession } from "auth-astro/server";
+
 import { db } from "@/db";
 import { comments } from "@/db/schema/comments";
 import { users } from "@/db/schema/users";
-import { count, desc, eq } from "drizzle-orm";
-
-import { getSession } from "auth-astro/server";
 import { getUser } from "@/services/auth";
 import DynamicCommentsSection from "@/components/react/comments/DynamicCommentsSection";
+
+interface Props {
+  slug: string;
+}
 
 const { slug } = Astro.props;
 

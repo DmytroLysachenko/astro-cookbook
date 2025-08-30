@@ -1,6 +1,7 @@
+import { type APIRoute } from "astro";
+
 import { db } from "@/db";
 import { comments } from "@/db/schema/comments";
-import { type APIRoute } from "astro";
 
 export const prerender = false;
 

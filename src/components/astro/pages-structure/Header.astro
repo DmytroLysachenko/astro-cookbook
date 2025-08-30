@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import Navigation from "./Navigation.astro";
-
 import { getSession } from "auth-astro/server";
+
+import Navigation from "./Navigation.astro";
 import { getUser, type TUser } from "@/services/auth";
 import { HEADER_LINKS, SITE_TITLE } from "@/constants";
 import LoggedAuth from "@/components/react/auth/LoggedAuth";

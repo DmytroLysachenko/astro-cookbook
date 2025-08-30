@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+
 import { updateUser } from "@/services/auth";
 
 export const prerender = false;

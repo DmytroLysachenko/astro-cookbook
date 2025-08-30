@@ -4,6 +4,10 @@ import RateRecipe from "@/components/react/recipes/RateRecipe";
 import { getUser } from "@/services/auth";
 import { getRatingDataBySlug, getUserRateBySlug } from "@/services/rates";
 
+interface Props {
+  slug: string;
+}
+
 const { slug } = Astro.props;
 
 const [session, ratingData] = await Promise.all([

@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import {
   Select,
   SelectContent,
@@ -5,7 +7,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useEffect } from "react";
 
 interface SelectorProps {
   id: string;

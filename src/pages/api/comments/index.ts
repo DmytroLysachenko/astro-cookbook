@@ -1,8 +1,9 @@
 import type { APIRoute } from "astro";
+import { desc, eq } from "drizzle-orm";
+
 import { db } from "@/db";
 import { comments } from "@/db/schema/comments";
 import { users } from "@/db/schema/users";
-import { desc, eq } from "drizzle-orm";
 
 export const prerender = false;
 

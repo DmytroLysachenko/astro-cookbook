@@ -1,15 +1,15 @@
 ---
-import { capitalize } from "@/lib/utils";
-import type { TRecipeCollectionData } from "@/types";
-
-import StarRating from "@/components/astro/recipe-page/StarRating.astro";
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
+
+import { capitalize } from "@/lib/utils";
+import type { TRecipeCollectionData } from "@/types";
+import StarRating from "@/components/astro/recipe-page/StarRating.astro";
 
 interface Props {
   recipe: TRecipeCollectionData & {
     slug: string | null;
-    rating: string | null;
+    rating: number;
     ratingCount: number;
     views: number;
   };
@@ -74,7 +74,7 @@ if (!localImage) {
     </h2>
 
     <div class="flex items-center mb-2">
-      <StarRating rating={rating || 0} />
+      <StarRating rating={Number(rating) || 0} />
       <span class="ml-2 text-sm text-gray-600">{ratingCount || 0} Rates</span>
     </div>
 

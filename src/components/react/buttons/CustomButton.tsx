@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 type TSize = "default" | "sm" | "lg" | "icon";
 type TVariant = "default" | "destructive" | "outline" | "secondary" | "ghost";
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   title: string;
   handleClick?: () => void;
   icon?: React.ReactNode;

@@ -1,12 +1,13 @@
 import type React from "react";
 import { useRef, useState } from "react";
-import { Button } from "../../ui/button";
-import ImageKitProvider from "./ImageKitProvider";
+import { toast } from "sonner";
 import { IKImage, IKUpload } from "imagekitio-react";
 import type { UploadResponse } from "imagekit/dist/libs/interfaces";
 import { API_BASE_URL } from "astro:env/client";
+
+import { Button } from "../../ui/button";
+import ImageKitProvider from "./ImageKitProvider";
 import { Toaster } from "@/components/ui/sonner";
-import { toast } from "sonner";
 
 interface UserAvatarProps {
   avatar: string;

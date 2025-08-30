@@ -4,9 +4,11 @@ import { getIngredientsByIdArray } from "@/services/ingredients";
 
 export type TFullIngredientsData = typeof fullIngredientsData;
 
-const { ingredients } = Astro.props as {
+interface Props {
   ingredients: { name: string; quantity: string; grams: number; id: number }[];
-};
+}
+
+const { ingredients } = Astro.props;
 
 const fullIngredientsData = await getIngredientsByIdArray(
   ingredients.map((i) => i.id)

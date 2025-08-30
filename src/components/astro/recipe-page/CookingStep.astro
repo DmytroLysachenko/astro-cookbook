@@ -2,19 +2,14 @@
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
-interface CookingStepProps {
+interface Props {
   action?: string;
   href?: string;
   className?: string;
   alt?: string;
 }
 
-const {
-  action = "default",
-  href,
-  className,
-  alt,
-} = Astro.props as CookingStepProps;
+const { action = "default", href, className, alt } = Astro.props;
 
 const allSteps = import.meta.glob<{ default: ImageMetadata }>(
   `/src/images/steps/*.{png,jpg,jpeg,webp}`,

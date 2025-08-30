@@ -1,7 +1,8 @@
-import { db } from "@/db";
-import { views } from "@/db/schema/views";
 import type { APIRoute } from "astro";
 import { eq } from "drizzle-orm";
+
+import { db } from "@/db";
+import { views } from "@/db/schema/views";
 
 export const prerender = false;
 

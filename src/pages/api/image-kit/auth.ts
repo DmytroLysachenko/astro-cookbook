@@ -1,5 +1,6 @@
-import { imagekit } from "@/lib/image-kit";
 import type { APIRoute } from "astro";
+
+import { imagekit } from "@/lib/image-kit";
 
 export const GET: APIRoute = async () => {
   try {

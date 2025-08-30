@@ -1,5 +1,6 @@
 import { and, eq } from "drizzle-orm";
 import type { APIRoute } from "astro";
+
 import { rates } from "@/db/schema/rates";
 import { db } from "@/db";
 
