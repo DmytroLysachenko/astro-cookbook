@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+set -e
+
+echo "Running ESLint..."
+npm run lint:eslint
+
+echo "Running Playwright (chromium)..."
+npm run test:e2e -- --project=chromium
