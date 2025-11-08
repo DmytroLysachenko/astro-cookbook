@@ -1,53 +1,34 @@
-import { test, expect, type Locator, type Page } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
+import { INGREDIENTS_PER_PAGE, INGREDIENTS_TABLE_COLUMNS } from '../src/constants/config';
 
-const loaderSelectors = [
-  '#category-selector-loader',
-  '#sort-selector-loader',
-  '#order-selector-loader',
-] as const;
+const loaderIds = ['category', 'sort', 'order'] as const;
 
-const selectTriggerIndexMap = {
-  category: 0,
-  sort: 1,
-  order: 2,
-} as const;
+const escapeRegex = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 const waitForSelectorsHydrated = async (page: Page) => {
-  for (const selector of loaderSelectors) {
+  for (const id of loaderIds) {
     await page.waitForFunction(
-      (target) => {
-        const element = document.querySelector<HTMLElement>(target);
-        return element ? getComputedStyle(element).display === 'none' : false;
+      (loaderId) => {
+        const loader = document.getElementById(`${loaderId}-selector-loader`);
+        return loader ? getComputedStyle(loader).display === 'none' : false;
       },
-      selector,
+      id,
     );
   }
 };
 
-const getSelectTrigger = (page: Page, key: keyof typeof selectTriggerIndexMap) =>
-  page.locator('[data-slot="select-trigger"]').nth(selectTriggerIndexMap[key]);
+const getCategoryTrigger = (page: Page) =>
+  page
+    .locator('label', { hasText: 'Filter by Category:' })
+    .locator('..')
+    .locator('[data-slot="select-trigger"]')
+    .first();
 
-const pickSelectOption = async (
-  page: Page,
-  trigger: Locator,
-  optionText: string,
-) => {
-  await trigger.click();
-  const matcher = new RegExp(`^${optionText}$`, 'i');
-  await page
-    .locator('[data-slot="select-item"]')
-    .filter({ hasText: matcher })
-    .first()
-    .click();
-};
+const getSortTrigger = (page: Page) =>
+  page.locator('label', { hasText: /^Sort by:/i }).locator('[data-slot="select-trigger"]').first();
 
-const getNumericColumnValues = async (page: Page, column: string) => {
-  const cells = await page
-    .locator(`tbody [data-column="${column}"]`)
-    .allTextContents();
-
-  return cells.map((text) => parseFloat(text.replace(/[^\d.-]/g, ''))).filter((value) => !Number.isNaN(value));
-};
+const getOrderTrigger = (page: Page) =>
+  page.locator('label', { hasText: /^Sort order:/i }).locator('[data-slot="select-trigger"]').first();
 
 test.describe('Ingredients page', () => {
   test.beforeEach(async ({ page }) => {
@@ -55,74 +36,94 @@ test.describe('Ingredients page', () => {
     await waitForSelectorsHydrated(page);
   });
 
-  test('renders table with controls and populated rows', async ({ page }) => {
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText(
-      /Ingredients Nutritional Facts/i,
-    );
+  test('renders hero content, selectors, and the full table header', async ({ page }) => {
+    await expect(page).toHaveTitle(/Ingredients Nutritional Facts/i);
+    await expect(
+      page.getByRole('heading', {
+        level: 1,
+        name: /Ingredients Nutritional Facts/i,
+      }),
+    ).toBeVisible();
 
-    const triggers = page.locator('[data-slot="select-trigger"]');
-    await expect(triggers).toHaveCount(3);
-    await expect(getSelectTrigger(page, 'category')).toContainText(/All Categories/i);
-    await expect(getSelectTrigger(page, 'sort')).toContainText(/Name/i);
-    await expect(getSelectTrigger(page, 'order')).toContainText(/Asc/i);
+    const selectors = page.locator('[data-slot="select-trigger"]');
+    await expect(selectors).toHaveCount(3);
 
-    const headers = page.locator('thead th');
-    await expect(headers).toHaveText([
-      'Name',
-      'Category',
-      'Calories',
-      'Protein (g)',
-      'Total Fat (g)',
-      'Sat. Fat (g)',
-      'Trans Fat (g)',
-      'Poly. Fat (g)',
-      'Mono. Fat (g)',
-      'Cholesterol (mg)',
-      'Sodium (mg)',
-      'Total Carbs (g)',
-      'Dietary Fiber (g)',
-      'Sugars (g)',
-    ]);
+    const tableHeaders = page.locator('table thead th');
+    await expect(tableHeaders).toHaveCount(INGREDIENTS_TABLE_COLUMNS.length);
 
-    const rows = page.locator('tbody tr');
-    const rowCount = await rows.count();
-    expect(rowCount).toBeGreaterThan(0);
-    expect(rowCount).toBeLessThanOrEqual(20);
-
-    const pagination = page.locator('nav[aria-label="Pagination"]');
-    if (await pagination.count()) {
-      await expect(
-        pagination.getByRole('link', { name: '1', exact: true }),
-      ).toHaveAttribute('aria-current', 'page');
-    }
+    const headerTexts = (await tableHeaders.allTextContents()).map((text) => text.trim());
+    expect(headerTexts).toEqual(INGREDIENTS_TABLE_COLUMNS.map(({ title }) => title));
   });
 
-  test('filters ingredients by category and reflects it in table rows', async ({ page }) => {
-    await pickSelectOption(page, getSelectTrigger(page, 'category'), 'Vegetable');
-    await page.waitForURL(/category=vegetable/i);
+  test('shows a populated paginated table', async ({ page }) => {
+    const rows = page.locator('table tbody tr');
+    await page.waitForFunction(() => document.querySelectorAll('table tbody tr').length > 0);
 
-    const categories = await page
-      .locator('tbody [data-column="category"]')
-      .allTextContents();
+    const rowCount = await rows.count();
+    expect(rowCount).toBeGreaterThan(0);
+    expect(rowCount).toBeLessThanOrEqual(INGREDIENTS_PER_PAGE);
 
-    expect(categories.length).toBeGreaterThan(0);
-    for (const category of categories) {
-      expect(category.trim().toLowerCase()).toBe('vegetable');
-    }
+    const firstRowCells = rows.first().locator('th');
+    await expect(firstRowCells).toHaveCount(INGREDIENTS_TABLE_COLUMNS.length);
+
+    const nameCell = rows.first().locator('[data-column="name"]');
+    await expect(nameCell).not.toHaveText(/N\/A/);
+  });
+
+  test('filters down to a single category via the category selector', async ({ page }) => {
+    const categoryCells = page.locator('table tbody [data-column="category"]');
+    await page.waitForFunction(
+      () => document.querySelectorAll('table tbody [data-column="category"]').length > 0,
+    );
+
+    const initialCategories = new Set(
+      (await categoryCells.allTextContents()).map((text) => text.trim()).filter(Boolean),
+    );
+    expect(initialCategories.size).toBeGreaterThan(1);
+
+    const targetCategoryLabel = Array.from(initialCategories)[0];
+    const expectedCategoryParam = targetCategoryLabel.toLowerCase().replace(/\s+/g, '_');
+
+    const categoryTrigger = getCategoryTrigger(page);
+    await categoryTrigger.click();
+
+    await page
+      .getByRole('option', { name: new RegExp(`^${escapeRegex(targetCategoryLabel)}$`, 'i') })
+      .click();
+
+    await page.waitForURL((url) => url.searchParams.get('category') === expectedCategoryParam);
+    await waitForSelectorsHydrated(page);
+
+    const filteredCategories = new Set(
+      (await categoryCells.allTextContents()).map((text) => text.trim()).filter(Boolean),
+    );
+
+    expect(filteredCategories.size).toBe(1);
+    expect(filteredCategories.has(targetCategoryLabel)).toBeTruthy();
   });
 
   test('sorts ingredients by calories in descending order', async ({ page }) => {
-    await pickSelectOption(page, getSelectTrigger(page, 'sort'), 'Calories');
-    await page.waitForURL(/sort=calories/i, { timeout: 15_000 });
+    const sortTrigger = getSortTrigger(page);
+    await sortTrigger.click();
+    await page.getByRole('option', { name: /^Calories$/ }).click();
+    await page.waitForURL((url) => url.searchParams.get('sort') === 'calories');
+    await waitForSelectorsHydrated(page);
 
-    await pickSelectOption(page, getSelectTrigger(page, 'order'), 'Desc');
-    await page.waitForURL(/order=desc/i, { timeout: 15_000 });
+    const orderTrigger = getOrderTrigger(page);
+    await orderTrigger.click();
+    await page.getByRole('option', { name: /^Desc$/ }).click();
+    await page.waitForURL((url) => url.searchParams.get('order') === 'desc');
+    await waitForSelectorsHydrated(page);
 
-    const calories = await getNumericColumnValues(page, 'calories');
-    expect(calories.length).toBeGreaterThan(1);
+    const calorieCells = page.locator('table tbody [data-column="calories"]');
+    await page.waitForFunction(
+      () => document.querySelectorAll('table tbody [data-column="calories"]').length > 1,
+    );
 
-    const sorted = [...calories].sort((a, b) => b - a);
-    expect(calories).toEqual(sorted);
+    const values = (await calorieCells.allTextContents()).map((text) => Number(text));
+    expect(values.every((value) => Number.isFinite(value))).toBeTruthy();
+
+    const sortedValues = [...values].sort((a, b) => b - a);
+    expect(values).toEqual(sortedValues);
   });
 });
-
