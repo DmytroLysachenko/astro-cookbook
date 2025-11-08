@@ -1,13 +1,36 @@
 import { defineMiddleware, sequence } from "astro:middleware";
 import { getSession } from "auth-astro/server";
+import type { TUser } from "./services/auth";
 import { getUser } from "./services/auth";
 import { PRIVATE_API_ROUTES, PRIVATE_ROUTES } from "./constants";
+import { PLAYWRIGHT_TEST_USER_DEFAULTS } from "./constants/test-user";
+
+const buildPlaywrightUser = (email: string): TUser => ({
+  id: import.meta.env.PLAYWRIGHT_TEST_USER_ID ?? PLAYWRIGHT_TEST_USER_DEFAULTS.id,
+  name:
+    import.meta.env.PLAYWRIGHT_TEST_USER_NAME ?? PLAYWRIGHT_TEST_USER_DEFAULTS.name,
+  email,
+  avatar:
+    import.meta.env.PLAYWRIGHT_TEST_USER_AVATAR ?? PLAYWRIGHT_TEST_USER_DEFAULTS.avatar,
+  bio: import.meta.env.PLAYWRIGHT_TEST_USER_BIO ?? PLAYWRIGHT_TEST_USER_DEFAULTS.bio,
+  lastActive: new Date(),
+  createdAt: new Date(),
+});
 
 export const authMiddleware = defineMiddleware(async (context, next) => {
   const { url, request } = context;
 
   const isPrivateRoute = PRIVATE_ROUTES.includes(url.pathname);
   const isPrivateApiRoute = PRIVATE_API_ROUTES.includes(url.pathname);
+  const testUserHeader = request.headers.get("x-playwright-user-email");
+
+  if (import.meta.env.DEV && testUserHeader) {
+    context.locals.user = buildPlaywrightUser(testUserHeader);
+
+    if (isPrivateRoute || isPrivateApiRoute) {
+      return next();
+    }
+  }
 
   if (isPrivateRoute || isPrivateApiRoute) {
     const session = await getSession(request);
