@@ -27,7 +27,7 @@ test.describe('My Profile page', () => {
     await expect(page.getByText(TEST_USER_EMAIL)).toBeVisible();
 
     await expect(page.getByRole('heading', { level: 3, name: 'Bio' })).toBeVisible();
-    await expect(page.getByText(TEST_USER_BIO)).toBeVisible();
+    await expect(page.getByText(TEST_USER_BIO, { exact: true })).toBeVisible();
 
     await expect(page.getByRole('button', { name: /^Upload$/i })).toBeVisible();
     await expect(page.getByRole('button', { name: /^Submit$/i })).toBeDisabled();
@@ -58,7 +58,7 @@ test.describe('My Profile page', () => {
     ]);
 
     await expect(page.getByRole('button', { name: /^Edit Bio$/i })).toBeVisible();
-    await expect(page.getByText(updatedBio)).toBeVisible();
+    await expect(page.getByText(updatedBio, { exact: true })).toBeVisible();
   });
 
   test('shows empty state messaging and CTAs for favorites and rated sections', async ({ page }) => {
@@ -88,7 +88,9 @@ test.describe('My Profile page', () => {
   });
 
   test('redirects visitors without auth headers back to home', async ({ browser }) => {
-    const context = await browser.newContext();
+    const context = await browser.newContext({
+      extraHTTPHeaders: {},
+    });
     const page = await context.newPage();
     const targetUrl = new URL(
       '/my-profile',

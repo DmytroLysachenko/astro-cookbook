@@ -17,11 +17,24 @@ const buildPlaywrightUser = (email: string): TUser => ({
   createdAt: new Date(),
 });
 
+const normalizePathname = (pathname: string) => {
+  if (!pathname) {
+    return "/";
+  }
+
+  if (pathname !== "/") {
+    return pathname.replace(/\/+$/, "") || "/";
+  }
+
+  return pathname;
+};
+
 export const authMiddleware = defineMiddleware(async (context, next) => {
   const { url, request } = context;
+  const normalizedPath = normalizePathname(url.pathname);
 
-  const isPrivateRoute = PRIVATE_ROUTES.includes(url.pathname);
-  const isPrivateApiRoute = PRIVATE_API_ROUTES.includes(url.pathname);
+  const isPrivateRoute = PRIVATE_ROUTES.includes(normalizedPath);
+  const isPrivateApiRoute = PRIVATE_API_ROUTES.includes(normalizedPath);
   const testUserHeader = request.headers.get("x-playwright-user-email");
 
   if (import.meta.env.DEV && testUserHeader) {
