@@ -14,14 +14,15 @@ interface Props {
 
 const { slug } = Astro.props;
 
-const session = await getSession(Astro.request);
+let isLoggedIn = Boolean(Astro.locals?.user);
 
-let isLoggedIn = false;
+if (!isLoggedIn) {
+  const session = await getSession(Astro.request);
 
-if (session && session.user && session.user.email) {
-  const user = await getUser(session.user.email, "email");
-
-  isLoggedIn = Boolean(user);
+  if (session && session.user && session.user.email) {
+    const user = await getUser(session.user.email, "email");
+    isLoggedIn = Boolean(user);
+  }
 }
 
 // Fetch comments with user data

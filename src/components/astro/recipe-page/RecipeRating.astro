@@ -10,14 +10,15 @@ interface Props {
 
 const { slug } = Astro.props;
 
-const [session, ratingData] = await Promise.all([
-  getSession(Astro.request),
-  getRatingDataBySlug(slug),
-]);
+const ratingDataPromise = getRatingDataBySlug(slug);
+const sessionPromise = getSession(Astro.request);
 
-let user = null;
+const [ratingData, session] = await Promise.all([ratingDataPromise, sessionPromise]);
+
+let user = Astro.locals?.user ?? null;
 let initialRating = null;
-if (session && session.user && session.user.email) {
+
+if (!user && session && session.user && session.user.email) {
   user = await getUser(session.user.email, "email");
 }
 

@@ -12,14 +12,17 @@ interface Props {
 }
 
 const { slug } = Astro.props;
-const session = await getSession(Astro.request);
+const localsUser = Astro.locals?.user ?? null;
+let user = localsUser;
 
-let user;
-let initialState;
-
-if (session && session.user && session.user.email) {
-  user = await getUser(session.user.email, "email");
+if (!user) {
+  const session = await getSession(Astro.request);
+  if (session && session.user && session.user.email) {
+    user = await getUser(session.user.email, "email");
+  }
 }
+
+let initialState;
 
 if (user) {
   initialState = await db
