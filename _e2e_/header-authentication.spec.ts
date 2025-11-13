@@ -41,11 +41,11 @@ test.describe('Header authentication controls', () => {
       await expect(popoverTrigger).toBeVisible();
       await popoverTrigger.click();
 
-      const profileItem = page.getByRole('listitem', { name: 'My profile' });
-      await expect(profileItem).toBeVisible();
-      await expect(page.getByRole('listitem', { name: 'Log out' })).toBeVisible();
+      const profileButton = page.getByRole('button', { name: 'My profile' });
+      await expect(profileButton).toBeVisible();
+      await expect(page.getByRole('button', { name: 'Log out' })).toBeVisible();
 
-      await Promise.all([page.waitForURL('**/my-profile'), profileItem.click()]);
+      await Promise.all([page.waitForURL('**/my-profile'), profileButton.click()]);
       await expect(page.getByRole('heading', { level: 1, name: 'User Dashboard' })).toBeVisible();
     });
   });

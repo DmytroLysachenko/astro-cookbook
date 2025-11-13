@@ -19,6 +19,8 @@ let userData: TUser | undefined | null;
 
 if (user) {
   userData = { ...user };
+} else if (Astro.locals?.user) {
+  userData = { ...Astro.locals.user };
 } else {
   const session = await getSession(Astro.request);
 
