@@ -26,8 +26,9 @@ const RECIPES_TO_VERIFY: RecipeScenario[] = [
 const TEST_USER_EMAIL =
   process.env.PLAYWRIGHT_TEST_USER_EMAIL ?? PLAYWRIGHT_TEST_USER_DEFAULTS.email;
 
-const interceptIncrementViews = async (page: Page) => {
+const interceptIncrementViews = async (page: Page, onRequest?: () => void) => {
   await page.route('**/api/increment-views', async (route) => {
+    onRequest?.();
     await route.fulfill({
       status: 200,
       contentType: 'application/json',
@@ -59,6 +60,22 @@ test.describe('Recipe details – public experience', () => {
       await expect(page.getByRole('heading', { level: 2, name: /Comments/i })).toBeVisible();
     });
   }
+
+  test('triggers the increment views endpoint once on load', async ({ page }) => {
+    await page.unroute('**/api/increment-views').catch(() => {});
+    let incrementCalls = 0;
+    await interceptIncrementViews(page, () => {
+      incrementCalls += 1;
+    });
+
+    await page.goto(`/recipes/${RECIPES_TO_VERIFY[0].slug}`);
+
+    await expect
+      .poll(() => incrementCalls, {
+        message: 'Expected exactly one increment-views request per page load',
+      })
+      .toBe(1);
+  });
 
   test('hides gated interactions for anonymous visitors', async ({ page }) => {
     await page.goto(`/recipes/${RECIPES_TO_VERIFY[0].slug}`);
