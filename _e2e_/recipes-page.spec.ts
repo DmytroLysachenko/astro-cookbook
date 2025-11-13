@@ -105,4 +105,53 @@ test.describe('Recipes page', () => {
     const cards = page.locator('div.card');
     await expect(cards).toHaveCount(12, { timeout: 15_000 });
   });
+
+  test('reset link clears all active filters and query parameters', async ({ page }) => {
+    await page.getByRole('link', { name: 'Dessert', exact: true }).click();
+    await page.waitForURL(/category=dessert/);
+
+    await expect(page.getByRole('heading', { level: 1, name: 'Dessert Recipes' })).toBeVisible();
+
+    const resetLink = page.getByRole('link', { name: /^Reset$/ });
+    await Promise.all([
+      page.waitForURL((url) => url.pathname === '/recipes' && url.search === ''),
+      resetLink.click(),
+    ]);
+
+    await expect(page.getByRole('heading', { level: 1, name: 'All Recipes' })).toBeVisible();
+    await expect(
+      page.locator('nav[aria-label="Pagination"]').getByRole('link', { name: '1' }),
+    ).toHaveAttribute('aria-current', 'page');
+  });
+
+  test('remembers accordion expansion preferences via localStorage', async ({ browser }) => {
+    const context = await browser.newContext();
+    const newPage = await context.newPage();
+
+    await newPage.goto('/recipes');
+
+    const categoriesButton = newPage.getByRole('button', { name: 'Categories' });
+    const categoriesContent = categoriesButton.locator('..').locator('.accordion-content');
+
+    await expect(categoriesButton).toHaveAttribute('aria-expanded', 'true');
+    await expect(categoriesContent).toBeVisible();
+
+    await categoriesButton.click();
+
+    await expect(categoriesButton).toHaveAttribute('aria-expanded', 'false');
+    await expect(categoriesContent).toBeHidden();
+
+    const storedValue = await newPage.evaluate(() => localStorage.getItem('accordion-category'));
+    expect(storedValue).toBe('false');
+
+    await newPage.reload();
+
+    const categoriesButtonAfterReload = newPage.getByRole('button', { name: 'Categories' });
+    const categoriesContentAfterReload = categoriesButtonAfterReload.locator('..').locator('.accordion-content');
+
+    await expect(categoriesButtonAfterReload).toHaveAttribute('aria-expanded', 'false');
+    await expect(categoriesContentAfterReload).toBeHidden();
+
+    await context.close();
+  });
 });
