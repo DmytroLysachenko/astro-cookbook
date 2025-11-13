@@ -16,6 +16,9 @@ const LoggedAuth = ({ user }: { user: TUser }) => {
     if (loader) loader.style.display = "none";
   });
 
+  const menuButtonClass =
+    "flex w-full items-center gap-2 rounded-md px-2 py-1 text-left transition-all hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40";
+
   return (
     <Popover>
       <PopoverTrigger>
@@ -32,19 +35,21 @@ const LoggedAuth = ({ user }: { user: TUser }) => {
         className="border-t-0 rounded-t-none max-w-36 z-10 backdrop-blur-md bg-background/80 border-muted/40"
       >
         <ul className="flex flex-col gap-2">
-          <li
-            onClick={() => window.location.assign("/my-profile")}
-            className="flex items-center gap-2 cursor-pointer hover:text-secondary transition-all"
-          >
-            <UserIcon className="size-4" />
-            My profile
+          <li>
+            <button
+              type="button"
+              onClick={() => window.location.assign("/my-profile")}
+              className={menuButtonClass}
+            >
+              <UserIcon className="size-4" />
+              My profile
+            </button>
           </li>
-          <li
-            onClick={() => signOut()}
-            className="flex items-center gap-2 cursor-pointer hover:text-secondary transition-all"
-          >
-            <LogOut className="size-4" />
-            Log out
+          <li>
+            <button type="button" onClick={() => signOut()} className={menuButtonClass}>
+              <LogOut className="size-4" />
+              Log out
+            </button>
           </li>
         </ul>
       </PopoverContent>
