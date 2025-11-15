@@ -6,7 +6,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import FilterSidebar from "@/components/astro/filter/FilterSidebar.astro";
 import FilterSkeleton from "@/components/astro/filter/FilterSkeleton.astro";
 import RecipesList from "@/components/astro/recipe-cards/RecipesList.astro";
-import RecipeCardsSekeleton from "@/components/astro/recipe-cards/RecipeCardsSekeleton.astro";
+import RecipeCardsSkeleton from "@/components/astro/recipe-cards/RecipeCardsSkeleton.astro";
 import Pagination from "@/components/astro/pages-structure/Pagination.astro";
 
 export const prerender = false;
@@ -100,7 +100,7 @@ const currentRecipes = filteredRecipes.slice(startIndex, endIndex);
           recipes={currentRecipes}
           server:defer
         >
-          <RecipeCardsSekeleton slot="fallback" />
+          <RecipeCardsSkeleton slot="fallback" />
         </RecipesList>
 
         {
