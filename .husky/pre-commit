@@ -6,5 +6,8 @@ set -e
 echo "Running ESLint..."
 npm run lint:eslint
 
+echo "Running Vitest..."
+npm run test
+
 echo "Running Playwright (chromium)..."
 npm run test:e2e -- --project=chromium
