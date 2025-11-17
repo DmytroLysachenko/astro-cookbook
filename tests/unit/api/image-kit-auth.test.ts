@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
-import { GET as getImagekitAuth } from "../image-kit/auth";
+import { GET as getImagekitAuth } from "@/pages/api/image-kit/auth";
 
 const { mockGetAuthParams } = vi.hoisted(() => ({
   mockGetAuthParams: vi.fn(),

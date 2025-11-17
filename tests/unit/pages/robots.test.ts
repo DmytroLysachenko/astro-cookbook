@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { GET as getRobotsTxt } from "../robots.txt";
+import { GET as getRobotsTxt } from "@/pages/robots.txt";
 
 describe("robots.txt GET route", () => {
   it("returns robots.txt content with sitemap URL", async () => {

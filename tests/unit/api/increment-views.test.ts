@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
-import { POST as incrementViews } from "../increment-views";
+import { POST as incrementViews } from "@/pages/api/increment-views";
 
 const mocks = vi.hoisted(() => {
   const mockSelect = vi.fn().mockReturnThis();

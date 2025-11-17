@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { GET as getComments } from "../comments/index";
+import { GET as getComments } from "@/pages/api/comments/index";
 
 const mocks = vi.hoisted(() => {
   const mockOffset = vi.fn();

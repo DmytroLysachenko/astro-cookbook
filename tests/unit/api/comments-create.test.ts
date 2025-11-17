@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
-import { POST as createComment } from "../comments/create";
+import { POST as createComment } from "@/pages/api/comments/create";
 
 const mocks = vi.hoisted(() => {
   const mockInsert = vi.fn().mockReturnThis();
