@@ -1,8 +1,12 @@
 import { describe, expect, it, vi } from "vitest";
 
 import {
+  cn,
+  capitalize,
   buildFilterUrl,
   calculateNutritionFacts,
+  formatNumber,
+  formatString,
   formatTableValue,
   getPageNumbers,
 } from "@/lib/utils";
@@ -19,6 +23,10 @@ describe("getPageNumbers", () => {
   it("keeps early pages visible near the start", () => {
     expect(getPageNumbers(10, 2)).toEqual([1, 2, 3, 4, "...", 10]);
   });
+
+  it("shows trailing pages with ellipsis near the end", () => {
+    expect(getPageNumbers(7, 7)).toEqual([1, "...", 4, 5, 6, 7]);
+  });
 });
 
 describe("buildFilterUrl", () => {
@@ -30,6 +38,16 @@ describe("buildFilterUrl", () => {
     });
 
     expect(url).toBe("/recipes?q=cake&tag=dessert");
+  });
+
+  it("omits parameters that are falsy", () => {
+    const url = buildFilterUrl("/recipes", {
+      q: "",
+      page: "2",
+      tag: undefined,
+    });
+
+    expect(url).toBe("/recipes?page=2");
   });
 });
 
@@ -120,5 +138,45 @@ describe("calculateNutritionFacts", () => {
     expect(warnSpy).toHaveBeenCalled();
 
     warnSpy.mockRestore();
+  });
+
+  it("skips ingredients without nutrition data or invalid weights", () => {
+    const warnSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
+
+    const result = calculateNutritionFacts(
+      [
+        { id: 3, name: "Unknown", quantity: "50g", grams: 50 },
+        { id: 1, name: "Tomato", quantity: "100g", grams: 0 },
+      ],
+      nutritionData,
+    );
+
+    expect(result).toEqual(
+      expect.objectContaining({
+        calories: 0,
+        totalFat: 0,
+        protein: 0,
+      }),
+    );
+    expect(warnSpy).toHaveBeenCalledTimes(2);
+
+    warnSpy.mockRestore();
+  });
+});
+
+describe("string and class formatters", () => {
+  it("merges tailwind classes with cn", () => {
+    expect(cn("text-red-500", "text-blue-500")).toBe("text-blue-500");
+  });
+
+  it("capitalizes and prettifies strings", () => {
+    expect(capitalize("hello")).toBe("Hello");
+    expect(capitalize("")).toBe("");
+    expect(formatString("  hello_world ")).toBe("Hello world");
+  });
+
+  it("formats numbers consistently", () => {
+    expect(formatNumber(10)).toBe("10.0");
+    expect(formatNumber("3.456", 2)).toBe("3.46");
   });
 });
