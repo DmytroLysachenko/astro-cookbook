@@ -24,6 +24,10 @@ vi.mock("@/db/schema/comments", () => ({
 }));
 
 describe("comments POST route", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
   it("inserts a comment and returns the created row", async () => {
     const { mockInsert, mockValues, mockReturning } = getMocks();
     const created = [{ id: 1, recipeSlug: "abc", commentText: "Great!" }];
@@ -73,6 +77,28 @@ describe("comments POST route", () => {
     } as any);
 
     expect(response.status).toBe(500);
+    await expect(response.json()).resolves.toEqual({
+      error: "Internal Server Error",
+    });
+
+    errorSpy.mockRestore();
+  });
+
+  it("returns 500 when user is missing and stops before inserting values", async () => {
+    const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+    const { mockInsert, mockValues } = getMocks();
+
+    const response = await createComment({
+      request: new Request("http://localhost/api/comments", {
+        method: "POST",
+        body: JSON.stringify({ recipeSlug: "abc", commentText: "Hi" }),
+      }),
+      locals: { user: undefined },
+    } as any);
+
+    expect(response.status).toBe(500);
+    expect(mockInsert).toHaveBeenCalledTimes(1);
+    expect(mockValues).not.toHaveBeenCalled();
     await expect(response.json()).resolves.toEqual({
       error: "Internal Server Error",
     });

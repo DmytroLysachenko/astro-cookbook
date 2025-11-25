@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { and, eq } from "drizzle-orm";
 
 import { POST as rateRecipe } from "@/pages/api/recipe/rate";
 
@@ -92,6 +93,45 @@ describe("recipe rate POST route", () => {
     expect(response.status).toBe(200);
   });
 
+  it("builds the rating lookup query with user and recipe slug", async () => {
+    const {
+      mockSelect,
+      mockFrom,
+      mockWhere,
+      mockUpdate,
+      mockSet,
+      mockUpdateWhere,
+    } = getMocks();
+
+    mockSelect.mockReturnValueOnce({ from: mockFrom });
+    mockFrom.mockReturnValueOnce({ where: mockWhere });
+    mockWhere.mockReturnValueOnce({
+      then: (cb: any) => Promise.resolve(cb([{ rate: 2 }])),
+    });
+
+    mockUpdate.mockReturnValueOnce({ set: mockSet });
+    mockSet.mockReturnValueOnce({ where: mockUpdateWhere });
+
+    const response = await rateRecipe({
+      request: request({ recipeSlug: "slug-1", rating: 5 }),
+      locals: { user: { id: "user-10" } },
+    } as any);
+
+    expect(mockFrom).toHaveBeenCalledWith({
+      userId: "userId",
+      recipeSlug: "recipeSlug",
+      rate: "rate",
+    });
+    expect(eq).toHaveBeenCalledWith("userId", "user-10");
+    expect(eq).toHaveBeenCalledWith("recipeSlug", "slug-1");
+    expect(and).toHaveBeenCalledTimes(2);
+    expect(mockWhere).toHaveBeenCalledWith([
+      ["userId", "user-10"],
+      ["recipeSlug", "slug-1"],
+    ]);
+    await expect(response.json()).resolves.toEqual({ success: true });
+  });
+
   it("inserts a new rating when user has not rated before", async () => {
     const { mockSelect, mockFrom, mockWhere, mockInsert, mockValues } =
       getMocks();
@@ -138,5 +178,24 @@ describe("recipe rate POST route", () => {
       error: "Internal Server Error",
     });
     errSpy.mockRestore();
+  });
+
+  it("returns 500 when request JSON is invalid", async () => {
+    const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+
+    const response = await rateRecipe({
+      request: new Request("http://localhost/api/recipe/rate", {
+        method: "POST",
+        body: "not-json",
+      }),
+      locals: { user: { id: "user-99" } },
+    } as any);
+
+    expect(response.status).toBe(500);
+    await expect(response.json()).resolves.toEqual({
+      error: "Internal Server Error",
+    });
+
+    errorSpy.mockRestore();
   });
 });

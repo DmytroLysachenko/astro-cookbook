@@ -49,6 +49,15 @@ describe("buildFilterUrl", () => {
 
     expect(url).toBe("/recipes?page=2");
   });
+
+  it("returns the base path when no params remain", () => {
+    const url = buildFilterUrl("/recipes", {
+      q: "",
+      tag: undefined,
+    });
+
+    expect(url).toBe("/recipes");
+  });
 });
 
 describe("formatTableValue", () => {
@@ -178,5 +187,11 @@ describe("string and class formatters", () => {
   it("formats numbers consistently", () => {
     expect(formatNumber(10)).toBe("10.0");
     expect(formatNumber("3.456", 2)).toBe("3.46");
+    expect(formatNumber("invalid")).toBe("NaN");
+  });
+
+  it("falls back to prettified strings in formatTableValue", () => {
+    expect(formatTableValue("already nice")).toBe("Already nice");
+    expect(formatTableValue(undefined)).toBe("N/A");
   });
 });
