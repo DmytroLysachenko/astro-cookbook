@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { GET as getComments } from "@/pages/api/comments/index";
 
@@ -61,8 +61,15 @@ vi.mock("@/db/schema/users", () => ({
 }));
 
 describe("comments GET route", () => {
+  let consoleErrorSpy: ReturnType<typeof vi.spyOn>;
+
   beforeEach(() => {
+    consoleErrorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
     vi.clearAllMocks();
+  });
+
+  afterEach(() => {
+    consoleErrorSpy.mockRestore();
   });
 
   it("returns 400 when recipeSlug is missing", async () => {
@@ -106,5 +113,23 @@ describe("comments GET route", () => {
 
     expect(response.status).toBe(200);
     await expect(response.json()).resolves.toEqual(mockComments);
+  });
+
+  it("returns 500 when database query fails", async () => {
+    const dbError = new Error("DB exploded");
+    mockOffset.mockRejectedValueOnce(dbError);
+
+    const response = await getComments({
+      url: new URL("http://localhost/api/comments?recipeSlug=abc"),
+    } as any);
+
+    expect(response.status).toBe(500);
+    await expect(response.json()).resolves.toEqual({
+      error: "Internal Server Error",
+    });
+    expect(consoleErrorSpy).toHaveBeenCalledWith(
+      "Error fetching comments:",
+      dbError,
+    );
   });
 });
