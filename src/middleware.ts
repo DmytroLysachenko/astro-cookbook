@@ -92,7 +92,11 @@ export const authMiddleware = defineMiddleware(async (context, next) => {
 export const notFoundMiddleware = defineMiddleware(async (context, next) => {
   const response = await next();
 
-  if (response.status === 404 && !context.url.pathname.startsWith("/api")) {
+  const path = context.url.pathname;
+  const isApiRequest = path.startsWith("/api");
+  const bypassPaths = ["/sitemap-index.xml", "/sitemap.xml", "/robots.txt"];
+
+  if (response.status === 404 && !isApiRequest && !bypassPaths.includes(path)) {
     return Response.redirect(new URL("/", context.url.origin), 302);
   }
 
