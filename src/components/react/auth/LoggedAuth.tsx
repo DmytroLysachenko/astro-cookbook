@@ -14,7 +14,7 @@ const LoggedAuth = ({ user }: { user: TUser }) => {
   useEffect(() => {
     const loader = document.getElementById("user-data-loader");
     if (loader) loader.style.display = "none";
-  });
+  }, []);
 
   const menuButtonClass =
     "flex w-full items-center gap-2 rounded-md px-2 py-1 text-left transition-all hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40";

@@ -29,18 +29,16 @@ if (user) {
 
 <section>
   <p>
-    ⭐ <strong>Rating:</strong>
-    {parseFloat(ratingData?.rating ?? "0")} / 5 ⭐
+    <strong>Rating:</strong> {parseFloat(ratingData?.rating ?? "0")} / 5
   </p>
-  <p>👥 <strong>Rating Count:</strong> {ratingData?.ratingCount ?? 0}</p>
-  <p>👀 <strong>Views:</strong> {ratingData?.views ?? 0}</p>
+  <p><strong>Rating Count:</strong> {ratingData?.ratingCount ?? 0}</p>
+  <p><strong>Views:</strong> {ratingData?.views ?? 0}</p>
 
   {
     user && (
       <RateRecipe
         client:only="react"
         recipeSlug={slug}
-        userId={user.id}
         initialRating={initialRating ?? 0}
       />
     )

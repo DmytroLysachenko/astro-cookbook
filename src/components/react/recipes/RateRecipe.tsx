@@ -1,13 +1,11 @@
 import { useState } from "react";
 
-const StarRating = ({
-  recipeSlug,
-  initialRating = 0,
-}: {
+type StarRatingProps = {
   recipeSlug: string;
-  userId: string;
   initialRating?: number;
-}) => {
+};
+
+const StarRating = ({ recipeSlug, initialRating = 0 }: StarRatingProps) => {
   const [rating, setRating] = useState(initialRating);
 
   const rateRecipe = async (newRating: number) => {

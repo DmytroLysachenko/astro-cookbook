@@ -8,7 +8,7 @@ const PublicAuth = () => {
   useEffect(() => {
     const loader = document.getElementById("user-data-loader");
     if (loader) loader.style.display = "none";
-  });
+  }, []);
 
   return (
     <div className="flex gap-1 md:gap-2 lg:gap-3 items-center justify-end">

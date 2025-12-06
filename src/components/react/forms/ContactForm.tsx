@@ -17,20 +17,20 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 
+const formSchema = z.object({
+  firstName: z.string().min(2, "First name must be at least 2 characters"),
+  lastName: z.string().min(2, "Last name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  subject: z.string().min(5, "Subject must be at least 5 characters"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   useEffect(() => {
     const loader = document.getElementById("form-loader");
     if (loader) loader.style.display = "none";
   }, []);
-
-  const formSchema = z.object({
-    firstName: z.string().min(2, "First name must be at least 2 characters"),
-    lastName: z.string().min(2, "Last name must be at least 2 characters"),
-    email: z.string().email("Please enter a valid email address"),
-    subject: z.string().min(5, "Subject must be at least 5 characters"),
-    message: z.string().min(10, "Message must be at least 10 characters"),
-  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
