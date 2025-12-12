@@ -19,6 +19,11 @@ const SubscribeForm = () => {
           e.preventDefault();
           const formData = new FormData(e.currentTarget);
           const email = formData.get("email");
+
+          if (typeof email !== "string" || email.trim() === "") {
+            toast.error("Please provide a valid email address.");
+            return;
+          }
           try {
             await fetch("/api/subscribe", {
               method: "POST",

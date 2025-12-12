@@ -1,6 +1,7 @@
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { POST as createComment } from "@/pages/api/comments/create";
+import { buildTestUser, runApiRoute } from "./test-utils";
 
 const mocks = vi.hoisted(() => {
   const mockInsert = vi.fn().mockReturnThis();
@@ -41,18 +42,18 @@ describe("comments POST route", () => {
       returning: mockReturning,
     });
 
-    const response = await createComment({
+    const response = await runApiRoute(createComment, {
       request: new Request("http://localhost/api/comments", {
         method: "POST",
         body: JSON.stringify({ recipeSlug: "abc", commentText: "Great!" }),
       }),
-      locals: { user: { id: 42 } },
-    } as any);
+      locals: { user: buildTestUser({ id: "42" }) },
+    });
 
     expect(mockInsert).toHaveBeenCalledWith("comments-table");
     expect(mockValues).toHaveBeenCalledWith({
       recipeSlug: "abc",
-      userId: 42,
+      userId: "42",
       commentText: "Great!",
     });
     expect(mockReturning).toHaveBeenCalled();
@@ -68,13 +69,13 @@ describe("comments POST route", () => {
       throw new Error("db error");
     });
 
-    const response = await createComment({
+    const response = await runApiRoute(createComment, {
       request: new Request("http://localhost/api/comments", {
         method: "POST",
         body: JSON.stringify({ recipeSlug: "abc", commentText: "Oops" }),
       }),
-      locals: { user: { id: 1 } },
-    } as any);
+      locals: { user: buildTestUser({ id: "1" }) },
+    });
 
     expect(response.status).toBe(500);
     await expect(response.json()).resolves.toEqual({
@@ -88,13 +89,13 @@ describe("comments POST route", () => {
     const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
     const { mockInsert, mockValues } = getMocks();
 
-    const response = await createComment({
+    const response = await runApiRoute(createComment, {
       request: new Request("http://localhost/api/comments", {
         method: "POST",
         body: JSON.stringify({ recipeSlug: "abc", commentText: "Hi" }),
       }),
       locals: { user: undefined },
-    } as any);
+    });
 
     expect(response.status).toBe(500);
     expect(mockInsert).toHaveBeenCalledTimes(1);

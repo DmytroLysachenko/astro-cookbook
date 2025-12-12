@@ -7,39 +7,44 @@ import { views } from "@/db/schema/views";
 export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
-  const { recipeSlug } = await request.json();
-
-  if (!recipeSlug) {
-    return new Response(JSON.stringify({ error: "Recipe slug is required" }), {
-      status: 400,
+  const sendJson = (body: unknown, status: number) =>
+    new Response(JSON.stringify(body), {
+      status,
       headers: { "Content-Type": "application/json" },
     });
+
+  let recipeSlug: unknown;
+  try {
+    ({ recipeSlug } = await request.json());
+  } catch (error) {
+    console.error("Error parsing increment views body:", error);
+    return sendJson({ error: "Internal Server Error" }, 500);
   }
+
+  if (typeof recipeSlug !== "string" || recipeSlug.trim() === "") {
+    return sendJson({ error: "Recipe slug is required" }, 400);
+  }
+
+  const slugFilter = eq(views.recipeSlug, recipeSlug);
 
   try {
     const existingView = await db
       .select()
       .from(views)
-      .where(eq(views.recipeSlug, recipeSlug));
+      .where(slugFilter);
 
     if (existingView.length > 0) {
       await db
         .update(views)
         .set({ count: existingView[0].count + 1 })
-        .where(eq(views.recipeSlug, recipeSlug));
+        .where(slugFilter);
     } else {
       await db.insert(views).values({ recipeSlug, count: 1 });
     }
 
-    return new Response(JSON.stringify({ success: true }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+    return sendJson({ success: true }, 200);
   } catch (error) {
-    console.error("Error rating recipe:", error);
-    return new Response(JSON.stringify({ error: "Internal Server Error" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    console.error("Error incrementing recipe views:", error);
+    return sendJson({ error: "Internal Server Error" }, 500);
   }
 };

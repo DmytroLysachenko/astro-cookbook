@@ -16,11 +16,17 @@ const AddToFavoriteButton = ({
   const handleClick = async () => {
     setIsLoading(true);
     try {
-      await fetch("/api/recipe/like", {
+      const response = await fetch("/api/recipe/like", {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ recipeSlug: slug }),
       });
-      setIsLiked(!isLiked);
+
+      if (!response.ok) {
+        throw new Error("Failed to toggle like");
+      }
+
+      setIsLiked((prev) => !prev);
     } catch (error) {
       console.error(error);
     } finally {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { type FormEvent, useState } from "react";
 
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -12,9 +12,8 @@ const CommentInput = ({ recipeSlug, onCommentAdded }: CommentInputProps) => {
   const [commentText, setCommentText] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    console.log("start submitting");
-    e.preventDefault();
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setIsSubmitting(true);
 
     try {
@@ -41,7 +40,7 @@ const CommentInput = ({ recipeSlug, onCommentAdded }: CommentInputProps) => {
   };
 
   return (
-    <form onSubmit={async (e) => await handleSubmit(e)} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <Textarea
         value={commentText}
         onChange={(e) => setCommentText(e.target.value)}

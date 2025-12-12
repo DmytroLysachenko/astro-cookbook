@@ -9,7 +9,7 @@ import { COMMENTS_PER_PAGE } from "@/constants";
 interface Comment {
   id: string;
   commentText: string;
-  createdAt: Date;
+  createdAt: Date | string;
   user: {
     id: string;
     name: string;
@@ -42,7 +42,7 @@ const DynamicCommentsSection = ({
         `/api/comments?recipeSlug=${recipeSlug}&page=${pageNumber}&limit=${COMMENTS_PER_PAGE}`,
       );
       if (response.ok) {
-        const newComments = await response.json();
+        const newComments: Comment[] = await response.json();
         if (pageNumber === 1) {
           setComments(newComments);
         } else {
@@ -63,7 +63,7 @@ const DynamicCommentsSection = ({
 
   const handleCommentAdded = () => {
     fetchComments(1);
-    setTotalComments(totalComments + 1);
+    setTotalComments((prev) => prev + 1);
   };
 
   const hasMoreComments = comments.length < totalComments;

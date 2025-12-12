@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { and, eq } from "drizzle-orm";
 
 import { POST as rateRecipe } from "@/pages/api/recipe/rate";
+import { buildTestUser, runApiRoute } from "./test-utils";
 
 const mocks = vi.hoisted(() => {
   const mockSelect = vi.fn();
@@ -62,10 +63,10 @@ describe("recipe rate POST route", () => {
   });
 
   it("returns 404 when user is missing", async () => {
-    const response = await rateRecipe({
+    const response = await runApiRoute(rateRecipe, {
       request: request({ recipeSlug: "abc", rating: 5 }),
       locals: {},
-    } as any);
+    });
 
     expect(response.status).toBe(404);
     await expect(response.json()).resolves.toEqual({ error: "User not found" });
@@ -83,10 +84,10 @@ describe("recipe rate POST route", () => {
     mockUpdate.mockReturnValueOnce({ set: mockSet });
     mockSet.mockReturnValueOnce({ where: getMocks().mockUpdateWhere });
 
-    const response = await rateRecipe({
+    const response = await runApiRoute(rateRecipe, {
       request: request({ recipeSlug: "abc", rating: 4 }),
-      locals: { user: { id: "u1" } },
-    } as any);
+      locals: { user: buildTestUser({ id: "u1" }) },
+    });
 
     expect(mockUpdate).toHaveBeenCalled();
     expect(getMocks().mockUpdateWhere).toHaveBeenCalled();
@@ -112,10 +113,10 @@ describe("recipe rate POST route", () => {
     mockUpdate.mockReturnValueOnce({ set: mockSet });
     mockSet.mockReturnValueOnce({ where: mockUpdateWhere });
 
-    const response = await rateRecipe({
+    const response = await runApiRoute(rateRecipe, {
       request: request({ recipeSlug: "slug-1", rating: 5 }),
-      locals: { user: { id: "user-10" } },
-    } as any);
+      locals: { user: buildTestUser({ id: "user-10" }) },
+    });
 
     expect(mockFrom).toHaveBeenCalledWith({
       userId: "userId",
@@ -145,10 +146,10 @@ describe("recipe rate POST route", () => {
     mockInsert.mockReturnValueOnce({ values: mockValues });
     mockValues.mockReturnValueOnce({});
 
-    const response = await rateRecipe({
+    const response = await runApiRoute(rateRecipe, {
       request: request({ recipeSlug: "abc", rating: 5 }),
-      locals: { user: { id: "u1" } },
-    } as any);
+      locals: { user: buildTestUser({ id: "u1" }) },
+    });
 
     expect(mockInsert).toHaveBeenCalled();
     expect(mockValues).toHaveBeenCalledWith(
@@ -168,10 +169,10 @@ describe("recipe rate POST route", () => {
       throw new Error("db down");
     });
 
-    const response = await rateRecipe({
+    const response = await runApiRoute(rateRecipe, {
       request: request({ recipeSlug: "abc", rating: 1 }),
-      locals: { user: { id: "u1" } },
-    } as any);
+      locals: { user: buildTestUser({ id: "u1" }) },
+    });
 
     expect(response.status).toBe(500);
     await expect(response.json()).resolves.toEqual({
@@ -183,13 +184,13 @@ describe("recipe rate POST route", () => {
   it("returns 500 when request JSON is invalid", async () => {
     const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
 
-    const response = await rateRecipe({
+    const response = await runApiRoute(rateRecipe, {
       request: new Request("http://localhost/api/recipe/rate", {
         method: "POST",
         body: "not-json",
       }),
-      locals: { user: { id: "user-99" } },
-    } as any);
+      locals: { user: buildTestUser({ id: "user-99" }) },
+    });
 
     expect(response.status).toBe(500);
     await expect(response.json()).resolves.toEqual({

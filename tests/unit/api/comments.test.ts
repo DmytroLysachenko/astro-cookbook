@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { GET as getComments } from "@/pages/api/comments/index";
+import { runApiRoute } from "./test-utils";
 
 const mocks = vi.hoisted(() => {
   const mockOffset = vi.fn();
@@ -73,9 +74,10 @@ describe("comments GET route", () => {
   });
 
   it("returns 400 when recipeSlug is missing", async () => {
-    const response = await getComments({
+    const response = await runApiRoute(getComments, {
+      request: new Request("http://localhost/api/comments"),
       url: new URL("http://localhost/api/comments"),
-    } as any);
+    });
 
     expect(response.status).toBe(400);
     await expect(response.json()).resolves.toEqual({
@@ -96,11 +98,14 @@ describe("comments GET route", () => {
 
     mockOffset.mockResolvedValueOnce(mockComments);
 
-    const response = await getComments({
+    const response = await runApiRoute(getComments, {
+      request: new Request(
+        "http://localhost/api/comments?recipeSlug=abc&page=2&limit=5",
+      ),
       url: new URL(
         "http://localhost/api/comments?recipeSlug=abc&page=2&limit=5",
       ),
-    } as any);
+    });
 
     expect(mockSelect).toHaveBeenCalledWith({
       id: "id",
@@ -119,9 +124,10 @@ describe("comments GET route", () => {
     const dbError = new Error("DB exploded");
     mockOffset.mockRejectedValueOnce(dbError);
 
-    const response = await getComments({
+    const response = await runApiRoute(getComments, {
+      request: new Request("http://localhost/api/comments?recipeSlug=abc"),
       url: new URL("http://localhost/api/comments?recipeSlug=abc"),
-    } as any);
+    });
 
     expect(response.status).toBe(500);
     await expect(response.json()).resolves.toEqual({

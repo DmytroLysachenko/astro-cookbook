@@ -11,6 +11,28 @@ import {
 } from "drizzle-orm";
 
 export type TRecipe = InferInsertModel<typeof rates>;
+type RawRatingRow = {
+  slug: string | null;
+  rating: number | string | null;
+  ratingCount: number;
+  views: number | null;
+};
+
+export type RatingData = NonNullable<ReturnType<typeof normalizeRatingRow>>;
+
+const normalizeRatingRow = (row?: RawRatingRow | null) => {
+  if (!row || !row.slug) {
+    return null;
+  }
+
+  return {
+    ...row,
+    slug: row.slug,
+    rating: Number(row.rating ?? 0),
+    ratingCount: Number(row.ratingCount),
+    views: Number(row.views ?? 0),
+  };
+};
 
 export const getRatingDataBySlugArray = async (recipesSlugs: string[]) => {
   const result = await db
@@ -25,7 +47,9 @@ export const getRatingDataBySlugArray = async (recipesSlugs: string[]) => {
     .where(inArray(views.recipeSlug, recipesSlugs))
     .groupBy(views.recipeSlug, rates.recipeSlug)
     .then((rows) =>
-      rows.map((row) => ({ ...row, rating: Number(row.rating) })),
+      rows
+        .map((row) => normalizeRatingRow(row))
+        .filter(Boolean) as RatingData[],
     );
 
   return result;
@@ -43,7 +67,7 @@ export const getRatingDataBySlug = async (recipeSlug: string) => {
     .leftJoin(rates, eq(rates.recipeSlug, views.recipeSlug))
     .where(eq(views.recipeSlug, recipeSlug))
     .groupBy(views.recipeSlug, rates.recipeSlug)
-    .then((rows) => rows[0] ?? null);
+    .then((rows) => normalizeRatingRow(rows[0]));
 
   return result;
 };

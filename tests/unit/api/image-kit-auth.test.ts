@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 
 import { GET as getImagekitAuth } from "@/pages/api/image-kit/auth";
+import { runApiRoute } from "./test-utils";
 
 const { mockGetAuthParams } = vi.hoisted(() => ({
   mockGetAuthParams: vi.fn(),
@@ -17,7 +18,9 @@ describe("image-kit auth GET route", () => {
     const params = { token: "token", signature: "sig" };
     mockGetAuthParams.mockReturnValueOnce(params);
 
-    const response = await getImagekitAuth({} as any);
+    const response = await runApiRoute(getImagekitAuth, {
+      request: new Request("http://localhost/api/image-kit/auth"),
+    });
 
     expect(response.status).toBe(200);
     await expect(response.json()).resolves.toEqual(params);
@@ -29,7 +32,9 @@ describe("image-kit auth GET route", () => {
       throw { message: "auth failed" };
     });
 
-    const response = await getImagekitAuth({} as any);
+    const response = await runApiRoute(getImagekitAuth, {
+      request: new Request("http://localhost/api/image-kit/auth"),
+    });
 
     expect(response.status).toBe(500);
     await expect(response.json()).resolves.toEqual({

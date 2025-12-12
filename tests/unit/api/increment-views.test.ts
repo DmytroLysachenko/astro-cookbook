@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 
 import { POST as incrementViews } from "@/pages/api/increment-views";
+import { runApiRoute } from "./test-utils";
 
 const mocks = vi.hoisted(() => {
   const mockSelect = vi.fn().mockReturnThis();
@@ -46,12 +47,12 @@ vi.mock("drizzle-orm", () => ({
 describe("increment views POST route", () => {
   it("returns 400 when recipeSlug is missing", async () => {
     const { mockSelect } = getMocks();
-    const response = await incrementViews({
+    const response = await runApiRoute(incrementViews, {
       request: new Request("http://localhost/api/increment-views", {
         method: "POST",
         body: JSON.stringify({}),
       }),
-    } as any);
+    });
 
     expect(response.status).toBe(400);
     await expect(response.json()).resolves.toEqual({
@@ -76,12 +77,12 @@ describe("increment views POST route", () => {
       where: mockWhere,
     });
 
-    const response = await incrementViews({
+    const response = await runApiRoute(incrementViews, {
       request: new Request("http://localhost/api/increment-views", {
         method: "POST",
         body: JSON.stringify({ recipeSlug: "abc" }),
       }),
-    } as any);
+    });
 
     expect(mockUpdate).toHaveBeenCalled();
     expect(mockSet).toHaveBeenCalledWith({ count: 3 });
@@ -105,12 +106,12 @@ describe("increment views POST route", () => {
       values: mockValues,
     });
 
-    const response = await incrementViews({
+    const response = await runApiRoute(incrementViews, {
       request: new Request("http://localhost/api/increment-views", {
         method: "POST",
         body: JSON.stringify({ recipeSlug: "abc" }),
       }),
-    } as any);
+    });
 
     expect(mockInsert).toHaveBeenCalled();
     expect(mockValues).toHaveBeenCalledWith({ recipeSlug: "abc", count: 1 });
@@ -125,12 +126,12 @@ describe("increment views POST route", () => {
       throw new Error("db fail");
     });
 
-    const response = await incrementViews({
+    const response = await runApiRoute(incrementViews, {
       request: new Request("http://localhost/api/increment-views", {
         method: "POST",
         body: JSON.stringify({ recipeSlug: "abc" }),
       }),
-    } as any);
+    });
 
     expect(response.status).toBe(500);
     await expect(response.json()).resolves.toEqual({

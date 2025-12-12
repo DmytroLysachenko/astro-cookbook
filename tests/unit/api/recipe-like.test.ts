@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { and, eq } from "drizzle-orm";
 
 import { POST as toggleLike } from "@/pages/api/recipe/like";
+import { buildTestUser, runApiRoute } from "./test-utils";
 
 const mocks = vi.hoisted(() => {
   const mockSelect = vi.fn();
@@ -58,10 +59,10 @@ describe("recipe like POST route", () => {
   });
 
   it("returns 404 when user is missing", async () => {
-    const response = await toggleLike({
+    const response = await runApiRoute(toggleLike, {
       request: request({ recipeSlug: "abc" }),
       locals: {},
-    } as any);
+    });
 
     expect(response.status).toBe(404);
     await expect(response.json()).resolves.toEqual({ error: "User not found" });
@@ -77,10 +78,10 @@ describe("recipe like POST route", () => {
       then: (cb: any) => Promise.resolve(cb([{ id: 1 }])),
     });
 
-    const response = await toggleLike({
+    const response = await runApiRoute(toggleLike, {
       request: request({ recipeSlug: "abc" }),
-      locals: { user: { id: "user-1" } },
-    } as any);
+      locals: { user: buildTestUser({ id: "user-1" }) },
+    });
 
     expect(mockUnLikeRecipe).toHaveBeenCalledWith("user-1", "abc");
     expect(mockLikeRecipe).not.toHaveBeenCalled();
@@ -97,10 +98,10 @@ describe("recipe like POST route", () => {
       then: (cb: any) => Promise.resolve(cb([])),
     });
 
-    const response = await toggleLike({
+    const response = await runApiRoute(toggleLike, {
       request: request({ recipeSlug: "abc" }),
-      locals: { user: { id: "user-1" } },
-    } as any);
+      locals: { user: buildTestUser({ id: "user-1" }) },
+    });
 
     expect(mockLikeRecipe).toHaveBeenCalledWith("user-1", "abc");
     expect(mockUnLikeRecipe).not.toHaveBeenCalled();
@@ -116,10 +117,10 @@ describe("recipe like POST route", () => {
       then: (cb: any) => Promise.resolve(cb([])),
     });
 
-    const response = await toggleLike({
+    const response = await runApiRoute(toggleLike, {
       request: request({ recipeSlug: "slug-123" }),
-      locals: { user: { id: "user-2" } },
-    } as any);
+      locals: { user: buildTestUser({ id: "user-2" }) },
+    });
 
     expect(mockFrom).toHaveBeenCalledWith({
       userId: "userId",
@@ -142,10 +143,10 @@ describe("recipe like POST route", () => {
       throw new Error("db failure");
     });
 
-    const response = await toggleLike({
+    const response = await runApiRoute(toggleLike, {
       request: request({ recipeSlug: "abc" }),
-      locals: { user: { id: "user-1" } },
-    } as any);
+      locals: { user: buildTestUser({ id: "user-1" }) },
+    });
 
     expect(response.status).toBe(500);
     await expect(response.json()).resolves.toEqual({
@@ -157,13 +158,13 @@ describe("recipe like POST route", () => {
   it("returns 500 when request JSON is invalid", async () => {
     const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
 
-    const response = await toggleLike({
+    const response = await runApiRoute(toggleLike, {
       request: new Request("http://localhost/api/recipe/like", {
         method: "POST",
         body: "not-json",
       }),
-      locals: { user: { id: "user-3" } },
-    } as any);
+      locals: { user: buildTestUser({ id: "user-3" }) },
+    });
 
     expect(response.status).toBe(500);
     await expect(response.json()).resolves.toEqual({
