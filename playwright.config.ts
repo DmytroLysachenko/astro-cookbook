@@ -72,8 +72,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command:
-      process.env.PLAYWRIGHT_WEB_SERVER ?? "npm run dev -- --host --port 4321",
+    command: process.env.PLAYWRIGHT_WEB_SERVER ?? "pnpm dev --host --port 4321",
     url: process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:4321",
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
