@@ -37,7 +37,7 @@ const normalizeRatingRow = (row?: RawRatingRow | null) => {
 export const getRatingDataBySlugArray = async (recipesSlugs: string[]) => {
   const result = await db
     .select({
-      slug: rates.recipeSlug,
+      slug: views.recipeSlug,
       rating: avg(rates.rate),
       ratingCount: count(rates.rate),
       views: views.count,
@@ -45,11 +45,12 @@ export const getRatingDataBySlugArray = async (recipesSlugs: string[]) => {
     .from(views)
     .leftJoin(rates, eq(rates.recipeSlug, views.recipeSlug))
     .where(inArray(views.recipeSlug, recipesSlugs))
-    .groupBy(views.recipeSlug, rates.recipeSlug)
-    .then((rows) =>
-      rows
-        .map((row) => normalizeRatingRow(row))
-        .filter(Boolean) as RatingData[],
+    .groupBy(views.recipeSlug)
+    .then(
+      (rows) =>
+        rows
+          .map((row) => normalizeRatingRow(row))
+          .filter(Boolean) as RatingData[],
     );
 
   return result;
@@ -58,7 +59,7 @@ export const getRatingDataBySlugArray = async (recipesSlugs: string[]) => {
 export const getRatingDataBySlug = async (recipeSlug: string) => {
   const result = await db
     .select({
-      slug: rates.recipeSlug,
+      slug: views.recipeSlug,
       rating: avg(rates.rate),
       ratingCount: count(rates.rate),
       views: views.count,
@@ -66,7 +67,7 @@ export const getRatingDataBySlug = async (recipeSlug: string) => {
     .from(views)
     .leftJoin(rates, eq(rates.recipeSlug, views.recipeSlug))
     .where(eq(views.recipeSlug, recipeSlug))
-    .groupBy(views.recipeSlug, rates.recipeSlug)
+    .groupBy(views.recipeSlug)
     .then((rows) => normalizeRatingRow(rows[0]));
 
   return result;

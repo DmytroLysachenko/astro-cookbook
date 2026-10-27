@@ -28,6 +28,10 @@ export default defineConfig({
         __dirname,
         "src/test/__mocks__/astro-env-client.ts",
       ),
+      "astro:content": path.resolve(
+        __dirname,
+        "src/test/__mocks__/astro-content.ts",
+      ),
     },
   },
 });

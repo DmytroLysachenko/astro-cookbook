@@ -5,11 +5,10 @@ import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 import auth from "auth-astro";
-import path from "path";
+import path from "node:path";
 import vercel from "@astrojs/vercel";
 import dotenv from "dotenv";
 import { PRIVATE_ROUTES } from "./src/constants/config";
-import { syncRecipesToDb } from "./integrations/syncRecipesToDb";
 
 dotenv.config();
 
@@ -32,7 +31,6 @@ export default defineConfig({
     }),
     react(),
     auth(),
-    syncRecipesToDb(),
   ],
 
   output: "static",
