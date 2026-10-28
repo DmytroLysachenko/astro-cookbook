@@ -1,29 +1,18 @@
 ---
 import RecipeCard from "./RecipeCard.astro";
 import type { TRecipeCollectionEntry } from "@/types";
-import { getRatingDataBySlugArray } from "@/services/rates";
 
 interface Props {
   recipes: TRecipeCollectionEntry[];
 }
 
 const { recipes } = Astro.props;
-
-const recipesSlugs = recipes.map((recipe) => recipe.data.slug);
-
-const recipesRatingData = await getRatingDataBySlugArray(recipesSlugs);
 ---
 
 <div class="grid-responsive">
   {
     recipes.map((recipe, index) => (
-      <RecipeCard
-        recipe={{
-          ...recipesRatingData.find((r) => r.slug === recipe.data.slug)!,
-          ...recipe.data,
-        }}
-        isFirst={index === 0}
-      />
+      <RecipeCard recipe={recipe} isFirst={index === 0} />
     ))
   }
 </div>

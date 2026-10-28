@@ -21,27 +21,31 @@ button {
 
 :root {
   /* Base Colors */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.13 0.028 261.692);
+  --background: #fffaf3;
+  --foreground: #292524;
 
   /* Warm and Appetizing Color Palette */
-  --primary: oklch(0.7 0.2 30); /* Red (#E74C3C) */
-  --primary-foreground: oklch(0.98 0.02 50); /* Light Yellow (#F1C40F) */
+  --primary: #9a3412;
+  --primary-foreground: #ffffff;
 
-  --secondary: oklch(0.8 0.2 50); /* Orange (#F39C12) */
-  --secondary-foreground: oklch(0.98 0.02 50); /* Light Yellow (#F1C40F) */
+  --secondary: #9a3412;
+  --secondary-foreground: #ffffff;
 
-  --muted: oklch(0.9 0.1 50); /* Light Orange */
-  --muted-foreground: oklch(0.5 0.1 50); /* Dark Orange */
+  --muted: #f5ede4;
+  --muted-foreground: #57534e;
 
-  --accent: oklch(0.8 0.2 70); /* Yellow (#F1C40F) */
-  --accent-foreground: oklch(0.98 0.02 50); /* Light Yellow */
+  --accent: #166534;
+  --accent-foreground: #ffffff;
 
-  --destructive: oklch(0.5 0.3 10); /* Dark Red */
-  --destructive-foreground: oklch(0.4 0.3 10); /* Dark Red */
-  --border: oklch(0.8 0.1 50); /* Light Brown (#8B4513) */
-  --input: oklch(0.8 0.1 50); /* Light Brown (#8B4513) */
-  --ring: oklch(0.7 0.2 30); /* Red (#E74C3C) */
+  --destructive: #991b1b;
+  --destructive-foreground: #ffffff;
+  --border: #d6c6b7;
+  --input: #d6c6b7;
+  --ring: #9a3412;
+  --card: #ffffff;
+  --card-foreground: #292524;
+  --popover: #ffffff;
+  --popover-foreground: #292524;
 
   /* Charts */
   --chart-1: oklch(0.7 0.2 30); /* Red (#E74C3C) */
@@ -150,9 +154,12 @@ button {
 }
 
 @theme inline {
-  --font-sans: "OpenSans-Regular", "sans-serif";
-  --font-heading: "Poppins-Bold", "sans-serif";
-  --font-body: "OpenSans-Light", "sans-serif";
+  --font-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /* Theme Variables */
   --color-background: var(--background);
@@ -230,6 +237,45 @@ button {
   }
   body {
     @apply bg-background text-foreground font-body;
+  }
+  html {
+    scroll-padding-top: 7rem;
+  }
+  :focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 3px;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  a,
+  button {
+    touch-action: manipulation;
+  }
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: -5rem;
+  left: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+.skip-link:focus {
+  top: 1rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

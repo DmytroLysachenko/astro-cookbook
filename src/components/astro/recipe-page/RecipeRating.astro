@@ -13,7 +13,10 @@ const { slug } = Astro.props;
 const ratingDataPromise = getRatingDataBySlug(slug);
 const sessionPromise = getSession(Astro.request);
 
-const [ratingData, session] = await Promise.all([ratingDataPromise, sessionPromise]);
+const [ratingData, session] = await Promise.all([
+  ratingDataPromise,
+  sessionPromise,
+]);
 
 let user = Astro.locals?.user ?? null;
 let initialRating = null;
@@ -29,7 +32,8 @@ if (user) {
 
 <section>
   <p>
-    <strong>Rating:</strong> {parseFloat(ratingData?.rating ?? "0")} / 5
+    <strong>Rating:</strong>
+    {Number(ratingData?.rating ?? 0)} / 5
   </p>
   <p><strong>Rating Count:</strong> {ratingData?.ratingCount ?? 0}</p>
   <p><strong>Views:</strong> {ratingData?.views ?? 0}</p>

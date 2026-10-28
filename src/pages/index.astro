@@ -1,10 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
-import SubscribeForm from "@/components/react/forms/SubscribeForm";
-import CustomButton from "@/components/react/buttons/CustomButton";
 import RecipesList from "@/components/astro/recipe-cards/RecipesList.astro";
-import RecipeCardsSkeleton from "@/components/astro/recipe-cards/RecipeCardsSkeleton.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const recipes = await getCollection("recipe");
@@ -27,17 +24,15 @@ const recipes = await getCollection("recipe");
     </p>
 
     <div class="mt-10 flex items-center justify-center gap-x-6">
-      <CustomButton
-        variant="outline"
-        title="Get Started"
-        isLink
+      <a
         href="/recipes"
-        client:visible
-      />
+        class="btn-primary inline-flex min-h-11 items-center font-semibold"
+        >Explore Recipes</a
+      >
 
       <a
         href="/about"
-        class="text-sm font-semibold leading-6 text-muted-foreground hover:text-primary transition-all"
+        class="inline-flex min-h-11 items-center font-semibold text-muted-foreground hover:text-primary transition-colors"
       >
         Learn more <span aria-hidden="true">&rarr;</span>
       </a>
@@ -46,31 +41,20 @@ const recipes = await getCollection("recipe");
 
   <section class="py-20">
     <h2 class="text-2xl font-bold text-center mb-10">Featured Recipes</h2>
-    <RecipesList
-      server:defer
-      recipes={recipes.slice(0, 4)}
-    >
-      <RecipeCardsSkeleton
-        slot="fallback"
-        quantity={4}
-      />
-    </RecipesList>
+    <RecipesList recipes={recipes.slice(0, 4)} />
   </section>
 
   <section class="py-20 rounded-lg">
     <div class="container-sm text-center mx-auto">
-      <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
+      <h2 class="text-3xl font-bold mb-4">Find Your Next Favorite</h2>
       <p class="text-muted-foreground mb-6">
-        Subscribe to our newsletter for the latest recipes and cooking tips.
+        Browse recipes by cuisine, category, cooking time, and more.
       </p>
-      <div
-        id="subscribe-form-loader"
-        class="flex items-center justify-center space-x-2 animate-pulse"
+      <a
+        href="/recipes"
+        class="btn-secondary inline-flex min-h-11 items-center font-semibold"
+        >Browse All Recipes</a
       >
-        <div class="h-10 w-50 bg-gray-200 rounded-md"></div>
-        <div class="h-10 w-24 bg-gray-200 rounded-md"></div>
-      </div>
-      <SubscribeForm client:only="react" />
     </div>
   </section>
 </BaseLayout>
