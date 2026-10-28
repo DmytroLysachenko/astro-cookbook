@@ -33,14 +33,16 @@ export function Selector({
       onValueChange(value);
     } else {
       const url = new URL(window.location.href);
-      url.searchParams.set(id, value);
+      if (value === "all") url.searchParams.delete(id);
+      else url.searchParams.set(id, value);
+      url.searchParams.delete("page");
       window.location.replace(url.href);
     }
   };
 
   return (
     <Select defaultValue={defaultValue} onValueChange={handleValueChange}>
-      <SelectTrigger className={className}>
+      <SelectTrigger id={id} aria-label={`${id} filter`} className={`min-h-11 ${className ?? ""}`}>
         <SelectValue placeholder="Select an option" />
       </SelectTrigger>
       <SelectContent>

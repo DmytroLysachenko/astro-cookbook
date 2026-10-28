@@ -1,45 +1,75 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
 
 const getCookTime = (text: string) => {
   const match = text.match(/(\d+)/);
   return match ? Number(match[1]) : Number.NaN;
 };
 
-test.describe('Recipes page', () => {
+test.describe("Recipes page", () => {
   test.beforeEach(async ({ page }) => {
     await page.addInitScript(() => {
       localStorage.clear();
     });
-    await page.goto('/recipes');
+    await page.goto("/recipes");
   });
 
-  test('displays recipes list with filters and pagination', async ({ page }) => {
-    await expect(page.getByRole('heading', { level: 1, name: 'All Recipes' })).toBeVisible();
-    await expect(page.getByRole('heading', { level: 2, name: 'Filters' })).toBeVisible();
+  test("displays recipes list with filters and pagination", async ({
+    page,
+  }) => {
+    await expect(
+      page.getByRole("heading", { level: 1, name: "All Recipes" }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { level: 2, name: "Filters" }),
+    ).toBeVisible();
 
     const summary = page.getByText(/Showing 1-12 of \d+ recipes/i);
     await expect(summary).toBeVisible();
 
-    const cards = page.locator('div.card');
+    const cards = page.locator("div.card");
     await expect(cards).toHaveCount(12, { timeout: 15_000 });
 
-    await expect(page.getByRole('navigation', { name: 'Pagination' })).toBeVisible();
     await expect(
-      page.locator('nav[aria-label="Pagination"]').getByRole('link', { name: '1' }),
-    ).toHaveAttribute('aria-current', 'page');
+      page.getByRole("navigation", { name: "Pagination" }),
+    ).toBeVisible();
+    await expect(
+      page
+        .locator('nav[aria-label="Pagination"]')
+        .getByRole("link", { name: "Page 1" }),
+    ).toHaveAttribute("aria-current", "page");
   });
 
-  test('sorts recipes by cooking time', async ({ page }) => {
-    const cookTimeLink = page.getByRole('link', { name: 'Cooking Time', exact: true });
+  test("keeps filters compact on a phone and opens them on request", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.reload();
+
+    const filterPanel = page.locator("#recipe-filters");
+    await expect(filterPanel).not.toHaveAttribute("open", "");
+    await expect(
+      page.getByRole("heading", { level: 1, name: "All Recipes" }),
+    ).toBeVisible();
+    await filterPanel.locator("summary").click();
+    await expect(
+      page.getByRole("link", { name: "Cooking Time", exact: true }),
+    ).toBeVisible();
+  });
+
+  test("sorts recipes by cooking time", async ({ page }) => {
+    const cookTimeLink = page.getByRole("link", {
+      name: "Cooking Time",
+      exact: true,
+    });
     await expect(cookTimeLink).toBeVisible();
     await cookTimeLink.click();
     await page.waitForURL(/sort=cookTime/);
 
-    const cards = page.locator('div.card');
+    const cards = page.locator("div.card");
     await expect(cards).toHaveCount(12, { timeout: 15_000 });
 
     const cookTimeTexts = await cards
-      .locator('p')
+      .locator("p")
       .filter({ hasText: /^Cook time:/ })
       .allTextContents();
 
@@ -50,32 +80,45 @@ test.describe('Recipes page', () => {
     expect(cookTimes).toEqual(sortedTimes);
   });
 
-  test('filters recipes by category', async ({ page }) => {
-    await page.getByRole('link', { name: 'Dessert', exact: true }).click();
+  test("filters recipes by category", async ({ page }) => {
+    await page.getByRole("link", { name: "Dessert", exact: true }).click();
     await page.waitForURL(/category=dessert/);
 
-    await expect(page.getByRole('heading', { level: 1, name: 'Dessert Recipes' })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Dessert Recipes" }),
+    ).toBeVisible();
 
-    await page.waitForFunction(() => document.querySelectorAll('div.card').length > 0);
-    const cards = page.locator('div.card');
+    await page.waitForFunction(
+      () => document.querySelectorAll("div.card").length > 0,
+    );
+    const cards = page.locator("div.card");
     const total = await cards.count();
     expect(total).toBeGreaterThan(0);
 
     for (let index = 0; index < total; index += 1) {
-      await expect(cards.nth(index).getByRole('link', { name: 'Dessert', exact: false })).toBeVisible();
+      await expect(
+        cards.nth(index).getByRole("link", { name: "Dessert", exact: false }),
+      ).toBeVisible();
     }
   });
 
-  test('filters recipes by cuisine', async ({ page }) => {
-    await page.getByRole('link', { name: 'International', exact: true }).click();
+  test("filters recipes by cuisine", async ({ page }) => {
+    await page
+      .getByRole("link", { name: "International", exact: true })
+      .click();
     await page.waitForURL(/cuisine=International/i);
 
     await expect(
-      page.getByRole('heading', { level: 1, name: 'International Cuisine' }),
+      page.getByRole("heading", {
+        level: 1,
+        name: "International Cuisine Recipes",
+      }),
     ).toBeVisible();
 
-    await page.waitForFunction(() => document.querySelectorAll('div.card').length > 0);
-    const cards = page.locator('div.card');
+    await page.waitForFunction(
+      () => document.querySelectorAll("div.card").length > 0,
+    );
+    const cards = page.locator("div.card");
     const total = await cards.count();
     expect(total).toBeGreaterThan(0);
 
@@ -83,73 +126,100 @@ test.describe('Recipes page', () => {
       await expect(
         cards
           .nth(index)
-          .locator('div')
+          .locator("div")
           .filter({ hasText: /International/i })
           .first(),
       ).toBeVisible();
     }
   });
 
-  test('navigates through pagination', async ({ page }) => {
-    const nextLink = page.getByRole('link', { name: /Next/ });
+  test("navigates through pagination", async ({ page }) => {
+    const nextLink = page.getByRole("link", { name: /Next/ });
     await nextLink.click();
     await page.waitForURL(/page=2/);
 
     await expect(
-      page.locator('nav[aria-label="Pagination"]').getByRole('link', { name: '2' }),
-    ).toHaveAttribute('aria-current', 'page');
+      page
+        .locator('nav[aria-label="Pagination"]')
+        .getByRole("link", { name: "Page 2" }),
+    ).toHaveAttribute("aria-current", "page");
 
     const summary = page.getByText(/Showing 13-24 of \d+ recipes/i);
     await expect(summary).toBeVisible();
 
-    const cards = page.locator('div.card');
+    const cards = page.locator("div.card");
     await expect(cards).toHaveCount(12, { timeout: 15_000 });
   });
 
-  test('reset link clears all active filters and query parameters', async ({ page }) => {
-    await page.getByRole('link', { name: 'Dessert', exact: true }).click();
+  test("reset link clears all active filters and query parameters", async ({
+    page,
+  }) => {
+    await page.getByRole("link", { name: "Dessert", exact: true }).click();
     await page.waitForURL(/category=dessert/);
 
-    await expect(page.getByRole('heading', { level: 1, name: 'Dessert Recipes' })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Dessert Recipes" }),
+    ).toBeVisible();
 
-    const resetLink = page.getByRole('link', { name: /^Reset$/ });
+    const resetLink = page.getByRole("link", { name: /^Reset$/ });
     await Promise.all([
-      page.waitForURL((url) => url.pathname === '/recipes' && url.search === ''),
+      page.waitForURL(
+        (url) => url.pathname === "/recipes" && url.search === "",
+      ),
       resetLink.click(),
     ]);
 
-    await expect(page.getByRole('heading', { level: 1, name: 'All Recipes' })).toBeVisible();
     await expect(
-      page.locator('nav[aria-label="Pagination"]').getByRole('link', { name: '1' }),
-    ).toHaveAttribute('aria-current', 'page');
+      page.getByRole("heading", { level: 1, name: "All Recipes" }),
+    ).toBeVisible();
+    await expect(
+      page
+        .locator('nav[aria-label="Pagination"]')
+        .getByRole("link", { name: "Page 1" }),
+    ).toHaveAttribute("aria-current", "page");
   });
 
-  test('remembers accordion expansion preferences via localStorage', async ({ browser }) => {
+  test("remembers accordion expansion preferences via localStorage", async ({
+    browser,
+  }) => {
     const context = await browser.newContext();
     const newPage = await context.newPage();
 
-    await newPage.goto('/recipes');
+    await newPage.goto("/recipes");
 
-    const categoriesButton = newPage.getByRole('button', { name: 'Categories' });
-    const categoriesContent = categoriesButton.locator('..').locator('.accordion-content');
+    const categoriesButton = newPage.getByRole("button", {
+      name: "Categories",
+    });
+    const categoriesContent = categoriesButton
+      .locator("..")
+      .locator(".accordion-content");
 
-    await expect(categoriesButton).toHaveAttribute('aria-expanded', 'true');
+    await expect(categoriesButton).toHaveAttribute("aria-expanded", "true");
     await expect(categoriesContent).toBeVisible();
 
     await categoriesButton.click();
 
-    await expect(categoriesButton).toHaveAttribute('aria-expanded', 'false');
+    await expect(categoriesButton).toHaveAttribute("aria-expanded", "false");
     await expect(categoriesContent).toBeHidden();
 
-    const storedValue = await newPage.evaluate(() => localStorage.getItem('accordion-category'));
-    expect(storedValue).toBe('false');
+    const storedValue = await newPage.evaluate(() =>
+      localStorage.getItem("accordion-category"),
+    );
+    expect(storedValue).toBe("false");
 
     await newPage.reload();
 
-    const categoriesButtonAfterReload = newPage.getByRole('button', { name: 'Categories' });
-    const categoriesContentAfterReload = categoriesButtonAfterReload.locator('..').locator('.accordion-content');
+    const categoriesButtonAfterReload = newPage.getByRole("button", {
+      name: "Categories",
+    });
+    const categoriesContentAfterReload = categoriesButtonAfterReload
+      .locator("..")
+      .locator(".accordion-content");
 
-    await expect(categoriesButtonAfterReload).toHaveAttribute('aria-expanded', 'false');
+    await expect(categoriesButtonAfterReload).toHaveAttribute(
+      "aria-expanded",
+      "false",
+    );
     await expect(categoriesContentAfterReload).toBeHidden();
 
     await context.close();

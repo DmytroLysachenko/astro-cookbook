@@ -4,69 +4,44 @@ import { getCollection } from "astro:content";
 import { capitalize } from "@/lib/utils";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import FilterSidebar from "@/components/astro/filter/FilterSidebar.astro";
-import FilterSkeleton from "@/components/astro/filter/FilterSkeleton.astro";
 import RecipesList from "@/components/astro/recipe-cards/RecipesList.astro";
-import RecipeCardsSkeleton from "@/components/astro/recipe-cards/RecipeCardsSkeleton.astro";
+import { queryRecipes } from "@/lib/recipe-query";
 import Pagination from "@/components/astro/pages-structure/Pagination.astro";
 
 export const prerender = false;
 
-const { searchParams } = Astro.url;
-const currentPage = Number(searchParams.get("page")) || 1;
-const pageSize = 12;
-const sortBy = searchParams.get("sort") || "";
-const category = searchParams.get("category") || "";
-const cuisine = searchParams.get("cuisine") || "";
-
 const allRecipes = await getCollection("recipe");
-
-const allCategories = [
-  ...new Set(allRecipes.flatMap((recipe) => recipe.data.categories)),
-];
-const allCuisines = [
-  ...new Set(allRecipes.map((recipe) => recipe.data.cuisine)),
-];
-
-const filteredRecipes = allRecipes.filter((recipe) => {
-  const categoryFilter = category
-    ? recipe.data.categories.includes(category.toLowerCase())
-    : true;
-  const cuisineFilter = cuisine
-    ? recipe.data.cuisine.toLowerCase() === cuisine.toLowerCase()
-    : true;
-
-  return categoryFilter && cuisineFilter;
-});
-
-switch (sortBy) {
-  case "newest":
-    filteredRecipes.sort(
-      (a, b) =>
-        new Date(b.data.created).getTime() - new Date(a.data.created).getTime()
-    );
-    break;
-  case "title":
-    filteredRecipes.sort((a, b) => a.data.title.localeCompare(b.data.title));
-    break;
-  case "cookTime":
-    filteredRecipes.sort((a, b) => a.data.cookingTime - b.data.cookingTime);
-    break;
-  case "portions":
-    filteredRecipes.sort((a, b) => b.data.portions - a.data.portions);
-    break;
-  default:
-    filteredRecipes.sort((a, b) => a.data.title.localeCompare(b.data.title));
-    break;
-}
-
-const totalRecipes = filteredRecipes.length;
-const totalPages = Math.ceil(totalRecipes / pageSize);
-const startIndex = (currentPage - 1) * pageSize;
-const endIndex = Math.min(startIndex + pageSize, totalRecipes);
-const currentRecipes = filteredRecipes.slice(startIndex, endIndex);
+const {
+  recipes: currentRecipes,
+  categories: allCategories,
+  cuisines: allCuisines,
+  category,
+  cuisine,
+  sort: sortBy,
+  page: currentPage,
+  total: totalRecipes,
+  totalPages,
+  start: rangeStart,
+  end: rangeEnd,
+} = queryRecipes(allRecipes, Astro.url.searchParams);
+const pageTitle = category
+  ? `${capitalize(category)} Recipes`
+  : cuisine
+    ? `${cuisine} Cuisine Recipes`
+    : "All Recipes";
+const pageParams = new URLSearchParams();
+if (sortBy !== "title") pageParams.set("sort", sortBy);
+if (category) pageParams.set("category", category);
+if (cuisine) pageParams.set("cuisine", cuisine);
+const baseUrl = `/recipes?${pageParams.toString()}${pageParams.size ? "&" : ""}page=`;
 ---
 
-<BaseLayout background={true}>
+<BaseLayout
+  background={true}
+  noindex={Boolean(Astro.url.search)}
+  title={`${pageTitle} | Cooking Spot`}
+  description={`Browse ${totalRecipes} ${pageTitle.toLowerCase()} with cooking times, ingredients, and step-by-step instructions.`}
+>
   <div class="mx-auto px-4">
     <div class="flex flex-col lg:flex-row gap-8">
       <FilterSidebar
@@ -75,40 +50,38 @@ const currentRecipes = filteredRecipes.slice(startIndex, endIndex);
         currentCategory={category}
         currentCuisine={cuisine}
         currentSort={sortBy}
-        server:defer
-      >
-        <FilterSkeleton slot="fallback" />
-      </FilterSidebar>
+      />
 
       <div class="flex-1">
         <div class="flex justify-between items-center mb-8">
           <h1 class="text-2xl font-bold">
-            {
-              category
-                ? `${capitalize(category)} Recipes`
-                : cuisine
-                  ? `${cuisine} Cuisine`
-                  : "All Recipes"
-            }
+            {pageTitle}
           </h1>
           <div class="text-sm text-gray-600">
-            Showing {startIndex + 1}-{endIndex} of {totalRecipes} recipes
+            Showing {rangeStart}-{rangeEnd} of {totalRecipes} recipes
           </div>
         </div>
 
-        <RecipesList
-          recipes={currentRecipes}
-          server:defer
-        >
-          <RecipeCardsSkeleton slot="fallback" />
-        </RecipesList>
+        {
+          currentRecipes.length ? (
+            <RecipesList recipes={currentRecipes} />
+          ) : (
+            <p>
+              No recipes match these filters.{" "}
+              <a href="/recipes" class="underline">
+                View all recipes
+              </a>
+              .
+            </p>
+          )
+        }
 
         {
           totalPages > 1 && (
             <Pagination
               currentPage={currentPage}
               totalPages={totalPages}
-              baseUrl={`/recipes?sort=${sortBy}${category ? `&category=${category}` : ""}${cuisine ? `&cuisine=${cuisine}` : ""}&page=`}
+              baseUrl={baseUrl}
             />
           )
         }

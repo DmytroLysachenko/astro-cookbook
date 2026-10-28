@@ -12,17 +12,15 @@ const { currentPage, totalPages, baseUrl } = Astro.props;
 const pageNumbers = getPageNumbers(totalPages, currentPage);
 ---
 
-<nav
-  aria-label="Pagination"
-  class="mt-8"
->
+<nav aria-label="Pagination" class="mt-8">
   <ul class="flex justify-center items-center gap-1">
     <li class="flex h-full items-center justify-center">
       {
         currentPage > 1 ? (
           <a
             href={`${baseUrl}${currentPage - 1}`}
-            class={`px-3 py-2 rounded-md ${
+            aria-label="Previous page"
+            class={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-md ${
               currentPage === 1
                 ? "text-gray-400 cursor-not-allowed"
                 : "text-gray-700 hover:bg-gray-100"
@@ -31,7 +29,7 @@ const pageNumbers = getPageNumbers(totalPages, currentPage);
             &laquo; <span class="hidden sm:inline">Prev</span>
           </a>
         ) : (
-          <span class="px-3 py-2 rounded-md text-gray-400 cursor-not-allowed">
+          <span class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-gray-400 cursor-not-allowed">
             &laquo; <span class="hidden sm:inline">Prev</span>
           </span>
         )
@@ -42,11 +40,12 @@ const pageNumbers = getPageNumbers(totalPages, currentPage);
       pageNumbers.map((page) => (
         <li>
           {page === "..." ? (
-            <span class="px-3 py-2">...</span>
+            <span class="px-3 py-2">…</span>
           ) : (
             <a
               href={`${baseUrl}${page}`}
-              class={`px-3 py-2 rounded-md ${
+              aria-label={`Page ${page}`}
+              class={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-md ${
                 currentPage === page
                   ? "bg-accent text-white"
                   : "text-gray-700 hover:bg-gray-100"
@@ -67,12 +66,13 @@ const pageNumbers = getPageNumbers(totalPages, currentPage);
             href={
               currentPage < totalPages ? `${baseUrl}${currentPage + 1}` : "#"
             }
-            class="px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100"
+            aria-label="Next page"
+            class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-gray-700 hover:bg-gray-100"
           >
             <span class="hidden sm:inline">Next</span> &raquo;
           </a>
         ) : (
-          <span class="text-gray-400 cursor-not-allowed px-3 py-2 rounded-md">
+          <span class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-md text-gray-400 cursor-not-allowed">
             <span class="hidden sm:inline">Next</span> &raquo;
           </span>
         )

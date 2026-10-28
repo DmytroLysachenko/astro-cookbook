@@ -30,7 +30,7 @@ const validSortOrders: TSortOrder[] = ["asc", "desc"];
 
 const { searchParams } = Astro.url;
 
-const currentPage = Math.max(1, Number(searchParams.get("page"))) || 1;
+const requestedPage = Number(searchParams.get("page"));
 const sortBy = validSortFields.includes(searchParams.get("sort") as TSortOption)
   ? (searchParams.get("sort") as TSortOption)
   : "name";
@@ -60,13 +60,12 @@ if (categoryFilter) {
   totalIngredientsQuery.where(eq(ingredients.category, categoryFilter));
 }
 
-const [countResult, ingredientsList] = await Promise.all([
-  totalIngredientsQuery,
-  baseQuery.offset(pageSize * (currentPage - 1)).limit(pageSize),
-]);
-
+const countResult = await totalIngredientsQuery;
 const totalIngredients = Number(countResult[0].count);
-const totalPages = Math.ceil(totalIngredients / pageSize);
+const totalPages = Math.max(1, Math.ceil(totalIngredients / pageSize));
+const currentPage = Number.isSafeInteger(requestedPage) && requestedPage > 0
+  ? Math.min(requestedPage, totalPages) : 1;
+const ingredientsList = await baseQuery.offset(pageSize * (currentPage - 1)).limit(pageSize);
 
 const baseUrl = buildFilterUrl("/ingredients", {
   sort: sortBy,

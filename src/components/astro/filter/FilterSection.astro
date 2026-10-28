@@ -28,13 +28,14 @@ const {
   <button
     class="accordion-button text-xl flex justify-between items-center w-full font-semibold mb-4 cursor-pointer"
     aria-expanded="true"
+    aria-controls={`filter-${paramKey}`}
     data-section={paramKey}
   >
     {title}
-    <ChevronDown className="accordion-icon transition-all duration-300" />
+    <ChevronDown className="accordion-icon transition-transform duration-300" />
   </button>
 
-  <div class="accordion-content space-y-3">
+  <div id={`filter-${paramKey}`} class="accordion-content space-y-3">
     {
       options.map((option: { value: string; label: string }) => (
         <div>
@@ -45,6 +46,7 @@ const {
               cuisine: currentCuisine,
               [paramKey]: option.value,
             })}
+            aria-current={currentValue === option.value ? "true" : undefined}
             class={`block px-3 py-2 rounded ${
               currentValue === option.value
                 ? "bg-red-100 text-red-700 font-medium"

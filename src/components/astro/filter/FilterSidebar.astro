@@ -35,59 +35,86 @@ const cuisinesOptions = cuisines.map((cuisine: string) => ({
 }));
 ---
 
-<div class="bg-white rounded-lg shadow-md p-6 min-w-60">
-  <div class="flex justify-between">
-    <h2 class="text-3xl font-bold mb-10">Filters</h2>
-    <a
-      href="/recipes"
-      class="block pt-1.5 text-destructive text-right hover:text-destructive/80 transition-colors duration-300 underline underline-offset-4 hover:underline-offset-3 decoration-destructive/50 hover:decoration-destructive/80"
-      >Reset</a
-    >
+<details
+  id="recipe-filters"
+  open
+  class="bg-white rounded-lg shadow-md p-6 min-w-60"
+>
+  <summary
+    class="lg:hidden cursor-pointer text-xl font-semibold min-h-11 focus-visible:outline-2 focus-visible:outline-offset-2"
+    >Filters</summary
+  >
+  <div class="mt-4 lg:mt-0 lg:!block">
+    <div class="flex justify-between">
+      <h2 class="hidden lg:block text-3xl font-bold mb-10">Filters</h2>
+      <a
+        href="/recipes"
+        class="block pt-1.5 text-destructive text-right hover:text-destructive/80 transition-colors duration-300 underline underline-offset-4 hover:underline-offset-3 decoration-destructive/50 hover:decoration-destructive/80"
+        >Reset</a
+      >
+    </div>
+
+    <FilterSection
+      title="Sort By"
+      options={sortOptions}
+      currentValue={currentSort}
+      paramKey="sort"
+      currentCategory={currentCategory}
+      currentCuisine={currentCuisine}
+    />
+
+    <FilterSection
+      title="Categories"
+      options={categoriesOptions}
+      currentValue={currentCategory}
+      paramKey="category"
+      currentSort={currentSort}
+      currentCuisine={currentCuisine}
+    />
+
+    <FilterSection
+      title="Cuisines"
+      options={cuisinesOptions}
+      currentValue={currentCuisine}
+      paramKey="cuisine"
+      currentSort={currentSort}
+      currentCategory={currentCategory}
+    />
   </div>
-
-  <FilterSection
-    title="Sort By"
-    options={sortOptions}
-    currentValue={currentSort}
-    paramKey="sort"
-    currentCategory={currentCategory}
-    currentCuisine={currentCuisine}
-  />
-
-  <FilterSection
-    title="Categories"
-    options={categoriesOptions}
-    currentValue={currentCategory}
-    paramKey="category"
-    currentSort={currentSort}
-    currentCuisine={currentCuisine}
-  />
-
-  <FilterSection
-    title="Cuisines"
-    options={cuisinesOptions}
-    currentValue={currentCuisine}
-    paramKey="cuisine"
-    currentSort={currentSort}
-    currentCategory={currentCategory}
-  />
-</div>
+</details>
 
 <script>
+  const filterPanel = document.getElementById(
+    "recipe-filters",
+  ) as HTMLDetailsElement | null;
+  const desktopFilters = window.matchMedia("(min-width: 1024px)");
+  const syncFilterPanel = () => {
+    if (filterPanel) filterPanel.open = desktopFilters.matches;
+  };
+  syncFilterPanel();
+  desktopFilters.addEventListener("change", syncFilterPanel);
+
   const getInitialState = (section: string) => {
-    const savedState = localStorage.getItem(`accordion-${section}`);
-    return savedState ? JSON.parse(savedState) : true;
+    try {
+      return localStorage.getItem(`accordion-${section}`) !== "false";
+    } catch {
+      return true;
+    }
   };
 
   const saveState = (section: string, isExpanded: boolean) => {
-    localStorage.setItem(`accordion-${section}`, JSON.stringify(isExpanded));
+    try {
+      localStorage.setItem(`accordion-${section}`, String(isExpanded));
+    } catch {
+      // Filtering remains usable when storage is disabled.
+    }
   };
 
   document.querySelectorAll(".accordion-button").forEach((button) => {
     const section = button.getAttribute("data-section")!;
     const isExpanded = getInitialState(section);
 
-    button.setAttribute("aria-expanded", isExpanded);
+    button.setAttribute("aria-expanded", String(isExpanded));
     const content = button.nextElementSibling!;
     content.classList.toggle("hidden", !isExpanded);
 
