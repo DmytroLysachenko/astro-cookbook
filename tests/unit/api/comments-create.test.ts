@@ -3,6 +3,12 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { POST as createComment } from "@/pages/api/comments/create";
 import { buildTestUser, runApiRoute } from "./test-utils";
 
+vi.mock("astro:content", () => ({
+  getEntry: vi.fn(async (_collection: string, slug: string) =>
+    slug === "missing" ? undefined : { id: slug },
+  ),
+}));
+
 const mocks = vi.hoisted(() => {
   const mockInsert = vi.fn().mockReturnThis();
   const mockValues = vi.fn().mockReturnThis();
@@ -85,7 +91,7 @@ describe("comments POST route", () => {
     errorSpy.mockRestore();
   });
 
-  it("returns 500 when user is missing and stops before inserting values", async () => {
+  it("returns 401 when user is missing and stops before inserting values", async () => {
     const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
     const { mockInsert, mockValues } = getMocks();
 
@@ -97,13 +103,25 @@ describe("comments POST route", () => {
       locals: { user: undefined },
     });
 
-    expect(response.status).toBe(500);
-    expect(mockInsert).toHaveBeenCalledTimes(1);
+    expect(response.status).toBe(401);
+    expect(mockInsert).not.toHaveBeenCalled();
     expect(mockValues).not.toHaveBeenCalled();
     await expect(response.json()).resolves.toEqual({
-      error: "Internal Server Error",
+      error: "Unauthorized",
     });
 
     errorSpy.mockRestore();
+  });
+
+  it("rejects blank comments without writing to the database", async () => {
+    const response = await runApiRoute(createComment, {
+      request: new Request("http://localhost/api/comments", {
+        method: "POST",
+        body: JSON.stringify({ recipeSlug: "abc", commentText: "  " }),
+      }),
+      locals: { user: buildTestUser() },
+    });
+    expect(response.status).toBe(400);
+    expect(getMocks().mockInsert).not.toHaveBeenCalled();
   });
 });

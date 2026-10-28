@@ -1,30 +1,19 @@
 import type { APIRoute } from "astro";
 
 import { updateUser } from "@/services/auth";
+import { jsonResponse, parseJson, profileSchema } from "@/lib/api-input";
 
 export const prerender = false;
 
 export const POST: APIRoute = async ({ request, locals: { user } }) => {
   try {
-    const { bio, name, email } = await request.json();
-
-    if (!bio) {
-      return new Response(JSON.stringify({ error: "Bad request" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json" },
-      });
-    }
-
-    const newUser = await updateUser(user.id, { bio, name, email }, "id");
-
-    return new Response(JSON.stringify(newUser), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+    if (!user) return jsonResponse({ error: "Unauthorized" }, 401);
+    const parsed = await parseJson(request, profileSchema);
+    if (!parsed.success) return jsonResponse({ error: "Invalid bio" }, 400);
+    const newUser = await updateUser(user.id, { bio: parsed.data.bio }, "id");
+    return jsonResponse(newUser);
   } catch (error) {
-    return new Response(JSON.stringify({ error }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    console.error("Error updating profile:", error);
+    return jsonResponse({ error: "Internal Server Error" }, 500);
   }
 };

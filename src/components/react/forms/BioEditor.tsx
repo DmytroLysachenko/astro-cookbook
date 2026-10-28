@@ -14,20 +14,23 @@ interface BioEditorProps {
 const BioEditor: React.FC<BioEditorProps> = ({ initialBio }) => {
   const [bio, setBio] = useState(initialBio);
   const [isEditing, setIsEditing] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSave = async () => {
+    setError("");
     try {
-      await fetch(`${API_BASE_URL}/user`, {
+      const response = await fetch(`${API_BASE_URL}/user`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ bio }),
       });
+      if (!response.ok) throw new Error("Profile update failed");
       toast.success("Bio successfully updated!");
-    } catch (error) {
-      console.log(error);
-      toast.error("Something went wrong!");
-    } finally {
       setIsEditing(false);
+    } catch (error) {
+      console.error(error);
+      setError("Your bio could not be saved. Please try again.");
+      toast.error("Something went wrong!");
     }
   };
 
@@ -36,12 +39,23 @@ const BioEditor: React.FC<BioEditorProps> = ({ initialBio }) => {
       <h3 className="text-lg font-semibold mb-2">Bio</h3>
       {isEditing ? (
         <>
+          <label htmlFor="profile-bio" className="block font-medium mb-2">
+            Your Bio
+          </label>
           <Textarea
+            id="profile-bio"
+            name="bio"
             value={bio}
             onChange={(e) => setBio(e.target.value)}
+            maxLength={500}
             className="mb-2 resize-none"
             rows={6}
           />
+          {error && (
+            <p role="alert" className="mb-2 text-destructive">
+              {error}
+            </p>
+          )}
 
           <Button
             onClick={async () => await handleSave()}

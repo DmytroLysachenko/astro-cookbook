@@ -4,20 +4,30 @@ import { desc, eq } from "drizzle-orm";
 import { db } from "@/db";
 import { comments } from "@/db/schema/comments";
 import { users } from "@/db/schema/users";
+import { COMMENTS_PER_PAGE } from "@/constants";
+import { jsonResponse, recipeSlugSchema } from "@/lib/api-input";
 
 export const prerender = false;
 
 export const GET: APIRoute = async ({ url }) => {
-  const recipeSlug = url.searchParams.get("recipeSlug");
-  const page = Number(url.searchParams.get("page")) || 1;
-  const limit = Number(url.searchParams.get("limit")) || 10;
+  const parsedSlug = recipeSlugSchema.safeParse(
+    url.searchParams.get("recipeSlug"),
+  );
+  const requestedPage = Number(url.searchParams.get("page"));
+  const requestedLimit = Number(url.searchParams.get("limit"));
+  const page =
+    Number.isSafeInteger(requestedPage) && requestedPage > 0
+      ? Math.min(requestedPage, 1000)
+      : 1;
+  const limit =
+    Number.isSafeInteger(requestedLimit) && requestedLimit > 0
+      ? Math.min(requestedLimit, COMMENTS_PER_PAGE)
+      : COMMENTS_PER_PAGE;
 
-  if (!recipeSlug) {
-    return new Response(JSON.stringify({ error: "Recipe slug is required" }), {
-      headers: { "Content-Type": "application/json" },
-      status: 400,
-    });
+  if (!parsedSlug.success) {
+    return jsonResponse({ error: "Recipe slug is required" }, 400);
   }
+  const recipeSlug = parsedSlug.data;
 
   try {
     const fetchedComments = await db
@@ -38,15 +48,9 @@ export const GET: APIRoute = async ({ url }) => {
       .limit(limit)
       .offset((page - 1) * limit);
 
-    return new Response(JSON.stringify(fetchedComments), {
-      headers: { "Content-Type": "application/json" },
-      status: 200,
-    });
+    return jsonResponse(fetchedComments);
   } catch (error) {
     console.error("Error fetching comments:", error);
-    return new Response(JSON.stringify({ error: "Internal Server Error" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    return jsonResponse({ error: "Internal Server Error" }, 500);
   }
 };

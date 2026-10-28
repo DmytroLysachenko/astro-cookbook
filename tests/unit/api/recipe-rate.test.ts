@@ -4,6 +4,12 @@ import { and, eq } from "drizzle-orm";
 import { POST as rateRecipe } from "@/pages/api/recipe/rate";
 import { buildTestUser, runApiRoute } from "./test-utils";
 
+vi.mock("astro:content", () => ({
+  getEntry: vi.fn(async (_collection: string, slug: string) =>
+    slug === "missing" ? undefined : { id: slug },
+  ),
+}));
+
 const mocks = vi.hoisted(() => {
   const mockSelect = vi.fn();
   const mockFrom = vi.fn();
@@ -62,14 +68,14 @@ describe("recipe rate POST route", () => {
     vi.clearAllMocks();
   });
 
-  it("returns 404 when user is missing", async () => {
+  it("returns 401 when user is missing", async () => {
     const response = await runApiRoute(rateRecipe, {
       request: request({ recipeSlug: "abc", rating: 5 }),
       locals: {},
     });
 
-    expect(response.status).toBe(404);
-    await expect(response.json()).resolves.toEqual({ error: "User not found" });
+    expect(response.status).toBe(401);
+    await expect(response.json()).resolves.toEqual({ error: "Unauthorized" });
   });
 
   it("updates an existing rating", async () => {
@@ -181,7 +187,7 @@ describe("recipe rate POST route", () => {
     errSpy.mockRestore();
   });
 
-  it("returns 500 when request JSON is invalid", async () => {
+  it("returns 400 when request JSON is invalid", async () => {
     const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
 
     const response = await runApiRoute(rateRecipe, {
@@ -192,11 +198,21 @@ describe("recipe rate POST route", () => {
       locals: { user: buildTestUser({ id: "user-99" }) },
     });
 
-    expect(response.status).toBe(500);
+    expect(response.status).toBe(400);
     await expect(response.json()).resolves.toEqual({
-      error: "Internal Server Error",
+      error: "Invalid recipe or rating",
     });
 
     errorSpy.mockRestore();
+  });
+
+  it.each([0, 6, 2.5, "5"])("rejects invalid rating %s", async (rating) => {
+    const response = await runApiRoute(rateRecipe, {
+      request: request({ recipeSlug: "abc", rating }),
+      locals: { user: buildTestUser({ id: "user-99" }) },
+    });
+
+    expect(response.status).toBe(400);
+    expect(getMocks().mockSelect).not.toHaveBeenCalled();
   });
 });

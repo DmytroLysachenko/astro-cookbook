@@ -4,6 +4,12 @@ import { and, eq } from "drizzle-orm";
 import { POST as toggleLike } from "@/pages/api/recipe/like";
 import { buildTestUser, runApiRoute } from "./test-utils";
 
+vi.mock("astro:content", () => ({
+  getEntry: vi.fn(async (_collection: string, slug: string) =>
+    slug === "missing" ? undefined : { id: slug },
+  ),
+}));
+
 const mocks = vi.hoisted(() => {
   const mockSelect = vi.fn();
   const mockFrom = vi.fn();
@@ -58,19 +64,24 @@ describe("recipe like POST route", () => {
     vi.clearAllMocks();
   });
 
-  it("returns 404 when user is missing", async () => {
+  it("returns 401 when user is missing", async () => {
     const response = await runApiRoute(toggleLike, {
       request: request({ recipeSlug: "abc" }),
       locals: {},
     });
 
-    expect(response.status).toBe(404);
-    await expect(response.json()).resolves.toEqual({ error: "User not found" });
+    expect(response.status).toBe(401);
+    await expect(response.json()).resolves.toEqual({ error: "Unauthorized" });
   });
 
   it("calls unlike when a like already exists", async () => {
-    const { mockSelect, mockFrom, mockWhere, mockUnLikeRecipe, mockLikeRecipe } =
-      getMocks();
+    const {
+      mockSelect,
+      mockFrom,
+      mockWhere,
+      mockUnLikeRecipe,
+      mockLikeRecipe,
+    } = getMocks();
 
     mockSelect.mockReturnValueOnce({ from: mockFrom });
     mockFrom.mockReturnValueOnce({ where: mockWhere });
@@ -89,8 +100,13 @@ describe("recipe like POST route", () => {
   });
 
   it("likes a recipe when there was no previous like", async () => {
-    const { mockSelect, mockFrom, mockWhere, mockLikeRecipe, mockUnLikeRecipe } =
-      getMocks();
+    const {
+      mockSelect,
+      mockFrom,
+      mockWhere,
+      mockLikeRecipe,
+      mockUnLikeRecipe,
+    } = getMocks();
 
     mockSelect.mockReturnValueOnce({ from: mockFrom });
     mockFrom.mockReturnValueOnce({ where: mockWhere });
@@ -155,7 +171,7 @@ describe("recipe like POST route", () => {
     errorSpy.mockRestore();
   });
 
-  it("returns 500 when request JSON is invalid", async () => {
+  it("returns 400 when request JSON is invalid", async () => {
     const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
 
     const response = await runApiRoute(toggleLike, {
@@ -166,9 +182,9 @@ describe("recipe like POST route", () => {
       locals: { user: buildTestUser({ id: "user-3" }) },
     });
 
-    expect(response.status).toBe(500);
+    expect(response.status).toBe(400);
     await expect(response.json()).resolves.toEqual({
-      error: "Internal Server Error",
+      error: "Invalid recipe",
     });
     errorSpy.mockRestore();
   });

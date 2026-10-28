@@ -3,19 +3,20 @@ import type { APIRoute } from "astro";
 
 import { rates } from "@/db/schema/rates";
 import { db } from "@/db";
+import { jsonResponse, parseJson, recipeExists, recipeRatingSchema } from "@/lib/api-input";
 
 export const prerender = false;
 
 export const POST: APIRoute = async ({ request, locals: { user } }) => {
   try {
-    const { recipeSlug, rating: rate } = await request.json();
-
     if (!user) {
-      return new Response(JSON.stringify({ error: "User not found" }), {
-        status: 404,
-        headers: { "Content-Type": "application/json" },
-      });
+      return jsonResponse({ error: "Unauthorized" }, 401);
     }
+    const parsed = await parseJson(request, recipeRatingSchema);
+    if (!parsed.success)
+      return jsonResponse({ error: "Invalid recipe or rating" }, 400);
+    const { recipeSlug, rating: rate } = parsed.data;
+    if (!(await recipeExists(recipeSlug))) return jsonResponse({ error: "Recipe not found" }, 404);
 
     const previousRate = await db
       .select()
@@ -39,15 +40,9 @@ export const POST: APIRoute = async ({ request, locals: { user } }) => {
       });
     }
 
-    return new Response(JSON.stringify({ success: true }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+    return jsonResponse({ success: true });
   } catch (error) {
     console.error("Error rating recipe:", error);
-    return new Response(JSON.stringify({ error: "Internal Server Error" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    return jsonResponse({ error: "Internal Server Error" }, 500);
   }
 };

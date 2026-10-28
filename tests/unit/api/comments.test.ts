@@ -120,6 +120,22 @@ describe("comments GET route", () => {
     await expect(response.json()).resolves.toEqual(mockComments);
   });
 
+  it("bounds a very large requested page and limit", async () => {
+    mockOffset.mockResolvedValueOnce([]);
+
+    const url = new URL(
+      "http://localhost/api/comments?recipeSlug=abc&page=999999&limit=999999",
+    );
+    const response = await runApiRoute(getComments, {
+      request: new Request(url),
+      url,
+    });
+
+    expect(response.status).toBe(200);
+    expect(mockLimit).toHaveBeenCalledWith(10);
+    expect(mockOffset).toHaveBeenCalledWith(9990);
+  });
+
   it("returns 500 when database query fails", async () => {
     const dbError = new Error("DB exploded");
     mockOffset.mockRejectedValueOnce(dbError);

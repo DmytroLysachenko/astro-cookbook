@@ -11,20 +11,16 @@ import { Toaster } from "@/components/ui/sonner";
 
 interface UserAvatarProps {
   avatar: string;
-  userId: string;
 }
 
-const UserAvatar: React.FC<UserAvatarProps> = ({
-  avatar: initialAvatar,
-  userId,
-}) => {
+const UserAvatar: React.FC<UserAvatarProps> = ({ avatar: initialAvatar }) => {
   const [avatar, setAvatar] = useState(initialAvatar);
   const [isMutated, setIsMutated] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
 
   const onError = (err: Error) => {
     toast.error("Something went wrong! Try again later.");
-    console.log("Error", err);
+    console.error("Avatar upload failed", err);
   };
 
   const onSuccess = async (res: UploadResponse) => {
@@ -35,18 +31,19 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
   const handleSubmit = async (avatar: string) => {
     setIsUpdating(true);
     try {
-      await fetch(`${API_BASE_URL}/image-kit/avatar`, {
+      const response = await fetch(`${API_BASE_URL}/image-kit/avatar`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ userId, avatar }),
+        body: JSON.stringify({ avatar }),
       });
+      if (!response.ok) throw new Error("Avatar update failed");
       toast.success("Avatar successfully updated!");
       window.location.reload();
     } catch (error) {
       toast.error("Something went wrong!");
-      console.log(error);
+      console.error(error);
     } finally {
       setIsUpdating(false);
     }
