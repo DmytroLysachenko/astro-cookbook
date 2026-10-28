@@ -83,4 +83,5 @@ export const PRIVATE_API_ROUTES = [
   "/api/recipe/rate",
   "/api/comments/create",
   "/api/image-kit/avatar",
+  "/api/image-kit/auth",
 ];

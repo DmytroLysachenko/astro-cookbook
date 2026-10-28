@@ -6,16 +6,30 @@ import { PRIVATE_API_ROUTES, PRIVATE_ROUTES } from "./constants";
 import { PLAYWRIGHT_TEST_USER_DEFAULTS } from "./constants/test-user";
 
 const buildPlaywrightUser = (email: string): TUser => ({
-  id: import.meta.env.PLAYWRIGHT_TEST_USER_ID ?? PLAYWRIGHT_TEST_USER_DEFAULTS.id,
+  id:
+    import.meta.env.PLAYWRIGHT_TEST_USER_ID ?? PLAYWRIGHT_TEST_USER_DEFAULTS.id,
   name:
-    import.meta.env.PLAYWRIGHT_TEST_USER_NAME ?? PLAYWRIGHT_TEST_USER_DEFAULTS.name,
+    import.meta.env.PLAYWRIGHT_TEST_USER_NAME ??
+    PLAYWRIGHT_TEST_USER_DEFAULTS.name,
   email,
   avatar:
-    import.meta.env.PLAYWRIGHT_TEST_USER_AVATAR ?? PLAYWRIGHT_TEST_USER_DEFAULTS.avatar,
-  bio: import.meta.env.PLAYWRIGHT_TEST_USER_BIO ?? PLAYWRIGHT_TEST_USER_DEFAULTS.bio,
+    import.meta.env.PLAYWRIGHT_TEST_USER_AVATAR ??
+    PLAYWRIGHT_TEST_USER_DEFAULTS.avatar,
+  bio:
+    import.meta.env.PLAYWRIGHT_TEST_USER_BIO ??
+    PLAYWRIGHT_TEST_USER_DEFAULTS.bio,
   lastActive: new Date(),
   createdAt: new Date(),
 });
+
+const privateApiError = (message: string) =>
+  new Response(JSON.stringify({ error: message }), {
+    status: 401,
+    headers: {
+      "Content-Type": "application/json",
+      "Cache-Control": "no-store",
+    },
+  });
 
 const normalizePathname = (pathname: string) => {
   if (!pathname) {
@@ -35,7 +49,9 @@ export const authMiddleware = defineMiddleware(async (context, next) => {
 
   const isPrivateRoute = PRIVATE_ROUTES.includes(normalizedPath);
   const isPrivateApiRoute = PRIVATE_API_ROUTES.includes(normalizedPath);
-  const testUserHeader = request.headers.get("x-playwright-user-email");
+  const testUserHeader = import.meta.env.DEV
+    ? request.headers.get("x-playwright-user-email")
+    : null;
 
   if (import.meta.env.DEV && testUserHeader) {
     context.locals.user = buildPlaywrightUser(testUserHeader);
@@ -50,10 +66,7 @@ export const authMiddleware = defineMiddleware(async (context, next) => {
 
     if (!session || !session.user || !session.user.email) {
       if (isPrivateApiRoute) {
-        return new Response(JSON.stringify({ error: "Unauthorized" }), {
-          status: 401,
-          headers: { "Content-Type": "application/json" },
-        });
+        return privateApiError("Unauthorized");
       } else {
         return Response.redirect(new URL("/", url.origin), 302);
       }
@@ -61,10 +74,7 @@ export const authMiddleware = defineMiddleware(async (context, next) => {
 
     if (Date.parse(session.expires) < Date.now()) {
       if (isPrivateApiRoute) {
-        return new Response(JSON.stringify({ error: "Session expired" }), {
-          status: 401,
-          headers: { "Content-Type": "application/json" },
-        });
+        return privateApiError("Session expired");
       } else {
         return Response.redirect(new URL("/", url.origin), 302);
       }
@@ -74,10 +84,7 @@ export const authMiddleware = defineMiddleware(async (context, next) => {
 
     if (!user) {
       if (isPrivateApiRoute) {
-        return new Response(JSON.stringify({ error: "Unauthorized" }), {
-          status: 401,
-          headers: { "Content-Type": "application/json" },
-        });
+        return privateApiError("Unauthorized");
       } else {
         return Response.redirect(new URL("/", url.origin), 302);
       }
