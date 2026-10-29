@@ -1,109 +1,52 @@
-# Cooking Spot - A Modern Recipe Platform
+# Cooking Spot
 
-![Cooking Spot](https://ik.imagekit.io/lysachenkodmytro/cooking-spot/Screenshot%202025-03-13%20at%2015-48-13%20Cooking%20Spot.png) <!-- Replace with actual banner image URL -->
+Cooking Spot is an Astro cookbook with 50 MDX recipes. Recipe pages are prerendered; the searchable listing, ingredient table, account page, and interaction endpoints run on demand. React islands handle sign-in, ratings, favorites, comments, and account editing.
 
-## 🚀 Overview
+## Stack
 
-Cooking Spot is a high-performance, SEO-optimized, and scalable recipe website built with **Astro v5**. The platform efficiently combines **SSG, SSR, and CSR** using Astro's **Island architecture**, ensuring maximum speed while keeping dynamic features interactive.
+Astro 5, React 18, Tailwind CSS 4, Auth.js, Neon PostgreSQL with Drizzle, ImageKit, Vitest, Playwright, and Vercel. The [codebase and web quality audit](docs/audit-2026-10-18.md) records current findings and verification limits.
 
-Users can explore recipes, filter and sort them, view ingredient nutrition data, and engage with content by liking, rating, and commenting. A personalized profile allows users to manage their interactions and update their avatars.
+## Setup
 
-## ✨ Features
+Use Node.js 22 or newer and pnpm 11.11.0. Install with `corepack pnpm install` or `pnpm install`. Copy the variables below into `.env` and provide values for the services you use:
 
-- 🔥 **High-performance Astro v5 site** with **SSG-first approach**
-- 🛠 **Astro Islands for interactivity** (CSR for dynamic UI parts, SSR for real-time data, and SSG for static content)
-- 🏗 **MDX-powered content collections** for storing recipes
-- 🔐 **OAuth authentication** with Google, Facebook, and GitHub via **Auth.js**
-- 📊 **PostgreSQL + Drizzle ORM** for storing user interactions (likes, ratings, comments)
-- 🖼 **Avatar management** via **ImageKit** (file upload & storage)
-- 💡 **SEO-optimized** for maximum discoverability
-- 🎨 **Tailwind CSS + shadcn/ui** for modern styling
-- 🌍 **Edge-optimized backend logic** using Astro API endpoints
-- ✅ **Code quality ensured** with **ESLint & Prettier**
+```dotenv
+DATABASE_URL=
+AUTH_TRUST_HOST=true
+AUTH_SECRET=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+FACEBOOK_CLIENT_ID=
+FACEBOOK_CLIENT_SECRET=
+IMAGEKIT_URL_ENDPOINT=
+IMAGEKIT_PUBLIC_KEY=
+IMAGEKIT_PRIVATE_KEY=
+BASE_URL=http://localhost:4321
+API_BASE_URL=http://localhost:4321/api
+```
 
-## 🏗 Tech Stack
+`BASE_URL` must be the public production origin in deployment so canonical URLs, social images, and the sitemap use the right host. OAuth callbacks and ImageKit require working credentials. Keep secrets in your deployment environment; never commit `.env`.
 
-- **Frontend:** Astro v5, React, Tailwind CSS, shadcn/ui
-- **Backend:** Astro API routes, PostgreSQL (Neon DB), Drizzle ORM
-- **Auth:** Auth.js (OAuth with Google, Facebook, GitHub)
-- **Storage:** MDX for recipes, PostgreSQL for dynamic content
-- **Hosting:** Vercel
-- **Utilities:** ESLint, Prettier, ImageKit for media handling
+```sh
+pnpm dev
+pnpm check
+pnpm lint:eslint
+pnpm test
+pnpm build
+pnpm test:e2e --project=chromium
+pnpm audit:deployment https://your-production-domain.example
+```
 
-## 📸 Screenshots
+The contact page links directly to the maintainer's email. The former contact and newsletter endpoints return HTTP 501 because no delivery or subscription provider is configured. This avoids reporting that messages were sent or subscriptions saved when they were not.
 
-![Recipe List](https://ik.imagekit.io/lysachenkodmytro/cooking-spot/Screenshot%202025-03-13%20at%2015-53-45%20Recipes.png?updatedAt=1741877992242)
-![User Profile](https://ik.imagekit.io/lysachenkodmytro/cooking-spot/Screenshot%202025-03-13%20at%2015-54-57%20User%20Dashboard.png?updatedAt=1741877992218)
+## Content and behavior
 
-## ⚡ Setup & Installation
+Recipes live in `src/content/recipes`. `src/content.config.ts` validates their frontmatter. The recipe query module in `src/lib/recipe-query.ts` handles filtering, sorting, and pagination. `src/lib/recipe-images.ts` resolves preview images with a fallback. API input schemas in `src/lib/api-input.ts` validate mutations before database writes.
 
-1. **Clone the repo:**
-   ```sh
-   git clone https://github.com/DmytroLysachenko/astro-cookbook.git
-   cd astro-cookbook
-   ```
-2. **Install dependencies:**
-   ```sh
-   npm install  # or pnpm install / yarn install
-   ```
-3. **Set up environment variables:**
-   Create a `.env` file and configure database, OAuth, and ImageKit settings.
-   ```env
-   DATABASE_URL=
-   AUTH_TRUST_HOST=true
-   AUTH_SECRET=
-   GOOGLE_CLIENT_ID=
-   GOOGLE_CLIENT_SECRET=
-   GITHUB_CLIENT_ID=
-   GITHUB_CLIENT_SECRET=
-   FACEBOOK_CLIENT_ID=
-   FACEBOOK_CLIENT_SECRET=
-   IMAGEKIT_URL_ENDPOINT=
-   IMAGEKIT_PUBLIC_KEY=
-   IMAGEKIT_PRIVATE_KEY=
-   BASE_URL=
-   API_BASE_URL=
-   ```
+Static recipe cards do not depend on the database. Ratings, comments, favorites, views, user profiles, and ingredients do. A production build no longer writes to the database.
 
-4. **Run the development server:**
-   ```sh
-   npm run dev  # Start the Astro dev server on port 4321
-   ```
+## Deployment checks
 
-5. **Build for production:**
-   ```sh
-   npm run build  # Generates static output
-   ```
-
-## 🛠 Key Functionalities
-
-### 🌟 Recipe Pages
-
-- MDX-based recipes for fast, SEO-friendly content
-- Dynamic elements like comments, ratings, and likes (SSR islands)
-
-### 👤 User Profile
-
-- Manage bio & avatar (ImageKit integration)
-- View liked & rated recipes
-
-### 🔥 Interactive Features
-
-- Like, rate, and comment on recipes (CSR-enabled UI for instant feedback)
-- Sort & filter recipes dynamically (SSR-powered data fetching)
-
-### 🔐 Authentication
-
-- OAuth via Google, Facebook, GitHub
-- Astro API endpoints for secure authentication
-
-## 📬 Contact
-
-For inquiries or collaborations, reach out:
-
-- **GitHub:** [Dmytro Lysachenko](https://github.com/DmytroLysachenko)
-- **Email:** dlysachenko98@gmail.com
-
----
-
-Made with ❤️ using Astro v5 & Tailwind CSS 🚀
+Before publishing, run the commands above and check the deployed home, listing, and recipe pages with Lighthouse and Search Console. Verify real-user LCP, INP, and CLS at the 75th percentile; local builds cannot establish field performance. `vercel.json` adds browser caching for fingerprinted `/_astro/` assets and basic security headers; verify those headers, HTTPS, and compression on the actual deployment.
