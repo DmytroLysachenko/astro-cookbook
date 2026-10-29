@@ -1,52 +1,61 @@
-import { test, expect, type Page } from '@playwright/test';
-import { OAUTH_PROVIDERS } from '../src/constants/config';
-import { PLAYWRIGHT_TEST_USER_DEFAULTS } from '../src/constants/test-user';
+import { test, expect, type Page } from "@playwright/test";
+import { OAUTH_PROVIDERS } from "../src/constants/config";
+import { PLAYWRIGHT_TEST_USER_DEFAULTS } from "../src/constants/test-user";
 
 const TEST_USER_EMAIL =
   process.env.PLAYWRIGHT_TEST_USER_EMAIL ?? PLAYWRIGHT_TEST_USER_DEFAULTS.email;
 
 const waitForAuthLoaderToHide = async (page: Page) => {
   await page.waitForFunction(() => {
-    const loader = document.getElementById('user-data-loader');
-    return loader ? getComputedStyle(loader).display === 'none' : false;
+    const loader = document.getElementById("user-data-loader");
+    return loader ? getComputedStyle(loader).display === "none" : false;
   });
 };
 
-test.describe('Header authentication controls', () => {
-  test('renders OAuth provider buttons for guests after hydration', async ({ page }) => {
-    await page.goto('/');
+test.describe("Header authentication controls", () => {
+  test("renders OAuth provider buttons for guests after hydration", async ({
+    page,
+  }) => {
+    await page.goto("/");
     await waitForAuthLoaderToHide(page);
 
     for (const { provider } of OAUTH_PROVIDERS) {
       await expect(
-        page.getByRole('button', {
-          name: new RegExp(`${provider}\\s*icon`, 'i'),
+        page.getByRole("button", {
+          name: new RegExp(`sign in with ${provider}`, "i"),
         }),
       ).toBeVisible();
     }
   });
 
-  test.describe('authenticated state', () => {
+  test.describe("authenticated state", () => {
     test.use({
       extraHTTPHeaders: {
-        'x-playwright-user-email': TEST_USER_EMAIL,
+        "x-playwright-user-email": TEST_USER_EMAIL,
       },
     });
 
-    test('allows opening the account menu and navigating to the dashboard', async ({ page }) => {
-      await page.goto('/');
+    test("allows opening the account menu and navigating to the dashboard", async ({
+      page,
+    }) => {
+      await page.goto("/");
       await waitForAuthLoaderToHide(page);
 
       const popoverTrigger = page.locator('[data-slot="popover-trigger"]');
       await expect(popoverTrigger).toBeVisible();
       await popoverTrigger.click();
 
-      const profileButton = page.getByRole('button', { name: 'My profile' });
+      const profileButton = page.getByRole("button", { name: "My profile" });
       await expect(profileButton).toBeVisible();
-      await expect(page.getByRole('button', { name: 'Log out' })).toBeVisible();
+      await expect(page.getByRole("button", { name: "Log out" })).toBeVisible();
 
-      await Promise.all([page.waitForURL('**/my-profile'), profileButton.click()]);
-      await expect(page.getByRole('heading', { level: 1, name: 'User Dashboard' })).toBeVisible();
+      await Promise.all([
+        page.waitForURL("**/my-profile"),
+        profileButton.click(),
+      ]);
+      await expect(
+        page.getByRole("heading", { level: 1, name: "User Dashboard" }),
+      ).toBeVisible();
     });
   });
 });

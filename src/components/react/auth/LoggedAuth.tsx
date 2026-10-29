@@ -17,7 +17,7 @@ const LoggedAuth = ({ user }: { user: TUser }) => {
   }, []);
 
   const menuButtonClass =
-    "flex w-full items-center gap-2 rounded-md px-2 py-1 text-left transition-all hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40";
+    "flex w-full items-center gap-2 rounded-md px-2 py-1 text-left transition-colors hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/40";
 
   return (
     <Popover>
@@ -46,7 +46,11 @@ const LoggedAuth = ({ user }: { user: TUser }) => {
             </button>
           </li>
           <li>
-            <button type="button" onClick={() => signOut()} className={menuButtonClass}>
+            <button
+              type="button"
+              onClick={() => signOut()}
+              className={menuButtonClass}
+            >
               <LogOut className="size-4" />
               Log out
             </button>

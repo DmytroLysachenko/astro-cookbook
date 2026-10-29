@@ -16,13 +16,14 @@ const PublicAuth = () => {
         <Button
           key={provider}
           variant="outline"
-          className="cursor-pointer p-1 size-7 md:size-8 lg:size-10 flex justify-center items-center rounded-full hover:scale-105 hover:bg-muted/20 border-muted/40 transition-all"
+          className="cursor-pointer p-1 size-11 flex justify-center items-center rounded-full hover:scale-105 hover:bg-muted/20 border-muted/40 transition-transform"
+          aria-label={`Sign in with ${provider}`}
           onClick={() => signIn(provider)}
         >
           <img
             src={iconPath}
             className="object-contain"
-            alt={`${provider} icon`}
+            alt=""
             width={24}
             height={24}
             loading="lazy"
