@@ -38,38 +38,23 @@ export const OAUTH_PROVIDERS = [
 // FOOTER
 
 export const QUICK_LINKS = [
-  { href: "/", text: "Home", emoji: "🏠" },
-  { href: "/recipes", text: "Recipes", emoji: "📓" },
-  { href: "/ingredients", text: "Ingredients", emoji: "🎒" },
+  { href: "/", text: "Home" },
+  { href: "/recipes", text: "Recipes" },
+  { href: "/ingredients", text: "Ingredients" },
 ];
 
 export const CATEGORIES_LINKS = [
-  { href: "/recipes?category=breakfast", text: "Breakfast", emoji: "🍳" },
-  { href: "/recipes?category=dinner", text: "Dinner", emoji: "🍽️" },
-  { href: "/recipes?category=healthy", text: "Healthy", emoji: "🍎" },
-  { href: "/recipes?category=dessert", text: "Desserts", emoji: "🍰" },
+  { href: "/recipes?category=breakfast", text: "Breakfast" },
+  { href: "/recipes?category=dinner", text: "Dinner" },
+  { href: "/recipes?category=healthy", text: "Healthy" },
+  { href: "/recipes?category=dessert", text: "Desserts" },
 ];
 
 export const SOCIAL_LINKS = [
   {
-    href: "https://facebook.com",
-    text: "Facebook",
-    icon: "/assets/icons/facebook.svg",
-  },
-  {
-    href: "https://instagram.com",
-    text: "Instagram",
-    icon: "/assets/icons/instagram.svg",
-  },
-  {
-    href: "https://twitter.com",
-    text: "X (Twitter)",
-    icon: "/assets/icons/twitter.svg",
-  },
-  {
-    href: "https://youtube.com",
-    text: "YouTube",
-    icon: "/assets/icons/youtube.svg",
+    href: "https://github.com/DmytroLysachenko/astro-cookbook",
+    text: "GitHub",
+    icon: "/assets/icons/github.svg",
   },
 ];
 

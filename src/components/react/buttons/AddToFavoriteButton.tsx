@@ -37,7 +37,7 @@ const AddToFavoriteButton = ({
   return (
     <button
       className={cn(
-        "rounded-full hover:scale-110 transition-all duration-300 cursor-pointer",
+        "rounded-full hover:scale-110 transition-transform duration-300 cursor-pointer",
         isLiked
           ? " text-red-500 hover:text-red-300 "
           : "bg-transparent text-gray-400 hover:text-red-400 ",
