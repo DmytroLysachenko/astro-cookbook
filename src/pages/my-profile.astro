@@ -13,6 +13,7 @@ import RecipesList from "@/components/astro/recipe-cards/RecipesList.astro";
 export const prerender = false;
 
 const { user } = Astro.locals;
+if (!user) return Astro.redirect("/");
 
 const [ratedRecipesSlugs, favoriteRecipesSlugs] = await Promise.all([
   db
@@ -28,11 +29,11 @@ const [ratedRecipesSlugs, favoriteRecipesSlugs] = await Promise.all([
 ]);
 
 const ratedRecipes = await getCollection("recipe", (entry) =>
-  ratedRecipesSlugs.includes(entry.data.slug)
+  ratedRecipesSlugs.includes(entry.data.slug),
 );
 
 const favoriteRecipes = await getCollection("recipe", (entry) =>
-  favoriteRecipesSlugs.includes(entry.data.slug)
+  favoriteRecipesSlugs.includes(entry.data.slug),
 );
 ---
 
@@ -40,23 +41,17 @@ const favoriteRecipes = await getCollection("recipe", (entry) =>
   title="Cooking Spot | User Dashboard"
   description="User Dashboard"
   background={true}
+  noindex={true}
 >
   <h1 class="text-3xl font-bold mb-8">User Dashboard</h1>
 
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
     <div class="lg:col-span-1">
       <div class="bg-card rounded-lg shadow p-6">
-        <UserAvatar
-          client:only="react"
-          userId={user.id}
-          avatar={user.avatar ?? ""}
-        />
+        <UserAvatar client:only="react" avatar={user.avatar ?? ""} />
         <h2 class="text-xl font-semibold mt-4">{user.name}</h2>
         <p class="text-muted-foreground">{user.email}</p>
-        <BioEditor
-          client:only="react"
-          initialBio={user.bio ?? ""}
-        />
+        <BioEditor client:only="react" initialBio={user.bio ?? ""} />
       </div>
     </div>
 
@@ -69,7 +64,7 @@ const favoriteRecipes = await getCollection("recipe", (entry) =>
               <a
                 class="text-gray-900
             hover:text-red-500
-            transition-all
+            transition-colors
             text-lg"
                 href="/recipes"
               >
@@ -87,7 +82,7 @@ const favoriteRecipes = await getCollection("recipe", (entry) =>
               <p>You don't have any favorite recipes yet.</p>
               <a
                 href="/recipes"
-                class=" font-semibold leading-6 text-muted-foreground hover:text-primary transition-all"
+                class="font-semibold leading-6 text-muted-foreground hover:text-primary transition-colors"
               >
                 Let's change it!
               </a>
@@ -104,7 +99,7 @@ const favoriteRecipes = await getCollection("recipe", (entry) =>
               <a
                 class="text-gray-900
             hover:text-red-500
-            transition-all
+            transition-colors
             text-lg"
                 href="/recipes"
               >
@@ -122,7 +117,7 @@ const favoriteRecipes = await getCollection("recipe", (entry) =>
               <p> You haven't rated any recipes yet.</p>
               <a
                 href="/recipes"
-                class=" font-semibold leading-6 text-muted-foreground hover:text-primary transition-all"
+                class="font-semibold leading-6 text-muted-foreground hover:text-primary transition-colors"
               >
                 Let's change it!
               </a>

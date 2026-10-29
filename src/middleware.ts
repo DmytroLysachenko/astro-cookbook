@@ -1,4 +1,4 @@
-import { defineMiddleware, sequence } from "astro:middleware";
+import { defineMiddleware } from "astro:middleware";
 import { getSession } from "auth-astro/server";
 import type { TUser } from "./services/auth";
 import { getUser } from "./services/auth";
@@ -96,18 +96,4 @@ export const authMiddleware = defineMiddleware(async (context, next) => {
   return next();
 });
 
-export const notFoundMiddleware = defineMiddleware(async (context, next) => {
-  const response = await next();
-
-  const path = context.url.pathname;
-  const isApiRequest = path.startsWith("/api");
-  const bypassPaths = ["/sitemap-index.xml", "/sitemap.xml", "/robots.txt"];
-
-  if (response.status === 404 && !isApiRequest && !bypassPaths.includes(path)) {
-    return Response.redirect(new URL("/", context.url.origin), 302);
-  }
-
-  return response;
-});
-
-export const onRequest = sequence(authMiddleware, notFoundMiddleware);
+export const onRequest = authMiddleware;

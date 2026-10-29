@@ -9,9 +9,12 @@ interface Props {
   description?: string;
   image?: string;
   background?: boolean;
+  noindex?: boolean;
+  structuredData?: Record<string, unknown>;
 }
 
-const { title, description, image, background } = Astro.props;
+const { title, description, image, background, noindex, structuredData } =
+  Astro.props;
 ---
 
 <html lang="en">
@@ -20,10 +23,13 @@ const { title, description, image, background } = Astro.props;
       title={title}
       description={description}
       image={image}
+      noindex={noindex}
+      structuredData={structuredData}
     />
   </head>
 
   <body class="min-h-screen">
+    <a href="#main-content" class="skip-link">Skip to Main Content</a>
     <Header server:defer>
       <HeaderSkeleton slot="fallback" />
     </Header>
@@ -37,7 +43,11 @@ const { title, description, image, background } = Astro.props;
         )
       }
 
-      <main class="container py-4 md:py-8 lg:py-12">
+      <main
+        id="main-content"
+        tabindex="-1"
+        class="container py-4 md:py-8 lg:py-12"
+      >
         <slot />
       </main>
 

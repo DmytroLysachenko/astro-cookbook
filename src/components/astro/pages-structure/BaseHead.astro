@@ -5,99 +5,40 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  noindex?: boolean;
+  structuredData?: Record<string, unknown>;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
 const {
-  title = "Cooking Spot | Discover Delicious Recipes",
-  description = "With Cooking Spot, you can discover delicious recipes and share your own culinary creations with the world. Whether you're a seasoned chef or just starting to cook, Cooking Spot has got you covered!",
+  title = "Cooking Spot | Recipes for Every Day",
+  description = "Explore approachable recipes with ingredients, cooking times, and step-by-step guides on Cooking Spot.",
   image = "/assets/images/logo.webp",
+  noindex = false,
+  structuredData,
 } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+const imageURL = new URL(image, Astro.site ?? Astro.url);
+const jsonLd = structuredData
+  ? JSON.stringify(structuredData).replace(/</g, "\\u003c")
+  : undefined;
 ---
 
-<!-- Global Metadata -->
 <meta charset="utf-8" />
-<meta
-  name="viewport"
-  content="width=device-width,initial-scale=1"
-/>
-<link
-  rel="icon"
-  type="image/ico+xml"
-  href="/favicon.ico"
-/>
-<link
-  rel="sitemap"
-  href="/sitemap-index.xml"
-/>
-<link
-  rel="alternate"
-  type="application/rss+xml"
-  title={title}
-  href={new URL("rss.xml", Astro.site)}
-/>
-<meta
-  name="generator"
-  content={Astro.generator}
-/>
-
-<link
-  rel="canonical"
-  href={canonicalURL}
-/>
-
-<!-- Primary Meta Tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#fffaf3" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+<link rel="canonical" href={canonicalURL} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
 <title>{title}</title>
-<meta
-  name="title"
-  content={title}
-/>
-<meta
-  name="description"
-  content={description}
-/>
-
-<!-- Open Graph / Facebook -->
-<meta
-  property="og:type"
-  content="website"
-/>
-<meta
-  property="og:url"
-  content={Astro.url}
-/>
-<meta
-  property="og:title"
-  content={title}
-/>
-<meta
-  property="og:description"
-  content={description}
-/>
-<meta
-  property="og:image"
-  content={new URL(image, Astro.site)}
-/>
-
-<!-- Twitter -->
-<meta
-  property="twitter:card"
-  content="summary_large_image"
-/>
-<meta
-  property="twitter:url"
-  content={Astro.url}
-/>
-<meta
-  property="twitter:title"
-  content={title}
-/>
-<meta
-  property="twitter:description"
-  content={description}
-/>
-<meta
-  property="twitter:image"
-  content={new URL(image, Astro.site)}
-/>
+<meta name="description" content={description} />
+<meta property="og:type" content={structuredData ? "article" : "website"} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={imageURL} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageURL} />
+{jsonLd && <script type="application/ld+json" set:html={jsonLd} />}

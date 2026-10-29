@@ -1,11 +1,15 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-
-Astro.redirect("/");
 ---
 
 <BaseLayout title="Cooking Spot | 404 - Page Not Found">
   <section class="flex min-h-[50vh] items-center justify-center">
-    <p class="text-muted-foreground">Redirecting to home…</p>
+    <div class="text-center">
+      <h1 class="text-4xl font-bold mb-4">Page Not Found</h1>
+      <p class="text-muted-foreground mb-6">We couldn't find that page.</p>
+      <a href="/recipes" class="btn-primary inline-flex min-h-11 items-center"
+        >Browse Recipes</a
+      >
+    </div>
   </section>
 </BaseLayout>

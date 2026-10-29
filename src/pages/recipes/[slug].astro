@@ -25,6 +25,22 @@ const recipe = Astro.props;
 const { previewImage, title, description, slug } = recipe.data;
 
 const localImage = getRecipePreview(previewImage);
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  name: title,
+  description,
+  image: [new URL(localImage.src, Astro.site ?? Astro.url).href],
+  datePublished: recipe.data.created,
+  cookTime: `PT${recipe.data.cookingTime}M`,
+  recipeYield: `${recipe.data.portions} servings`,
+  recipeCuisine: recipe.data.cuisine,
+  recipeCategory: recipe.data.categories.join(", "),
+  recipeIngredient: recipe.data.ingredients.map(
+    (ingredient) => `${ingredient.quantity} ${ingredient.name}`,
+  ),
+};
+
 const { Content } = await render(recipe);
 ---
 
@@ -33,6 +49,7 @@ const { Content } = await render(recipe);
   description={description}
   image={localImage.src}
   background={true}
+  structuredData={structuredData}
 >
   <div class="content">
     <Image
