@@ -27,6 +27,25 @@ function check(label, condition, detail) {
   results.push({ label, passed: Boolean(condition), detail });
 }
 
+async function checkFirstImage(label, html) {
+  const path = html.match(/<img\b[^>]*\bsrc="([^"]+)"/i)?.[1];
+  if (!path) {
+    check(`${label} image found`, false);
+    return;
+  }
+
+  const image = await fetch(
+    new URL(path.replaceAll(/&(?:amp|#38|#x26);/gi, "&"), base),
+    { signal: AbortSignal.timeout(15_000) },
+  );
+  check(
+    `${label} image responds`,
+    image.status === 200 &&
+      image.headers.get("content-type")?.startsWith("image/"),
+    `${image.status} ${image.headers.get("content-type")}`,
+  );
+}
+
 try {
   const home = await get("/");
   check("Home responds", home.response.status === 200, home.response.status);
@@ -43,6 +62,8 @@ try {
     home.response.headers.get("referrer-policy") ===
       "strict-origin-when-cross-origin",
   );
+
+  await checkFirstImage("Home", home.body);
 
   const assetPath = home.body.match(
     /(?:href|src)="(\/_astro\/[^" ]+\.css)"/,
@@ -80,6 +101,7 @@ try {
     listing.response.status === 200,
     listing.response.status,
   );
+  await checkFirstImage("Recipe listing", listing.body);
   const ingredients = await get("/ingredients");
   check(
     "Ingredients respond",
